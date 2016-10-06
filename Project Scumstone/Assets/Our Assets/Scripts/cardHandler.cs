@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class dragHandler : MonoBehaviour {
+public class cardHandler : MonoBehaviour {
     private float offsetX;
     private float offsetY;
     private Vector3 origin;
@@ -29,5 +29,15 @@ public class dragHandler : MonoBehaviour {
     public void endDrag()
     {
         this.transform.position = origin;
+    }
+
+    public void onMouseEnter()
+    {
+        this.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta * 2;
+    }
+
+    public void onMouseExit()
+    {
+        this.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta / 2;
     }
 }
