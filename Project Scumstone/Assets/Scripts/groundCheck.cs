@@ -21,6 +21,6 @@ public class groundCheck: MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        onGround = false;
+        onGround = false; 
     }
 }
