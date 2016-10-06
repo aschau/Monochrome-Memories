@@ -5,9 +5,13 @@ public class cardHandler : MonoBehaviour {
     private float offsetX;
     private float offsetY;
     private Vector3 origin;
+    private Vector2 originalSize;
+    private bool beingDragged = false;
+
 	// Use this for initialization
 	void Start () {
-        origin = this.transform.position;   
+        this.origin = this.transform.position;
+        this.originalSize = this.GetComponent<RectTransform>().sizeDelta;
 	}
 	
 	// Update is called once per frame
@@ -19,6 +23,7 @@ public class cardHandler : MonoBehaviour {
     {
         offsetX = this.transform.position.x - Input.mousePosition.x;
         offsetY = this.transform.position.y - Input.mousePosition.y;
+        this.beingDragged = true;
     }
 
     public void onDrag()
@@ -29,15 +34,33 @@ public class cardHandler : MonoBehaviour {
     public void endDrag()
     {
         this.transform.position = origin;
+        this.beingDragged = false;
+        this.GetComponent<RectTransform>().sizeDelta = this.originalSize;
     }
 
     public void onMouseEnter()
     {
-        this.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta * 2;
+        if (!this.beingDragged)
+        {
+            this.GetComponent<RectTransform>().sizeDelta = this.originalSize * 2;
+        }
     }
 
     public void onMouseExit()
     {
-        this.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta / 2;
+        if (!this.beingDragged)
+        {
+            this.GetComponent<RectTransform>().sizeDelta = this.originalSize;
+        }
+    }
+
+    public void onMouseDown()
+    {
+        this.GetComponent<RectTransform>().sizeDelta = this.originalSize;
+    }
+
+    public void onMouseClick()
+    {
+        this.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta * 2;
     }
 }
