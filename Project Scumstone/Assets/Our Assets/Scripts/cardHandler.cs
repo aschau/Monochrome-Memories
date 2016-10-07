@@ -2,11 +2,16 @@
 using System.Collections;
 
 public class cardHandler : MonoBehaviour {
+    public Camera camera1;
+    public Camera camera2;
+    
     private float offsetX;
     private float offsetY;
     private Vector3 origin;
     private Vector2 originalSize;
     private bool beingDragged = false;
+
+    private RaycastHit2D hit;
 
 	// Use this for initialization
 	void Start () {
@@ -33,11 +38,30 @@ public class cardHandler : MonoBehaviour {
 
     public void endDrag()
     {
+        hit = Physics2D.Raycast(new Vector2(camera1.ScreenPointToRay(Input.mousePosition).origin.x, camera1.ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera1.ScreenPointToRay(Input.mousePosition).direction.x, camera1.ScreenPointToRay(Input.mousePosition).direction.y));
+        
+        if (hit)
+        {
+            if (hit.transform.CompareTag("pushBlock"))
+            {
+                Debug.Log("ACTIVATED PUSH BLOCK");
+                hit.transform.GetComponent<moveObject>().activated = true;
+            }
+        }
+
+        else
+        {
+            hit = Physics2D.Raycast(new Vector2(camera2.ScreenPointToRay(Input.mousePosition).origin.x, camera2.ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera2.ScreenPointToRay(Input.mousePosition).direction.x, camera2.ScreenPointToRay(Input.mousePosition).direction.y));
+            if (hit.transform.CompareTag("pushBlock"))
+            {
+                Debug.Log("ACTIVATED PUSH BLOCK");
+                hit.transform.GetComponent<moveObject>().activated = true;
+            }
+        }
+
         this.transform.position = origin;
         this.beingDragged = false;
         this.GetComponent<RectTransform>().sizeDelta = this.originalSize;
-
-        //if this.GetComponent<RectTransform>().rect
     }
 
     public void onMouseEnter()
