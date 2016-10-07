@@ -36,6 +36,8 @@ public class cardHandler : MonoBehaviour {
         this.transform.position = origin;
         this.beingDragged = false;
         this.GetComponent<RectTransform>().sizeDelta = this.originalSize;
+
+        //if this.GetComponent<RectTransform>().rect
     }
 
     public void onMouseEnter()
