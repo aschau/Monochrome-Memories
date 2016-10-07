@@ -9,7 +9,7 @@ public class cardHandler : MonoBehaviour {
     private float offsetY;
     private Vector3 origin;
     private Vector2 originalSize;
-    private bool beingDragged = false;
+    public bool beingDragged = false;
 
     private RaycastHit2D hit;
 
@@ -52,16 +52,20 @@ public class cardHandler : MonoBehaviour {
         else
         {
             hit = Physics2D.Raycast(new Vector2(camera2.ScreenPointToRay(Input.mousePosition).origin.x, camera2.ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera2.ScreenPointToRay(Input.mousePosition).direction.x, camera2.ScreenPointToRay(Input.mousePosition).direction.y));
-            if (hit.transform.CompareTag("pushBlock"))
+            if (hit)
             {
-                Debug.Log("ACTIVATED PUSH BLOCK");
-                hit.transform.GetComponent<moveObject>().activated = true;
+
+                if (hit.transform.CompareTag("pushBlock"))
+                {
+                    Debug.Log("ACTIVATED PUSH BLOCK");
+                    hit.transform.GetComponent<moveObject>().activated = true;
+                }
             }
         }
 
         this.transform.position = origin;
-        this.beingDragged = false;
         this.GetComponent<RectTransform>().sizeDelta = this.originalSize;
+        this.beingDragged = false;
     }
 
     public void onMouseEnter()
