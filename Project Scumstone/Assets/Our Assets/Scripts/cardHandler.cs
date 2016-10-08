@@ -36,10 +36,14 @@ public class cardHandler : MonoBehaviour {
         this.transform.position = new Vector3(Input.mousePosition.x + offsetX, Input.mousePosition.y + offsetY);
     }
 
-    public void endDrag()
+    private RaycastHit2D checkHit(Camera camera)
     {
-        hit = Physics2D.Raycast(new Vector2(camera1.ScreenPointToRay(Input.mousePosition).origin.x, camera1.ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera1.ScreenPointToRay(Input.mousePosition).direction.x, camera1.ScreenPointToRay(Input.mousePosition).direction.y));
-        
+        return Physics2D.Raycast(new Vector2(camera.ScreenPointToRay(Input.mousePosition).origin.x, camera.ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera.ScreenPointToRay(Input.mousePosition).direction.x, camera.ScreenPointToRay(Input.mousePosition).direction.y));
+    }
+
+    public void endDrag()
+    {        
+        hit = checkHit(camera1);
         if (hit)
         {
             if (hit.transform.CompareTag("pushBlock"))
@@ -51,15 +55,10 @@ public class cardHandler : MonoBehaviour {
 
         else
         {
-            hit = Physics2D.Raycast(new Vector2(camera2.ScreenPointToRay(Input.mousePosition).origin.x, camera2.ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera2.ScreenPointToRay(Input.mousePosition).direction.x, camera2.ScreenPointToRay(Input.mousePosition).direction.y));
+            hit = checkHit(camera2);
             if (hit)
             {
 
-                if (hit.transform.CompareTag("pushBlock"))
-                {
-                    Debug.Log("ACTIVATED PUSH BLOCK");
-                    hit.transform.GetComponent<moveObject>().activated = true;
-                }
             }
         }
 
