@@ -3,9 +3,10 @@ using System.Collections;
 
 public class jumpObject : MonoBehaviour {
 
+    public bool activated = false; 
 	// Use this for initialization
 	void Start () {
-	
+	    
 	}
 	
 	// Update is called once per frame
@@ -15,19 +16,26 @@ public class jumpObject : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (activated)
         {
-            Debug.Log("JUMP");
-            other.GetComponent<playerController>().jumpSpeed = other.GetComponent<playerController>().jumpSpeed * 2;
+            if (other.tag == "Player")
+            {
+                Debug.Log("JUMP");
+                other.GetComponent<playerController>().jumpSpeed = other.GetComponent<playerController>().originalJumpSpeed * 2;
+            }
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (activated)
         {
-            Debug.Log("OUT JUMP");
-            other.GetComponent<playerController>().jumpSpeed /= 2;
+            if (other.tag == "Player")
+            {
+                Debug.Log("OUT JUMP");
+                other.GetComponent<playerController>().jumpSpeed = other.GetComponent<playerController>().originalJumpSpeed;
+            }
         }
+
     }
 }

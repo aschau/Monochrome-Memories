@@ -62,7 +62,7 @@ public class cardHandler : MonoBehaviour {
                 if (hit.transform.CompareTag("jumpBlock"))
                 {
                     Debug.Log("ACTIVATED JUMP BLOCK");
-                    hit.transform.GetComponent<moveObject>().activated = true;
+                    hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
                 }
             }
         }
