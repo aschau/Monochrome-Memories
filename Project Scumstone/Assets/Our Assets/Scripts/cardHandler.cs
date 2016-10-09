@@ -51,6 +51,7 @@ public class cardHandler : MonoBehaviour {
                 Debug.Log("ACTIVATED PUSH BLOCK");
                 hit.transform.GetComponent<moveObject>().activated = true;
             }
+
         }
 
         else
@@ -58,7 +59,11 @@ public class cardHandler : MonoBehaviour {
             hit = checkHit(camera2);
             if (hit)
             {
-
+                if (hit.transform.CompareTag("jumpBlock"))
+                {
+                    Debug.Log("ACTIVATED JUMP BLOCK");
+                    hit.transform.GetComponent<moveObject>().activated = true;
+                }
             }
         }
 
