@@ -13,7 +13,7 @@ public class playerController : MonoBehaviour {
 
     void Update()
     {
-        
+                
     }
 	
 	// Update is called once per frame
@@ -50,9 +50,8 @@ public class playerController : MonoBehaviour {
                 this.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
             }
 
-            if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && Input.GetKey(KeyCode.UpArrow))
+            if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && Input.GetKeyDown(KeyCode.UpArrow))
             {
-                this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
                 this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
             }
         }
