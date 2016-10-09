@@ -52,6 +52,7 @@ public class playerController : MonoBehaviour {
 
             if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && Input.GetKey(KeyCode.UpArrow))
             {
+                this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
                 this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
             }
         }
