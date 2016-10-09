@@ -20,6 +20,7 @@ public class Transport : MonoBehaviour {
         if (other.tag == "pushBlock")
         {
             test = other.gameObject;
+            ///Destroy(other);
             other.transform.position = newPlace.position;
         }
         else if (other.tag == "Player")
