@@ -17,6 +17,7 @@ public class groundCheck: MonoBehaviour {
     void OnTriggerStay2D(Collider2D other)
     {
         onGround = true;
+        this.GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     void OnTriggerExit2D(Collider2D other)

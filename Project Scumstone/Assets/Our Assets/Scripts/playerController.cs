@@ -6,14 +6,18 @@ public class playerController : MonoBehaviour {
     public float jumpSpeed = 100f;
     public int playerNumber;
 
+    public float originalMoveSpeed;
+    public float originalJumpSpeed;
+
 	// Use this for initialization
 	void Start () {
-	
+        originalMoveSpeed = moveSpeed;
+        originalJumpSpeed = jumpSpeed;
 	}
 
     void Update()
     {
-        
+                
     }
 	
 	// Update is called once per frame
