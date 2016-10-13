@@ -1,17 +1,22 @@
 fileFormatVersion: 2
-guid: ad9c4c7000123ab43ab0ff687491593e
-timeCreated: 1476316957
+guid: 64a0c04542f13bc489686e4776c72a4f
+timeCreated: 1476320595
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: DenialBlackBackground_0
-    21300002: DenialBlackBackground_1
-    21300004: DenialBlackBackground_11
-    21300006: DenialBlackBackground_12
-    21300008: DenialBlackBackground_13
-    21300010: DenialBlackBackground_18
-    21300012: DenialBlackBackground_19
-    21300014: DenialBlackBackground_22
+    21300000: TempDenialInvertBackground_0
+    21300002: TempDenialInvertBackground_2
+    21300004: TempDenialInvertBackground_6
+    21300006: TempDenialInvertBackground_7
+    21300008: TempDenialInvertBackground_8
+    21300010: TempDenialInvertBackground_9
+    21300012: TempDenialInvertBackground_13
+    21300014: TempDenialInvertBackground_14
+    21300016: TempDenialInvertBackground_16
+    21300018: TempDenialInvertBackground_17
+    21300020: TempDenialInvertBackground_18
+    21300022: TempDenialInvertBackground_19
+    21300024: TempDenialInvertBackground_22
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +42,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
+    filterMode: -1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -56,22 +61,43 @@ TextureImporter:
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings:
-  - buildTarget: Standalone
-    maxTextureSize: 8192
-    textureFormat: -3
-    compressionQuality: 50
-    allowsAlphaSplitting: 0
+  buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DenialBlackBackground_0
+      name: TempDenialInvertBackground_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1112
+        width: 330
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempDenialInvertBackground_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 238
+        width: 335
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempDenialInvertBackground_6
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 0
+        width: 393
         height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -79,12 +105,12 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DenialBlackBackground_1
+      name: TempDenialInvertBackground_7
       rect:
         serializedVersion: 2
-        x: 1115
+        x: 867
         y: 0
-        width: 618
+        width: 210
         height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -92,64 +118,64 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DenialBlackBackground_11
+      name: TempDenialInvertBackground_8
       rect:
         serializedVersion: 2
-        x: 1734
+        x: 1754
         y: 0
-        width: 341
+        width: 285
         height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempDenialInvertBackground_9
+      rect:
+        serializedVersion: 2
+        x: 2102
+        y: 0
+        width: 322
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempDenialInvertBackground_13
+      rect:
+        serializedVersion: 2
+        x: 2462
+        y: 0
+        width: 870
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempDenialInvertBackground_14
+      rect:
+        serializedVersion: 2
+        x: 3333
+        y: 0
+        width: 648
+        height: 210
       alignment: 9
-      pivot: {x: -3.0176706, y: 0.36365557}
+      pivot: {x: 0.50000286, y: 0.47273064}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DenialBlackBackground_12
+      name: TempDenialInvertBackground_16
       rect:
         serializedVersion: 2
-        x: 2068
+        x: 4002
         y: 0
-        width: 377
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DenialBlackBackground_13
-      rect:
-        serializedVersion: 2
-        x: 3328
-        y: 0
-        width: 1072
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DenialBlackBackground_18
-      rect:
-        serializedVersion: 2
-        x: 4407
-        y: 0
-        width: 363
-        height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DenialBlackBackground_19
-      rect:
-        serializedVersion: 2
-        x: 4770
-        y: 0
-        width: 558
+        width: 398
         height: 399
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -157,12 +183,51 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DenialBlackBackground_22
+      name: TempDenialInvertBackground_17
       rect:
         serializedVersion: 2
-        x: 5328
+        x: 3347
+        y: 210
+        width: 599
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempDenialInvertBackground_18
+      rect:
+        serializedVersion: 2
+        x: 4420
         y: 0
-        width: 672
+        width: 350
+        height: 393
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempDenialInvertBackground_19
+      rect:
+        serializedVersion: 2
+        x: 4773
+        y: 0
+        width: 457
+        height: 400
+      alignment: 9
+      pivot: {x: 0.52726936, y: 0.4999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TempDenialInvertBackground_22
+      rect:
+        serializedVersion: 2
+        x: 5346
+        y: 0
+        width: 654
         height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
