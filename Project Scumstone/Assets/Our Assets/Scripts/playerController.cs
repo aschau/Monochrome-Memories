@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour {
     public float moveSpeed = 3f;
@@ -17,7 +18,10 @@ public class playerController : MonoBehaviour {
 
     void Update()
     {
-                
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 	
 	// Update is called once per frame
