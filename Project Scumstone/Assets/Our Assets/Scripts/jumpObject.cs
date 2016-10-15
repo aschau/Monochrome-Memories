@@ -3,7 +3,8 @@ using System.Collections;
 
 public class jumpObject : MonoBehaviour {
 
-    public bool activated = false; 
+    public bool activated = false;
+    public float multiplier = 1.5f;
 	// Use this for initialization
 	void Start () {
 	    
@@ -21,7 +22,7 @@ public class jumpObject : MonoBehaviour {
             if (other.tag == "Player")
             {
                 Debug.Log("JUMP");
-                other.GetComponent<playerController>().jumpSpeed = other.GetComponent<playerController>().originalJumpSpeed * 2;
+                other.GetComponent<playerController>().jumpSpeed = other.GetComponent<playerController>().originalJumpSpeed * multiplier;
             }
         }
     }

@@ -102,5 +102,14 @@ public class cardHandler : MonoBehaviour {
     public void onMouseClick()
     {
         this.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta * 2;
+        if (this.name == "Basic Card")
+        {
+            GameObject[] pushBlocks = GameObject.FindGameObjectsWithTag("pushBlock");
+            GameObject[] jumpBlocks = GameObject.FindGameObjectsWithTag("jumpBlock");
+
+            for (int i = 0; i < pushBlocks.Length; i++ )
+            {
+            }
+        }
     }
 }
