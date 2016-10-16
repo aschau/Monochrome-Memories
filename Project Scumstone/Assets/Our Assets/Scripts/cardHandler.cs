@@ -97,18 +97,57 @@ public class cardHandler : MonoBehaviour {
     public void onMouseDown()
     {
         this.GetComponent<RectTransform>().sizeDelta = this.originalSize;
-    }
 
-    public void onMouseClick()
-    {
-        this.GetComponent<RectTransform>().sizeDelta = this.GetComponent<RectTransform>().sizeDelta * 2;
         if (this.name == "Basic Card")
         {
             GameObject[] pushBlocks = GameObject.FindGameObjectsWithTag("pushBlock");
             GameObject[] jumpBlocks = GameObject.FindGameObjectsWithTag("jumpBlock");
 
-            for (int i = 0; i < pushBlocks.Length; i++ )
+            for (int i = 0; i < pushBlocks.Length; i++)
             {
+                if (pushBlocks[i].GetComponent<Light>() != null)
+                {
+                    pushBlocks[i].GetComponent<Light>().enabled = true;
+                    pushBlocks[i].GetComponent<ParticleSystem>().Play();
+                }
+            }
+
+            for (int i = 0; i < jumpBlocks.Length; i++)
+            {
+                if (jumpBlocks[i].GetComponent<Light>() != null)
+                {
+                    jumpBlocks[i].GetComponent<Light>().enabled = true;
+                    jumpBlocks[i].GetComponent<ParticleSystem>().Play();
+                }
+            }
+        }
+    }
+
+    public void onMouseUp()
+    {
+        this.GetComponent<RectTransform>().sizeDelta = this.originalSize * 2;
+
+        if (this.name == "Basic Card")
+        {
+            GameObject[] pushBlocks = GameObject.FindGameObjectsWithTag("pushBlock");
+            GameObject[] jumpBlocks = GameObject.FindGameObjectsWithTag("jumpBlock");
+
+            for (int i = 0; i < pushBlocks.Length; i++)
+            {
+                if (pushBlocks[i].GetComponent<Light>() != null)
+                {
+                    //pushBlocks[i].GetComponent<Light>().enabled = false;
+                    pushBlocks[i].GetComponent<ParticleSystem>().Stop();
+                }
+            }
+
+            for (int i = 0; i < jumpBlocks.Length; i++)
+            {
+                if (jumpBlocks[i].GetComponent<Light>() != null)
+                {
+                    //jumpBlocks[i].GetComponent<Light>().enabled = false;
+                    jumpBlocks[i].GetComponent<ParticleSystem>().Stop();
+                }
             }
         }
     }
