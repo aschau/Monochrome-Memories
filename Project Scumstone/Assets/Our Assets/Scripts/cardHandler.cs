@@ -43,36 +43,6 @@ public class cardHandler : MonoBehaviour {
 
     public void endDrag()
     {        
-        hit = checkHit(camera1);
-        if (hit)
-        {
-            if (hit.transform.CompareTag("pushBlock"))
-            {
-                Debug.Log("ACTIVATED PUSH BLOCK");
-                hit.transform.GetComponent<moveObject>().activated = true;
-            }
-
-        }
-
-        else
-        {
-            hit = checkHit(camera2);
-            if (hit)
-            {
-                if (hit.transform.CompareTag("jumpBlock"))
-                {
-                    Debug.Log("ACTIVATED JUMP BLOCK");
-                    hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
-                }
-
-                else if (hit.transform.FindChild("jumpArea"))
-                {
-                    Debug.Log("ACTIVATED JUMP BLOCK");
-                    hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
-                }
-            }
-        }
-
         this.transform.position = origin;
         this.GetComponent<RectTransform>().sizeDelta = this.originalSize;
         this.beingDragged = false;
@@ -127,6 +97,36 @@ public class cardHandler : MonoBehaviour {
     {
         this.GetComponent<RectTransform>().sizeDelta = this.originalSize * 2;
 
+        hit = checkHit(camera1);
+        if (hit)
+        {
+            if (hit.transform.CompareTag("pushBlock"))
+            {
+                Debug.Log("ACTIVATED PUSH BLOCK");
+                hit.transform.GetComponent<moveObject>().activated = true;
+            }
+
+        }
+
+        else
+        {
+            hit = checkHit(camera2);
+            if (hit)
+            {
+                if (hit.transform.CompareTag("jumpBlock"))
+                {
+                    Debug.Log("ACTIVATED JUMP BLOCK");
+                    hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
+                }
+
+                else if (hit.transform.FindChild("jumpArea"))
+                {
+                    Debug.Log("ACTIVATED JUMP BLOCK");
+                    hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
+                }
+            }
+        }
+
         if (this.name == "Basic Card")
         {
             GameObject[] pushBlocks = GameObject.FindGameObjectsWithTag("pushBlock");
@@ -136,7 +136,10 @@ public class cardHandler : MonoBehaviour {
             {
                 if (pushBlocks[i].GetComponent<Light>() != null)
                 {
-                    //pushBlocks[i].GetComponent<Light>().enabled = false;
+                    if (!pushBlocks[i].GetComponent<moveObject>().activated)
+                    {
+                        pushBlocks[i].GetComponent<Light>().enabled = false;
+                    }
                     pushBlocks[i].GetComponent<ParticleSystem>().Stop();
                 }
             }
@@ -145,7 +148,10 @@ public class cardHandler : MonoBehaviour {
             {
                 if (jumpBlocks[i].GetComponent<Light>() != null)
                 {
-                    //jumpBlocks[i].GetComponent<Light>().enabled = false;
+                    if (!jumpBlocks[i].transform.Find("jumpArea").GetComponent<jumpObject>().activated)
+                    {
+                        jumpBlocks[i].GetComponent<Light>().enabled = false;
+                    }
                     jumpBlocks[i].GetComponent<ParticleSystem>().Stop();
                 }
             }
