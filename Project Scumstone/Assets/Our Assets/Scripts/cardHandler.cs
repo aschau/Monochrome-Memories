@@ -97,38 +97,38 @@ public class cardHandler : MonoBehaviour {
     {
         this.GetComponent<RectTransform>().sizeDelta = this.originalSize * 2;
 
-        hit = checkHit(camera1);
-        if (hit)
-        {
-            if (hit.transform.CompareTag("pushBlock"))
-            {
-                Debug.Log("ACTIVATED PUSH BLOCK");
-                hit.transform.GetComponent<moveObject>().activated = true;
-            }
-
-        }
-
-        else
-        {
-            hit = checkHit(camera2);
-            if (hit)
-            {
-                if (hit.transform.CompareTag("jumpBlock"))
-                {
-                    Debug.Log("ACTIVATED JUMP BLOCK");
-                    hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
-                }
-
-                else if (hit.transform.FindChild("jumpArea"))
-                {
-                    Debug.Log("ACTIVATED JUMP BLOCK");
-                    hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
-                }
-            }
-        }
-
         if (this.name == "Basic Card")
         {
+            hit = checkHit(camera1);
+            if (hit)
+            {
+                if (hit.transform.CompareTag("pushBlock"))
+                {
+                    Debug.Log("ACTIVATED PUSH BLOCK");
+                    hit.transform.GetComponent<moveObject>().activated = true;
+                }
+
+            }
+
+            else
+            {
+                hit = checkHit(camera2);
+                if (hit)
+                {
+                    if (hit.transform.CompareTag("jumpBlock"))
+                    {
+                        Debug.Log("ACTIVATED JUMP BLOCK");
+                        hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
+                    }
+
+                    else if (hit.transform.FindChild("jumpArea"))
+                    {
+                        Debug.Log("ACTIVATED JUMP BLOCK");
+                        hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
+                    }
+                }
+            }
+
             GameObject[] pushBlocks = GameObject.FindGameObjectsWithTag("pushBlock");
             GameObject[] jumpBlocks = GameObject.FindGameObjectsWithTag("jumpBlock");
 
@@ -154,6 +154,25 @@ public class cardHandler : MonoBehaviour {
                     }
                     jumpBlocks[i].GetComponent<ParticleSystem>().Stop();
                 }
+            }
+        }
+
+        else if (this.name == "Gravity Card")
+        {
+            hit = checkHit(camera1);
+            if (hit)
+            {
+                if (hit.transform.CompareTag("fallBlock"))
+                {
+                    Debug.Log("ACTIVATED FALL BLOCK");
+                    hit.transform.GetComponent<fallObject>().activated = true;
+                }
+
+            }
+
+            else
+            {
+
             }
         }
     }
