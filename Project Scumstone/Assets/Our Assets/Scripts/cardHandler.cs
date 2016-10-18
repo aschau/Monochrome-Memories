@@ -172,7 +172,16 @@ public class cardHandler : MonoBehaviour {
 
             else
             {
+                hit = checkHit(camera2);
+                if (hit)
+                {
+                    if (hit.transform.CompareTag("floatBlock"))
+                    {
+                        Debug.Log("ACTIVATED Float BLOCK");
+                        hit.transform.GetComponent<floatObject>().activated = true;
+                    }
 
+                }
             }
         }
     }
