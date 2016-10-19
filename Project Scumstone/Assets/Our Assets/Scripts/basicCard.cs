@@ -48,7 +48,10 @@ public class basicCard : card {
             if (pushBlocks[i].GetComponent<Light>() != null)
             {
                 pushBlocks[i].GetComponent<Light>().enabled = true;
-                pushBlocks[i].GetComponent<ParticleSystem>().Play();
+                if (!pushBlocks[i].GetComponent<moveObject>().activated)
+                {
+                    pushBlocks[i].GetComponent<ParticleSystem>().Play();
+                }
             }
         }
 
@@ -57,7 +60,10 @@ public class basicCard : card {
             if (jumpBlocks[i].GetComponent<Light>() != null)
             {
                 jumpBlocks[i].GetComponent<Light>().enabled = true;
-                jumpBlocks[i].GetComponent<ParticleSystem>().Play();
+                if (!jumpBlocks[i].transform.Find("jumpArea").GetComponent<jumpObject>().activated)
+                {
+                    jumpBlocks[i].GetComponent<ParticleSystem>().Play();
+                }
             }
         }
     }
