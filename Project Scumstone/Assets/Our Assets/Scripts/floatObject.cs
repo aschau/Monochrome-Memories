@@ -7,7 +7,7 @@ public class floatObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    
+        this.GetComponent<Rigidbody2D>().isKinematic = true;
 	}
 	
 	// Update is called once per frame
@@ -19,6 +19,7 @@ public class floatObject : MonoBehaviour {
     {
         if (activated)
         {
+            this.GetComponent<Rigidbody2D>().isKinematic = false;
             this.transform.Translate(new Vector2(0, this.speed * Time.deltaTime));
         }
     }

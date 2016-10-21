@@ -6,7 +6,7 @@ public class fallObject : MonoBehaviour {
     public bool activated = false;
 	// Use this for initialization
 	void Start () {
-	
+        this.GetComponent<Rigidbody2D>().isKinematic = true;
 	}
 	
 	// Update is called once per frame
@@ -18,6 +18,7 @@ public class fallObject : MonoBehaviour {
     {
         if (activated)
         {
+            this.GetComponent<Rigidbody2D>().isKinematic = false;
             this.transform.Translate(new Vector2(0, -this.speed * Time.deltaTime));
         }
     }
