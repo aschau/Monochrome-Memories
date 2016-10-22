@@ -1,4 +1,4 @@
-Black And White
+Black and White (working title)
 
 Andrew Steven Chau
 Elaine Chieng
