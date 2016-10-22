@@ -60,7 +60,7 @@ public class basicCard : card {
         {
             if (jumpBlocks[i].GetComponent<Light>() != null)
             {
-                jumpBlocks[i].GetComponent<Light>().enabled = true;
+                //jumpBlocks[i].GetComponent<Light>().enabled = true;
                 if (!jumpBlocks[i].transform.Find("jumpArea").GetComponent<jumpObject>().activated)
                 {
                     jumpBlocks[i].GetComponent<ParticleSystem>().Play();
@@ -91,9 +91,9 @@ public class basicCard : card {
         {
             if (jumpBlocks[i].GetComponent<Light>() != null)
             {
-                if (!jumpBlocks[i].transform.Find("jumpArea").GetComponent<jumpObject>().activated)
+                if (jumpBlocks[i].transform.Find("jumpArea").GetComponent<jumpObject>().activated)
                 {
-                    jumpBlocks[i].GetComponent<Light>().enabled = false;
+                    jumpBlocks[i].GetComponent<Light>().enabled = true;
                 }
                 jumpBlocks[i].GetComponent<ParticleSystem>().Stop();
             }
