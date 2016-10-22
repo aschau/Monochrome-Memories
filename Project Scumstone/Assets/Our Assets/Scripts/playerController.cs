@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour {
     public float moveSpeed = 3f;
@@ -14,16 +13,14 @@ public class playerController : MonoBehaviour {
 	void Start () {
         originalMoveSpeed = moveSpeed;
         originalJumpSpeed = jumpSpeed;
+
 	}
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
-	
+
+    }   
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
