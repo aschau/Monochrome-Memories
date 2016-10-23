@@ -1,0 +1,344 @@
+fileFormatVersion: 2
+guid: 49553cbf2c872514dbff590583c802f7
+timeCreated: 1477174275
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: DenialWhiteWorldAssets 1_0
+    21300002: DenialWhiteWorldAssets 1_1
+    21300004: DenialWhiteWorldAssets 1_2
+    21300006: DenialWhiteWorldAssets 1_3
+    21300008: DenialWhiteWorldAssets 1_4
+    21300010: DenialWhiteWorldAssets 1_5
+    21300012: DenialWhiteWorldAssets 1_6
+    21300014: DenialWhiteWorldAssets 1_7
+    21300016: DenialWhiteWorldAssets 1_8
+    21300018: DenialWhiteWorldAssets 1_9
+    21300020: DenialWhiteWorldAssets 1_10
+    21300022: DenialWhiteWorldAssets 1_11
+    21300024: DenialWhiteWorldAssets 1_12
+    21300026: DenialWhiteWorldAssets 1_13
+    21300028: DenialWhiteWorldAssets 1_14
+    21300030: DenialWhiteWorldAssets 1_15
+    21300032: DenialWhiteWorldAssets 1_16
+    21300034: DenialWhiteWorldAssets 1_17
+    21300036: DenialWhiteWorldAssets 1_18
+    21300038: DenialWhiteWorldAssets 1_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 762
+        width: 70
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 827
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 765
+        width: 63
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_3
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 764
+        width: 63
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_4
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 776
+        width: 86
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_5
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 764
+        width: 98
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_6
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 707
+        width: 120
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_7
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 797
+        width: 117
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_8
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 478
+        width: 23
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_9
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 789
+        width: 5
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_10
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 786
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_11
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 738
+        width: 392
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_12
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 715
+        width: 119
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_13
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 532
+        width: 160
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_14
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 556
+        width: 363
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_15
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 570
+        width: 254
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_16
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 647
+        width: 4
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_17
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 321
+        width: 452
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_18
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 124
+        width: 157
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssets 1_19
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 0
+        width: 295
+        height: 469
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
