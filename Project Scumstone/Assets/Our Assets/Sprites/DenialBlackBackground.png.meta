@@ -1,9 +1,17 @@
 fileFormatVersion: 2
 guid: ad9c4c7000123ab43ab0ff687491593e
-timeCreated: 1475966951
+timeCreated: 1476316957
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: DenialBlackBackground_0
+    21300002: DenialBlackBackground_1
+    21300004: DenialBlackBackground_11
+    21300006: DenialBlackBackground_12
+    21300008: DenialBlackBackground_13
+    21300010: DenialBlackBackground_18
+    21300012: DenialBlackBackground_19
+    21300014: DenialBlackBackground_22
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -29,8 +37,8 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +46,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,10 +56,119 @@ TextureImporter:
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DenialBlackBackground_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1112
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackBackground_1
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 0
+        width: 618
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackBackground_11
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 0
+        width: 341
+        height: 400
+      alignment: 9
+      pivot: {x: -3.0176706, y: 0.36365557}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackBackground_12
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 0
+        width: 377
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackBackground_13
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 0
+        width: 1072
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackBackground_18
+      rect:
+        serializedVersion: 2
+        x: 4407
+        y: 0
+        width: 363
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackBackground_19
+      rect:
+        serializedVersion: 2
+        x: 4770
+        y: 0
+        width: 558
+        height: 399
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackBackground_22
+      rect:
+        serializedVersion: 2
+        x: 5328
+        y: 0
+        width: 672
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

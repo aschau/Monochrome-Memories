@@ -13,7 +13,7 @@ public class cardFloat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!this.GetComponent<cardHandler>().beingDragged)
+        if (!this.GetComponent<card>().beingDragged)
             this.GetComponent<RectTransform>().position = new Vector2(transform.position.x, originalY + (Mathf.Sin(Time.time) * amplitude));
 	}
 
