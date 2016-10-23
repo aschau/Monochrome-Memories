@@ -45,22 +45,22 @@ public class basicCard : card {
         GameObject[] jumpBlocks = GameObject.FindGameObjectsWithTag("jumpBlock");
         for (int i = 0; i < pushBlocks.Length; i++)
         {
-            if (pushBlocks[i].transform.FindChild("Activation Circle") != null)
-            {
+            //if (pushBlocks[i].transform.FindChild("Activation Circle") != null)
+            //{
                 //pushBlocks[i].GetComponent<Light>().enabled = true;
-                pushBlocks[i].transform.FindChild("Activation Circle").gameObject.SetActive(true);
+                //pushBlocks[i].transform.FindChild("Activation Circle").gameObject.SetActive(true);
                 if (!pushBlocks[i].GetComponent<moveObject>().activated)
                 {
                     pushBlocks[i].GetComponent<ParticleSystem>().Play();
                 }
-            }
+            //}
         }
 
         for (int i = 0; i < jumpBlocks.Length; i++)
         {
             if (jumpBlocks[i].GetComponent<Light>() != null)
             {
-                jumpBlocks[i].GetComponent<Light>().enabled = true;
+                //jumpBlocks[i].GetComponent<Light>().enabled = true;
                 if (!jumpBlocks[i].transform.Find("jumpArea").GetComponent<jumpObject>().activated)
                 {
                     jumpBlocks[i].GetComponent<ParticleSystem>().Play();
@@ -77,23 +77,23 @@ public class basicCard : card {
 
         for (int i = 0; i < pushBlocks.Length; i++)
         {
-            if (pushBlocks[i].transform.FindChild("Activation Circle") != null)
-            {
-                if (!pushBlocks[i].GetComponent<moveObject>().activated)
-                {
-                    pushBlocks[i].transform.FindChild("Activation Circle").gameObject.SetActive(false);
-                }
+            //if (pushBlocks[i].transform.FindChild("Activation Circle") != null)
+            //{
+                //if (!pushBlocks[i].GetComponent<moveObject>().activated)
+                //{
+                //    pushBlocks[i].transform.FindChild("Activation Circle").gameObject.SetActive(false);
+                //}
                 pushBlocks[i].GetComponent<ParticleSystem>().Stop();
-            }
+            //}
         }
 
         for (int i = 0; i < jumpBlocks.Length; i++)
         {
             if (jumpBlocks[i].GetComponent<Light>() != null)
             {
-                if (!jumpBlocks[i].transform.Find("jumpArea").GetComponent<jumpObject>().activated)
+                if (jumpBlocks[i].transform.Find("jumpArea").GetComponent<jumpObject>().activated)
                 {
-                    jumpBlocks[i].GetComponent<Light>().enabled = false;
+                    jumpBlocks[i].GetComponent<Light>().enabled = true;
                 }
                 jumpBlocks[i].GetComponent<ParticleSystem>().Stop();
             }

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour {
     public float moveSpeed = 3f;
@@ -14,16 +13,14 @@ public class playerController : MonoBehaviour {
 	void Start () {
         originalMoveSpeed = moveSpeed;
         originalJumpSpeed = jumpSpeed;
+
 	}
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
-	
+
+    }   
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
@@ -68,4 +65,50 @@ public class playerController : MonoBehaviour {
 
 
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "jumpBlock")
+        {
+            if (other.GetComponent<jumpObject>() != null)
+            {
+                if (other.GetComponent<jumpObject>().activated)
+                {
+                    Debug.Log("JUMP");
+                    this.jumpSpeed = this.originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
+                }
+            }
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "jumpBlock")
+        {
+            if (other.GetComponent<jumpObject>() != null)
+            {
+                if (other.GetComponent<jumpObject>().activated)
+                {
+                    Debug.Log("JUMP");
+                    this.jumpSpeed = this.originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
+                }
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "jumpBlock")
+        {
+            if (other.GetComponent<jumpObject>() != null)
+            {
+                if (other.GetComponent<jumpObject>().activated)
+                {
+                    Debug.Log("JUMP");
+                    this.jumpSpeed = this.originalJumpSpeed;
+                }
+            }
+        }
+
+    }
 }
