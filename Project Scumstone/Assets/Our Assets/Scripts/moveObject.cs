@@ -6,15 +6,15 @@ public class moveObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    if (!activated)
+	    if (!this.activated)
         {
             this.GetComponent<Rigidbody2D>().isKinematic = true;
         }
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	    if (activated)
+	public void Update () {
+        if (this.activated)
         {
             this.GetComponent<Rigidbody2D>().isKinematic = false;
         }
