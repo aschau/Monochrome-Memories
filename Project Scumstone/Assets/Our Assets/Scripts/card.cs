@@ -2,14 +2,20 @@
 using System.Collections;
 
 public class card : MonoBehaviour {
-    public Camera camera1;
-    public Camera camera2;
+    public GameObject camera1;
+    public GameObject camera2;
     public bool beingDragged = false;
 
     private float offsetX;
     private float offsetY;
     private Vector3 origin;
     private Vector2 originalSize;
+
+    public virtual void Awake()
+    {
+        this.camera1 = GameObject.Find("Black Camera");
+        this.camera2 = GameObject.Find("White Camera");
+    }
 
 	// Use this for initialization
 	public virtual void Start () {
@@ -69,9 +75,9 @@ public class card : MonoBehaviour {
         particleDeactivate();
     }
 
-    public virtual RaycastHit2D checkHit(Camera camera)
+    public virtual RaycastHit2D checkHit(GameObject camera)
     {
-        return Physics2D.Raycast(new Vector2(camera.ScreenPointToRay(Input.mousePosition).origin.x, camera.ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera.ScreenPointToRay(Input.mousePosition).direction.x, camera.ScreenPointToRay(Input.mousePosition).direction.y));
+        return Physics2D.Raycast(new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.y));
     }
 
     public virtual void particleActivate()
