@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+//using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour {
     public AudioClip doorSound;
@@ -39,6 +40,7 @@ public class LevelChange : MonoBehaviour {
         if (player1.GetComponent<playerController>().moveSpeed == 0 && player2.GetComponent<playerController>().moveSpeed == 0)
         {
             Application.LoadLevel("Level 2");
+            //SceneManager.LoadScene("Level 2");
         }
     }
 }

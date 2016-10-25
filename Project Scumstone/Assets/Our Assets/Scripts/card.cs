@@ -5,6 +5,7 @@ public class card : MonoBehaviour {
     public Camera camera1;
     public Camera camera2;
     public bool beingDragged = false;
+    //public bool clicked = false; // i added this to test something
 
     private float offsetX;
     private float offsetY;
@@ -14,7 +15,7 @@ public class card : MonoBehaviour {
 	// Use this for initialization
 	public virtual void Start () {
         this.origin = this.transform.position;
-        this.originalSize = this.GetComponent<RectTransform>().sizeDelta;
+        this.originalSize = this.GetComponent<RectTransform>().sizeDelta; 
 	}
 	
 	// Update is called once per frame
