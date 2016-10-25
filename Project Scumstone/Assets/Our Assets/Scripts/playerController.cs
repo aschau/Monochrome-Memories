@@ -83,32 +83,25 @@ public class playerController : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "jumpBlock")
+        if (other.GetComponent<jumpObject>() != null)
         {
-            if (other.GetComponent<jumpObject>() != null)
+            if (other.GetComponent<jumpObject>().activated)
             {
-                if (other.GetComponent<jumpObject>().activated)
-                {
-                    Debug.Log("JUMP");
-                    this.jumpSpeed = this.originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
-                }
+                Debug.Log("JUMP");
+                this.jumpSpeed = this.originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
             }
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "jumpBlock")
+        if (other.GetComponent<jumpObject>() != null)
         {
-            if (other.GetComponent<jumpObject>() != null)
+            if (other.GetComponent<jumpObject>().activated)
             {
-                if (other.GetComponent<jumpObject>().activated)
-                {
-                    Debug.Log("JUMP");
-                    this.jumpSpeed = this.originalJumpSpeed;
-                }
+                Debug.Log("JUMP");
+                this.jumpSpeed = this.originalJumpSpeed;
             }
         }
-
     }
 }

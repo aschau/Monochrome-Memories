@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class activateObject : MonoBehaviour {
-    public bool dualActivation = false;
-    private bool activated1, activated2 = false;
+    public bool activated1, activated2, camera1, camera2, dualActivation = false;
 
 	// Use this for initialization
 	void Start () {
@@ -22,14 +21,14 @@ public class activateObject : MonoBehaviour {
 
         else
         {
-            if (this.activated1 || this.activated2)
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 220, 0);
-            }
-
-            else if (this.activated1 && this.activated2)
+            if (this.activated1 && this.activated2)
             {
                 this.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
+            }
+
+            else if (this.activated1 || this.activated2)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 220, 0);
             }
         }
 	}

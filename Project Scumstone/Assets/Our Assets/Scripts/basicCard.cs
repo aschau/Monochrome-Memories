@@ -12,6 +12,7 @@ public class basicCard : card {
             if (hit.transform.CompareTag("pushBlock"))
             {
                 hit.transform.GetComponent<moveObject>().activated = true;
+                base.checkDualActivation(hit, "camera1");
             }
 
         }
@@ -21,16 +22,11 @@ public class basicCard : card {
             hit = checkHit(camera2);
             if (hit)
             {
-                if (hit.transform.CompareTag("jumpBlock"))
+                if (hit.transform.GetComponent<jumpObject>() != null)
                 {
                     Debug.Log("ACTIVATED JUMP BLOCK");
-                    hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
-                }
-
-                else if (hit.transform.FindChild("jumpArea"))
-                {
-                    Debug.Log("ACTIVATED JUMP BLOCK");
-                    hit.transform.Find("jumpArea").GetComponent<jumpObject>().activated = true;
+                    hit.transform.GetComponent<jumpObject>().activated = true;
+                    base.checkDualActivation(hit, "camera2");                    
                 }
             }
         }
@@ -53,12 +49,9 @@ public class basicCard : card {
 
         for (int i = 0; i < jumpBlocks.Length; i++)
         {
-            if (jumpBlocks[i].GetComponent<Light>() != null)
+            if (!jumpBlocks[i].transform.GetComponent<jumpObject>().activated)
             {
-                if (!jumpBlocks[i].transform.Find("jumpArea").GetComponent<jumpObject>().activated)
-                {
-                    jumpBlocks[i].GetComponent<ParticleSystem>().Play();
-                }
+                jumpBlocks[i].GetComponent<ParticleSystem>().Play();
             }
         }
     }
@@ -76,14 +69,7 @@ public class basicCard : card {
 
         for (int i = 0; i < jumpBlocks.Length; i++)
         {
-            if (jumpBlocks[i].GetComponent<Light>() != null)
-            {
-                if (jumpBlocks[i].transform.Find("jumpArea").GetComponent<jumpObject>().activated)
-                {
-                    jumpBlocks[i].GetComponent<Light>().enabled = true;
-                }
-                jumpBlocks[i].GetComponent<ParticleSystem>().Stop();
-            }
+            jumpBlocks[i].GetComponent<ParticleSystem>().Stop();
         }
     }
 }

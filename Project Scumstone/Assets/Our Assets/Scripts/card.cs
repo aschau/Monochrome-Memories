@@ -89,4 +89,38 @@ public class card : MonoBehaviour {
     {
 
     }
+
+    public virtual void checkDualActivation(RaycastHit2D hit, string camera)
+    {
+        if (!hit.transform.GetComponent<activateObject>().dualActivation)
+        {
+            hit.transform.GetComponent<activateObject>().activated1 = true;
+        }
+
+        else
+        {
+            if (!hit.transform.GetComponent<activateObject>().activated1)
+            {
+                hit.transform.GetComponent<activateObject>().activated1 = true;
+            }
+
+            else
+            {
+                if ((camera == "camera1" && !hit.transform.GetComponent<activateObject>().camera1) || camera == "camera2" && !hit.transform.GetComponent<activateObject>().camera2)
+                {
+                    hit.transform.GetComponent<activateObject>().activated2 = true;
+                }
+            }
+
+            if (camera == "camera1")
+            {
+                hit.transform.GetComponent<activateObject>().camera1 = true;
+            }
+
+            else if (camera == "camera2")
+            {
+                hit.transform.GetComponent<activateObject>().camera2 = true;
+            }
+        }
+    }
 }
