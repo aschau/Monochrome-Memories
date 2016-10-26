@@ -13,6 +13,7 @@ public class gravityCard : card {
             {
                 Debug.Log("ACTIVATED FALL BLOCK");
                 hit.transform.GetComponent<fallObject>().activated = true;
+                base.checkDualActivation(hit, "camera1");
             }
 
         }
@@ -26,6 +27,7 @@ public class gravityCard : card {
                 {
                     Debug.Log("ACTIVATED Float BLOCK");
                     hit.transform.GetComponent<floatObject>().activated = true;
+                    base.checkDualActivation(hit, "camera2");
                 }
 
             }
@@ -41,25 +43,17 @@ public class gravityCard : card {
         GameObject[] floatBlocks = GameObject.FindGameObjectsWithTag("floatBlock");
         for (int i = 0; i < fallBlocks.Length; i++)
         {
-            if (fallBlocks[i].GetComponent<Light>() != null)
+            if (!fallBlocks[i].GetComponent<fallObject>().activated)
             {
-                fallBlocks[i].GetComponent<Light>().enabled = true;
-                if (!fallBlocks[i].GetComponent<fallObject>().activated)
-                {
-                    fallBlocks[i].GetComponent<ParticleSystem>().Play();
-                }
+                fallBlocks[i].GetComponent<ParticleSystem>().Play();
             }
         }
 
         for (int i = 0; i < floatBlocks.Length; i++)
         {
-            if (floatBlocks[i].GetComponent<Light>() != null)
+            if (!floatBlocks[i].GetComponent<floatObject>().activated)
             {
-                floatBlocks[i].GetComponent<Light>().enabled = true;
-                if (!floatBlocks[i].GetComponent<floatObject>().activated)
-                {
-                    floatBlocks[i].GetComponent<ParticleSystem>().Play();
-                }
+                floatBlocks[i].GetComponent<ParticleSystem>().Play();
             }
         }
     }
@@ -72,26 +66,12 @@ public class gravityCard : card {
 
         for (int i = 0; i < fallBlocks.Length; i++)
         {
-            if (fallBlocks[i].GetComponent<Light>() != null)
-            {
-                if (!fallBlocks[i].GetComponent<fallObject>().activated)
-                {
-                    fallBlocks[i].GetComponent<Light>().enabled = false;
-                }
                 fallBlocks[i].GetComponent<ParticleSystem>().Stop();
-            }
         }
 
         for (int i = 0; i < floatBlocks.Length; i++)
         {
-            if (floatBlocks[i].GetComponent<Light>() != null)
-            {
-                if (!floatBlocks[i].transform.GetComponent<floatObject>().activated)
-                {
-                    floatBlocks[i].GetComponent<Light>().enabled = false;
-                }
                 floatBlocks[i].GetComponent<ParticleSystem>().Stop();
-            }
         }
     }
 }
