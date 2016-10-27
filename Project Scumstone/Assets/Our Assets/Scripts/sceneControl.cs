@@ -10,6 +10,12 @@ public class sceneControl : MonoBehaviour {
     private bool resetting = false;
     private Color color;
     // Use this for initialization
+    void Awake()
+    {
+        this.backgroundMusic = GameObject.Find("backgroundMusic").GetComponent<AudioSource>();
+        this.resetSound = this.transform.FindChild("resetSound").GetComponent<AudioSource>();
+    }
+
 	void Start () {
 
 	}
@@ -18,7 +24,6 @@ public class sceneControl : MonoBehaviour {
 	void Update () {
         if (Input.GetKey(KeyCode.R) && !resetting)
         {
-            Debug.Log("RAWR");
             resetting = true;
             Invoke("reset", 5);
             this.backgroundMusic.Stop();

@@ -4,6 +4,12 @@ using System.Collections;
 public class gravityCard : card {
     private RaycastHit2D hit;
 
+    public override void Start()
+    {
+        base.Start();
+        base.whiteEffect = "floatBlock";
+        base.blackEffect = "fallBlock";
+    }
     public override void onMouseUp()
     {
         hit = checkHit(camera1);
@@ -34,44 +40,5 @@ public class gravityCard : card {
         }
 
         base.onMouseUp();
-    }
-
-    public override void particleActivate()
-    {
-        base.particleActivate();
-        GameObject[] fallBlocks = GameObject.FindGameObjectsWithTag("fallBlock");
-        GameObject[] floatBlocks = GameObject.FindGameObjectsWithTag("floatBlock");
-        for (int i = 0; i < fallBlocks.Length; i++)
-        {
-            if (!fallBlocks[i].GetComponent<fallObject>().activated)
-            {
-                fallBlocks[i].GetComponent<ParticleSystem>().Play();
-            }
-        }
-
-        for (int i = 0; i < floatBlocks.Length; i++)
-        {
-            if (!floatBlocks[i].GetComponent<floatObject>().activated)
-            {
-                floatBlocks[i].GetComponent<ParticleSystem>().Play();
-            }
-        }
-    }
-
-    public override void particleDeactivate()
-    {
-        base.particleDeactivate();
-        GameObject[] fallBlocks = GameObject.FindGameObjectsWithTag("fallBlock");
-        GameObject[] floatBlocks = GameObject.FindGameObjectsWithTag("floatBlock");
-
-        for (int i = 0; i < fallBlocks.Length; i++)
-        {
-                fallBlocks[i].GetComponent<ParticleSystem>().Stop();
-        }
-
-        for (int i = 0; i < floatBlocks.Length; i++)
-        {
-                floatBlocks[i].GetComponent<ParticleSystem>().Stop();
-        }
     }
 }

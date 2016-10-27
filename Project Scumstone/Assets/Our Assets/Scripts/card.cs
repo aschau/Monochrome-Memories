@@ -7,6 +7,9 @@ public class card : MonoBehaviour {
     public bool beingDragged = false;
     //public bool clicked = false; // i added this to test something
 
+    [HideInInspector]
+    public string blackEffect, whiteEffect;
+
     private float offsetX;
     private float offsetY;
     private Vector3 origin;
@@ -83,12 +86,44 @@ public class card : MonoBehaviour {
 
     public virtual void particleActivate()
     {
+        activateObject[] allObjects = GameObject.FindObjectsOfType<activateObject>();
 
+        for (int i = 0; i < allObjects.Length; i++)
+        {
+            if (allObjects[i].CompareTag(this.blackEffect) || allObjects[i].CompareTag(this.whiteEffect))
+            {
+
+                if (!allObjects[i].dualActivation)
+                {
+                    if (!allObjects[i].activated1)
+                    {
+                        allObjects[i].GetComponent<ParticleSystem>().Play();
+                    }
+                }
+
+                else
+                {
+                    if (!(allObjects[i].activated1 && allObjects[i].activated2))
+                    {
+                        allObjects[i].GetComponent<ParticleSystem>().Play();
+                    }
+                }
+            }
+        }
     }
 
     public virtual void particleDeactivate()
     {
+        activateObject[] allObjects = GameObject.FindObjectsOfType<activateObject>();
 
+        for (int i = 0; i < allObjects.Length; i++)
+        {
+            if (allObjects[i].CompareTag(this.blackEffect) || allObjects[i].CompareTag(this.whiteEffect))
+            {
+
+                allObjects[i].GetComponent<ParticleSystem>().Stop();
+            }
+        }
     }
 
     public virtual void checkDualActivation(RaycastHit2D hit, string camera)
