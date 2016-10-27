@@ -5,6 +5,7 @@ public class newCard : MonoBehaviour {
     public GameObject camera1;
     public GameObject camera2;
     public bool isClicked = false;
+    public Sprite newImage;
 
 	// Use this for initialization
 
@@ -16,7 +17,6 @@ public class newCard : MonoBehaviour {
 
     public virtual void onPointerEnter()
     {
-
     }
 
     public virtual void onPointerExit()
