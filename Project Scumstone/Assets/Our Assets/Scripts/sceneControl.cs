@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class sceneControl : MonoBehaviour {
     public float speed = .5f;
-    public AudioSource backgroundMusic;
-    public AudioSource resetSound;
+    public GameObject backgroundMusic;
+    public GameObject resetSound;
     private bool resetting = false;
     private Color color;
     // Use this for initialization
+    void Awake()
+    {
+        this.backgroundMusic = GameObject.Find("backgroundMusic");
+    }
+
 	void Start () {
 
 	}
@@ -21,8 +26,8 @@ public class sceneControl : MonoBehaviour {
             Debug.Log("RAWR");
             resetting = true;
             Invoke("reset", 5);
-            this.backgroundMusic.Stop();
-            this.resetSound.Play();
+            this.backgroundMusic.GetComponent<AudioSource>().Stop();
+            this.resetSound.GetComponent<AudioSource>().Play();
         }
 
         if (!this.resetting && this.GetComponent<Image>().color.a > 0)
