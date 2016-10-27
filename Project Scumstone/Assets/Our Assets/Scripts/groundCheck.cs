@@ -19,12 +19,12 @@ public class groundCheck: MonoBehaviour {
         onGround = true;
         this.GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;
 
-        if (other.GetComponent<jumpObject>() != null)
+        if (other.CompareTag("jumpArea"))
         {
-            if (other.GetComponent<jumpObject>().activated)
+            if (other.GetComponentInParent<jumpObject>().activated)
             {
                 Debug.Log("JUMP");
-                this.GetComponentInParent<playerController>().jumpSpeed = this.GetComponentInParent<playerController>().originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
+                this.GetComponentInParent<playerController>().jumpSpeed = this.GetComponentInParent<playerController>().originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
             }
         }
     }
@@ -33,9 +33,9 @@ public class groundCheck: MonoBehaviour {
     {
         onGround = false;
 
-        if (other.GetComponent<jumpObject>() != null)
+        if (other.CompareTag("jumpArea"))
         {
-            if (other.GetComponent<jumpObject>().activated)
+            if (other.GetComponentInParent<jumpObject>().activated)
             {
                 Debug.Log("JUMP");
                 this.GetComponentInParent<playerController>().jumpSpeed = this.GetComponentInParent<playerController>().originalJumpSpeed;

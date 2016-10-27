@@ -21,12 +21,12 @@ public class newCard : MonoBehaviour {
 
     public virtual void onPointerExit()
     {
-
+        this.GetComponent<SpriteRenderer>().sprite = newImage;
     }
 
     public virtual void onClick()
     {
-
+        
     }
 
 
