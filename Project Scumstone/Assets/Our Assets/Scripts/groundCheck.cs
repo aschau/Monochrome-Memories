@@ -18,10 +18,28 @@ public class groundCheck: MonoBehaviour {
     {
         onGround = true;
         this.GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;
+
+        if (other.GetComponent<jumpObject>() != null)
+        {
+            if (other.GetComponent<jumpObject>().activated)
+            {
+                Debug.Log("JUMP");
+                this.GetComponentInParent<playerController>().jumpSpeed = this.GetComponentInParent<playerController>().originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        onGround = false; 
+        onGround = false;
+
+        if (other.GetComponent<jumpObject>() != null)
+        {
+            if (other.GetComponent<jumpObject>().activated)
+            {
+                Debug.Log("JUMP");
+                this.GetComponentInParent<playerController>().jumpSpeed = this.GetComponentInParent<playerController>().originalJumpSpeed;
+            }
+        }
     }
 }

@@ -80,28 +80,4 @@ public class playerController : MonoBehaviour {
             }
         }
     }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.GetComponent<jumpObject>() != null)
-        {
-            if (other.GetComponent<jumpObject>().activated)
-            {
-                Debug.Log("JUMP");
-                this.jumpSpeed = this.originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
-            }
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.GetComponent<jumpObject>() != null)
-        {
-            if (other.GetComponent<jumpObject>().activated)
-            {
-                Debug.Log("JUMP");
-                this.jumpSpeed = this.originalJumpSpeed;
-            }
-        }
-    }
 }
