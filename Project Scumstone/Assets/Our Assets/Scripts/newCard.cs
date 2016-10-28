@@ -3,19 +3,30 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class newCard : MonoBehaviour {
-    public GameObject camera1;
-    public GameObject camera2;
-    public Sprite currentImage;
     public bool isClicked = false;
+    public Sprite currentImage;
     public Sprite newImage;
-    public string blackEffect, whiteEffect;
 
-	// Use this for initialization
+    [HideInInspector]
+    public string blackEffect, whiteEffect;
+    [HideInInspector]
+    public GameObject camera1, camera2;
 
     public virtual void Awake()
     {
         this.camera1 = GameObject.Find("Black Camera");
         this.camera2 = GameObject.Find("White Camera");
+    }
+
+    public virtual void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    public virtual void Update()
+    {
+
     }
 
     public virtual void onPointerEnter()
@@ -45,15 +56,6 @@ public class newCard : MonoBehaviour {
     {
         return Physics2D.Raycast(new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.y));
     }
-
-	public virtual void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	public virtual void Update () {
-	
-	}
 
     public virtual void particleActivate()
     {
@@ -97,5 +99,45 @@ public class newCard : MonoBehaviour {
         }
     }
 
+    public virtual RaycastHit2D checkHit(GameObject camera)
+    {
+        return Physics2D.Raycast(new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.y));
+    }
+
+    public virtual void checkDualActivation(RaycastHit2D hit, string camera)
+    {
+        if (!hit.transform.GetComponent<activateObject>().dualActivation)
+        {
+            hit.transform.GetComponent<activateObject>().activated1 = true;
+            hit.transform.GetComponent<ParticleSystem>().Stop();
+        }
+
+        else
+        {
+            if (!hit.transform.GetComponent<activateObject>().activated1)
+            {
+                hit.transform.GetComponent<activateObject>().activated1 = true;
+            }
+
+            else
+            {
+                if ((camera == "camera1" && !hit.transform.GetComponent<activateObject>().camera1) || camera == "camera2" && !hit.transform.GetComponent<activateObject>().camera2)
+                {
+                    hit.transform.GetComponent<activateObject>().activated2 = true;
+                    hit.transform.GetComponent<ParticleSystem>().Stop();
+                }
+            }
+
+            if (camera == "camera1")
+            {
+                hit.transform.GetComponent<activateObject>().camera1 = true;
+            }
+
+            else if (camera == "camera2")
+            {
+                hit.transform.GetComponent<activateObject>().camera2 = true;
+            }
+        }
+    }
 
 }

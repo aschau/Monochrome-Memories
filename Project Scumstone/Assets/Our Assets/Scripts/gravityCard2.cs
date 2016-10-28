@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class jumpPushCard : newCard {
+public class gravityCard2 : newCard {
     private RaycastHit2D hit;
-	// Use this for initialization
-	public override void Start () {
+    // Use this for initialization
+    public override void Start()
+    {
         base.Start();
-        base.whiteEffect = "jumpBlock";
-        base.blackEffect = "pushBlock";
-	}
+        base.whiteEffect = "floatBlock";
+        base.blackEffect = "fallBlock";
+    }
 
     public override void Update()
     {
@@ -23,7 +24,7 @@ public class jumpPushCard : newCard {
                 {
                     if (hit.transform.CompareTag(base.blackEffect))
                     {
-                        hit.transform.GetComponent<moveObject>().activated = true;
+                        hit.transform.GetComponent<fallObject>().activated = true;
                         base.checkDualActivation(hit, "camera1");
                     }
 
@@ -34,11 +35,10 @@ public class jumpPushCard : newCard {
                     hit = checkHit(camera2);
                     if (hit)
                     {
-                        if (hit.transform.GetComponent<jumpObject>() != null)
+                        if (hit.transform.CompareTag(base.whiteEffect))
                         {
-                            Debug.Log("ACTIVATED JUMP BLOCK");
-                            hit.transform.GetComponent<jumpObject>().activated = true;
-                            base.checkDualActivation(hit, "camera2");
+                            hit.transform.GetComponent<floatObject>().activated = true;
+                            base.checkDualActivation(hit, "camera1");
                         }
                     }
                 }
