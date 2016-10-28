@@ -6,6 +6,8 @@ public class newCard : MonoBehaviour {
     public bool isClicked = false;
     public Sprite currentImage;
     public Sprite newImage;
+    public Vector3 newLocation;
+    public Vector3 oldLocation;
 
     [HideInInspector]
     public string blackEffect, whiteEffect;
@@ -20,7 +22,8 @@ public class newCard : MonoBehaviour {
 
     public virtual void Start()
     {
-
+        newLocation = new Vector3(this.transform.position.x - 40, this.transform.position.y, this.transform.position.z);
+        oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
     }
 
     // Update is called once per frame
@@ -32,6 +35,7 @@ public class newCard : MonoBehaviour {
     public virtual void onPointerEnter()
     {
         this.GetComponent<Image>().sprite = newImage;
+        this.transform.position = newLocation;
         particleActivate();
     }
 
@@ -40,6 +44,7 @@ public class newCard : MonoBehaviour {
         if (this.isClicked == false)
         {
             this.GetComponent<Image>().sprite = currentImage;
+            this.transform.position = oldLocation;
             particleDeactivate();
         }
         
