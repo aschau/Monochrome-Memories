@@ -38,7 +38,7 @@ public class gravityCard2 : newCard {
                         if (hit.transform.CompareTag(base.whiteEffect))
                         {
                             hit.transform.GetComponent<floatObject>().activated = true;
-                            base.checkDualActivation(hit, "camera1");
+                            base.checkDualActivation(hit, "camera2");
                         }
                     }
                 }
