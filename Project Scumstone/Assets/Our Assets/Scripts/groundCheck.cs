@@ -3,6 +3,12 @@ using System.Collections;
 
 public class groundCheck: MonoBehaviour {
     public bool onGround = true;
+    private playerController controller;
+
+    void Awake ()
+    {
+        this.controller = GameObject.Find("playerControl").GetComponent<playerController>();
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -11,8 +17,23 @@ public class groundCheck: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "jumpArea")
+        {
+            if (other.GetComponent<jumpObject>() != null)
+            {
+                if (other.GetComponent<jumpObject>().activated)
+                {
+                    Debug.Log("JUMP");
+                    this.controller.jumpSpeed = this.GetComponentInParent<playerController>().originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
+                }
+            }
+        }
+    }
 
     void OnTriggerStay2D(Collider2D other)
     {
@@ -38,7 +59,7 @@ public class groundCheck: MonoBehaviour {
             if (other.GetComponentInParent<jumpObject>().activated)
             {
                 Debug.Log("JUMP");
-                this.GetComponentInParent<playerController>().jumpSpeed = this.GetComponentInParent<playerController>().originalJumpSpeed;
+                this.controller.jumpSpeed = this.controller.originalJumpSpeed;
             }
         }
     }
