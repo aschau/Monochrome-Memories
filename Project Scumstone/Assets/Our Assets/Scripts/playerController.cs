@@ -3,17 +3,23 @@ using System.Collections;
 
 public class playerController : MonoBehaviour {
     public float moveSpeed = 3f;
-    public float jumpSpeed = 100f;
-    public int playerNumber;
-
+    public float jumpSpeed = 200f;
     public float originalMoveSpeed;
     public float originalJumpSpeed;
+
+    private static int playerNumber = 1;
+    private GameObject player1, player2;
+
+    void Awake()
+    {
+        this.player1 = GameObject.Find("Player");
+        this.player2 = GameObject.Find("Player 2");
+    }
 
 	// Use this for initialization
 	void Start () {
         originalMoveSpeed = moveSpeed;
         originalJumpSpeed = jumpSpeed;
-
 	}
 
     void Update()
@@ -23,92 +29,59 @@ public class playerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-
-        if (playerNumber == 1)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKey(KeyCode.D))
+            if (playerNumber == 1)
             {
-                this.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
+                playerNumber = 2;
             }
 
-            else if (Input.GetKey(KeyCode.A))
+            else if (playerNumber == 2)
             {
-                this.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
-            }
-
-            if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && Input.GetKey(KeyCode.W))
-            {
-                this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
-                this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+                playerNumber = 1;
             }
         }
 
-        else if (playerNumber == 2)
+        if (Input.GetKey(KeyCode.D))
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (playerNumber == 1)
             {
-                this.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
+                this.player1.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
             }
 
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            else if (playerNumber == 2)
             {
-                this.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
-            }
-
-            if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && Input.GetKey(KeyCode.UpArrow))
-            {
-                this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
-                this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+                this.player2.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
             }
         }
 
+        else if (Input.GetKey(KeyCode.A))
+        {
+            if (playerNumber == 1)
+            {
+                this.player1.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
+            }
 
+            else if (playerNumber == 2)
+            {
+                this.player2.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
+            }
+        }
 
+        if (Input.GetKey(KeyCode.W))
+        {
+            if (this.player1.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && playerNumber == 1)
+            {
+                this.player1.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
+                this.player1.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+            }
+
+            else if (this.player2.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && playerNumber == 2)
+            {
+                this.player2.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
+                this.player2.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+            }
+
+        }
 	}
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "jumpBlock")
-        {
-            if (other.GetComponent<jumpObject>() != null)
-            {
-                if (other.GetComponent<jumpObject>().activated)
-                {
-                    Debug.Log("JUMP");
-                    this.jumpSpeed = this.originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
-                }
-            }
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.tag == "jumpBlock")
-        {
-            if (other.GetComponent<jumpObject>() != null)
-            {
-                if (other.GetComponent<jumpObject>().activated)
-                {
-                    Debug.Log("JUMP");
-                    this.jumpSpeed = this.originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
-                }
-            }
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "jumpBlock")
-        {
-            if (other.GetComponent<jumpObject>() != null)
-            {
-                if (other.GetComponent<jumpObject>().activated)
-                {
-                    Debug.Log("JUMP");
-                    this.jumpSpeed = this.originalJumpSpeed;
-                }
-            }
-        }
-
-    }
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class playerCamera : MonoBehaviour {
-    public playerController player;
+    public Transform player;
     private Vector3 offset;
 
 	// Use this for initialization
