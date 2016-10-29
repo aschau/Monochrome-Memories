@@ -29,7 +29,7 @@ public class groundCheck: MonoBehaviour {
                 if (other.GetComponent<jumpObject>().activated)
                 {
                     Debug.Log("JUMP");
-                    this.controller.jumpSpeed = this.GetComponentInParent<playerController>().originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
+                    this.controller.jumpSpeed = this.controller.originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
                 }
             }
         }
@@ -45,7 +45,7 @@ public class groundCheck: MonoBehaviour {
             if (other.GetComponentInParent<jumpObject>().activated)
             {
                 Debug.Log("JUMP");
-                this.GetComponentInParent<playerController>().jumpSpeed = this.GetComponentInParent<playerController>().originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
+                this.controller.jumpSpeed = this.controller.originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
             }
         }
     }
