@@ -8,6 +8,9 @@ public class newCard : MonoBehaviour {
     public Sprite newImage;
     public Vector3 newLocation;
     public Vector3 oldLocation;
+    public AudioClip cardSound;
+    public float volume;
+    AudioSource source;
 
     [HideInInspector]
     public string blackEffect, whiteEffect;
@@ -24,6 +27,7 @@ public class newCard : MonoBehaviour {
     {
         newLocation = new Vector3(this.transform.position.x - 40, this.transform.position.y, this.transform.position.z);
         oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +41,8 @@ public class newCard : MonoBehaviour {
         this.GetComponent<Image>().sprite = newImage;
         this.transform.position = newLocation;
         particleActivate();
+        source.PlayOneShot(cardSound, volume);
+        //yield return new WaitForSeconds(0.2f);
     }
 
     public virtual void onPointerExit()
