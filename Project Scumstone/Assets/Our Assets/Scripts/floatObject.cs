@@ -8,6 +8,7 @@ public class floatObject : MonoBehaviour {
     // Use this for initialization
     public void Start()
     {
+        this.GetComponent<Rigidbody2D>().gravityScale = 0;
         if (!this.activated)
         {
             this.GetComponent<Rigidbody2D>().isKinematic = true;
