@@ -5,47 +5,59 @@ using UnityEngine.UI;
 
 public class sceneControl : MonoBehaviour {
     public float speed = .5f;
-    public AudioSource backgroundMusic;
-    public AudioSource resetSound;
+    public AudioSource backgroundMusic, resetSound;
+    
     private bool resetting = false;
     private Color color;
+    private playerController playerControl;
+
     // Use this for initialization
     void Awake()
     {
         this.backgroundMusic = GameObject.Find("backgroundMusic").GetComponent<AudioSource>();
         this.resetSound = this.transform.FindChild("resetSound").GetComponent<AudioSource>();
+        this.playerControl = GameObject.FindObjectOfType<playerController>();
     }
 
 	void Start () {
-
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.R) && !resetting)
+        if (Time.timeSinceLevelLoad > 1 && Input.GetKey(KeyCode.R) && !resetting)
         {
-            resetting = true;
-            Invoke("reset", 5);
-            this.backgroundMusic.Stop();
-            this.resetSound.Play();
+            reset();
         }
 
         if (!this.resetting && this.GetComponent<Image>().color.a > 0)
         {
-            this.GetComponent<Image>().color = new Color(this.GetComponent<Image>().color.r, this.GetComponent<Image>().color.g, this.GetComponent<Image>().color.b, this.GetComponent<Image>().color.a - (this.speed * Time.deltaTime));
+            fadeTransition(-this.speed);
         }
 
         if (this.resetting && this.GetComponent<Image>().color.a < 255)
         {
-            this.GetComponent<Image>().color = new Color(this.GetComponent<Image>().color.r, this.GetComponent<Image>().color.g, this.GetComponent<Image>().color.b, this.GetComponent<Image>().color.a + (this.speed * Time.deltaTime));
+            fadeTransition(this.speed);
         }
 
 	}
 
-
-    void reset()
+    void fadeTransition(float speed)
     {
-        Debug.Log("RESTART DELAY");
+        this.GetComponent<Image>().color = new Color(this.GetComponent<Image>().color.r, this.GetComponent<Image>().color.g, this.GetComponent<Image>().color.b, this.GetComponent<Image>().color.a + (speed * Time.deltaTime));
+    }
+
+
+    public void reset()
+    {
+        this.resetting = true;
+        Invoke("resetScene", 5);
+        this.playerControl.enabled = false;
+        this.backgroundMusic.Stop();
+        this.resetSound.Play();
+    }
+
+    void resetScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
