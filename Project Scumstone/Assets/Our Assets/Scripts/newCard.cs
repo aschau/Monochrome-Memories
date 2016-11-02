@@ -25,7 +25,7 @@ public class newCard : MonoBehaviour {
 
     public virtual void Start()
     {
-        newLocation = new Vector3(this.transform.position.x - 40, this.transform.position.y, this.transform.position.z);
+        newLocation = new Vector3(this.transform.position.x - 20, this.transform.position.y, this.transform.position.z);
         oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         source = GetComponent<AudioSource>();
     }
