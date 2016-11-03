@@ -34,7 +34,6 @@ public class sceneControl : MonoBehaviour {
         if (Time.timeSinceLevelLoad > 1 && Input.GetKey(KeyCode.R) && !resetting)
         {
             reset();
-            this.resetting = false;
         }
 
         if (!this.resetting && this.GetComponent<Image>().color.a > 0)

@@ -27,6 +27,9 @@ public class playerCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.position = new Vector3(player.transform.position.x + offset.x, this.transform.position.y, player.transform.position.z + offset.z);
+        if (this.player.gameObject.activeSelf)
+        {
+            this.transform.position = new Vector3(player.transform.position.x + offset.x, this.transform.position.y, player.transform.position.z + offset.z);
+        }
 	}
 }

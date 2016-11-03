@@ -28,7 +28,7 @@ public class playerController : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && (this.player1.activeSelf && this.player2.activeSelf))
         {
             if (playerNumber == 1)
             {
@@ -39,11 +39,24 @@ public class playerController : MonoBehaviour {
 
             else if (playerNumber == 2)
             {
-
                 playerNumber = 1;
                 topCover.SetActive(false);
                 bottomCover.SetActive(true);
             }
+        }
+
+        else if (!this.player1.activeSelf && this.player2.activeSelf)
+        {
+            playerNumber = 2;
+            bottomCover.SetActive(false);
+            topCover.SetActive(true);
+        }
+
+        else if (this.player1.activeSelf && !this.player2.activeSelf)
+        {
+            playerNumber = 1;
+            topCover.SetActive(false);
+            bottomCover.SetActive(true);
         }
     }   
 
