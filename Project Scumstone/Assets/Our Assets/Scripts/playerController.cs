@@ -6,6 +6,8 @@ public class playerController : MonoBehaviour {
     public float jumpSpeed = 200f;
     public float originalMoveSpeed;
     public float originalJumpSpeed;
+    public GameObject topCover;
+    public GameObject bottomCover;
 
     private static int playerNumber = 1;
     private GameObject player1, player2;
@@ -14,10 +16,13 @@ public class playerController : MonoBehaviour {
     {
         this.player1 = GameObject.Find("Player");
         this.player2 = GameObject.Find("Player 2");
+        //bottomCover.SetActive(false);
+        
     }
 
 	// Use this for initialization
 	void Start () {
+        topCover.SetActive(false);
         originalMoveSpeed = moveSpeed;
         originalJumpSpeed = jumpSpeed;
 	}
@@ -34,11 +39,16 @@ public class playerController : MonoBehaviour {
             if (playerNumber == 1)
             {
                 playerNumber = 2;
+                bottomCover.SetActive(false);
+                topCover.SetActive(true);
             }
 
             else if (playerNumber == 2)
             {
+                
                 playerNumber = 1;
+                topCover.SetActive(false);
+                bottomCover.SetActive(true);
             }
         }
 

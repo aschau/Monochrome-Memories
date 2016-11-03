@@ -11,6 +11,7 @@ public class newCard : MonoBehaviour {
     public AudioClip cardSound;
     public float volume;
     AudioSource source;
+    public GameObject[] cards;
 
     [HideInInspector]
     public string blackEffect, whiteEffect;
@@ -25,7 +26,7 @@ public class newCard : MonoBehaviour {
 
     public virtual void Start()
     {
-        newLocation = new Vector3(this.transform.position.x - 40, this.transform.position.y, this.transform.position.z);
+        newLocation = new Vector3(this.transform.position.x - 20, this.transform.position.y, this.transform.position.z);
         oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         source = GetComponent<AudioSource>();
     }
@@ -59,7 +60,24 @@ public class newCard : MonoBehaviour {
     public virtual void onClick()
     {
         this.isClicked = !(this.isClicked);
+        cards = GameObject.FindGameObjectsWithTag("gameCards");
+        if (this.isClicked == true)
+        {
+            foreach (GameObject card in cards)
+            {
+                if (card.name != this.name)
+                {
+                    card.GetComponent<newCard>().turnOff();
+                }
+            }
+        }
 
+    }
+    public virtual void turnOff()
+    {
+        this.isClicked = false;
+        this.GetComponent<Image>().sprite = currentImage;
+        this.transform.position = oldLocation;
     }
 
 

@@ -6,6 +6,7 @@ public class moveObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
 	    if (!this.activated)
         {
             this.GetComponent<Rigidbody2D>().isKinematic = true;

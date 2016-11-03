@@ -7,8 +7,8 @@ public class gravityCard2 : newCard {
     public override void Start()
     {
         base.Start();
-        base.whiteEffect = "floatBlock";
-        base.blackEffect = "fallBlock";
+        base.whiteEffect = "fallBlock";
+        base.blackEffect = "floatBlock";
     }
 
     public override void Update()
@@ -24,7 +24,7 @@ public class gravityCard2 : newCard {
                 {
                     if (hit.transform.CompareTag(base.blackEffect))
                     {
-                        hit.transform.GetComponent<fallObject>().activated = true;
+                        hit.transform.GetComponent<floatObject>().activated = true;
                         base.checkDualActivation(hit, "camera1");
                     }
 
@@ -37,7 +37,7 @@ public class gravityCard2 : newCard {
                     {
                         if (hit.transform.CompareTag(base.whiteEffect))
                         {
-                            hit.transform.GetComponent<floatObject>().activated = true;
+                            hit.transform.GetComponent<fallObject>().activated = true;
                             base.checkDualActivation(hit, "camera2");
                         }
                     }
