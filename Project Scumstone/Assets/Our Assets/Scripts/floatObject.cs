@@ -53,4 +53,12 @@ public class floatObject : MonoBehaviour {
             other.transform.position = new Vector2(other.transform.position.x, other.transform.position.y + this.changedY);
         }
     }
+    void OnCollisionExit2D(Collision2D other)
+    {
+
+        if (other.transform.tag == "pushBlock")
+        {
+            other.transform.GetComponent<Rigidbody2D>().gravityScale = 1;
+        }
+    }
 }

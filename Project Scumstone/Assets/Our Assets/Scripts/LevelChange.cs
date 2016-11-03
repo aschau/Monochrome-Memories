@@ -9,6 +9,7 @@ public class LevelChange : MonoBehaviour {
     AudioSource source;
     public GameObject player1;
     public GameObject player2;
+    public int finished = 0;
 	// Use this for initialization
 	void Start () {
         source = GetComponent<AudioSource>();
@@ -23,21 +24,25 @@ public class LevelChange : MonoBehaviour {
     {
         if (other.name == "Player")
         {
-            display = other.GetComponent<SpriteRenderer>();
-            other.GetComponent<playerController>().moveSpeed = 0;
-            display.enabled = false;
+            //display = other.GetComponent<SpriteRenderer>();
+            //other.GetComponent<playerController>().moveSpeed = 0;
+            //display.enabled = false;
+            player1.SetActive(false);
+            this.finished += 1;
             source.PlayOneShot(doorSound, volume);
             yield return new WaitForSeconds(0.2f);
         }
         if (other.name == "Player 2")
         {
-            display = other.GetComponent<SpriteRenderer>();
-            other.GetComponent<playerController>().moveSpeed = 0;
-            display.enabled = false;
+            //display = other.GetComponent<SpriteRenderer>();
+            //other.GetComponent<playerController>().moveSpeed = 0;
+            //display.enabled = false;
+            player2.SetActive(false);
+            this.finished += 1;
             source.PlayOneShot(doorSound, volume);
             yield return new WaitForSeconds(0.2f);
         }
-        if (player1.GetComponent<playerController>().moveSpeed == 0 && player2.GetComponent<playerController>().moveSpeed == 0)
+        if (this.finished >= 2)
         {
             SceneManager.LoadScene("Level 2");
         }

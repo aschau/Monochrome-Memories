@@ -17,15 +17,15 @@ public class Transport : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "pushBlock")
-        {
-            test = other.gameObject;
-            ///Destroy(other);
-            other.transform.position = newPlace.position;
-        }
-        else if (other.tag == "Player")
+        if (other.tag == "Player")
         {
             this.GetComponent<BoxCollider2D>().isTrigger = false;
+        }
+        else if (other.tag == "pushBlock" || other.tag == "floatBlock" || other.tag == "fallBlock")
+        {
+            test = other.gameObject;
+            other.transform.position = newPlace.position;
+
         }
     }
     void OnTriggerStay2D(Collider2D other)

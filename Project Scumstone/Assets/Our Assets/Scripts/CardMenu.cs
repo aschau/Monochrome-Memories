@@ -14,25 +14,14 @@ public class CardMenu: MonoBehaviour
     public float volume;
     AudioSource source;
 
-    public GameObject pushJumpCard = null;
-    public GameObject floatFallCard = null;
-    public GameObject makeBreakCard = null;
-    public GameObject moveStopCard = null;
-    public List<GameObject> cards;
+    public GameObject[] cards;
 
     public virtual void Awake()
     {
-        cards = new List<GameObject>();
-        cards.Add(pushJumpCard);
-        cards.Add(floatFallCard);
-        cards.Add(makeBreakCard);
-        cards.Add(moveStopCard);
+        this.cards = GameObject.FindGameObjectsWithTag("gameCards");
         foreach (GameObject card in cards)
         {
-            if (card != null)
-            {
-                card.SetActive(false);
-            }
+            card.SetActive(false);
         }
     }
 
@@ -73,12 +62,10 @@ public class CardMenu: MonoBehaviour
         if (isClicked == true)
         {
             this.GetComponent<Image>().sprite = newImage;
-            foreach (GameObject card in cards)
+            foreach (GameObject card in this.cards)
             {
-                if (card != null)
-                {
-                    card.SetActive(true);
-                }
+                card.SetActive(true);
+
             }
         }
         else
@@ -86,10 +73,9 @@ public class CardMenu: MonoBehaviour
             this.GetComponent<Image>().sprite = currentImage;
             foreach (GameObject card in cards)
             {
-                if (card != null)
-                {
-                    card.SetActive(false);
-                }
+                card.GetComponent<newCard>().turnOff();
+                card.SetActive(false);
+
             }
         }
         source.PlayOneShot(cardSound, volume);
