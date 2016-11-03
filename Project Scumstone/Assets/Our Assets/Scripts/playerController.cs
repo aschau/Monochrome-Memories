@@ -6,34 +6,28 @@ public class playerController : MonoBehaviour {
     public float jumpSpeed = 200f;
     public float originalMoveSpeed;
     public float originalJumpSpeed;
-    public GameObject topCover;
-    public GameObject bottomCover;
 
     private static int playerNumber = 1;
     private GameObject player1, player2;
+    private GameObject topCover, bottomCover;
 
     void Awake()
     {
         this.player1 = GameObject.Find("Player");
         this.player2 = GameObject.Find("Player 2");
-        //bottomCover.SetActive(false);
-        
+        this.topCover = GameObject.Find("topImage");
+        this.bottomCover = GameObject.Find("bottomImage");
     }
 
 	// Use this for initialization
 	void Start () {
-        topCover.SetActive(false);
-        originalMoveSpeed = moveSpeed;
-        originalJumpSpeed = jumpSpeed;
+        this.topCover.SetActive(false);
+        this.originalMoveSpeed = this.moveSpeed;
+        this.originalJumpSpeed = this.jumpSpeed;
 	}
 
     void Update()
     {
-
-    }   
-
-	// Update is called once per frame
-	void FixedUpdate () {
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (playerNumber == 1)
@@ -45,13 +39,16 @@ public class playerController : MonoBehaviour {
 
             else if (playerNumber == 2)
             {
-                
+
                 playerNumber = 1;
                 topCover.SetActive(false);
                 bottomCover.SetActive(true);
             }
         }
+    }   
 
+	// Update is called once per frame
+	void FixedUpdate () {
         if (Input.GetKey(KeyCode.D))
         {
             if (playerNumber == 1)
