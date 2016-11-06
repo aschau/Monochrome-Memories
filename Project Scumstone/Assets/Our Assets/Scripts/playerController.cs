@@ -22,6 +22,7 @@ public class playerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         this.topCover.SetActive(false);
+        playerNumber = 1;
         this.originalMoveSpeed = this.moveSpeed;
         this.originalJumpSpeed = this.jumpSpeed;
 	}
