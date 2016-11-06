@@ -78,6 +78,7 @@ public class newCard : MonoBehaviour {
         this.isClicked = false;
         this.GetComponent<Image>().sprite = currentImage;
         this.transform.position = oldLocation;
+        this.particleDeactivate();
     }
 
 
