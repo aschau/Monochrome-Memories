@@ -70,6 +70,8 @@ public class newCard : MonoBehaviour {
                     card.GetComponent<newCard>().turnOff();
                 }
             }
+
+            particleActivate();
         }
 
     }
