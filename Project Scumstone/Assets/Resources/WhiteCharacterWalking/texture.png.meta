@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 1b9146e51b343a941b863bd6cad91058
-timeCreated: 1475963249
+guid: 0a7f4b5c4b5758342ad2c112685dc936
+timeCreated: 1478383765
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: WhiteSprite_0
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -31,46 +30,28 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: 1
     mipBias: -1
-    wrapMode: 1
-  nPOTScale: 0
+    wrapMode: 0
+  nPOTScale: 1
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 215, y: 205, z: 269, w: 88}
-  spritePixelsToUnits: 90
-  alphaIsTransparency: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
-  buildTargetSettings:
-  - buildTarget: Standalone
-    maxTextureSize: 2048
-    textureFormat: -3
-    compressionQuality: 50
-    allowsAlphaSplitting: 0
+  textureType: 0
+  buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: WhiteSprite_0
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 209
-        width: 112
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 

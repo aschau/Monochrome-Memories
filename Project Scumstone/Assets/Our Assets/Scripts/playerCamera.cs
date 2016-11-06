@@ -20,7 +20,7 @@ public class playerCamera : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        this.transform.position = new Vector3(this.player.transform.position.x, this.player.transform.position.y + this.player.GetComponent<SpriteRenderer>().bounds.size.y, this.transform.position.z);
+        this.transform.position = new Vector3(this.player.transform.position.x, this.player.transform.position.y + this.player.GetComponent<Collider2D>().bounds.size.y/2, this.transform.position.z);
         offset = this.transform.position - player.transform.position;
 
 	}
@@ -29,7 +29,7 @@ public class playerCamera : MonoBehaviour {
 	void Update () {
         if (this.player.gameObject.activeSelf)
         {
-            this.transform.position = new Vector3(player.transform.position.x + offset.x, this.transform.position.y, player.transform.position.z + offset.z);
+            this.transform.position = new Vector3(player.transform.position.x + offset.x, player.transform.position.y + this.offset.y, player.transform.position.z + offset.z);
         }
 	}
 }
