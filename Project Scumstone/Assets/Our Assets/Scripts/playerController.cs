@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour {
     private static int playerNumber = 1;
     private GameObject player1, player2;
     private GameObject topCover, bottomCover;
+    private bool isMoving = false;
 
     void Awake()
     {
@@ -68,6 +69,10 @@ public class playerController : MonoBehaviour {
             if (playerNumber == 1)
             {
                 this.player1.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
+                //this.player1.GetComponent<SpriteRenderer>().enabled = false;
+                //this.player1.transform.FindChild("Armature").gameObject.SetActive(true);
+                //this.player1.transform.FindChild("Armature").localScale = new Vector3(Mathf.Abs(this.player1.transform.localScale.x), this.player1.transform.localScale.y, this.player1.transform.localScale.z);
+                //this.player1.GetComponent<SpriteRenderer>().flipX = false;
             }
 
             else if (playerNumber == 2)
@@ -76,11 +81,21 @@ public class playerController : MonoBehaviour {
             }
         }
 
+        //else if (Input.GetKeyUp(KeyCode.D))
+        //{
+        //    this.player1.transform.FindChild("Armature").gameObject.SetActive(false);
+        //    this.player1.GetComponent<SpriteRenderer>().enabled = true;
+        //}
+
         else if (Input.GetKey(KeyCode.A))
         {
             if (playerNumber == 1)
             {
                 this.player1.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
+                //this.player1.GetComponent<SpriteRenderer>().enabled = false;
+                //this.player1.transform.FindChild("Armature").gameObject.SetActive(true);
+                //this.player1.transform.FindChild("Armature").localScale = new Vector3(-Mathf.Abs(this.player1.transform.localScale.x), this.player1.transform.localScale.y, this.player1.transform.localScale.z);
+                //this.player1.GetComponent<SpriteRenderer>().flipX = true;
             }
 
             else if (playerNumber == 2)
@@ -89,8 +104,15 @@ public class playerController : MonoBehaviour {
             }
         }
 
-        if (Input.GetKey(KeyCode.W))
+        //else if (Input.GetKeyUp(KeyCode.A))
+        //{
+        //    this.player1.transform.FindChild("Armature").gameObject.SetActive(false);
+        //    this.player1.GetComponent<SpriteRenderer>().enabled = true;
+        //}
+
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
         {
+
             if (this.player1.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && playerNumber == 1)
             {
                 this.player1.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;

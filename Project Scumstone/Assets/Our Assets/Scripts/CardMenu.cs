@@ -16,7 +16,7 @@ public class CardMenu: MonoBehaviour
 
     public GameObject[] cards;
 
-    public virtual void Awake()
+    public void Awake()
     {
         this.cards = GameObject.FindGameObjectsWithTag("gameCards");
         foreach (GameObject card in cards)
@@ -25,7 +25,7 @@ public class CardMenu: MonoBehaviour
         }
     }
 
-    public virtual void Start()
+    public void Start()
     {
         newLocation = new Vector3(this.transform.position.x - 10, this.transform.position.y, this.transform.position.z);
         oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
@@ -33,12 +33,12 @@ public class CardMenu: MonoBehaviour
     }
 
     // Update is called once per frame
-    public virtual void Update()
+    public void Update()
     {
 
     }
 
-    public virtual void onPointerEnter()
+    public void onPointerEnter()
     {
         //this.GetComponent<Image>().sprite = newImage;
         this.transform.position = newLocation;
@@ -46,7 +46,7 @@ public class CardMenu: MonoBehaviour
         //yield return new WaitForSeconds(0.2f);
     }
 
-    public virtual void onPointerExit()
+    public void onPointerExit()
     {
         if (this.isClicked == false)
         {
@@ -56,7 +56,7 @@ public class CardMenu: MonoBehaviour
 
     }
 
-    public virtual void onClick()
+    public void onClick()
     {
         this.isClicked = !(this.isClicked);
         if (isClicked == true)
