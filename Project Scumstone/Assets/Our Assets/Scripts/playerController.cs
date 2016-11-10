@@ -10,7 +10,7 @@ public class playerController : MonoBehaviour {
     private static int playerNumber = 1;
     private GameObject player1, player2;
     private GameObject topCover, bottomCover;
-    private bool isMoving = false;
+    //private bool isMoving = false;
 
     void Awake()
     {
