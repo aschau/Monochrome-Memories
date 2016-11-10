@@ -4,7 +4,7 @@ using System.Collections;
 public class fallObject : MonoBehaviour {
     public bool activated = false;
     public float speed = 5f;
-    private bool falling = false;
+    //private bool falling = false;
     
     // Use this for initialization
     public  void Start()
@@ -21,10 +21,10 @@ public class fallObject : MonoBehaviour {
         {
             this.GetComponent<Rigidbody2D>().isKinematic = false;
             this.transform.Translate(new Vector2(0, -this.speed * Time.deltaTime));
-            if (this.GetComponent<moveObject>())
+           /* if (this.GetComponent<moveObject>())
             {
                 this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-            }
+            }*/
         }
     }
 

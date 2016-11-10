@@ -6,7 +6,7 @@ public class floatObject : MonoBehaviour {
     public float speed = 5f;
     public float variance = 0f;
     private float originalY = 0f;
-    private float changedY = 0f;
+    //private float changedY = 0f;
 
     // Use this for initialization
     public void Start()
@@ -27,7 +27,6 @@ public class floatObject : MonoBehaviour {
             if (this.transform.position.y <= (this.originalY + this.variance))
             {
                 this.transform.Translate(new Vector2(0, this.speed * Time.deltaTime));
-                this.changedY = this.speed * Time.deltaTime;
             }
         }
     }
