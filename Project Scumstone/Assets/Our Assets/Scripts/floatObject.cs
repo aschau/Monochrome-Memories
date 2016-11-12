@@ -5,7 +5,7 @@ public class floatObject : MonoBehaviour {
     public bool activated = false;
     public float speed = 5f;
     public float variance = 0f;
-    private float originalY = 0f;
+    public float originalY = 0f;
     //private float changedY = 0f;
 
     // Use this for initialization
@@ -31,4 +31,12 @@ public class floatObject : MonoBehaviour {
         }
     }
 
+    void OnCollisionEnter(Collision2D other)
+    {
+        if (other.transform.tag == "transporter")
+        {
+            this.GetComponent<fallObject>().originalPlace = other.transform.GetComponent<Transport>().newPlace.position.y;
+        }
+        this.activated = false;
+    }
 }

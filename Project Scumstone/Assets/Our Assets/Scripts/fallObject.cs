@@ -5,7 +5,7 @@ public class fallObject : MonoBehaviour {
     public bool activated = false;
     public float speed = 5f;
     public float variance;
-    private float originalPlace;
+    public float originalPlace;
     //private bool falling = false;
     
     // Use this for initialization
@@ -36,8 +36,9 @@ public class fallObject : MonoBehaviour {
     {
         if (other.transform.tag == "transporter")
         {
-            this.originalPlace = other.transform.GetComponent<Transport>().newPlace.position.y; 
+            this.GetComponent<floatObject>().originalY = other.transform.GetComponent<Transport>().newPlace.position.y; 
         }
+        this.activated = false;
         //this.activated = false;
     }
 }

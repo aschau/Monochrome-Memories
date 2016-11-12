@@ -28,7 +28,7 @@ public class Transport : MonoBehaviour {
         {
             this.GetComponent<BoxCollider2D>().isTrigger = false;
         }
-        else if (other.tag == "pushBlock" || other.tag == "jumpBlock" || other.tag == "floatBlock")
+        else if (other.tag == "pushBlock" || other.tag == "jumpBlock" || other.tag == "floatBlock" || other.tag == "fallBlock")
         {
             other.transform.position = newPlace.position;
 
