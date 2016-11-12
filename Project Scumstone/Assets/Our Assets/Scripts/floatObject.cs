@@ -24,7 +24,7 @@ public class floatObject : MonoBehaviour {
     {
         if (this.activated)
         {
-            if (this.transform.position.y <= (this.originalY + this.variance))
+            if (this.transform.position.y <= (this.originalY + this.variance) && (this.transform.position.y >= this.originalY))
             {
                 this.transform.Translate(new Vector2(0, this.speed * Time.deltaTime));
             }
