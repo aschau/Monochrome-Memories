@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class sceneControl : MonoBehaviour {
     public float speed = .5f;
+    public float resetTime = 5f;
     public AudioSource backgroundMusic, resetSound;
     public string nextLevel;
     
@@ -68,7 +69,7 @@ public class sceneControl : MonoBehaviour {
         this.resetting = true;
         this.topCover.SetActive(false);
         this.bottomCover.SetActive(false);
-        Invoke("resetScene", 5);
+        Invoke("resetScene", this.resetTime);
         this.playerControl.enabled = false;
         this.backgroundMusic.Stop();
         this.resetSound.Play();
