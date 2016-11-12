@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Transport : MonoBehaviour {
-    public GameObject test;
     public GameObject player;
     public Transform newPlace;
 	// Use this for initialization
@@ -15,20 +14,27 @@ public class Transport : MonoBehaviour {
         this.GetComponent<BoxCollider2D>().isTrigger = true;
 	}
 
+    /*void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.tag == "pushBlock" || other.transform.tag == "jumpBlock")
+        {
+            other.transform.position = newPlace.position;
+        }
+    }*/
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             this.GetComponent<BoxCollider2D>().isTrigger = false;
         }
-        else if (other.tag == "pushBlock" || other.tag == "jumpBlock")
+        else if (other.tag == "pushBlock" || other.tag == "jumpBlock" || other.tag == "floatBlock")
         {
-            test = other.gameObject;
             other.transform.position = newPlace.position;
 
         }
     }
-    void OnTriggerStay2D(Collider2D other)
+    /*void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
             this.GetComponent<BoxCollider2D>().isTrigger = false;
@@ -36,6 +42,6 @@ public class Transport : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other)
     {
         this.GetComponent<BoxCollider2D>().isTrigger = true;
-    }
+    }*/
 
 }

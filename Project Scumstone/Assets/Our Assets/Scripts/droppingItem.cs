@@ -2,12 +2,17 @@
 using System.Collections;
 
 public class droppingItem : MonoBehaviour {
-    public Vector2 originalPosition;
+    private Vector2 originalPosition;
     public AudioClip breakingSound;
-    public AudioSource source;
+    private AudioSource source;
+
+    public bool regenerate;
 	// Use this for initialization
-	void Start () {
+
+    void Start () {
         originalPosition = this.transform.position;
+        //if (this.transform.childCount >= 1)
+            //this.transform.GetComponentInChildren<ParticleSystem>().Stop();
 	}
 	
 	// Update is called once per frame
@@ -27,10 +32,23 @@ public class droppingItem : MonoBehaviour {
         }
         else if (other.transform.tag != "pushBlock")
         {
-            this.transform.position = originalPosition;
-            this.transform.GetComponent<Rigidbody2D>().isKinematic = true;
             source = GetComponent<AudioSource>();
             source.Play();
+            if (regenerate == true)
+            {
+                this.transform.position = originalPosition;
+                this.transform.GetComponent<Rigidbody2D>().isKinematic = true;
+            }
+            else
+            {
+                if (this.transform.childCount >= 1)
+                {
+                    this.transform.DetachChildren();
+                }
+                this.transform.GetComponent<BoxCollider2D>().enabled = false;
+                this.transform.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            
         }
     }
 }
