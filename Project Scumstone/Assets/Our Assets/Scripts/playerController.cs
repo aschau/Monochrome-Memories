@@ -3,14 +3,13 @@ using System.Collections;
 
 public class playerController : MonoBehaviour {
     public float moveSpeed = 3f;
-    public float jumpSpeed = 200f;
+    public float p1JumpSpeed = 200f, p2JumpSpeed = 200f;
     public float originalMoveSpeed;
     public float originalJumpSpeed;
 
     private static int playerNumber = 1;
     private GameObject player1, player2;
     private GameObject topCover, bottomCover;
-    //private bool isMoving = false;
 
     void Awake()
     {
@@ -25,7 +24,7 @@ public class playerController : MonoBehaviour {
         this.topCover.SetActive(false);
         playerNumber = 1;
         this.originalMoveSpeed = this.moveSpeed;
-        this.originalJumpSpeed = this.jumpSpeed;
+        this.originalJumpSpeed = this.p1JumpSpeed;
 	}
 
     void Update()
@@ -116,13 +115,13 @@ public class playerController : MonoBehaviour {
             if (this.player1.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && playerNumber == 1)
             {
                 this.player1.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
-                this.player1.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+                this.player1.GetComponent<Rigidbody2D>().AddForce(Vector2.up * p1JumpSpeed);
             }
 
             else if (this.player2.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && playerNumber == 2)
             {
                 this.player2.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
-                this.player2.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+                this.player2.GetComponent<Rigidbody2D>().AddForce(Vector2.up * p2JumpSpeed);
             }
 
         }

@@ -29,7 +29,15 @@ public class groundCheck: MonoBehaviour {
                 if (other.GetComponent<jumpObject>().activated)
                 {
                     Debug.Log("JUMP");
-                    this.controller.jumpSpeed = this.controller.originalJumpSpeed * other.GetComponent<jumpObject>().multiplier;
+                    if (this.transform.parent.name == "Player")
+                    {
+                        this.controller.p1JumpSpeed = this.controller.originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
+                    }
+
+                    else
+                    {
+                        this.controller.p2JumpSpeed = this.controller.originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
+                    }
                 }
             }
         }
@@ -43,8 +51,15 @@ public class groundCheck: MonoBehaviour {
         {
             if (other.GetComponentInParent<jumpObject>().activated)
             {
-                Debug.Log("JUMP");
-                this.controller.jumpSpeed = this.controller.originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
+                if (this.transform.parent.name == "Player")
+                {
+                    this.controller.p1JumpSpeed = this.controller.originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
+                }
+
+                else
+                {
+                    this.controller.p2JumpSpeed = this.controller.originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
+                }
             }
         }
     }
@@ -58,7 +73,15 @@ public class groundCheck: MonoBehaviour {
             if (other.GetComponentInParent<jumpObject>().activated)
             {
                 Debug.Log("JUMP");
-                this.controller.jumpSpeed = this.controller.originalJumpSpeed;
+                if (this.transform.parent.name == "Player")
+                {
+                    this.controller.p1JumpSpeed = this.controller.originalJumpSpeed;
+                }
+
+                else
+                {
+                    this.controller.p2JumpSpeed = this.controller.originalJumpSpeed;
+                }
             }
         }
     }

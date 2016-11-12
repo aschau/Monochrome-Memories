@@ -3,11 +3,14 @@ using System.Collections;
 
 public class jumpPushCard : newCard {
     private RaycastHit2D hit;
+    //private GameObject topImage, bottomImage;
 	// Use this for initialization
 	public override void Start () {
         base.Start();
         base.whiteEffect = "jumpBlock";
         base.blackEffect = "pushBlock";
+        //this.topImage = GameObject.Find("topImage");
+        //this.bottomImage = GameObject.Find("bottomImage");
 	}
 
     public override void Update()
@@ -18,18 +21,22 @@ public class jumpPushCard : newCard {
         {
             if (Input.GetMouseButtonDown(0))
             {
-                hit = checkHit(camera1);
-                if (hit)
+                if (!GameObject.Find("topImage"))
                 {
-                    if (hit.transform.CompareTag(base.blackEffect))
+                    hit = checkHit(camera1);
+                    if (hit)
                     {
-                        hit.transform.GetComponent<moveObject>().activated = true;
-                        base.checkDualActivation(hit, "camera1");
-                    }
+                        if (hit.transform.CompareTag(base.blackEffect))
+                        {
+                            hit.transform.GetComponent<moveObject>().activated = true;
+                            base.checkDualActivation(hit, "camera1");
+                        }
 
+                    }
                 }
 
-                else
+
+                else if (!GameObject.Find("bottomImage"))
                 {
                     hit = checkHit(camera2);
                     if (hit)

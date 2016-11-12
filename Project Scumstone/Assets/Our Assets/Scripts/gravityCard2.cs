@@ -19,18 +19,21 @@ public class gravityCard2 : newCard {
         {
             if (Input.GetMouseButtonDown(0))
             {
-                hit = checkHit(camera1);
-                if (hit)
+                if (!GameObject.Find("topImage"))
                 {
-                    if (hit.transform.CompareTag(base.blackEffect))
+                    hit = checkHit(camera1);
+                    if (hit)
                     {
-                        hit.transform.GetComponent<floatObject>().activated = true;
-                        base.checkDualActivation(hit, "camera1");
-                    }
+                        if (hit.transform.CompareTag(base.blackEffect))
+                        {
+                            hit.transform.GetComponent<floatObject>().activated = true;
+                            base.checkDualActivation(hit, "camera1");
+                        }
 
+                    }
                 }
 
-                else
+                else if (!GameObject.Find("bottomImage"))
                 {
                     hit = checkHit(camera2);
                     if (hit)
