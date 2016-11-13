@@ -22,9 +22,11 @@ public class fallObject : MonoBehaviour {
     {
         if (this.activated)
         {
-            
+
             if (this.transform.position.y >= (this.originalPlace - this.variance) && this.transform.position.y <= this.originalPlace)
-                this.transform.Translate(new Vector2(0, -this.speed * Time.deltaTime));
+            { 
+                this.transform.Translate(new Vector2(0, -this.speed * Time.deltaTime)); 
+            }
            /* if (this.GetComponent<moveObject>())
             {
                 this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
@@ -32,13 +34,4 @@ public class fallObject : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D (Collision2D other)
-    {
-        if (other.transform.tag == "transporter")
-        {
-            this.GetComponent<floatObject>().originalY = other.transform.GetComponent<Transport>().newPlace.position.y; 
-        }
-        this.activated = false;
-        //this.activated = false;
-    }
 }

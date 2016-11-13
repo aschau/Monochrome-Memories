@@ -31,12 +31,5 @@ public class floatObject : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter(Collision2D other)
-    {
-        if (other.transform.tag == "transporter")
-        {
-            this.GetComponent<fallObject>().originalPlace = other.transform.GetComponent<Transport>().newPlace.position.y;
-        }
-        this.activated = false;
-    }
+
 }

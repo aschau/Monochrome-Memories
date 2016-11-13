@@ -24,7 +24,7 @@ public class gravityCard2 : newCard {
                     hit = checkHit(camera1);
                     if (hit)
                     {
-                        if (hit.transform.CompareTag(base.blackEffect))
+                        if (hit.transform.GetComponent<floatObject>() != null)
                         {
                             hit.transform.GetComponent<floatObject>().activated = true;
                             base.checkDualActivation(hit, "camera1");
@@ -38,7 +38,7 @@ public class gravityCard2 : newCard {
                     hit = checkHit(camera2);
                     if (hit)
                     {
-                        if (hit.transform.CompareTag(base.whiteEffect))
+                        if (hit.transform.GetComponent<fallObject>() != null)
                         {
                             hit.transform.GetComponent<fallObject>().activated = true;
                             base.checkDualActivation(hit, "camera2");
