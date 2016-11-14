@@ -28,6 +28,7 @@ public class sceneControl : MonoBehaviour {
     }
 
 	void Start () {
+        this.GetComponent<Image>().enabled = true;
     }
 	
 	// Update is called once per frame
