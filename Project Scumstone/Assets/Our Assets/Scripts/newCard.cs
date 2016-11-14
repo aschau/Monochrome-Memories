@@ -123,8 +123,7 @@ public abstract class newCard : MonoBehaviour {
                 {
                     if (!allObjects[i].activated1)
                     {
-                        allObjects[i].GetComponent<ParticleSystem>().Play();
-                        this.checkChildParticleActivation(allObjects[i]);
+                        allObjects[i].GetComponent<ParticleSystem>().Play(false);
                     }
                 }
 
@@ -132,8 +131,7 @@ public abstract class newCard : MonoBehaviour {
                 {
                     if (!(allObjects[i].activated1 && allObjects[i].activated2))
                     {
-                        allObjects[i].GetComponent<ParticleSystem>().Play();
-                        this.checkChildParticleActivation(allObjects[i]);
+                        allObjects[i].GetComponent<ParticleSystem>().Play(false);
                     }
                 }
             }
@@ -149,7 +147,7 @@ public abstract class newCard : MonoBehaviour {
             if (allObjects[i].CompareTag(this.blackEffect) || allObjects[i].CompareTag(this.whiteEffect))
             {
 
-                allObjects[i].GetComponent<ParticleSystem>().Stop();
+                allObjects[i].GetComponent<ParticleSystem>().Stop(false);
             }
         }
     }
@@ -203,22 +201,5 @@ public abstract class newCard : MonoBehaviour {
     public virtual void activateWhite()
     {
 
-    }
-
-    public virtual void checkChildParticleActivation(activateObject parent)
-    {
-        if (parent.transform.childCount >= 1)
-        {
-            foreach (Transform child in parent.transform)
-            {
-                if (child.GetComponent<ParticleSystem>() != null)
-                {
-                    if (child.tag != this.blackEffect || child.tag != this.whiteEffect)
-                    {
-                        child.GetComponent<ParticleSystem>().Stop();
-                    }
-                }
-            }
-        }
     }
 }
