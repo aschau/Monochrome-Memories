@@ -29,7 +29,7 @@ public class playerController : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && (this.player1.activeSelf && this.player2.activeSelf))
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.E)) && (this.player1.activeSelf && this.player2.activeSelf))
         {
             if (playerNumber == 1)
             {
