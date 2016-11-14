@@ -40,10 +40,8 @@ public class CardMenu: MonoBehaviour
 
     public void onPointerEnter()
     {
-        //this.GetComponent<Image>().sprite = newImage;
         this.transform.position = newLocation;
-
-        //yield return new WaitForSeconds(0.2f);
+        newCard.onUI = true;
     }
 
     public void onPointerExit()
@@ -54,6 +52,7 @@ public class CardMenu: MonoBehaviour
             this.transform.position = oldLocation;
         }
 
+        newCard.onUI = false;
     }
 
     public void onClick()

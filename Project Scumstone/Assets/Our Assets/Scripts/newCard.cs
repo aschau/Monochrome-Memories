@@ -2,21 +2,23 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class newCard : MonoBehaviour {
+public abstract class newCard : MonoBehaviour {
     public bool isClicked = false;
-    public Sprite currentImage;
-    public Sprite newImage;
-    public Vector3 newLocation;
-    public Vector3 oldLocation;
+    public Vector3 newLocation, oldLocation;
+    public Sprite currentImage, newImage;
     public AudioClip cardSound;
     public float volume;
     AudioSource source;
-    public GameObject[] cards;
+    public static bool onUI = false;
 
     [HideInInspector]
     public string blackEffect, whiteEffect;
     [HideInInspector]
     public GameObject camera1, camera2;
+    [HideInInspector]
+    public RaycastHit2D hit;
+
+    private GameObject[] cards;
 
     public virtual void Awake()
     {
@@ -29,12 +31,37 @@ public class newCard : MonoBehaviour {
         newLocation = new Vector3(this.transform.position.x - 20, this.transform.position.y, this.transform.position.z);
         oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         source = GetComponent<AudioSource>();
+        this.cards = GameObject.FindGameObjectsWithTag("gameCards");
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
+        if (this.isClicked && !onUI)
+        {
 
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (!GameObject.Find("topImage"))
+                {
+                    hit = checkHit(camera1);
+                    if (hit)
+                    {
+                        this.activateBlack();
+                    }
+                }
+
+
+                else if (!GameObject.Find("bottomImage"))
+                {
+                    hit = checkHit(camera2);
+                    if (hit)
+                    {
+                        this.activateWhite();
+                    }
+                }
+            }
+        }
     }
 
     public virtual void onPointerEnter()
@@ -43,26 +70,24 @@ public class newCard : MonoBehaviour {
         this.transform.position = newLocation;
         particleActivate();
         source.PlayOneShot(cardSound, volume);
-        this.GetComponent<onHover>().hovering = true;
-        //yield return new WaitForSeconds(0.2f);
+        onUI = true;
     }
 
     public virtual void onPointerExit()
     {
-        this.GetComponent<onHover>().hovering = false;
         if (this.isClicked == false)
         {
             this.GetComponent<Image>().sprite = currentImage;
             this.transform.position = oldLocation;
             particleDeactivate();
         }
-        
+
+        onUI = false;
     }
 
     public virtual void onClick()
     {
         this.isClicked = !(this.isClicked);
-        cards = GameObject.FindGameObjectsWithTag("gameCards");
         if (this.isClicked == true)
         {
             foreach (GameObject card in cards)
@@ -85,12 +110,6 @@ public class newCard : MonoBehaviour {
         this.particleDeactivate();
     }
 
-
-    /*public virtual RaycastHit2D checkClick(GameObject camera)
-    {
-        return Physics2D.Raycast(new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.y));
-    }*/
-
     public virtual void particleActivate()
     {
         activateObject[] allObjects = GameObject.FindObjectsOfType<activateObject>();
@@ -105,22 +124,7 @@ public class newCard : MonoBehaviour {
                     if (!allObjects[i].activated1)
                     {
                         allObjects[i].GetComponent<ParticleSystem>().Play();
-                        if (allObjects[i].transform.childCount >= 1)
-                        {
-                            foreach (Transform child in allObjects[i].transform)
-                            {
-                                if (child.GetComponent<ParticleSystem>() != null)
-                                {
-                                    if (child.tag != this.blackEffect || child.tag != this.whiteEffect)
-                                    {
-                                        child.GetComponent<ParticleSystem>().Stop();
-                                    }
-                                }
-
-                            }
-
-                        }
-
+                        this.checkChildParticleActivation(allObjects[i]);
                     }
                 }
 
@@ -129,21 +133,7 @@ public class newCard : MonoBehaviour {
                     if (!(allObjects[i].activated1 && allObjects[i].activated2))
                     {
                         allObjects[i].GetComponent<ParticleSystem>().Play();
-                        if (allObjects[i].transform.childCount >= 1)
-                        {
-                            foreach (Transform child in allObjects[i].transform)
-                            {
-                                if (child.GetComponent<ParticleSystem>() != null)
-                                {
-                                    if (child.tag != this.blackEffect || child.tag != this.whiteEffect)
-                                    {
-                                        child.GetComponent<ParticleSystem>().Stop();
-                                    }
-                                }
-
-                            }
-
-                        }
+                        this.checkChildParticleActivation(allObjects[i]);
                     }
                 }
             }
@@ -205,4 +195,30 @@ public class newCard : MonoBehaviour {
         }
     }
 
+    public virtual void activateBlack()
+    {
+
+    }
+
+    public virtual void activateWhite()
+    {
+
+    }
+
+    public virtual void checkChildParticleActivation(activateObject parent)
+    {
+        if (parent.transform.childCount >= 1)
+        {
+            foreach (Transform child in parent.transform)
+            {
+                if (child.GetComponent<ParticleSystem>() != null)
+                {
+                    if (child.tag != this.blackEffect || child.tag != this.whiteEffect)
+                    {
+                        child.GetComponent<ParticleSystem>().Stop();
+                    }
+                }
+            }
+        }
+    }
 }

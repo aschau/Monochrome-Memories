@@ -7,7 +7,7 @@ public class playerController : MonoBehaviour {
     public float originalMoveSpeed;
     public float originalJumpSpeed;
 
-    private static int playerNumber = 1;
+    private int playerNumber = 1;
     private GameObject player1, player2;
     private GameObject topCover, bottomCover;
 
@@ -22,7 +22,7 @@ public class playerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         this.topCover.SetActive(false);
-        playerNumber = 1;
+        this.playerNumber = 1;
         this.originalMoveSpeed = this.moveSpeed;
         this.originalJumpSpeed = this.p1JumpSpeed;
 	}

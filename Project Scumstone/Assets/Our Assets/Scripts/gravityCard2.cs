@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class gravityCard2 : newCard {
-    private RaycastHit2D hit;
-    public bool search = false;
+    //public bool search = false;
     // Use this for initialization
     public override void Start()
     {
@@ -12,54 +11,25 @@ public class gravityCard2 : newCard {
         base.blackEffect = "floatBlock";
     }
 
-    public override void Update()
+    public override void activateBlack()
     {
-        GameObject[] cards = GameObject.FindGameObjectsWithTag("gameCards");
-        foreach (GameObject card in cards)
+        base.activateBlack();
+
+        if (base.hit.transform.GetComponent<floatObject>() != null)
         {
-            if (card.GetComponent<onHover>().hovering == true)
-            {
-                search = false;
-            }
+            base.hit.transform.GetComponent<floatObject>().activated = true;
+            base.checkDualActivation(base.hit, "camera1");
         }
+    }
 
-        base.Update();
+    public override void activateWhite()
+    {
+        base.activateWhite();
 
-        if (base.isClicked)
+        if (base.hit.transform.GetComponent<fallObject>() != null)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (search == true)
-                {
-                    if (!GameObject.Find("topImage"))
-                    {
-                        hit = checkHit(camera1);
-                        if (hit)
-                        {
-                            if (hit.transform.GetComponent<floatObject>() != null)
-                            {
-                                hit.transform.GetComponent<floatObject>().activated = true;
-                                base.checkDualActivation(hit, "camera1");
-                            }
-
-                        }
-                    }
-
-                    else if (!GameObject.Find("bottomImage"))
-                    {
-                        hit = checkHit(camera2);
-                        if (hit)
-                        {
-                            if (hit.transform.GetComponent<fallObject>() != null)
-                            {
-                                hit.transform.GetComponent<fallObject>().activated = true;
-                                base.checkDualActivation(hit, "camera2");
-                            }
-                        }
-                    }
-                }
-            }
+            base.hit.transform.GetComponent<fallObject>().activated = true;
+            base.checkDualActivation(base.hit, "camera2");
         }
-        search = true;
     }
 }
