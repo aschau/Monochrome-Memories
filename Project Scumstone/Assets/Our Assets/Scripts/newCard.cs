@@ -43,11 +43,13 @@ public class newCard : MonoBehaviour {
         this.transform.position = newLocation;
         particleActivate();
         source.PlayOneShot(cardSound, volume);
+        this.GetComponent<onHover>().hovering = true;
         //yield return new WaitForSeconds(0.2f);
     }
 
     public virtual void onPointerExit()
     {
+        this.GetComponent<onHover>().hovering = false;
         if (this.isClicked == false)
         {
             this.GetComponent<Image>().sprite = currentImage;
@@ -84,10 +86,10 @@ public class newCard : MonoBehaviour {
     }
 
 
-    public virtual RaycastHit2D checkClick(GameObject camera)
+    /*public virtual RaycastHit2D checkClick(GameObject camera)
     {
         return Physics2D.Raycast(new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.y));
-    }
+    }*/
 
     public virtual void particleActivate()
     {
@@ -103,6 +105,22 @@ public class newCard : MonoBehaviour {
                     if (!allObjects[i].activated1)
                     {
                         allObjects[i].GetComponent<ParticleSystem>().Play();
+                        if (allObjects[i].transform.childCount >= 1)
+                        {
+                            foreach (Transform child in allObjects[i].transform)
+                            {
+                                if (child.GetComponent<ParticleSystem>() != null)
+                                {
+                                    if (child.tag != this.blackEffect || child.tag != this.whiteEffect)
+                                    {
+                                        child.GetComponent<ParticleSystem>().Stop();
+                                    }
+                                }
+
+                            }
+
+                        }
+
                     }
                 }
 
@@ -111,6 +129,21 @@ public class newCard : MonoBehaviour {
                     if (!(allObjects[i].activated1 && allObjects[i].activated2))
                     {
                         allObjects[i].GetComponent<ParticleSystem>().Play();
+                        if (allObjects[i].transform.childCount >= 1)
+                        {
+                            foreach (Transform child in allObjects[i].transform)
+                            {
+                                if (child.GetComponent<ParticleSystem>() != null)
+                                {
+                                    if (child.tag != this.blackEffect || child.tag != this.whiteEffect)
+                                    {
+                                        child.GetComponent<ParticleSystem>().Stop();
+                                    }
+                                }
+
+                            }
+
+                        }
                     }
                 }
             }
