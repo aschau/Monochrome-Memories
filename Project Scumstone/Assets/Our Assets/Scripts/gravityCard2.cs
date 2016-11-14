@@ -3,6 +3,7 @@ using System.Collections;
 
 public class gravityCard2 : newCard {
     private RaycastHit2D hit;
+    public bool search = false;
     // Use this for initialization
     public override void Start()
     {
@@ -13,39 +14,52 @@ public class gravityCard2 : newCard {
 
     public override void Update()
     {
+        GameObject[] cards = GameObject.FindGameObjectsWithTag("gameCards");
+        foreach (GameObject card in cards)
+        {
+            if (card.GetComponent<onHover>().hovering == true)
+            {
+                search = false;
+            }
+        }
+
         base.Update();
 
         if (base.isClicked)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (!GameObject.Find("topImage"))
+                if (search == true)
                 {
-                    hit = checkHit(camera1);
-                    if (hit)
+                    if (!GameObject.Find("topImage"))
                     {
-                        if (hit.transform.GetComponent<floatObject>() != null)
+                        hit = checkHit(camera1);
+                        if (hit)
                         {
-                            hit.transform.GetComponent<floatObject>().activated = true;
-                            base.checkDualActivation(hit, "camera1");
+                            if (hit.transform.GetComponent<floatObject>() != null)
+                            {
+                                hit.transform.GetComponent<floatObject>().activated = true;
+                                base.checkDualActivation(hit, "camera1");
+                            }
+
                         }
-
                     }
-                }
 
-                else if (!GameObject.Find("bottomImage"))
-                {
-                    hit = checkHit(camera2);
-                    if (hit)
+                    else if (!GameObject.Find("bottomImage"))
                     {
-                        if (hit.transform.GetComponent<fallObject>() != null)
+                        hit = checkHit(camera2);
+                        if (hit)
                         {
-                            hit.transform.GetComponent<fallObject>().activated = true;
-                            base.checkDualActivation(hit, "camera2");
+                            if (hit.transform.GetComponent<fallObject>() != null)
+                            {
+                                hit.transform.GetComponent<fallObject>().activated = true;
+                                base.checkDualActivation(hit, "camera2");
+                            }
                         }
                     }
                 }
             }
         }
+        search = true;
     }
 }
