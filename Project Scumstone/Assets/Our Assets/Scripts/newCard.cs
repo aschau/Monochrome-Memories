@@ -103,6 +103,22 @@ public class newCard : MonoBehaviour {
                     if (!allObjects[i].activated1)
                     {
                         allObjects[i].GetComponent<ParticleSystem>().Play();
+                        if (allObjects[i].transform.childCount >= 1)
+                        {
+                            foreach (Transform child in allObjects[i].transform)
+                            {
+                                if (child.GetComponent<ParticleSystem>() != null)
+                                {
+                                    if (child.tag != this.blackEffect || child.tag != this.whiteEffect)
+                                    {
+                                        child.GetComponent<ParticleSystem>().Stop();
+                                    }
+                                }
+
+                            }
+
+                        }
+
                     }
                 }
 
@@ -111,6 +127,21 @@ public class newCard : MonoBehaviour {
                     if (!(allObjects[i].activated1 && allObjects[i].activated2))
                     {
                         allObjects[i].GetComponent<ParticleSystem>().Play();
+                        if (allObjects[i].transform.childCount >= 1)
+                        {
+                            foreach (Transform child in allObjects[i].transform)
+                            {
+                                if (child.GetComponent<ParticleSystem>() != null)
+                                {
+                                    if (child.tag != this.blackEffect || child.tag != this.whiteEffect)
+                                    {
+                                        child.GetComponent<ParticleSystem>().Stop();
+                                    }
+                                }
+
+                            }
+
+                        }
                     }
                 }
             }
