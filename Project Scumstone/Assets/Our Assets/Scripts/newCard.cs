@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+using UnityEngine.EventSystems;
 public abstract class newCard : MonoBehaviour {
     public bool isClicked = false;
     public Vector3 newLocation, oldLocation;
@@ -9,7 +9,6 @@ public abstract class newCard : MonoBehaviour {
     public AudioClip cardSound;
     public float volume;
     AudioSource source;
-    public static bool onUI = false;
 
     [HideInInspector]
     public string blackEffect, whiteEffect;
@@ -37,7 +36,7 @@ public abstract class newCard : MonoBehaviour {
     // Update is called once per frame
     public virtual void Update()
     {
-        if (this.isClicked && !onUI)
+        if (this.isClicked && !EventSystem.current.IsPointerOverGameObject())
         {
 
             if (Input.GetMouseButtonDown(0))
@@ -70,7 +69,6 @@ public abstract class newCard : MonoBehaviour {
         this.transform.position = newLocation;
         particleActivate();
         source.PlayOneShot(cardSound, volume);
-        onUI = true;
     }
 
     public virtual void onPointerExit()
@@ -82,7 +80,6 @@ public abstract class newCard : MonoBehaviour {
             particleDeactivate();
         }
 
-        onUI = false;
     }
 
     public virtual void onClick()
