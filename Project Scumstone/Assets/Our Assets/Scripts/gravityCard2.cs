@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class gravityCard2 : newCard {
-    private RaycastHit2D hit;
+    //public bool search = false;
     // Use this for initialization
     public override void Start()
     {
@@ -11,38 +11,25 @@ public class gravityCard2 : newCard {
         base.blackEffect = "floatBlock";
     }
 
-    public override void Update()
+    public override void activateBlack()
     {
-        base.Update();
+        base.activateBlack();
 
-        if (base.isClicked)
+        if (base.hit.transform.GetComponent<floatObject>() != null)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                hit = checkHit(camera1);
-                if (hit)
-                {
-                    if (hit.transform.CompareTag(base.blackEffect))
-                    {
-                        hit.transform.GetComponent<floatObject>().activated = true;
-                        base.checkDualActivation(hit, "camera1");
-                    }
+            base.hit.transform.GetComponent<floatObject>().activated = true;
+            base.checkDualActivation(base.hit, "camera1");
+        }
+    }
 
-                }
+    public override void activateWhite()
+    {
+        base.activateWhite();
 
-                else
-                {
-                    hit = checkHit(camera2);
-                    if (hit)
-                    {
-                        if (hit.transform.CompareTag(base.whiteEffect))
-                        {
-                            hit.transform.GetComponent<fallObject>().activated = true;
-                            base.checkDualActivation(hit, "camera2");
-                        }
-                    }
-                }
-            }
+        if (base.hit.transform.GetComponent<fallObject>() != null)
+        {
+            base.hit.transform.GetComponent<fallObject>().activated = true;
+            base.checkDualActivation(base.hit, "camera2");
         }
     }
 }
