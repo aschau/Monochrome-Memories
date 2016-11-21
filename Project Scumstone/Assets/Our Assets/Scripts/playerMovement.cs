@@ -17,11 +17,17 @@ public class playerMovement : MonoBehaviour {
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
     private DragonBones.Animation anim;
 
+    void Awake()
+    {
+
+    }
+
 	// Use this for initialization
 	void Start () {
         player = "Player";
         this.originalMoveSpeed = this.moveSpeed;
         this.originalJumpSpeed = this.jumpSpeed;
+
         this.anim = this.GetComponent<UnityArmatureComponent>().animation;
 	}
 	
@@ -29,16 +35,10 @@ public class playerMovement : MonoBehaviour {
 	void Update () {
         if (this.name == player)
         {
-            //if (Input.GetKeyDown(KeyCode.D))
-            //{
-            //    //this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
-            //    this.animation.FadeIn("Walking", 0.3f);
-            //    //this.walkingRight = true;
-            //}
 
             if (Input.GetKey(KeyCode.D))
             {
-                this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+                this.GetComponent<UnityArmatureComponent>()._armature._flipX = false;
                 this.walkingRight = true;
                 this.currentDirection = Direction.Right;
 
@@ -53,16 +53,9 @@ public class playerMovement : MonoBehaviour {
                 this.walkingRight = false;
             }
 
-            //if (Input.GetKeyDown(KeyCode.A))
-            //{
-            //    //this.transform.localScale = new Vector3(-Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
-            //    this.animation.FadeIn("Walking", 0.3f);
-            //    //this.walkingLeft = true;
-            //}
-
             if (Input.GetKey(KeyCode.A))
             {
-                this.transform.localScale = new Vector3(-Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+                this.GetComponent<UnityArmatureComponent>()._armature._flipX = true;
                 this.walkingLeft = true;
                 this.currentDirection = Direction.Left;
                 if (this.currentDirection != this.lastDirection)
@@ -84,6 +77,7 @@ public class playerMovement : MonoBehaviour {
             else
             {
                 this.idle = true;
+                this.currentDirection = Direction.None;
             }
 
             if (this.idle && this.idleReady)
@@ -100,29 +94,12 @@ public class playerMovement : MonoBehaviour {
     {
         if (this.name == player && this.walkingRight && !this.walkingLeft)
         {
-            if (this.transform.localScale.x < 0)
-            {
-                this.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
-            }
-
-            else
-            {
-                this.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
-            }
+            this.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
         }
 
         else if (this.name == player && this.walkingLeft && !this.walkingRight)
         {
-            if (this.transform.localScale.x < 0)
-            {
-                this.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
-            }
-
-            else
-            {
-                this.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
-            }
-
+            this.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
         }
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
