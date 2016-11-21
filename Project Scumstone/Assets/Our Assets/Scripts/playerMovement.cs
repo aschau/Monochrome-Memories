@@ -10,7 +10,7 @@ public enum Direction
 }
 
 public class playerMovement : MonoBehaviour {
-    public static string player = "Player";
+    public static string player;
 
     public float moveSpeed = 3f, jumpSpeed = 200f, originalMoveSpeed, originalJumpSpeed;
     private bool walkingLeft, walkingRight, idle, idleReady = false;
@@ -19,6 +19,7 @@ public class playerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        player = "Player";
         this.originalMoveSpeed = this.moveSpeed;
         this.originalJumpSpeed = this.jumpSpeed;
         this.anim = this.GetComponent<UnityArmatureComponent>().animation;
@@ -73,8 +74,6 @@ public class playerMovement : MonoBehaviour {
             {
                 this.walkingLeft = false;
             }
-
-            Debug.Log(this.currentDirection);
 
             if (this.walkingLeft ^ this.walkingRight)
             {
@@ -136,5 +135,13 @@ public class playerMovement : MonoBehaviour {
             }
 
         }
+    }
+
+    public void stopMoving()
+    {
+        this.walkingLeft = false;
+        this.walkingRight = false;
+        this.idle = true;
+        this.anim.FadeIn("Idle", 0.5f);
     }
 }

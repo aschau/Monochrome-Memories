@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class sceneControl : MonoBehaviour {
     public float speed = .5f;
     public float resetTime = 5f;
-    public AudioSource backgroundMusic, resetSound;
     public string nextLevel;
-    
+    [HideInInspector]
+    public AudioSource backgroundMusic, resetSound;
+
     private bool resetting = false;
     private Color color;
     private playerController playerControl;
+    private playerMovement player1, player2;
     private GameObject topCover, bottomCover;
     private endLevelObject endlevel1, endlevel2;
 
@@ -25,6 +27,8 @@ public class sceneControl : MonoBehaviour {
         this.bottomCover = GameObject.Find("bottomImage");
         this.endlevel1 = GameObject.Find("endLevel1").GetComponent<endLevelObject>();
         this.endlevel2 = GameObject.Find("endLevel2").GetComponent<endLevelObject>();
+        this.player1 = GameObject.Find("Player").GetComponent<playerMovement>();
+        this.player2 = GameObject.Find("Player 2").GetComponent<playerMovement>();
     }
 
 	void Start () {
@@ -72,6 +76,8 @@ public class sceneControl : MonoBehaviour {
         this.bottomCover.SetActive(false);
         Invoke("resetScene", this.resetTime);
         this.playerControl.enabled = false;
+        this.player1.enabled = false;
+        this.player2.enabled = false;
         this.backgroundMusic.Stop();
         this.resetSound.Play();
     }

@@ -4,19 +4,19 @@ using UnityEngine.UI;
 
 public class playerController : MonoBehaviour {
     private GameObject player1, player2;
-    private Image topCover, bottomCover;
+    private GameObject topCover, bottomCover;
 
     void Awake()
     {
         this.player1 = GameObject.Find("Player");
         this.player2 = GameObject.Find("Player 2");
-        this.topCover = GameObject.Find("topImage").GetComponent<Image>();
-        this.bottomCover = GameObject.Find("bottomImage").GetComponent<Image>();
+        this.topCover = GameObject.Find("topImage");
+        this.bottomCover = GameObject.Find("bottomImage");
     }
 
 	// Use this for initialization
 	void Start () {
-        this.bottomCover.enabled = true;
+        this.topCover.SetActive(false);
 	}
 
     void Update()
@@ -26,30 +26,34 @@ public class playerController : MonoBehaviour {
             if (playerMovement.player == "Player")
             {
                 playerMovement.player = "Player 2";
-                bottomCover.enabled = false;
-                topCover.enabled = true;
+                player1.GetComponent<playerMovement>().stopMoving();
+                bottomCover.SetActive(false);
+                topCover.SetActive(true);
             }
 
             else if (playerMovement.player == "Player 2")
             {
                 playerMovement.player = "Player";
-                topCover.enabled = false;
-                bottomCover.enabled = true;
+                player2.GetComponent<playerMovement>().stopMoving();
+                topCover.SetActive(false);
+                bottomCover.SetActive(true);
             }
         }
 
         else if (!this.player1.activeSelf && this.player2.activeSelf)
         {
             playerMovement.player = "Player 2";
-            bottomCover.enabled = false;
-            topCover.enabled = true;
+            player1.GetComponent<playerMovement>().stopMoving();
+            bottomCover.SetActive(false);
+            topCover.SetActive(true);
         }
 
         else if (this.player1.activeSelf && !this.player2.activeSelf)
         {
             playerMovement.player = "Player";
-            topCover.enabled = false;
-            bottomCover.enabled = true;
+            player2.GetComponent<playerMovement>().stopMoving();
+            topCover.SetActive(false);
+            bottomCover.SetActive(true);
         }
     }   
 }
