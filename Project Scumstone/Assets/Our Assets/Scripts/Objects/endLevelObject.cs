@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class endLevelObject : MonoBehaviour {
     public bool activated = false;
@@ -24,4 +25,5 @@ public class endLevelObject : MonoBehaviour {
             this.activated = true;
         }
     }
+
 }

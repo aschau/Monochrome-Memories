@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 98bba0c24eb0df6429ea13b8bb0679ef
-timeCreated: 1479429349
+guid: 081c9f89b302b4240980b70bd016d9a5
+timeCreated: 1479812047
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: tutorials_0
-    21300002: tutorials_1
-    21300004: tutorials_2
-    21300006: tutorials_3
-    21300008: tutorials_4
-    21300010: tutorials_5
-    21300012: tutorials_6
-    21300014: tutorials_7
-    21300016: tutorials_8
+    21300000: tutorialsBlack_0
+    21300002: tutorialsBlack_1
+    21300004: tutorialsBlack_2
+    21300006: tutorialsBlack_3
+    21300008: tutorialsBlack_4
+    21300010: tutorialsBlack_5
+    21300012: tutorialsBlack_6
+    21300014: tutorialsBlack_7
+    21300016: tutorialsBlack_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -67,7 +67,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tutorials_0
+      name: tutorialsBlack_0
       rect:
         serializedVersion: 2
         x: 38
@@ -80,7 +80,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tutorials_1
+      name: tutorialsBlack_1
       rect:
         serializedVersion: 2
         x: 158
@@ -93,7 +93,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tutorials_2
+      name: tutorialsBlack_2
       rect:
         serializedVersion: 2
         x: 38
@@ -106,7 +106,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tutorials_3
+      name: tutorialsBlack_3
       rect:
         serializedVersion: 2
         x: 179
@@ -119,20 +119,20 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tutorials_4
+      name: tutorialsBlack_4
       rect:
         serializedVersion: 2
-        x: 29
-        y: 68
-        width: 60
-        height: 51
+        x: 24
+        y: 63
+        width: 68
+        height: 59
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tutorials_5
+      name: tutorialsBlack_5
       rect:
         serializedVersion: 2
         x: 102
@@ -145,7 +145,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tutorials_6
+      name: tutorialsBlack_6
       rect:
         serializedVersion: 2
         x: 141
@@ -158,7 +158,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tutorials_7
+      name: tutorialsBlack_7
       rect:
         serializedVersion: 2
         x: 184
@@ -171,7 +171,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: tutorials_8
+      name: tutorialsBlack_8
       rect:
         serializedVersion: 2
         x: 231
