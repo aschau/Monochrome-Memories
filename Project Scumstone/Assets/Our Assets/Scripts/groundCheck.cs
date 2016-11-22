@@ -3,11 +3,9 @@ using System.Collections;
 
 public class groundCheck: MonoBehaviour {
     public bool onGround = true;
-    private playerController controller;
 
     void Awake ()
     {
-        this.controller = GameObject.Find("playerControl").GetComponent<playerController>();
     }
 
 	// Use this for initialization
@@ -29,15 +27,7 @@ public class groundCheck: MonoBehaviour {
                 if (other.GetComponent<jumpObject>().activated)
                 {
                     Debug.Log("JUMP");
-                    if (this.transform.parent.name == "Player")
-                    {
-                        this.controller.p1JumpSpeed = this.controller.originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
-                    }
-
-                    else
-                    {
-                        this.controller.p2JumpSpeed = this.controller.originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
-                    }
+                    this.GetComponentInParent<playerMovement>().jumpSpeed = this.GetComponentInParent<playerMovement>().originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
                 }
             }
         }
@@ -51,15 +41,7 @@ public class groundCheck: MonoBehaviour {
         {
             if (other.GetComponentInParent<jumpObject>().activated)
             {
-                if (this.transform.parent.name == "Player")
-                {
-                    this.controller.p1JumpSpeed = this.controller.originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
-                }
-
-                else
-                {
-                    this.controller.p2JumpSpeed = this.controller.originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
-                }
+                this.GetComponentInParent<playerMovement>().jumpSpeed = this.GetComponentInParent<playerMovement>().originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
             }
         }
     }
@@ -73,15 +55,7 @@ public class groundCheck: MonoBehaviour {
             if (other.GetComponentInParent<jumpObject>().activated)
             {
                 Debug.Log("JUMP");
-                if (this.transform.parent.name == "Player")
-                {
-                    this.controller.p1JumpSpeed = this.controller.originalJumpSpeed;
-                }
-
-                else
-                {
-                    this.controller.p2JumpSpeed = this.controller.originalJumpSpeed;
-                }
+                this.GetComponentInParent<playerMovement>().jumpSpeed = this.GetComponentInParent<playerMovement>().originalJumpSpeed;
             }
         }
     }
