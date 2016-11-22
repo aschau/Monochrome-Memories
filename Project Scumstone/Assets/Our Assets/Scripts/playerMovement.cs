@@ -12,10 +12,11 @@ public enum Direction
 public class playerMovement : MonoBehaviour {
     public static string player;
 
-    public float moveSpeed = 3f, jumpSpeed = 200f, originalMoveSpeed, originalJumpSpeed;
+    public float moveSpeed = 0f, jumpSpeed = 200f, originalMoveSpeed, originalJumpSpeed;
     private bool walkingLeft, walkingRight, idle, idleReady = false;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
-    private DragonBones.Animation anim;
+    //private DragonBones.Animation anim;
+    public Animator anim;
 
     void Awake()
     {
@@ -27,8 +28,9 @@ public class playerMovement : MonoBehaviour {
         player = "Player";
         this.originalMoveSpeed = this.moveSpeed;
         this.originalJumpSpeed = this.jumpSpeed;
+        this.anim = this.GetComponent<Animator>();
 
-        this.anim = this.GetComponent<UnityArmatureComponent>().animation;
+        //this.anim = this.GetComponent<UnityArmatureComponent>().animation;
 	}
 	
 	// Update is called once per frame
@@ -36,53 +38,64 @@ public class playerMovement : MonoBehaviour {
         if (this.name == player)
         {
 
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                this.GetComponent<UnityArmatureComponent>()._armature._flipX = false;
+                this.moveSpeed = 3f;
+                //this.GetComponent<UnityArmatureComponent>()._armature._flipX = false;
+                this.GetComponent<SpriteRenderer>().flipX = false;
                 this.walkingRight = true;
                 this.currentDirection = Direction.Right;
-
                 if (this.currentDirection != this.lastDirection)
                 {
-                    this.anim.FadeIn("Walking", 0.3f);
+                    //this.anim.FadeIn("Walking", 0.3f);
+                    this.anim.SetBool("isWalking", true);
                 }
             }
 
-            else if (Input.GetKeyUp(KeyCode.D))
+            else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
             {
+                this.moveSpeed = 0f;
                 this.walkingRight = false;
+                this.anim.SetBool("isWalking", false);
             }
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                this.GetComponent<UnityArmatureComponent>()._armature._flipX = true;
+                this.moveSpeed = 3f;
+                this.GetComponent<SpriteRenderer>().flipX = true;
+                //this.GetComponent<UnityArmatureComponent>()._armature._flipX = true;
                 this.walkingLeft = true;
                 this.currentDirection = Direction.Left;
                 if (this.currentDirection != this.lastDirection)
                 {
-                    this.anim.FadeIn("Walking", 0.3f);
+                    //this.anim.FadeIn("Walking", 0.3f);
+                    this.anim.SetBool("isWalking", true);
                 }
             }
-            else if (Input.GetKeyUp(KeyCode.A))
+            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
             {
+                this.moveSpeed = 0f;
                 this.walkingLeft = false;
+                this.anim.SetBool("isWalking", false);
             }
 
             if (this.walkingLeft ^ this.walkingRight)
             {
                 this.idle = false;
                 this.idleReady = true;
+                this.anim.SetBool("isWalking", true);
             }
 
             else
             {
                 this.idle = true;
                 this.currentDirection = Direction.None;
+                this.anim.SetBool("isWalking", false);
             }
 
             if (this.idle && this.idleReady)
             {
-                this.anim.FadeIn("Idle", 0.5f);
+                //this.anim.FadeIn("Idle", 0.5f);
                 this.idleReady = false;
             }
 
@@ -119,6 +132,7 @@ public class playerMovement : MonoBehaviour {
         this.walkingLeft = false;
         this.walkingRight = false;
         this.idle = true;
-        this.anim.FadeIn("Idle", 0.5f);
+        this.anim.SetBool("isWalking", false);
+        //this.anim.FadeIn("Idle", 0.5f);
     }
 }
