@@ -69,6 +69,8 @@ public class tutorialEndLevel : MonoBehaviour
             fadeTransition(this.speed);
             this.resetting = true;
             this.backgroundMusic.Stop();
+            this.topCover.SetActive(false);
+            this.bottomCover.SetActive(true);
             specialReset = true;
             Invoke("resetScene", this.resetTime);
             this.playerControl.enabled = false;

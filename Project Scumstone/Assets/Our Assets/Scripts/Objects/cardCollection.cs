@@ -22,7 +22,6 @@ public class cardCollection : MonoBehaviour {
         {
             this.GetComponent<ParticleSystem>().Stop();
             this.cardToBe.SetActive(true);
-            this.cardToBe.GetComponent<ParticleSystem>().Play();
             this.GetComponent<SpriteRenderer>().enabled = false;
             this.GetComponent<BoxCollider2D>().enabled = false;
             source.PlayOneShot(cardCollected, volume);
