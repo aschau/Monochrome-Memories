@@ -20,6 +20,7 @@ public class endLevelObject : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+            other.GetComponent<playerMovement>().stopMoving();
             other.gameObject.SetActive(false);
             this.GetComponent<AudioSource>().Play();
             this.activated = true;
