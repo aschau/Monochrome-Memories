@@ -20,11 +20,6 @@ public class pauseMenuControl : MonoBehaviour {
 	
 	}
 
-    public void exitMenu()
-    {
-        this.gameObject.SetActive(false);
-    }
-
     public void loadSettings()
     {
         this.settingsMenu.SetActive(true);

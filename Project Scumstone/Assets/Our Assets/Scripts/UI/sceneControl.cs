@@ -67,28 +67,34 @@ public class sceneControl : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            this.playerControl.enabled = !this.playerControl.enabled;
-            this.player1.enabled = !this.player1.enabled;
-            this.player2.enabled = !this.player2.enabled;
-            if (playerMovement.player == "Player")
-            {
-                this.topCover.SetActive(!this.topCover.activeSelf);
-            }
-
-            else
-            {
-                this.bottomCover.SetActive(!this.bottomCover.activeSelf);
-            }
-
-            this.pause.SetActive(!this.pause.activeSelf);
-
-            if (this.deck)
-            {
-                this.deck.SetActive(!this.deck.activeSelf);
-            }
+            this.toggleMenu();
         }
 
 	}
+
+    public void toggleMenu()
+    {
+        this.playerControl.enabled = !this.playerControl.enabled;
+
+        this.player1.enabled = !this.player1.enabled;
+        this.player2.enabled = !this.player2.enabled;
+        if (playerMovement.player == "Player")
+        {
+            this.topCover.SetActive(!this.topCover.activeSelf);
+        }
+
+        else
+        {
+            this.bottomCover.SetActive(!this.bottomCover.activeSelf);
+        }
+
+        if (this.deck)
+        {
+            this.deck.SetActive(!this.deck.activeSelf);
+        }
+
+        this.pause.SetActive(!this.pause.activeSelf);
+    }
 
     void fadeTransition(float speed)
     {
