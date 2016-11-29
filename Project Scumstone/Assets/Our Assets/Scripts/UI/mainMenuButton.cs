@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class mainMenuButton : MonoBehaviour {
+public class mainMenuButton : MonoBehaviour {
 
     public virtual void Awake()
     {
