@@ -35,6 +35,7 @@ public class sceneControl : MonoBehaviour {
 
 	void Start () {
         this.GetComponent<Image>().enabled = true;
+        this.topCover.SetActive(false);
         this.pause.SetActive(false);
     }
 	
@@ -53,6 +54,20 @@ public class sceneControl : MonoBehaviour {
         if (this.resetting && this.GetComponent<Image>().color.a < 255)
         {
             fadeTransition(this.speed);
+        }
+
+        if (!this.player1.gameObject.activeSelf && this.player2.gameObject.activeSelf)
+        {
+            playerMovement.player = "Player 2";
+            bottomCover.SetActive(false);
+            topCover.SetActive(true);
+        }
+
+        else if (this.player1.gameObject.activeSelf && !this.player2.gameObject.activeSelf)
+        {
+            playerMovement.player = "Player";
+            topCover.SetActive(false);
+            bottomCover.SetActive(true);
         }
 
         if (this.endlevel1.activated && this.endlevel2.activated && !this.resetting)

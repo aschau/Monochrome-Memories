@@ -16,7 +16,6 @@ public class playerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        this.topCover.SetActive(false);
 	}
 
     void Update()
@@ -38,20 +37,6 @@ public class playerController : MonoBehaviour {
                 topCover.SetActive(false);
                 bottomCover.SetActive(true);
             }
-        }
-
-        else if (!this.player1.activeSelf && this.player2.activeSelf)
-        {
-            playerMovement.player = "Player 2";
-            bottomCover.SetActive(false);
-            topCover.SetActive(true);
-        }
-
-        else if (this.player1.activeSelf && !this.player2.activeSelf)
-        {
-            playerMovement.player = "Player";
-            topCover.SetActive(false);
-            bottomCover.SetActive(true);
         }
     }   
 }
