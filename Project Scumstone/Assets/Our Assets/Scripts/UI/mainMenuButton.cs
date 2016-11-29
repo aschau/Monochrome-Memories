@@ -3,6 +3,11 @@ using System.Collections;
 
 public abstract class mainMenuButton : MonoBehaviour {
 
+    public virtual void Awake()
+    {
+
+    }
+
 	// Use this for initialization
 	public virtual void Start () {
 	
