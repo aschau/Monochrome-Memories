@@ -14,14 +14,14 @@ public class sceneControl : MonoBehaviour {
     private Color color;
     private playerController playerControl;
     private playerMovement player1, player2;
-    private GameObject topCover, bottomCover, settings, deck;
+    private GameObject topCover, bottomCover, pause, deck;
     private endLevelObject endlevel1, endlevel2;
 
     // Use this for initialization
     void Awake()
     {
         this.backgroundMusic = GameObject.Find("backgroundMusic").GetComponent<AudioSource>();
-        this.resetSound = this.transform.FindChild("resetSound").GetComponent<AudioSource>();
+        this.resetSound = GameObject.Find("resetSound").GetComponent<AudioSource>();
         this.playerControl = GameObject.FindObjectOfType<playerController>();
         this.topCover = GameObject.Find("topImage");
         this.bottomCover = GameObject.Find("bottomImage");
@@ -29,13 +29,13 @@ public class sceneControl : MonoBehaviour {
         this.endlevel2 = GameObject.Find("endLevel2").GetComponent<endLevelObject>();
         this.player1 = GameObject.Find("Player").GetComponent<playerMovement>();
         this.player2 = GameObject.Find("Player 2").GetComponent<playerMovement>();
-        this.settings = GameObject.Find("Settings Menu");
+        this.pause = GameObject.Find("Pause Menu");
         this.deck = GameObject.Find("Deck Box");
     }
 
 	void Start () {
         this.GetComponent<Image>().enabled = true;
-        this.settings.SetActive(false);
+        this.pause.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -80,7 +80,7 @@ public class sceneControl : MonoBehaviour {
                 this.bottomCover.SetActive(!this.bottomCover.activeSelf);
             }
 
-            this.settings.SetActive(!this.settings.activeSelf);
+            this.pause.SetActive(!this.pause.activeSelf);
 
             if (this.deck)
             {
@@ -98,7 +98,7 @@ public class sceneControl : MonoBehaviour {
     public void reset()
     {
         this.resetting = true;
-        this.settings.SetActive(false);
+        this.pause.SetActive(false);
         this.topCover.SetActive(false);
         this.bottomCover.SetActive(false);
         Invoke("resetScene", this.resetTime);
