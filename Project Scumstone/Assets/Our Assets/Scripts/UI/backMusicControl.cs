@@ -11,12 +11,12 @@ public class backMusicControl : MonoBehaviour {
     {
         this.backgroundMusic = GameObject.Find("backgroundMusic").GetComponent<AudioSource>();
         this.originalVolume = this.backgroundMusic.volume;
+        this.backgroundMusic.volume = this.originalVolume * sliderAmount;
     }
 
     // Use this for initialization
 	void Start () {
         this.GetComponent<Slider>().value = sliderAmount;
-        this.backgroundMusic.volume = this.originalVolume * sliderAmount;
     }
 	
 	// Update is called once per frame
