@@ -43,7 +43,6 @@ public class playerController : MonoBehaviour {
         else if (!this.player1.activeSelf && this.player2.activeSelf)
         {
             playerMovement.player = "Player 2";
-            player1.GetComponent<playerMovement>().stopMoving();
             bottomCover.SetActive(false);
             topCover.SetActive(true);
         }
@@ -51,7 +50,6 @@ public class playerController : MonoBehaviour {
         else if (this.player1.activeSelf && !this.player2.activeSelf)
         {
             playerMovement.player = "Player";
-            player2.GetComponent<playerMovement>().stopMoving();
             topCover.SetActive(false);
             bottomCover.SetActive(true);
         }

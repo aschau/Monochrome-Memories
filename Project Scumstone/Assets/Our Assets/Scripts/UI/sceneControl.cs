@@ -14,14 +14,14 @@ public class sceneControl : MonoBehaviour {
     private Color color;
     private playerController playerControl;
     private playerMovement player1, player2;
-    private GameObject topCover, bottomCover;
+    private GameObject topCover, bottomCover, pause, deck;
     private endLevelObject endlevel1, endlevel2;
 
     // Use this for initialization
     void Awake()
     {
         this.backgroundMusic = GameObject.Find("backgroundMusic").GetComponent<AudioSource>();
-        this.resetSound = this.transform.FindChild("resetSound").GetComponent<AudioSource>();
+        this.resetSound = GameObject.Find("resetSound").GetComponent<AudioSource>();
         this.playerControl = GameObject.FindObjectOfType<playerController>();
         this.topCover = GameObject.Find("topImage");
         this.bottomCover = GameObject.Find("bottomImage");
@@ -29,10 +29,13 @@ public class sceneControl : MonoBehaviour {
         this.endlevel2 = GameObject.Find("endLevel2").GetComponent<endLevelObject>();
         this.player1 = GameObject.Find("Player").GetComponent<playerMovement>();
         this.player2 = GameObject.Find("Player 2").GetComponent<playerMovement>();
+        this.pause = GameObject.Find("Pause Menu");
+        this.deck = GameObject.Find("Deck Box");
     }
 
 	void Start () {
         this.GetComponent<Image>().enabled = true;
+        this.pause.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -54,12 +57,35 @@ public class sceneControl : MonoBehaviour {
 
         if (this.endlevel1.activated && this.endlevel2.activated && !this.resetting)
         {
-            Invoke("changeScene", 5);
+            Invoke("loadNext", 5);
             this.resetting = true;
             fadeTransition(this.speed);
             this.playerControl.enabled = false;
             this.backgroundMusic.Stop();
             this.resetSound.Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            this.playerControl.enabled = !this.playerControl.enabled;
+            this.player1.enabled = !this.player1.enabled;
+            this.player2.enabled = !this.player2.enabled;
+            if (playerMovement.player == "Player")
+            {
+                this.topCover.SetActive(!this.topCover.activeSelf);
+            }
+
+            else
+            {
+                this.bottomCover.SetActive(!this.bottomCover.activeSelf);
+            }
+
+            this.pause.SetActive(!this.pause.activeSelf);
+
+            if (this.deck)
+            {
+                this.deck.SetActive(!this.deck.activeSelf);
+            }
         }
 
 	}
@@ -72,6 +98,7 @@ public class sceneControl : MonoBehaviour {
     public void reset()
     {
         this.resetting = true;
+        this.pause.SetActive(false);
         this.topCover.SetActive(false);
         this.bottomCover.SetActive(false);
         Invoke("resetScene", this.resetTime);
@@ -87,7 +114,20 @@ public class sceneControl : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void changeScene()
+    public void exit()
+    {
+        Invoke("mainMenu", resetTime);
+        this.resetting = true;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void mainMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("mainMenu");
+    }
+
+    void loadNext()
     {
         SceneManager.LoadScene(this.nextLevel);
     }
