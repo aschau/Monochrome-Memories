@@ -23,12 +23,14 @@ public class pauseMenuControl : MonoBehaviour {
     public void loadSettings()
     {
         this.settingsMenu.SetActive(true);
-        this.defaultMenu.SetActive(false); 
+        this.defaultMenu.SetActive(false);
+        GameObject.Find("backgroundMaterials").SetActive(false);
     }
 
     public void exitSettings()
     {
         this.defaultMenu.SetActive(true); 
         this.settingsMenu.SetActive(false);
+        GameObject.Find("backgroundMaterials").SetActive(true);
     }
 }

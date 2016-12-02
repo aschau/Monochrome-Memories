@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ad9c4c7000123ab43ab0ff687491593e
-timeCreated: 1477172181
+timeCreated: 1480674583
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -21,6 +21,7 @@ TextureImporter:
     21300028: DenialBlackBackground_16
     21300030: DenialBlackBackground_20
     21300032: DenialBlackBackground_23
+    21300034: DenialBlackBackground_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -135,7 +136,7 @@ TextureImporter:
         width: 250
         height: 250
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -236,8 +237,8 @@ TextureImporter:
         serializedVersion: 2
         x: 5356
         y: 0
-        width: 476
-        height: 400
+        width: 433
+        height: 217
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,6 +252,19 @@ TextureImporter:
         y: 0
         width: 81
         height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackBackground_4
+      rect:
+        serializedVersion: 2
+        x: 5391
+        y: 273
+        width: 370
+        height: 98
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
