@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class playerController : MonoBehaviour {
     private GameObject player1, player2;
-    private GameObject topCover, bottomCover;
+    private GameObject topCover, bottomCover, shiftButton;
+    public bool isMobile = false;
 
     void Awake()
     {
@@ -12,6 +13,10 @@ public class playerController : MonoBehaviour {
         this.player2 = GameObject.Find("Player 2");
         this.topCover = GameObject.Find("topImage");
         this.bottomCover = GameObject.Find("bottomImage");
+        if (isMobile == true)
+        {
+            this.shiftButton = GameObject.Find("ShiftButton");
+        }
     }
 
 	// Use this for initialization
@@ -20,22 +25,47 @@ public class playerController : MonoBehaviour {
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.E)) && (this.player1.activeSelf && this.player2.activeSelf))
+        if (isMobile == true)
         {
-            if (playerMovement.player == "Player")
+            if (shiftButton.GetComponent<touchScript>().shifted == true)
             {
-                playerMovement.player = "Player 2";
-                player1.GetComponent<playerMovement>().stopMoving();
-                bottomCover.SetActive(false);
-                topCover.SetActive(true);
-            }
+                shiftButton.GetComponent<touchScript>().shifted = false;
+                if (playerMovement.player == "Player")
+                {
+                    playerMovement.player = "Player 2";
+                    player1.GetComponent<playerMovement>().stopMoving();
+                    bottomCover.SetActive(false);
+                    topCover.SetActive(true);
+                }
 
-            else if (playerMovement.player == "Player 2")
+                else if (playerMovement.player == "Player 2")
+                {
+                    playerMovement.player = "Player";
+                    player2.GetComponent<playerMovement>().stopMoving();
+                    topCover.SetActive(false);
+                    bottomCover.SetActive(true);
+                }
+            }
+        }
+        else
+        {
+            if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.E)) && (this.player1.activeSelf && this.player2.activeSelf))
             {
-                playerMovement.player = "Player";
-                player2.GetComponent<playerMovement>().stopMoving();
-                topCover.SetActive(false);
-                bottomCover.SetActive(true);
+                if (playerMovement.player == "Player")
+                {
+                    playerMovement.player = "Player 2";
+                    player1.GetComponent<playerMovement>().stopMoving();
+                    bottomCover.SetActive(false);
+                    topCover.SetActive(true);
+                }
+
+                else if (playerMovement.player == "Player 2")
+                {
+                    playerMovement.player = "Player";
+                    player2.GetComponent<playerMovement>().stopMoving();
+                    topCover.SetActive(false);
+                    bottomCover.SetActive(true);
+                }
             }
         }
     }   
