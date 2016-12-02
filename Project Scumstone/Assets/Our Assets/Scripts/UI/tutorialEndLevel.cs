@@ -16,7 +16,7 @@ public class tutorialEndLevel : MonoBehaviour
     private Color color;
     private playerController playerControl;
     private playerMovement player1, player2;
-    private GameObject topCover, bottomCover, pause, deck;
+    private GameObject topCover, bottomCover, pause, deck, shiftButton;
     private endLevelObject endlevel1, endlevel2;
 
     // Use this for initialization
@@ -33,6 +33,7 @@ public class tutorialEndLevel : MonoBehaviour
         this.player2 = GameObject.Find("Player 2").GetComponent<playerMovement>();
         this.pause = GameObject.Find("Pause Menu");
         this.deck = GameObject.Find("Deck Box");
+        this.shiftButton = GameObject.Find("ShiftButton");
     }
 
     void Start()
@@ -40,6 +41,8 @@ public class tutorialEndLevel : MonoBehaviour
         this.GetComponent<Image>().enabled = true;
         this.topCover.SetActive(false);
         this.pause.SetActive(false);
+        //this.playerControl.enabled = false;
+        this.shiftButton.SetActive(false);
     }
 
     public void toggleMenu()
@@ -79,9 +82,10 @@ public class tutorialEndLevel : MonoBehaviour
             fadeTransition(-this.speed);
             if (specialReset == true)
             {
-                player1.stopMoving();
+                //player1.stopMoving();
+                GameObject.Find("Player").SetActive(false);
                 playerMovement.player = "Player 2";
-                this.topCover.SetActive(true);
+                this.topCover.SetActive(false);
                 this.bottomCover.SetActive(false);
                 
             }
@@ -94,17 +98,28 @@ public class tutorialEndLevel : MonoBehaviour
 
         if (this.endlevel1.activated && !this.resetting)
         {
-            fadeTransition(this.speed);
-            this.resetting = true;
-            this.backgroundMusic.Stop();
-            this.topCover.SetActive(false);
-            this.bottomCover.SetActive(true);
-            specialReset = true;
-            Invoke("resetScene", this.resetTime);
-            this.player1.enabled = false;
-            this.player2.enabled = false;
-            this.backgroundMusic.Stop();
-            this.resetSound.Play();
+            //this.playerControl.enabled = true;
+            this.shiftButton.SetActive(true);
+            if (player1.isMobile == false)
+            {
+                shiftButton.GetComponent<Button>().enabled = false;
+            }
+            if (shiftButton.GetComponent<touchScript>().shifted == true || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.E))
+            {
+                fadeTransition(this.speed);
+                this.resetting = true;
+                this.backgroundMusic.Stop();
+                this.topCover.SetActive(false);
+                this.bottomCover.SetActive(true);
+                specialReset = true;
+                Invoke("resetScene", this.resetTime);
+                this.player1.enabled = false;
+                this.player2.enabled = false;
+                this.backgroundMusic.Stop();
+                this.resetSound.Play();
+
+            }
+        
         }
 
         if (this.endlevel2.activated && !this.resetting)
