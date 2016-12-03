@@ -12,7 +12,7 @@ public enum Direction
 public class playerMovement : MonoBehaviour {
     public static string player;
     public static bool isMobile = false;
-    public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 200f, originalJumpSpeed;
+    public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed;
     private bool walkingLeft, walkingRight, idle, idleReady = false;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
     //private DragonBones.Animation anim;
