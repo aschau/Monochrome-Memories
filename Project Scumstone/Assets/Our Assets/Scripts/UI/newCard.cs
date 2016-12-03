@@ -125,6 +125,8 @@ public abstract class newCard : MonoBehaviour {
                         if (!allObjects[i].activated1)
                         {
                             allObjects[i].GetComponent<ParticleSystem>().Play(false);
+                            allObjects[i].GetComponent<ParticleSystem>().startColor = obj.particleColor;
+                            break;
                         }
                     }
 
@@ -133,6 +135,8 @@ public abstract class newCard : MonoBehaviour {
                         if (!(allObjects[i].activated1 && allObjects[i].activated2))
                         {
                             allObjects[i].GetComponent<ParticleSystem>().Play(false);
+                            allObjects[i].GetComponent<ParticleSystem>().startColor = obj.particleColor;
+                            break;
                         }
                     }
                 }
