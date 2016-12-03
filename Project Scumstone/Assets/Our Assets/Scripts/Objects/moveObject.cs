@@ -11,6 +11,8 @@ public class moveObject : MonoBehaviour {
         {
             this.GetComponent<Rigidbody2D>().isKinematic = true;
         }
+
+        this.GetComponent<Rigidbody2D>().drag = 5f;
 	}
 	
 	// Update is called once per frame
