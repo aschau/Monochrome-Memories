@@ -113,25 +113,31 @@ public abstract class newCard : MonoBehaviour {
 
         for (int i = 0; i < allObjects.Length; i++)
         {
-            if (allObjects[i].CompareTag(this.blackEffect) || allObjects[i].CompareTag(this.whiteEffect))
+            baseObject[] specificObjects = allObjects[i].GetComponents<baseObject>();
+
+            foreach (baseObject obj in specificObjects)
             {
-
-                if (!allObjects[i].dualActivation)
+                if (obj.GetType().Name == this.blackEffect || obj.GetType().Name == this.whiteEffect)
                 {
-                    if (!allObjects[i].activated1)
+
+                    if (!allObjects[i].dualActivation)
                     {
-                        allObjects[i].GetComponent<ParticleSystem>().Play(false);
+                        if (!allObjects[i].activated1)
+                        {
+                            allObjects[i].GetComponent<ParticleSystem>().Play(false);
+                        }
                     }
-                }
 
-                else
-                {
-                    if (!(allObjects[i].activated1 && allObjects[i].activated2))
+                    else
                     {
-                        allObjects[i].GetComponent<ParticleSystem>().Play(false);
+                        if (!(allObjects[i].activated1 && allObjects[i].activated2))
+                        {
+                            allObjects[i].GetComponent<ParticleSystem>().Play(false);
+                        }
                     }
                 }
             }
+
         }
     }
 
@@ -141,10 +147,15 @@ public abstract class newCard : MonoBehaviour {
 
         for (int i = 0; i < allObjects.Length; i++)
         {
-            if (allObjects[i].CompareTag(this.blackEffect) || allObjects[i].CompareTag(this.whiteEffect))
-            {
+            baseObject[] specificObjects = allObjects[i].GetComponents<baseObject>();
 
-                allObjects[i].GetComponent<ParticleSystem>().Stop(false);
+            foreach (baseObject obj in specificObjects)
+            {
+                if (obj.GetType().Name == this.blackEffect || obj.GetType().Name == this.whiteEffect)
+                {
+
+                    allObjects[i].GetComponent<ParticleSystem>().Stop(false);
+                }
             }
         }
     }
@@ -177,16 +188,6 @@ public abstract class newCard : MonoBehaviour {
                     hit.transform.GetComponent<ParticleSystem>().Stop();
                 }
             }
-
-            //if (camera == "camera1")
-            //{
-            //    hit.transform.GetComponent<activateObject>().camera1 = true;
-            //}
-
-            //else if (camera == "camera2")
-            //{
-            //    hit.transform.GetComponent<activateObject>().camera2 = true;
-            //}
         }
     }
 

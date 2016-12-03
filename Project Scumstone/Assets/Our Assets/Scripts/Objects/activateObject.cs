@@ -4,7 +4,6 @@ using System.Collections;
 public class activateObject : MonoBehaviour {
     public bool activated1, activated2, dualActivation = false;
     public string activatedScript1, activatedScript2;
-
 	// Use this for initialization
 	void Start () {
 	
@@ -17,7 +16,7 @@ public class activateObject : MonoBehaviour {
             if (this.activated1)
             {
                 this.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0);
-            }
+             }
         }
 
         else

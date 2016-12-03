@@ -6,8 +6,8 @@ public class jumpPushCard : newCard {
 	// Use this for initialization
 	public override void Start () {
         base.Start();
-        base.whiteEffect = "jumpBlock";
-        base.blackEffect = "pushBlock";
+        base.whiteEffect = "jumpObject";
+        base.blackEffect = "moveObject";
 	}
 
     public override void activateBlack()

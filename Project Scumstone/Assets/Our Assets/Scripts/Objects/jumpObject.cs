@@ -1,18 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class jumpObject : MonoBehaviour {
-
-    public bool activated = false;
+public class jumpObject : baseObject {
     public float multiplier = 1.5f;
+
     // Use this for initialization
-	void Start () {
-	    
+	public override void Start () {
+        base.particleColor = new Color32(255, 40, 40, 255);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
 }

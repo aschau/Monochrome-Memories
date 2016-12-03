@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class makeObject : MonoBehaviour {
-    public bool activated = false;
+public class makeObject : baseObject {
     public Sprite repaired;
 
     private bool changed = false;
 
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+        base.Start();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (this.activated && !this.changed)
+
+    public override void activate()
+    {
+        base.activate();
+        if (!this.changed)
         {
             if (this.GetComponent<AudioSource>() != null)
             {
@@ -24,6 +25,5 @@ public class makeObject : MonoBehaviour {
             this.gameObject.AddComponent<PolygonCollider2D>();
             this.changed = true; 
         }
-	
-	}
+    }
 }

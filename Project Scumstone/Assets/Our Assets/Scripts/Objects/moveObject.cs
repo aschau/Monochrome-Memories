@@ -1,25 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class moveObject : MonoBehaviour {
-    public bool activated = false;
+public class moveObject : baseObject {
 
-	// Use this for initialization
-	void Start () {
-        //this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
-	    if (!this.activated)
+    public override void Awake()
+    {
+        base.Awake();
+    }
+
+    // Use this for initialization
+	public override void Start () {
+        base.Start();
+
+	    if (!base.activated)
         {
             this.GetComponent<Rigidbody2D>().isKinematic = true;
         }
 
         this.GetComponent<Rigidbody2D>().drag = 5f;
+        base.particleColor = new Color32(68, 135, 255, 255);
 	}
 	
 	// Update is called once per frame
-	public void Update () {
-        if (this.activated)
-        {
-            this.GetComponent<Rigidbody2D>().isKinematic = false;
-        }
-	}
+    public override void activate()
+    {
+        base.activate();
+        this.GetComponent<Rigidbody2D>().isKinematic = false;
+    }
 }

@@ -1,36 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class fallObject : MonoBehaviour {
-    public bool activated = false;
+public class fallObject : baseObject {
     public float speed = 5f;
     public float variance;
     public float originalPlace;
-    //private bool falling = false;
     
     // Use this for initialization
-    public  void Start()
+    public override void Start()
     {
-        originalPlace = this.transform.position.y;
-        /*if (!this.activated)
-        {
-            this.GetComponent<Rigidbody2D>().isKinematic = true;
-        }*/
-        //this.transform.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+        base.Start();
+        this.originalPlace = this.transform.position.y;
+        base.particleColor = new Color32(0, 150, 0, 255);
     }
-    void FixedUpdate()
-    {
-        if (this.activated)
-        {
 
-            if (this.transform.position.y >= (this.originalPlace - this.variance) && this.transform.position.y <= this.originalPlace)
-            { 
-                this.transform.Translate(new Vector2(0, -this.speed * Time.deltaTime)); 
-            }
-           /* if (this.GetComponent<moveObject>())
-            {
-                this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-            }*/
+    public override void activate()
+    {
+        base.activate();
+        if (this.transform.position.y >= (this.originalPlace - this.variance) && this.transform.position.y <= this.originalPlace)
+        {
+            this.transform.Translate(new Vector2(0, -this.speed * Time.deltaTime));
         }
     }
 

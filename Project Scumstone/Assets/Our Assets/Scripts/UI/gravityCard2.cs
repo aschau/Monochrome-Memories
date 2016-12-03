@@ -7,8 +7,8 @@ public class gravityCard2 : newCard {
     public override void Start()
     {
         base.Start();
-        base.whiteEffect = "fallBlock";
-        base.blackEffect = "floatBlock";
+        base.whiteEffect = "fallObject";
+        base.blackEffect = "floatObject";
     }
 
     public override void activateBlack()
