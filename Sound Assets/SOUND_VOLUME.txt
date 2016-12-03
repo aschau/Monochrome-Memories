@@ -1,0 +1,10 @@
+GAME VOLUME:
+
+Level 1:
+- Everything at full volume 
+
+Level 2:
+- Fire: 0.015
+- Anger: .042
+- Cards: .5
+ 

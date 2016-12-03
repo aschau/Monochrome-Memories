@@ -35,7 +35,7 @@ public class playerCamera : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
         if (this.player.gameObject.activeSelf)
         {
             this.transform.position = new Vector3(player.transform.position.x + offset.x, Mathf.Clamp(this.player.position.y, this.minY, this.maxY), player.transform.position.z + offset.z);

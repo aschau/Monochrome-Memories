@@ -42,7 +42,7 @@ public class Transport : MonoBehaviour {
         }
     }
 
-    /*void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
@@ -65,8 +65,8 @@ public class Transport : MonoBehaviour {
             }
             other.transform.position = newPlace.position;
         }
-    }*/
-    /*void OnTriggerStay2D(Collider2D other)
+    }
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
             this.GetComponent<BoxCollider2D>().isTrigger = false;
@@ -74,6 +74,6 @@ public class Transport : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other)
     {
         this.GetComponent<BoxCollider2D>().isTrigger = true;
-    }*/
+    }
 
 }

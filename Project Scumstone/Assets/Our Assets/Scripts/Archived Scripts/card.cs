@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class card : MonoBehaviour {
+public class card : MonoBehaviour
+{
     public GameObject camera1;
     public GameObject camera2;
     public bool beingDragged = false;
@@ -21,16 +22,18 @@ public class card : MonoBehaviour {
         this.camera2 = GameObject.Find("White Camera");
     }
 
-	// Use this for initialization
-	public virtual void Start () {
+    // Use this for initialization
+    public virtual void Start()
+    {
         this.origin = this.transform.position;
-        this.originalSize = this.GetComponent<RectTransform>().sizeDelta; 
-	}
-	
-	// Update is called once per frame
-	public virtual void Update () {
-	
-	}
+        this.originalSize = this.GetComponent<RectTransform>().sizeDelta;
+    }
+
+    // Update is called once per frame
+    public virtual void Update()
+    {
+
+    }
 
     public virtual void beginDrag()
     {
@@ -140,23 +143,24 @@ public class card : MonoBehaviour {
                 hit.transform.GetComponent<activateObject>().activated1 = true;
             }
 
-            else
-            {
-                if ((camera == "camera1" && !hit.transform.GetComponent<activateObject>().camera1) || camera == "camera2" && !hit.transform.GetComponent<activateObject>().camera2)
-                {
-                    hit.transform.GetComponent<activateObject>().activated2 = true;
-                }
-            }
+            //    else
+            //    {
+            //        if ((camera == "camera1" && !hit.transform.GetComponent<activateObject>().camera1) || camera == "camera2" && !hit.transform.GetComponent<activateObject>().camera2)
+            //        {
+            //            hit.transform.GetComponent<activateObject>().activated2 = true;
+            //        }
+            //    }
 
-            if (camera == "camera1")
-            {
-                hit.transform.GetComponent<activateObject>().camera1 = true;
-            }
+            //    if (camera == "camera1")
+            //    {
+            //        hit.transform.GetComponent<activateObject>().camera1 = true;
+            //    }
 
-            else if (camera == "camera2")
-            {
-                hit.transform.GetComponent<activateObject>().camera2 = true;
-            }
+            //    else if (camera == "camera2")
+            //    {
+            //        hit.transform.GetComponent<activateObject>().camera2 = true;
+            //    }
+            //}
         }
     }
 }
