@@ -17,7 +17,7 @@ public class jumpPushCard : newCard {
         if (base.hit.transform.GetComponent<moveObject>() != null)
         {
             base.hit.transform.GetComponent<moveObject>().activated = true;
-            base.checkDualActivation(base.hit, "camera1");
+            base.checkDualActivation(base.hit);
         }
     }
 
@@ -28,7 +28,7 @@ public class jumpPushCard : newCard {
         {
             Debug.Log("ACTIVATED JUMP BLOCK");
             base.hit.transform.GetComponent<jumpObject>().activated = true;
-            base.checkDualActivation(base.hit, "camera2");
+            base.checkDualActivation(base.hit);
         }
     }
 }

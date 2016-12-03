@@ -8,7 +8,7 @@ public abstract class newCard : MonoBehaviour {
     public Sprite currentImage, newImage;
     public AudioClip cardSound;
     public float volume;
-    AudioSource source;
+    public AudioSource source;
 
     [HideInInspector]
     public string blackEffect, whiteEffect;
@@ -159,6 +159,7 @@ public abstract class newCard : MonoBehaviour {
                 {
 
                     allObjects[i].GetComponent<ParticleSystem>().Stop(false);
+                    break;
                 }
             }
         }
@@ -169,12 +170,15 @@ public abstract class newCard : MonoBehaviour {
         return Physics2D.Raycast(new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.y));
     }
 
-    public virtual void checkDualActivation(RaycastHit2D hit, string camera)
+    public virtual void checkDualActivation(RaycastHit2D hit, bool ignoreParticles = true)
     {
         if (!hit.transform.GetComponent<activateObject>().dualActivation)
         {
             hit.transform.GetComponent<activateObject>().activated1 = true;
-            hit.transform.GetComponent<ParticleSystem>().Stop();
+            if (ignoreParticles)
+            {
+                hit.transform.GetComponent<ParticleSystem>().Stop();
+            }
         }
 
         else
@@ -189,7 +193,10 @@ public abstract class newCard : MonoBehaviour {
                 if (hit.transform.GetComponent<activateObject>().activatedScript1 != hit.transform.GetComponent<activateObject>().activatedScript2)
                 {
                     hit.transform.GetComponent<activateObject>().activated2 = true;
-                    hit.transform.GetComponent<ParticleSystem>().Stop();
+                    if (ignoreParticles)
+                    {
+                        hit.transform.GetComponent<ParticleSystem>().Stop();
+                    }
                 }
             }
         }
