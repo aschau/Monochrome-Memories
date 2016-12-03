@@ -171,32 +171,57 @@ public abstract class newCard : MonoBehaviour {
 
             else
             {
-                if ((camera == "camera1" && !hit.transform.GetComponent<activateObject>().camera1) || camera == "camera2" && !hit.transform.GetComponent<activateObject>().camera2)
+                if (hit.transform.GetComponent<activateObject>().activatedScript1 != hit.transform.GetComponent<activateObject>().activatedScript2)
                 {
                     hit.transform.GetComponent<activateObject>().activated2 = true;
                     hit.transform.GetComponent<ParticleSystem>().Stop();
                 }
             }
 
-            if (camera == "camera1")
-            {
-                hit.transform.GetComponent<activateObject>().camera1 = true;
-            }
+            //if (camera == "camera1")
+            //{
+            //    hit.transform.GetComponent<activateObject>().camera1 = true;
+            //}
 
-            else if (camera == "camera2")
-            {
-                hit.transform.GetComponent<activateObject>().camera2 = true;
-            }
+            //else if (camera == "camera2")
+            //{
+            //    hit.transform.GetComponent<activateObject>().camera2 = true;
+            //}
         }
     }
 
     public virtual void activateBlack()
     {
-
+        this.checkActivatedType(this.blackEffect);
     }
 
     public virtual void activateWhite()
     {
+        this.checkActivatedType(this.whiteEffect);
+    }
+
+    public virtual void checkActivatedType(string effect)
+    {
+        if (this.hit.transform.GetComponent<activateObject>())
+        {
+            if (!this.hit.transform.GetComponent<activateObject>().dualActivation)
+            {
+                this.hit.transform.GetComponent<activateObject>().activatedScript1 = effect;
+            }
+
+            else
+            {
+                if (!this.hit.transform.GetComponent<activateObject>().activated1)
+                {
+                    this.hit.transform.GetComponent<activateObject>().activatedScript1 = effect;
+                }
+
+                else if (!this.hit.transform.GetComponent<activateObject>().activated2)
+                {
+                    this.hit.transform.GetComponent<activateObject>().activatedScript2 = effect;
+                }
+            }
+        }
 
     }
 }

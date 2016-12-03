@@ -14,7 +14,6 @@ public class tutorialEndLevel : MonoBehaviour
     private bool resetting = false;
     private static bool specialReset = false;
     private Color color;
-    private playerController playerControl;
     private playerMovement player1, player2;
     private GameObject topCover, bottomCover, pause, deck, shiftButton;
     private endLevelObject endlevel1, endlevel2;
@@ -24,7 +23,6 @@ public class tutorialEndLevel : MonoBehaviour
     {
         this.backgroundMusic = GameObject.Find("backgroundMusic").GetComponent<AudioSource>();
         this.resetSound = GameObject.Find("resetSound").GetComponent<AudioSource>();
-        this.playerControl = GameObject.FindObjectOfType<playerController>();
         this.topCover = GameObject.Find("topImage");
         this.bottomCover = GameObject.Find("bottomImage");
         this.endlevel1 = GameObject.Find("endLevel1").GetComponent<endLevelObject>();
@@ -42,7 +40,11 @@ public class tutorialEndLevel : MonoBehaviour
         this.topCover.SetActive(false);
         this.pause.SetActive(false);
         //this.playerControl.enabled = false;
-        this.shiftButton.SetActive(false);
+
+        if (playerMovement.isMobile)
+        {
+            this.shiftButton.SetActive(false);
+        }
     }
 
     public void toggleMenu()
@@ -100,7 +102,7 @@ public class tutorialEndLevel : MonoBehaviour
         {
             //this.playerControl.enabled = true;
             this.shiftButton.SetActive(true);
-            if (player1.isMobile == false)
+            if (playerMovement.isMobile == false)
             {
                 shiftButton.GetComponent<Button>().enabled = false;
             }

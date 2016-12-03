@@ -14,7 +14,7 @@ public class jumpPushCard : newCard {
     {
         base.activateBlack();
 
-        if (base.hit.transform.CompareTag(base.blackEffect))
+        if (base.hit.transform.GetComponent<moveObject>() != null)
         {
             base.hit.transform.GetComponent<moveObject>().activated = true;
             base.checkDualActivation(base.hit, "camera1");

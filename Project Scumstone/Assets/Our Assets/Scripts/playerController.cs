@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class playerController : MonoBehaviour {
     private GameObject player1, player2;
     private GameObject topCover, bottomCover, shiftButton;
-    public bool isMobile = false;
 
     void Awake()
     {
@@ -13,7 +12,7 @@ public class playerController : MonoBehaviour {
         this.player2 = GameObject.Find("Player 2");
         this.topCover = GameObject.Find("topImage");
         this.bottomCover = GameObject.Find("bottomImage");
-        if (isMobile == true)
+        if (playerMovement.isMobile == true)
         {
             this.shiftButton = GameObject.Find("ShiftButton");
         }
@@ -25,7 +24,7 @@ public class playerController : MonoBehaviour {
 
     void Update()
     {
-        if (isMobile == true)
+        if (playerMovement.isMobile == true)
         {
             if (shiftButton.GetComponent<touchScript>().shifted == true)
             {

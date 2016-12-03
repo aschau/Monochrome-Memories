@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class activateObject : MonoBehaviour {
-    public bool activated1, activated2, camera1, camera2, dualActivation = false;
+    public bool activated1, activated2, dualActivation = false;
+    public string activatedScript1, activatedScript2;
 
 	// Use this for initialization
 	void Start () {

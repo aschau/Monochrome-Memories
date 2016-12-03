@@ -11,16 +11,27 @@ public enum Direction
 
 public class playerMovement : MonoBehaviour {
     public static string player;
-    public bool isMobile = false;
-    public float moveSpeed = 0f, jumpSpeed = 200f, originalMoveSpeed, originalJumpSpeed;
+    public static bool isMobile = false;
+    public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 200f, originalJumpSpeed;
     private bool walkingLeft, walkingRight, idle, idleReady = false;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
     //private DragonBones.Animation anim;
+    [HideInInspector]
     public Animator anim;
     private GameObject leftButton, rightButton, jumpButton;
 
     void Awake()
     {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            isMobile = true;
+        }
+
+        else
+        {
+            isMobile = false;
+        }
+
         if (isMobile == true)
         {
             leftButton = GameObject.Find("LeftButton");
@@ -32,7 +43,6 @@ public class playerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = "Player";
-        this.originalMoveSpeed = this.moveSpeed;
         this.originalJumpSpeed = this.jumpSpeed;
         this.anim = this.GetComponent<Animator>();
 
@@ -48,7 +58,6 @@ public class playerMovement : MonoBehaviour {
                 if (this.rightButton.GetComponent<touchScript>().held == true)
 
                 {
-                    this.moveSpeed = 3f;
                     //this.GetComponent<UnityArmatureComponent>()._armature._flipX = false;
                     this.GetComponent<SpriteRenderer>().flipX = false;
                     this.walkingRight = true;
@@ -62,7 +71,6 @@ public class playerMovement : MonoBehaviour {
 
                 else if (this.leftButton.GetComponent<touchScript>().held == true)
                 {
-                    this.moveSpeed = 3f;
                     this.GetComponent<SpriteRenderer>().flipX = true;
                     //this.GetComponent<UnityArmatureComponent>()._armature._flipX = true;
                     this.walkingLeft = true;
@@ -86,7 +94,6 @@ public class playerMovement : MonoBehaviour {
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
 
                 {
-                    this.moveSpeed = 3f;
                     //this.GetComponent<UnityArmatureComponent>()._armature._flipX = false;
                     this.GetComponent<SpriteRenderer>().flipX = false;
                     this.walkingRight = true;
@@ -107,7 +114,6 @@ public class playerMovement : MonoBehaviour {
 
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
-                    this.moveSpeed = 3f;
                     this.GetComponent<SpriteRenderer>().flipX = true;
                     //this.GetComponent<UnityArmatureComponent>()._armature._flipX = true;
                     this.walkingLeft = true;
@@ -154,12 +160,20 @@ public class playerMovement : MonoBehaviour {
     {
         if (this.name == player && this.walkingRight && !this.walkingLeft)
         {
-            this.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.moveSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
+            if (this.moveSpeed < this.maxMoveSpeed)
+            {
+                this.moveSpeed++;
+            }
         }
 
         else if (this.name == player && this.walkingLeft && !this.walkingRight)
         {
-            this.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(-this.moveSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
+            if (this.moveSpeed < this.maxMoveSpeed)
+            {
+                this.moveSpeed++;
+            }
         }
 
         if (isMobile == true)

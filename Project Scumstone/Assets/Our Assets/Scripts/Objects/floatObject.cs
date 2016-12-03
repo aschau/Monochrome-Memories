@@ -24,7 +24,9 @@ public class floatObject : MonoBehaviour {
     {
         if (this.activated)
         {
-            if (this.transform.position.y <= (this.originalY + this.variance) && (this.transform.position.y >= this.originalY))
+            this.GetComponent<Rigidbody2D>().isKinematic = true;
+
+            if (this.transform.position.y <= (this.originalY + this.variance))
             {
                 this.transform.Translate(new Vector2(0, this.speed * Time.deltaTime));
             }
