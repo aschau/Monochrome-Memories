@@ -132,6 +132,11 @@ public class playerMovement : MonoBehaviour {
                 }
             }
 
+            if (this.GetComponent<Rigidbody2D>().velocity.y == 0f)
+            {
+                this.GetComponentInChildren<groundCheck>().onGround = true;
+            }
+
             if (this.walkingLeft ^ this.walkingRight)
             {
                 this.idle = false;
