@@ -15,7 +15,7 @@ public class tutorialEndLevel : MonoBehaviour
     private static bool specialReset = false;
     private Color color;
     private playerMovement player1, player2;
-    private GameObject topCover, bottomCover, pause, deck, shiftButton;
+    private GameObject topCover, bottomCover, pause, deck, shiftButton, firstHalf;
     private endLevelObject endlevel1, endlevel2;
 
     // Use this for initialization
@@ -32,6 +32,8 @@ public class tutorialEndLevel : MonoBehaviour
         this.pause = GameObject.Find("Pause Menu");
         this.deck = GameObject.Find("Deck Box");
         this.shiftButton = GameObject.Find("ShiftButton");
+        this.firstHalf = GameObject.Find("TopHalf");
+        
     }
 
     void Start()
@@ -89,6 +91,7 @@ public class tutorialEndLevel : MonoBehaviour
                 playerMovement.player = "Player 2";
                 this.topCover.SetActive(false);
                 this.bottomCover.SetActive(false);
+                this.firstHalf.SetActive(false);
                 
             }
         }
