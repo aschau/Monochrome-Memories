@@ -16,6 +16,7 @@ public abstract class newCard : MonoBehaviour {
     public GameObject camera1, camera2;
     [HideInInspector]
     public RaycastHit2D hit;
+    public bool isCollected = true;
 
     private GameObject[] cards;
 
