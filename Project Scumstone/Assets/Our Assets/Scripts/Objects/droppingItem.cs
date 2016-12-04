@@ -32,7 +32,7 @@ public class droppingItem : MonoBehaviour {
         }
         else if (other.transform.tag != "pushBlock")
         {
-            source = GetComponent<AudioSource>();
+            source = GetComponentInChildren<AudioSource>();
             source.Play();
             if (regenerate == true)
             {
