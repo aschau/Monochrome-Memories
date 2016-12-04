@@ -29,7 +29,7 @@ public class CardMenu: MonoBehaviour
     {
         newLocation = new Vector3(this.transform.position.x - 10, this.transform.position.y, this.transform.position.z);
         oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-        source = GetComponent<AudioSource>();
+        source = this.transform.FindChild("Box Sound Effect").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

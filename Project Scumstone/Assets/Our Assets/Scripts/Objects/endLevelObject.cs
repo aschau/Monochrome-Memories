@@ -22,7 +22,7 @@ public class endLevelObject : MonoBehaviour {
         {
             other.GetComponent<playerMovement>().stopMoving();
             other.gameObject.SetActive(false);
-            this.GetComponent<AudioSource>().Play();
+            this.GetComponentInChildren<AudioSource>().Play(); 
             this.activated = true;
         }
     }

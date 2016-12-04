@@ -30,7 +30,7 @@ public abstract class newCard : MonoBehaviour {
     {
         newLocation = new Vector3(this.transform.position.x - 20, this.transform.position.y, this.transform.position.z);
         oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-        source = GetComponent<AudioSource>();
+        source = GameObject.Find("card effect").GetComponent<AudioSource>(); 
         this.cards = GameObject.FindGameObjectsWithTag("gameCards");
     }
 
