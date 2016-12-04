@@ -60,8 +60,10 @@ public class CardMenu: MonoBehaviour
             this.GetComponent<Image>().sprite = newImage;
             foreach (GameObject card in this.cards)
             {
-                card.SetActive(true);
-
+                if (card.GetComponent<newCard>().isCollected == true)
+                {
+                    card.SetActive(true);
+                }
             }
         }
         else
@@ -69,9 +71,11 @@ public class CardMenu: MonoBehaviour
             this.GetComponent<Image>().sprite = currentImage;
             foreach (GameObject card in cards)
             {
-                card.GetComponent<newCard>().turnOff();
-                card.SetActive(false);
-
+                if (card.GetComponent<newCard>().isCollected == true)
+                {
+                    card.GetComponent<newCard>().turnOff();
+                    card.SetActive(false);
+                }
             }
         }
         source.PlayOneShot(cardSound, volume);
