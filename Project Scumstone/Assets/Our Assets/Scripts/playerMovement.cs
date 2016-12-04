@@ -12,7 +12,7 @@ public enum Direction
 public class playerMovement : MonoBehaviour {
     public static string player;
     public static bool isMobile = false;
-    public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed;
+    public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed, previousYVelocity;
     private bool walkingLeft, walkingRight, idle, idleReady = false;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
     //private DragonBones.Animation anim;
@@ -132,9 +132,14 @@ public class playerMovement : MonoBehaviour {
                 }
             }
 
-            if (this.GetComponent<Rigidbody2D>().velocity.y == 0f)
+            if (this.GetComponent<Rigidbody2D>().velocity.y == 0f && this.previousYVelocity < 0)
             {
                 this.GetComponentInChildren<groundCheck>().onGround = true;
+            }
+
+            else
+            {
+                this.previousYVelocity = this.GetComponent<Rigidbody2D>().velocity.y;
             }
 
             if (this.walkingLeft ^ this.walkingRight)
