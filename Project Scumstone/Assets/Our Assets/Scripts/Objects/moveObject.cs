@@ -27,4 +27,10 @@ public class moveObject : baseObject {
         base.activate();
         this.GetComponent<Rigidbody2D>().isKinematic = false;
     }
+
+    public override void deactivate()
+    {
+        base.deactivate();
+        this.GetComponent<Rigidbody2D>().isKinematic = true;
+    }
 }

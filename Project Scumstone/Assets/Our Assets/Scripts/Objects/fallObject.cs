@@ -17,9 +17,18 @@ public class fallObject : baseObject {
     public override void activate()
     {
         base.activate();
-        if (this.transform.position.y >= (this.originalPlace - this.variance) && this.transform.position.y <= this.originalPlace)
+        if (this.transform.position.y >= (this.originalPlace - this.variance))
         {
             this.transform.Translate(new Vector2(0, -this.speed * Time.deltaTime));
+        }
+    }
+
+    public override void deactivate()
+    {
+        base.deactivate();
+        if (this.transform.position.y <= this.originalPlace)
+        {
+            this.transform.Translate(new Vector2(0, this.speed * Time.deltaTime));
         }
     }
 

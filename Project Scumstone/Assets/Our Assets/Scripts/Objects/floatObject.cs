@@ -14,6 +14,11 @@ public class floatObject : baseObject {
         this.originalY = this.transform.position.y;
         this.GetComponent<Rigidbody2D>().isKinematic = true;
     }
+
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
     public override void activate()
     {
         base.activate();
@@ -22,6 +27,15 @@ public class floatObject : baseObject {
         if (this.transform.position.y <= (this.originalY + this.variance))
         {
             this.transform.Translate(new Vector2(0, this.speed * Time.deltaTime));
+        }
+    }
+
+    public override void deactivate()
+    {
+        base.deactivate();
+        if (this.transform.position.y >= this.originalY)
+        {
+            this.transform.Translate(new Vector2(0, -this.speed * Time.deltaTime));
         }
     }
 
