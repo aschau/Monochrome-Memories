@@ -36,7 +36,7 @@ public class activateObject : MonoBehaviour {
                 this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 220, 0);
             }
 
-            else
+            else if (this.activatedScript1 != this.activatedScript2)
             {
                 this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
             }
