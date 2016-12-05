@@ -7,7 +7,7 @@ public class Transport : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        this.newPlace = this.transform.Find("newPlace");
     }
 
     // Update is called once per frame
@@ -35,11 +35,13 @@ public class Transport : MonoBehaviour
             if (other.transform.GetComponent<floatObject>() != null)
             {
                 other.transform.GetComponent<floatObject>().originalY = newPlace.position.y;
+                other.transform.GetComponent<floatObject>().activated = false;
 
             }
-            else if (other.transform.GetComponent<fallObject>() != null)
+            if (other.transform.GetComponent<fallObject>() != null)
             {
                 other.transform.GetComponent<fallObject>().originalPlace = newPlace.position.y;
+                other.transform.GetComponent<fallObject>().activated = false;
             }
             other.transform.position = newPlace.position;
         }
@@ -60,11 +62,13 @@ public class Transport : MonoBehaviour
             if (other.transform.GetComponent<floatObject>() != null)
             {
                 other.transform.GetComponent<floatObject>().originalY = newPlace.position.y;
+                other.transform.GetComponent<floatObject>().activated = false;
 
             }
-            else if (other.transform.GetComponent<fallObject>() != null)
+            if (other.transform.GetComponent<fallObject>() != null)
             {
                 other.transform.GetComponent<fallObject>().originalPlace = newPlace.position.y;
+                other.transform.GetComponent<fallObject>().activated = false;
             }
             other.transform.position = newPlace.position;
         }
