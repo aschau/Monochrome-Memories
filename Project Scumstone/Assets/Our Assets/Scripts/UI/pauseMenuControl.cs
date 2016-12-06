@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class pauseMenuControl : MonoBehaviour {
-    private GameObject settingsMenu, defaultMenu, topCover, bottomCover, deck, sceneController;
+    private GameObject settingsMenu, defaultMenu, topCover, bottomCover, deck, sceneController, touchShift;
     private playerController playerControl;
     private playerMovement player1, player2;
 
@@ -19,6 +19,7 @@ public class pauseMenuControl : MonoBehaviour {
         this.player2 = GameObject.Find("Player 2").GetComponent<playerMovement>();
         this.topCover = GameObject.Find("topImage");
         this.bottomCover = GameObject.Find("bottomImage");
+        this.touchShift = GameObject.Find("ShiftButton");
     }
 
 	// Use this for initialization
@@ -65,6 +66,10 @@ public class pauseMenuControl : MonoBehaviour {
             this.deck.SetActive(!this.deck.activeSelf);
         }
 
+        if (playerMovement.isMobile)
+        {
+            this.touchShift.SetActive(!this.touchShift.activeSelf);
+        }
         this.settingsMenu.SetActive(false);
         this.defaultMenu.SetActive(true);
         this.gameObject.SetActive(!this.gameObject.activeSelf);

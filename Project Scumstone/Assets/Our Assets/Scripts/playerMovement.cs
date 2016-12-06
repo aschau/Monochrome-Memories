@@ -13,7 +13,7 @@ public class playerMovement : MonoBehaviour {
     public static string player;
     public static bool isMobile = false;
     public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed, previousYVelocity;
-    private bool walkingLeft, walkingRight, idle, idleReady = false, onGround, jumpPressed;
+    private bool walkingLeft, walkingRight, idle, idleReady = false, onGround = true, jumpPressed;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
     //private DragonBones.Animation anim;
     [HideInInspector]
@@ -141,7 +141,7 @@ public class playerMovement : MonoBehaviour {
             }
             this.onGround = false;
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .2f, this.layer);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .11f, this.layer);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject != gameObject)

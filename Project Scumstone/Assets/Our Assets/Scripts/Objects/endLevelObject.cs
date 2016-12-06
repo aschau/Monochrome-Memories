@@ -15,6 +15,7 @@ public class endLevelObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
         if (this.clickShift)
         {
             this.clickShift.SetActive(false);
@@ -23,21 +24,37 @@ public class endLevelObject : MonoBehaviour {
 
         if (this.touchShift)
         {
-            this.touchShift.SetActive(false);
-            this.playerController.SetActive(false);
+            if (SceneManager.GetActiveScene().name == "Level 1")
+            {
+                this.touchShift.SetActive(false);
+                this.playerController.SetActive(false);
+            }
+
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	    if (this.clickShift && this.activated)
+        if (SceneManager.GetActiveScene().name == "Level 1")
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            if (this.touchShift && this.activated)
             {
-                this.player.SetActive(false);
-                this.clickShift.SetActive(false);
+                if (this.touchShift.GetComponent<touchScript>().shifted)
+                {
+                    this.player.SetActive(false);
+                    this.touchShift.SetActive(false);
+                }
+            }
+            if (this.clickShift && this.activated)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+                {
+                    this.player.SetActive(false);
+                    this.clickShift.SetActive(false);
+                }
             }
         }
+
 
         if (this.touchShift && this.activated)
         {
@@ -54,27 +71,34 @@ public class endLevelObject : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             other.GetComponent<playerMovement>().stopMoving();
-            if (this.name == "endLevel2")
+            if (SceneManager.GetActiveScene().name == "Level 1")
+            {
+                if (this.name == "endLevel2")
+                {
+                    other.gameObject.SetActive(false);
+                }
+
+                else if (this.name == "endLevel1")
+                {
+                    other.GetComponent<SpriteRenderer>().enabled = false;
+                    other.GetComponent<Collider2D>().enabled = false;
+                    if (playerMovement.isMobile)
+                    {
+                        this.touchShift.SetActive(true);
+                    }
+
+                    if (this.clickShift && !this.touchShift.activeSelf)
+                    {
+                        this.clickShift.SetActive(true);
+                    }
+
+
+                    this.player = other.gameObject;
+                }
+            }
+            else
             {
                 other.gameObject.SetActive(false);
-            }
-
-            else if (this.name == "endLevel1")
-            {
-                other.GetComponent<SpriteRenderer>().enabled = false;
-                other.GetComponent<Collider2D>().enabled = false;
-                if (playerMovement.isMobile)
-                {
-                    this.touchShift.SetActive(true);
-                }
-
-                if (this.clickShift && !this.touchShift.activeSelf)
-                {
-                    this.clickShift.SetActive(true);
-                }
-
-
-                this.player = other.gameObject;
             }
             this.GetComponentInChildren<AudioSource>().Play(); 
             this.activated = true;
