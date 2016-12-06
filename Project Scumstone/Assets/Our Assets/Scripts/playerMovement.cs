@@ -13,7 +13,7 @@ public class playerMovement : MonoBehaviour {
     public static string player;
     public static bool isMobile = false;
     public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed, previousYVelocity;
-    private bool walkingLeft, walkingRight, idle, idleReady = false, onGround;
+    private bool walkingLeft, walkingRight, idle, idleReady = false, onGround, jumpPressed;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
     //private DragonBones.Animation anim;
     [HideInInspector]
@@ -145,16 +145,10 @@ public class playerMovement : MonoBehaviour {
                 }
             }
 
-            //if (this.GetComponent<Rigidbody2D>().velocity.y == 0f && this.previousYVelocity <= 0)
-            //{
-            //    this.GetComponentInChildren<groundCheck>().onGround = true;
-            //}
-
-            //else
-            //{
-            //    this.previousYVelocity = this.GetComponent<Rigidbody2D>().velocity.y;
-            //}
-
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                this.jumpPressed = true;
+            }
             this.onGround = false;
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .1f, this.layer);
@@ -215,8 +209,13 @@ public class playerMovement : MonoBehaviour {
 
         if (isMobile == true)
         {
-            if (jumpButton.GetComponent<touchScript>().held == true)
+            if (jumpButton.GetComponent<touchScript>().held == true && this.name == player)
             {
+                if (this.onGround)
+                {
+                    this.onGround = false;
+                    this.body.AddForce(new Vector2(0f, this.jumpSpeed));
+                }
 
                 //if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && player == this.name)
                 //{
@@ -228,11 +227,12 @@ public class playerMovement : MonoBehaviour {
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (this.jumpPressed)
             {
-                if (this.onGround)
+                if (this.onGround && this.name == player)
                 {
                     this.onGround = false;
+                    this.jumpPressed = false;
                     this.body.AddForce(new Vector2(0f, this.jumpSpeed));
                 }
                 //if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && player == this.name)
