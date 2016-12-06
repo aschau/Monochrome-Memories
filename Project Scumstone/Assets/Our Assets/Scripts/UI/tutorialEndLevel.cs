@@ -87,12 +87,15 @@ public class tutorialEndLevel : MonoBehaviour
             if (specialReset == true)
             {
                 //player1.stopMoving();
-                GameObject.Find("Player").SetActive(false);
+                player1.gameObject.SetActive(false);
+                //GameObject.Find("Player").SetActive(false);
                 playerMovement.player = "Player 2";
                 this.topCover.SetActive(false);
                 this.bottomCover.SetActive(false);
-                this.firstHalf.SetActive(false);
-                
+                if (this.firstHalf)
+                {
+                this.firstHalf.SetActive(false);                
+                }
             }
         }
 

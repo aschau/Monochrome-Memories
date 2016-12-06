@@ -12,13 +12,18 @@ public enum Direction
 public class playerMovement : MonoBehaviour {
     public static string player;
     public static bool isMobile = false;
-    public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed;
-    private bool walkingLeft, walkingRight, idle, idleReady = false;
+    public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed, previousYVelocity;
+    private bool walkingLeft, walkingRight, idle, idleReady = false, onGround;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
     //private DragonBones.Animation anim;
     [HideInInspector]
     public Animator anim;
     private GameObject leftButton, rightButton, jumpButton;
+    private Rigidbody2D body;
+    private Vector3 previousPos;
+    private UnityEngine.Transform bottom;
+    [SerializeField]
+    private LayerMask layer;
 
     void Awake()
     {
@@ -38,6 +43,9 @@ public class playerMovement : MonoBehaviour {
             rightButton = GameObject.Find("RightButton");
             jumpButton = GameObject.Find("JumpButton");
         }
+
+        this.bottom = transform.Find("bottom");
+
     }
 
 	// Use this for initialization
@@ -45,6 +53,7 @@ public class playerMovement : MonoBehaviour {
         player = "Player";
         this.originalJumpSpeed = this.jumpSpeed;
         this.anim = this.GetComponent<Animator>();
+        this.body = this.GetComponent<Rigidbody2D>();
 
         //this.anim = this.GetComponent<UnityArmatureComponent>().animation;
 	}
@@ -59,6 +68,7 @@ public class playerMovement : MonoBehaviour {
 
                 {
                     //this.GetComponent<UnityArmatureComponent>()._armature._flipX = false;
+                    this.moveSpeed = 3f;
                     this.GetComponent<SpriteRenderer>().flipX = false;
                     this.walkingRight = true;
                     this.currentDirection = Direction.Right;
@@ -71,6 +81,7 @@ public class playerMovement : MonoBehaviour {
 
                 else if (this.leftButton.GetComponent<touchScript>().held == true)
                 {
+                    this.moveSpeed = 3f;
                     this.GetComponent<SpriteRenderer>().flipX = true;
                     //this.GetComponent<UnityArmatureComponent>()._armature._flipX = true;
                     this.walkingLeft = true;
@@ -95,6 +106,7 @@ public class playerMovement : MonoBehaviour {
 
                 {
                     //this.GetComponent<UnityArmatureComponent>()._armature._flipX = false;
+                    this.moveSpeed = 3f;
                     this.GetComponent<SpriteRenderer>().flipX = false;
                     this.walkingRight = true;
                     this.currentDirection = Direction.Right;
@@ -114,6 +126,7 @@ public class playerMovement : MonoBehaviour {
 
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
+                    this.moveSpeed = 3f;
                     this.GetComponent<SpriteRenderer>().flipX = true;
                     //this.GetComponent<UnityArmatureComponent>()._armature._flipX = true;
                     this.walkingLeft = true;
@@ -129,6 +142,27 @@ public class playerMovement : MonoBehaviour {
                     this.moveSpeed = 0f;
                     this.walkingLeft = false;
                     this.anim.SetBool("isWalking", false);
+                }
+            }
+
+            //if (this.GetComponent<Rigidbody2D>().velocity.y == 0f && this.previousYVelocity <= 0)
+            //{
+            //    this.GetComponentInChildren<groundCheck>().onGround = true;
+            //}
+
+            //else
+            //{
+            //    this.previousYVelocity = this.GetComponent<Rigidbody2D>().velocity.y;
+            //}
+
+            this.onGround = false;
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .1f, this.layer);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject != gameObject)
+                {
+                    this.onGround = true;
                 }
             }
 
@@ -158,22 +192,25 @@ public class playerMovement : MonoBehaviour {
 
     void FixedUpdate()
     {
+
         if (this.name == player && this.walkingRight && !this.walkingLeft)
         {
-            this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.moveSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
-            if (this.moveSpeed < this.maxMoveSpeed)
-            {
-                this.moveSpeed++;
-            }
+            this.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
+            //this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.moveSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
+            //if (this.moveSpeed < this.maxMoveSpeed)
+            //{
+            //    this.moveSpeed++;
+            //}
         }
 
         else if (this.name == player && this.walkingLeft && !this.walkingRight)
         {
-            this.GetComponent<Rigidbody2D>().velocity = new Vector2(-this.moveSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
-            if (this.moveSpeed < this.maxMoveSpeed)
-            {
-                this.moveSpeed++;
-            }
+            this.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
+            //this.GetComponent<Rigidbody2D>().velocity = new Vector2(-this.moveSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
+            //if (this.moveSpeed < this.maxMoveSpeed)
+            //{
+            //    this.moveSpeed++;
+            //}
         }
 
         if (isMobile == true)
@@ -181,27 +218,44 @@ public class playerMovement : MonoBehaviour {
             if (jumpButton.GetComponent<touchScript>().held == true)
             {
 
-                if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && player == this.name)
-                {
-                    this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
-                    this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
-                }
+                //if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && player == this.name)
+                //{
+                //    this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
+                //    this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+                //}
 
             }
         }
         else
         {
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
             {
-
-                if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && player == this.name)
+                if (this.onGround)
                 {
-                    this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
-                    this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+                    this.onGround = false;
+                    this.body.AddForce(new Vector2(0f, this.jumpSpeed));
                 }
+                //if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && player == this.name)
+                //{
+                //    this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
+                //    this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+                //}
 
             }
         }
+        //if (!Input.anyKey)
+        //{
+        //    if (this.moveSpeed > 0)
+        //    {
+        //        this.moveSpeed--;
+        //    }
+
+        //    if (this.moveSpeed == 0)
+        //    {
+        //        this.walkingLeft = false;
+        //        this.walkingRight = false;
+        //    }
+        //}
     }
 
     public void stopMoving()
