@@ -2,13 +2,17 @@
 using System.Collections;
 
 public class pauseMenuControl : MonoBehaviour {
-    private GameObject settingsMenu, defaultMenu, topCover, bottomCover, deck;
+    private GameObject settingsMenu, defaultMenu, topCover, bottomCover, deck, sceneController;
     private playerController playerControl;
     private playerMovement player1, player2;
 
     void Awake()
     {
-        this.playerControl = GameObject.Find("playerControl").GetComponent<playerController>();
+        if (GameObject.Find("playerControl"))
+        {
+            this.playerControl = GameObject.Find("playerControl").GetComponent<playerController>();
+        }
+        this.sceneController = GameObject.Find("Scene Control");
         this.settingsMenu = GameObject.Find("Settings Menu");
         this.defaultMenu = GameObject.Find("Default Menu");
         this.player1 = GameObject.Find("Player").GetComponent<playerMovement>();
@@ -31,10 +35,21 @@ public class pauseMenuControl : MonoBehaviour {
 
     public void toggleMenu()
     {
-        this.playerControl.enabled = !this.playerControl.enabled;
+        if (this.playerControl != null)
+        {
+            this.playerControl.enabled = !this.playerControl.enabled;
+        }
 
-        this.player1.enabled = !this.player1.enabled;
-        this.player2.enabled = !this.player2.enabled;
+        if (this.player1 != null)
+        {
+            this.player1.enabled = !this.player1.enabled;
+        }
+
+        if (this.player2 != null)
+        {
+            this.player2.enabled = !this.player2.enabled;
+        }
+
         if (playerMovement.player == "Player")
         {
             this.topCover.SetActive(!this.topCover.activeSelf);

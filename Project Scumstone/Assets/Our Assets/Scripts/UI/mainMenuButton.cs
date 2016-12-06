@@ -10,7 +10,10 @@ public class mainMenuButton : MonoBehaviour {
 
 	// Use this for initialization
 	public virtual void Start () {
-	
+	    if (playerMovement.isMobile)
+        {
+            this.transform.FindChild("Text").gameObject.SetActive(true);
+        }
 	}
 	
 	// Update is called once per frame

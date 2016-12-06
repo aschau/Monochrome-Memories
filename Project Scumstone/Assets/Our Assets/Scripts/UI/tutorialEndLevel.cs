@@ -161,7 +161,7 @@ public class tutorialEndLevel : MonoBehaviour
 
         if (this.endlevel2.activated && !this.resetting)
         {
-            Invoke("changeScene", 5);
+            Invoke("loadNext", 5);
             this.resetting = true;
             fadeTransition(this.speed);
             //this.playerControl.enabled = false;
@@ -206,7 +206,20 @@ public class tutorialEndLevel : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void changeScene()
+    public void exit()
+    {
+        Invoke("mainMenu", resetTime);
+        this.resetting = true;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void mainMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("mainMenu");
+    }
+
+    void loadNext()
     {
         SceneManager.LoadScene(this.nextLevel);
     }

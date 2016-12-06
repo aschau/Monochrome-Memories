@@ -14,7 +14,7 @@ public class sceneControl : MonoBehaviour {
     private Color color;
     private playerController playerControl;
     private playerMovement player1, player2;
-    private GameObject topCover, bottomCover, pause, deck;
+    private GameObject topCover, bottomCover, pause, deck, clickShift;
     private endLevelObject endlevel1, endlevel2;
 
     // Use this for initialization
@@ -31,6 +31,7 @@ public class sceneControl : MonoBehaviour {
         this.player2 = GameObject.Find("Player 2").GetComponent<playerMovement>();
         this.pause = GameObject.Find("Pause Menu");
         this.deck = GameObject.Find("Deck Box");
+        this.clickShift = GameObject.Find("clickShift");
     }
 
 	void Start () {
@@ -96,7 +97,10 @@ public class sceneControl : MonoBehaviour {
         this.resetting = true;
         this.pause.SetActive(false);
         this.topCover.SetActive(false);
-        this.bottomCover.SetActive(false);
+        if (!this.clickShift)
+        {
+            this.bottomCover.SetActive(false);
+        }
         Invoke("resetScene", this.resetTime);
         this.playerControl.enabled = false;
         this.player1.enabled = false;

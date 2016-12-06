@@ -4,16 +4,49 @@ using UnityEngine.SceneManagement;
 
 public class endLevelObject : MonoBehaviour {
     public bool activated = false;
+    private GameObject clickShift, player, playerController, touchShift;
 
+    void Awake()
+    {
+        this.clickShift = GameObject.Find("clickShift");
+        this.playerController = GameObject.Find("playerControl");
+        this.touchShift = GameObject.Find("ShiftButton");
+    }
 
 	// Use this for initialization
 	void Start () {
-	
+        if (this.clickShift)
+        {
+            this.clickShift.SetActive(false);
+            this.playerController.SetActive(false);
+        }
+
+        if (this.touchShift)
+        {
+            this.touchShift.SetActive(false);
+            this.playerController.SetActive(false);
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    if (this.clickShift && this.activated)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            {
+                this.player.SetActive(false);
+                this.clickShift.SetActive(false);
+            }
+        }
+
+        if (this.touchShift && this.activated)
+        {
+            if (this.touchShift.GetComponent<touchScript>().shifted)
+            {
+                this.player.SetActive(false);
+                this.touchShift.SetActive(false);
+            }
+        }
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -21,7 +54,28 @@ public class endLevelObject : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             other.GetComponent<playerMovement>().stopMoving();
-            other.gameObject.SetActive(false);
+            if (this.name == "endLevel2")
+            {
+                other.gameObject.SetActive(false);
+            }
+
+            else if (this.name == "endLevel1")
+            {
+                other.GetComponent<SpriteRenderer>().enabled = false;
+                other.GetComponent<Collider2D>().enabled = false;
+                if (playerMovement.isMobile)
+                {
+                    this.touchShift.SetActive(true);
+                }
+
+                if (this.clickShift && !this.touchShift.activeSelf)
+                {
+                    this.clickShift.SetActive(true);
+                }
+
+
+                this.player = other.gameObject;
+            }
             this.GetComponentInChildren<AudioSource>().Play(); 
             this.activated = true;
         }

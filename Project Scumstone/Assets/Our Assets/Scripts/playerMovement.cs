@@ -27,16 +27,6 @@ public class playerMovement : MonoBehaviour {
 
     void Awake()
     {
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            isMobile = true;
-        }
-
-        else
-        {
-            isMobile = false;
-        }
-
         if (isMobile == true)
         {
             leftButton = GameObject.Find("LeftButton");
@@ -151,7 +141,7 @@ public class playerMovement : MonoBehaviour {
             }
             this.onGround = false;
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .1f, this.layer);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .2f, this.layer);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject != gameObject)
@@ -209,11 +199,12 @@ public class playerMovement : MonoBehaviour {
 
         if (isMobile == true)
         {
-            if (jumpButton.GetComponent<touchScript>().held == true && this.name == player)
+            if (jumpButton.GetComponent<touchScript>().jump && this.name == player)
             {
                 if (this.onGround)
                 {
                     this.onGround = false;
+                    jumpButton.GetComponent<touchScript>().jump = false;
                     this.body.AddForce(new Vector2(0f, this.jumpSpeed));
                 }
 
