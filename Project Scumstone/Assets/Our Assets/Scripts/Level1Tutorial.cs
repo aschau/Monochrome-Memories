@@ -46,9 +46,12 @@ public class Level1Tutorial : MonoBehaviour {
     {
         if (this.GetComponent<CardMenu>().isClicked == true)
         {
-            this.completed = true;
             this.deckBox.SetActive(false);
-            this.selectCard.SetActive(true);
+            if (this.completed == false)
+            {
+                this.selectCard.SetActive(true);
+                this.completed = true;
+            }
         }
     }
 
