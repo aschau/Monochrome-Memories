@@ -109,13 +109,38 @@ public class tutorialEndLevel : MonoBehaviour
         if (this.endlevel1.activated && !this.resetting)
         {
             //this.playerControl.enabled = true;
-            this.shiftButton.SetActive(true);
+
             if (playerMovement.isMobile == false)
             {
-                shiftButton.GetComponent<Button>().enabled = false;
+                //shiftButton.GetComponent<Button>().enabled = false;
                 this.shift.SetActive(true);
             }
-            if (shiftButton.GetComponent<touchScript>().shifted == true || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.E))
+
+            else
+            {
+                this.shiftButton.SetActive(true);
+            }
+            
+            if (playerMovement.isMobile)
+            {
+                if (shiftButton.GetComponent<touchScript>().shifted)
+                {
+                    this.shift.SetActive(false);
+                    fadeTransition(this.speed);
+                    this.resetting = true;
+                    this.backgroundMusic.Stop();
+                    this.topCover.SetActive(false);
+                    this.bottomCover.SetActive(true);
+                    specialReset = true;
+                    Invoke("resetScene", this.resetTime);
+                    this.player1.enabled = false;
+                    this.player2.enabled = false;
+                    this.backgroundMusic.Stop();
+                    this.resetSound.Play();
+                }
+            }
+
+            else if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.E))
             {
                 this.shift.SetActive(false);
                 fadeTransition(this.speed);
