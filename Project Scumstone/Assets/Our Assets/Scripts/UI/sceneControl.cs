@@ -36,7 +36,6 @@ public class sceneControl : MonoBehaviour {
 	void Start () {
         this.GetComponent<Image>().enabled = true;
         this.topCover.SetActive(false);
-        this.pause.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -82,34 +81,10 @@ public class sceneControl : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            this.toggleMenu();
+            this.pause.GetComponent<pauseMenuControl>().toggleMenu();
         }
 
 	}
-
-    public void toggleMenu()
-    {
-        this.playerControl.enabled = !this.playerControl.enabled;
-
-        this.player1.enabled = !this.player1.enabled;
-        this.player2.enabled = !this.player2.enabled;
-        if (playerMovement.player == "Player")
-        {
-            this.topCover.SetActive(!this.topCover.activeSelf);
-        }
-
-        else
-        {
-            this.bottomCover.SetActive(!this.bottomCover.activeSelf);
-        }
-
-        if (this.deck)
-        {
-            this.deck.SetActive(!this.deck.activeSelf);
-        }
-
-        this.pause.SetActive(!this.pause.activeSelf);
-    }
 
     void fadeTransition(float speed)
     {

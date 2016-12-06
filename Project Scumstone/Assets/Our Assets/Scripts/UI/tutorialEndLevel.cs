@@ -71,7 +71,7 @@ public class tutorialEndLevel : MonoBehaviour
         {
             this.deck.SetActive(!this.deck.activeSelf);
         }
-
+        
         this.pause.SetActive(!this.pause.activeSelf);
     }
 
@@ -140,7 +140,7 @@ public class tutorialEndLevel : MonoBehaviour
                 }
             }
 
-            else if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.E))
+            else if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
             {
                 this.shift.SetActive(false);
                 fadeTransition(this.speed);
