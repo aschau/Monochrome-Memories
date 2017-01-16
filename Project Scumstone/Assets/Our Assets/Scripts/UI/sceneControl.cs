@@ -14,13 +14,13 @@ public class sceneControl : MonoBehaviour {
     private Color color;
     private playerController playerControl;
     private playerMovement player1, player2;
-    private GameObject topCover, bottomCover, pause, deck;
+    private GameObject topCover, bottomCover, pause, deck, clickShift;
     private endLevelObject endlevel1, endlevel2;
 
     // Use this for initialization
     void Awake()
     {
-        this.backgroundMusic = GameObject.Find("backgroundMusic").GetComponent<AudioSource>();
+        this.backgroundMusic = GameObject.Find("Black World Music").GetComponent<AudioSource>();
         this.resetSound = GameObject.Find("resetSound").GetComponent<AudioSource>();
         this.playerControl = GameObject.FindObjectOfType<playerController>();
         this.topCover = GameObject.Find("topImage");
@@ -31,12 +31,12 @@ public class sceneControl : MonoBehaviour {
         this.player2 = GameObject.Find("Player 2").GetComponent<playerMovement>();
         this.pause = GameObject.Find("Pause Menu");
         this.deck = GameObject.Find("Deck Box");
+        this.clickShift = GameObject.Find("clickShift");
     }
 
 	void Start () {
         this.GetComponent<Image>().enabled = true;
         this.topCover.SetActive(false);
-        this.pause.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -82,34 +82,10 @@ public class sceneControl : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            this.toggleMenu();
+            this.pause.GetComponent<pauseMenuControl>().toggleMenu();
         }
 
 	}
-
-    public void toggleMenu()
-    {
-        this.playerControl.enabled = !this.playerControl.enabled;
-
-        this.player1.enabled = !this.player1.enabled;
-        this.player2.enabled = !this.player2.enabled;
-        if (playerMovement.player == "Player")
-        {
-            this.topCover.SetActive(!this.topCover.activeSelf);
-        }
-
-        else
-        {
-            this.bottomCover.SetActive(!this.bottomCover.activeSelf);
-        }
-
-        if (this.deck)
-        {
-            this.deck.SetActive(!this.deck.activeSelf);
-        }
-
-        this.pause.SetActive(!this.pause.activeSelf);
-    }
 
     void fadeTransition(float speed)
     {
@@ -121,7 +97,10 @@ public class sceneControl : MonoBehaviour {
         this.resetting = true;
         this.pause.SetActive(false);
         this.topCover.SetActive(false);
-        this.bottomCover.SetActive(false);
+        if (!this.clickShift)
+        {
+            this.bottomCover.SetActive(false);
+        }
         Invoke("resetScene", this.resetTime);
         this.playerControl.enabled = false;
         this.player1.enabled = false;

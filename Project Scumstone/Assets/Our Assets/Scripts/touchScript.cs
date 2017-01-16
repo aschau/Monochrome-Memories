@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class touchScript : MonoBehaviour {
     public bool held = false;
     public bool shifted = false;
+    public bool jump = false;
 	// Use this for initialization
 	void Start () {
 	
@@ -33,5 +34,10 @@ public class touchScript : MonoBehaviour {
     {
         this.held = false;
         //this.shifted = true;
+    }
+
+    public void onJump()
+    {
+        this.jump = true;
     }
 }

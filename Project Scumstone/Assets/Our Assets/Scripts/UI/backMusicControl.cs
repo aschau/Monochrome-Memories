@@ -9,7 +9,7 @@ public class backMusicControl : MonoBehaviour {
     
     void Awake()
     {
-        this.backgroundMusic = GameObject.Find("backgroundMusic").GetComponent<AudioSource>();
+        this.backgroundMusic = GameObject.Find("Black World Music").GetComponent<AudioSource>();
         this.originalVolume = this.backgroundMusic.volume;
         this.backgroundMusic.volume = this.originalVolume * sliderAmount;
     }

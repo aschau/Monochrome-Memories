@@ -35,11 +35,11 @@ public class groundCheck: MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        onGround = true;
-        if (this.GetComponentInParent<Rigidbody2D>())
-        {
-            this.GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;
-        }
+        //onGround = true;
+        //if (this.GetComponentInParent<Rigidbody2D>())
+        //{
+        //    this.GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;
+        //}
         if (other.CompareTag("jumpArea"))
         {
             if (other.GetComponentInParent<jumpObject>().activated)

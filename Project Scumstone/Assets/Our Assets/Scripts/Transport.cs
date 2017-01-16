@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Transport : MonoBehaviour {
+public class Transport : MonoBehaviour
+{
     public Transform newPlace;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+        this.newPlace = this.transform.Find("newPlace");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         //this.GetComponent<BoxCollider2D>().isTrigger = true;
-	}
+    }
 
     /*void OnCollisionEnter2D(Collision2D other)
     {
@@ -32,11 +35,13 @@ public class Transport : MonoBehaviour {
             if (other.transform.GetComponent<floatObject>() != null)
             {
                 other.transform.GetComponent<floatObject>().originalY = newPlace.position.y;
+                other.transform.GetComponent<floatObject>().activated = false;
 
             }
-            else if (other.transform.GetComponent<fallObject>() != null)
+            if (other.transform.GetComponent<fallObject>() != null)
             {
                 other.transform.GetComponent<fallObject>().originalPlace = newPlace.position.y;
+                other.transform.GetComponent<fallObject>().activated = false;
             }
             other.transform.position = newPlace.position;
         }
@@ -44,11 +49,11 @@ public class Transport : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
-        {
-            this.GetComponent<BoxCollider2D>().isTrigger = false;
-        }
-        else if (other.tag == "pushBlock" || other.tag == "jumpBlock")
+        //if (other.tag == "Player")
+        //{
+        //    this.GetComponent<BoxCollider2D>().isTrigger = false;
+        //}
+        if (other.tag == "pushBlock" || other.tag == "jumpBlock")
         {
             other.transform.position = newPlace.position;
         }
@@ -57,23 +62,26 @@ public class Transport : MonoBehaviour {
             if (other.transform.GetComponent<floatObject>() != null)
             {
                 other.transform.GetComponent<floatObject>().originalY = newPlace.position.y;
+                other.transform.GetComponent<floatObject>().activated = false;
 
             }
-            else if (other.transform.GetComponent<fallObject>() != null)
+            if (other.transform.GetComponent<fallObject>() != null)
             {
                 other.transform.GetComponent<fallObject>().originalPlace = newPlace.position.y;
+                other.transform.GetComponent<fallObject>().activated = false;
             }
             other.transform.position = newPlace.position;
         }
-    }
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-            this.GetComponent<BoxCollider2D>().isTrigger = false;
-    }
-    void OnTriggerExit2D(Collider2D other)
-    {
-        this.GetComponent<BoxCollider2D>().isTrigger = true;
-    }
+        //}
+        //void OnTriggerStay2D(Collider2D other)
+        //{
+        //    if (other.tag == "Player")
+        //        this.GetComponent<BoxCollider2D>().isTrigger = false;
+        //}
+        //void OnTriggerExit2D(Collider2D other)
+        //{
+        //    this.GetComponent<BoxCollider2D>().isTrigger = true;
+        //}
 
+    }
 }

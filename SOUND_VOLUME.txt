@@ -1,0 +1,14 @@
+GAME VOLUME:
+
+Level 1:
+- Door: .27
+- Background: 1
+- Reset: 1
+
+Level 2:
+- Fire: 0.015
+- Anger: .042
+- Cards: .5
+- Reset .1
+- Falling Branches: .6
+ 

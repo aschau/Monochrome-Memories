@@ -1,0 +1,229 @@
+fileFormatVersion: 2
+guid: 7ac3edcb20705dd459eb1b746e65b041
+timeCreated: 1480829328
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MenuAssetsAndToyBoxes_0
+    21300002: MenuAssetsAndToyBoxes_1
+    21300004: MenuAssetsAndToyBoxes_2
+    21300006: MenuAssetsAndToyBoxes_3
+    21300008: MenuAssetsAndToyBoxes_5
+    21300010: MenuAssetsAndToyBoxes_6
+    21300012: MenuAssetsAndToyBoxes_7
+    21300014: MenuAssetsAndToyBoxes_10
+    21300016: MenuAssetsAndToyBoxes_12
+    21300018: MenuAssetsAndToyBoxes_13
+    21300020: MenuAssetsAndToyBoxes_14
+    21300022: MenuAssetsAndToyBoxes_15
+    21300024: MenuAssetsAndToyBoxes_16
+    21300026: MenuAssetsAndToyBoxes_17
+    21300028: MenuAssetsAndToyBoxes_18
+    21300030: MenuAssetsAndToyBoxes_19
+    21300032: MenuAssetsAndToyBoxes_20
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  - buildTarget: Android
+    maxTextureSize: 8192
+    textureFormat: -3
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_0
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1769
+        width: 88
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_1
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1643
+        width: 137
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_2
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1551
+        width: 113
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_3
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1429
+        width: 125
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_6
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1326
+        width: 111
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_7
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1073
+        width: 258
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_10
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 636
+        width: 303
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_14
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 326
+        width: 230
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_15
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 326
+        width: 136
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_19
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 27
+        width: 229
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MenuAssetsAndToyBoxes_20
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 27
+        width: 136
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

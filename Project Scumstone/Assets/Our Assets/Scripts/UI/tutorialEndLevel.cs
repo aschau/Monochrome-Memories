@@ -15,7 +15,7 @@ public class tutorialEndLevel : MonoBehaviour
     private static bool specialReset = false;
     private Color color;
     private playerMovement player1, player2;
-    private GameObject topCover, bottomCover, pause, deck, shiftButton, firstHalf;
+    private GameObject topCover, bottomCover, pause, deck, shiftButton, firstHalf, shift;
     private endLevelObject endlevel1, endlevel2;
 
     // Use this for initialization
@@ -33,6 +33,7 @@ public class tutorialEndLevel : MonoBehaviour
         this.deck = GameObject.Find("Deck Box");
         this.shiftButton = GameObject.Find("ShiftButton");
         this.firstHalf = GameObject.Find("TopHalf");
+        this.shift = GameObject.Find("clickShift");
         
     }
 
@@ -41,6 +42,7 @@ public class tutorialEndLevel : MonoBehaviour
         this.GetComponent<Image>().enabled = true;
         this.topCover.SetActive(false);
         this.pause.SetActive(false);
+        this.shift.SetActive(false);
         //this.playerControl.enabled = false;
 
         if (playerMovement.isMobile)
@@ -69,7 +71,7 @@ public class tutorialEndLevel : MonoBehaviour
         {
             this.deck.SetActive(!this.deck.activeSelf);
         }
-
+        
         this.pause.SetActive(!this.pause.activeSelf);
     }
 
@@ -87,12 +89,15 @@ public class tutorialEndLevel : MonoBehaviour
             if (specialReset == true)
             {
                 //player1.stopMoving();
-                GameObject.Find("Player").SetActive(false);
+                player1.gameObject.SetActive(false);
+                //GameObject.Find("Player").SetActive(false);
                 playerMovement.player = "Player 2";
                 this.topCover.SetActive(false);
                 this.bottomCover.SetActive(false);
-                this.firstHalf.SetActive(false);
-                
+                if (this.firstHalf)
+                {
+                this.firstHalf.SetActive(false);                
+                }
             }
         }
 
@@ -104,13 +109,40 @@ public class tutorialEndLevel : MonoBehaviour
         if (this.endlevel1.activated && !this.resetting)
         {
             //this.playerControl.enabled = true;
-            this.shiftButton.SetActive(true);
+
             if (playerMovement.isMobile == false)
             {
-                shiftButton.GetComponent<Button>().enabled = false;
+                //shiftButton.GetComponent<Button>().enabled = false;
+                this.shift.SetActive(true);
             }
-            if (shiftButton.GetComponent<touchScript>().shifted == true || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.E))
+
+            else
             {
+                this.shiftButton.SetActive(true);
+            }
+            
+            if (playerMovement.isMobile)
+            {
+                if (shiftButton.GetComponent<touchScript>().shifted)
+                {
+                    this.shift.SetActive(false);
+                    fadeTransition(this.speed);
+                    this.resetting = true;
+                    this.backgroundMusic.Stop();
+                    this.topCover.SetActive(false);
+                    this.bottomCover.SetActive(true);
+                    specialReset = true;
+                    Invoke("resetScene", this.resetTime);
+                    this.player1.enabled = false;
+                    this.player2.enabled = false;
+                    this.backgroundMusic.Stop();
+                    this.resetSound.Play();
+                }
+            }
+
+            else if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            {
+                this.shift.SetActive(false);
                 fadeTransition(this.speed);
                 this.resetting = true;
                 this.backgroundMusic.Stop();
@@ -129,7 +161,7 @@ public class tutorialEndLevel : MonoBehaviour
 
         if (this.endlevel2.activated && !this.resetting)
         {
-            Invoke("changeScene", 5);
+            Invoke("loadNext", 5);
             this.resetting = true;
             fadeTransition(this.speed);
             //this.playerControl.enabled = false;
@@ -174,7 +206,20 @@ public class tutorialEndLevel : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void changeScene()
+    public void exit()
+    {
+        Invoke("mainMenu", resetTime);
+        this.resetting = true;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void mainMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("mainMenu");
+    }
+
+    void loadNext()
     {
         SceneManager.LoadScene(this.nextLevel);
     }
