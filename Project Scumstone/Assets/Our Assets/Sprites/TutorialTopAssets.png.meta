@@ -1,0 +1,398 @@
+fileFormatVersion: 2
+guid: 3b00c9fe83701b84082f8575439b4f53
+timeCreated: 1484613219
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TutorialTopAssets_0
+    21300002: TutorialTopAssets_1
+    21300004: TutorialTopAssets_2
+    21300006: TutorialTopAssets_3
+    21300008: TutorialTopAssets_4
+    21300010: TutorialTopAssets_5
+    21300012: TutorialTopAssets_6
+    21300014: TutorialTopAssets_7
+    21300016: TutorialTopAssets_8
+    21300018: TutorialTopAssets_9
+    21300020: TutorialTopAssets_10
+    21300022: TutorialTopAssets_11
+    21300024: TutorialTopAssets_12
+    21300026: TutorialTopAssets_13
+    21300028: TutorialTopAssets_14
+    21300030: TutorialTopAssets_15
+    21300032: TutorialTopAssets_16
+    21300034: TutorialTopAssets_17
+    21300036: TutorialTopAssets_18
+    21300038: TutorialTopAssets_19
+    21300040: TutorialTopAssets_20
+    21300042: TutorialTopAssets_21
+    21300044: TutorialTopAssets_22
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TutorialTopAssets_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1832
+        width: 155
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 1834
+        width: 132
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_2
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1834
+        width: 177
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_3
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 1611
+        width: 529
+        height: 361
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_4
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 1255
+        width: 737
+        height: 713
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1651
+        width: 155
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_6
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1647
+        width: 154
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_7
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1652
+        width: 132
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_8
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1504
+        width: 399
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_9
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 1190
+        width: 526
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_10
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1312
+        width: 155
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_11
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 1314
+        width: 132
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_12
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1314
+        width: 177
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_13
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1077
+        width: 155
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_14
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1127
+        width: 154
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_15
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1070
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_16
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1132
+        width: 132
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 17
+        height: 914
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_18
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 802
+        width: 558
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_19
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 732
+        width: 148
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_20
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 456
+        width: 459
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_21
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 235
+        width: 174
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialTopAssets_22
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 136
+        width: 462
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

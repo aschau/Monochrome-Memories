@@ -71,13 +71,11 @@ public class Level1Tutorial : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (this.name == "secondJumpPushBlock")
+        /*if (this.name == "secondJumpPushBlock")
         {
             GameObject test = GameObject.Find("JumpPush Block");
             if (test.GetComponent<activateObject>().activated2 && other.transform.tag == "Player")
             {
-                GameObject item = GameObject.Find("jumpAhead");
-                item.GetComponent<SpriteRenderer>().enabled = false;
                 if (this.completed2 != true)
                 {
                     GameObject item2 = GameObject.Find("whiteWorldTrashCan");
@@ -85,7 +83,7 @@ public class Level1Tutorial : MonoBehaviour {
                     this.completed2 = true;
                 }
             }
-        }
+        }*/
         
         if (other.transform.tag == "pushBlock") {
             this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
@@ -135,7 +133,7 @@ public class Level1Tutorial : MonoBehaviour {
                 tutorialItem.GetComponent<SpriteRenderer>().enabled = false;
                 if (this.completed2 != true)
                 {
-                    tutorialItem = GameObject.Find("jumpAhead");
+                    tutorialItem = GameObject.Find("secondWhiteTrashCan");
                     tutorialItem.GetComponent<SpriteRenderer>().enabled = true;
                     this.completed2 = true;
                 }

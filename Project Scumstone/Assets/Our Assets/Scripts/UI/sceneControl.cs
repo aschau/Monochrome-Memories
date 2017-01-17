@@ -20,7 +20,7 @@ public class sceneControl : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
-        this.backgroundMusic = GameObject.Find("backgroundMusic").GetComponent<AudioSource>();
+        this.backgroundMusic = GameObject.Find("Black World Music").GetComponent<AudioSource>();
         this.resetSound = GameObject.Find("resetSound").GetComponent<AudioSource>();
         this.playerControl = GameObject.FindObjectOfType<playerController>();
         this.topCover = GameObject.Find("topImage");
