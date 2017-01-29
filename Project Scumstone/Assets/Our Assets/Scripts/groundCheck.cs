@@ -20,7 +20,7 @@ public class groundCheck: MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "jumpArea")
+        /*if (other.tag == "jumpArea")
         {
             if (other.GetComponent<jumpObject>() != null)
             {
@@ -30,7 +30,7 @@ public class groundCheck: MonoBehaviour {
                     this.GetComponentInParent<playerMovement>().jumpSpeed = this.GetComponentInParent<playerMovement>().originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
                 }
             }
-        }
+        }*/
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -40,13 +40,13 @@ public class groundCheck: MonoBehaviour {
         //{
         //    this.GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;
         //}
-        if (other.CompareTag("jumpArea"))
+       /* if (other.CompareTag("jumpArea"))
         {
             if (other.GetComponentInParent<jumpObject>().activated)
             {
                 this.GetComponentInParent<playerMovement>().jumpSpeed = this.GetComponentInParent<playerMovement>().originalJumpSpeed * other.GetComponentInParent<jumpObject>().multiplier;
             }
-        }
+        }*/
     }
 
     void OnTriggerExit2D(Collider2D other)
