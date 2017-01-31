@@ -28,7 +28,7 @@ public class CardMenu: MonoBehaviour
 
             else
             {
-                if (card.name[card.name.Length - 1] > cards[cards.Count-1].name[cards[0].name.Length - 1])
+                if (card.name[card.name.Length - 1] > cards[cards.Count-1].name[cards[cards.Count-1].name.Length - 1])
                 {
                     cards.Add(card);
                 }
@@ -46,12 +46,7 @@ public class CardMenu: MonoBehaviour
                 
 
             }
-            card.SetActive(false);
         }
-
-
-        //this.cards = tempCards;
-
     }
 
     public void Start()
@@ -59,24 +54,54 @@ public class CardMenu: MonoBehaviour
         newLocation = new Vector3(this.transform.position.x - 10, this.transform.position.y, this.transform.position.z);
         oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         source = this.transform.FindChild("Box Sound Effect").GetComponent<AudioSource>();
-        this.onPointerEnter();
-        this.onClick();
+        foreach (GameObject card in cards)
+        {
+            card.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKey(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
         {
-            this.cards[0].GetComponent<newCard>().onClick();
-            if (this.cards[0].GetComponent<newCard>().isClicked)
+            this.toggleCard(0);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            this.toggleCard(1);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            this.toggleCard(2);
+        }
+    }
+
+    public void toggleCard(int index)
+    {
+        if (this.cards.Count >= index+1)
+        {
+            if (!this.isClicked)
             {
-                this.cards[0].GetComponent<newCard>().onPointerEnter();
+                this.onPointerEnter();
+                this.onClick();
+            }
+
+            if (!this.cards[index].GetComponent<newCard>().isClicked)
+            {
+                this.cards[index].GetComponent<newCard>().onPointerEnter();
+                this.cards[index].GetComponent<newCard>().onClick();
             }
             else
             {
-                this.cards[0].GetComponent<newCard>().onPointerExit();
+                this.cards[index].GetComponent<newCard>().onClick();
+                this.cards[index].GetComponent<newCard>().onPointerExit();
+                this.onClick();
+                this.onPointerExit();
             }
+
         }
     }
 
@@ -120,7 +145,7 @@ public class CardMenu: MonoBehaviour
                 }
             }
         }
-        source.PlayOneShot(cardSound, volume);
+        //source.PlayOneShot(cardSound, volume);
     }
 
 
