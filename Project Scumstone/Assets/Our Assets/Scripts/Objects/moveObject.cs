@@ -17,7 +17,7 @@ public class moveObject : baseObject {
             this.GetComponent<Rigidbody2D>().isKinematic = true;
         }
 
-        this.GetComponent<Rigidbody2D>().drag = 0f;
+ 
         base.particleColor = new Color32(68, 135, 255, 255);
 	}
 	
