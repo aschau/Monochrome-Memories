@@ -24,14 +24,14 @@ public abstract class newCard : MonoBehaviour {
     {
         this.camera1 = GameObject.Find("Black Camera");
         this.camera2 = GameObject.Find("White Camera");
+        this.source = GameObject.Find("card effect").GetComponent<AudioSource>();
+        this.cards = GameObject.FindGameObjectsWithTag("gameCards");
     }
 
     public virtual void Start()
     {
         newLocation = new Vector3(this.transform.position.x - 20, this.transform.position.y, this.transform.position.z);
         oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-        source = GameObject.Find("card effect").GetComponent<AudioSource>(); 
-        this.cards = GameObject.FindGameObjectsWithTag("gameCards");
     }
 
     // Update is called once per frame
