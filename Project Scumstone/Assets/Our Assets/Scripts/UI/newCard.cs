@@ -42,16 +42,6 @@ public abstract class newCard : MonoBehaviour {
     // Update is called once per frame
     public virtual void Update()
     {
-        //foreach (activateObject obj in allObjects)
-        //{
-        //    if (obj.GetComponent<SpriteRenderer>().isVisible && obj.GetComponent(this.blackEffect))
-        //    {
-        //        this.visibleObjects.Add(obj);
-        //    }
-        //}
-            
-        //this.visibleObjects[this.selectedIndex].selected = true;
-        //this.visibleObjects[this.selectedIndex].GetComponent<SpriteRenderer>().color = new Color(0f, 120f, 255f);
         if (this.isClicked)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
@@ -72,6 +62,12 @@ public abstract class newCard : MonoBehaviour {
 
                 this.visibleObjects[this.selectedIndex].selected = true;
                 this.visibleObjects[this.selectedIndex].GetComponent<SpriteRenderer>().color = new Color(0f, 120f, 255f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            {
+                this.visibleObjects[this.selectedIndex].selected = false;
+                this.getVisibileObjects();
             }
 
             if (Input.GetKeyDown(KeyCode.Return))
@@ -109,7 +105,6 @@ public abstract class newCard : MonoBehaviour {
 
     private void getVisibileObjects()
     {
-        //this.visibleObjects[this.selectedIndex].selected = false;
         this.visibleObjects = new List<activateObject>();
         this.selectedIndex = 0;
         this.prevIndex = 0;
@@ -173,6 +168,13 @@ public abstract class newCard : MonoBehaviour {
             }
 
             particleActivate();
+        }
+
+        else
+        {
+            this.visibleObjects[this.selectedIndex].selected = false;
+            this.selectedIndex = 0;
+            this.prevIndex = 0;
         }
 
     }
