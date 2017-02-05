@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 public abstract class newCard : MonoBehaviour {
     public bool isClicked = false;
@@ -9,6 +10,7 @@ public abstract class newCard : MonoBehaviour {
     public AudioClip cardSound;
     public float volume;
     public AudioSource source;
+    public bool isCollected = true;
 
     [HideInInspector]
     public string blackEffect, whiteEffect;
@@ -16,16 +18,19 @@ public abstract class newCard : MonoBehaviour {
     public GameObject camera1, camera2;
     [HideInInspector]
     public RaycastHit2D hit;
-    public bool isCollected = true;
 
     private GameObject[] cards;
-
+    private activateObject[] allObjects;
+    private List<activateObject> visibleObjects = new List<activateObject>();
+    private int selectedIndex = 0, prevIndex = 0;
     public virtual void Awake()
     {
         this.camera1 = GameObject.Find("Black Camera");
         this.camera2 = GameObject.Find("White Camera");
         this.source = GameObject.Find("card effect").GetComponent<AudioSource>();
         this.cards = GameObject.FindGameObjectsWithTag("gameCards");
+        this.allObjects = GameObject.FindObjectsOfType<activateObject>();
+
     }
 
     public virtual void Start()
@@ -37,30 +42,100 @@ public abstract class newCard : MonoBehaviour {
     // Update is called once per frame
     public virtual void Update()
     {
-        if (this.isClicked && !EventSystem.current.IsPointerOverGameObject())
+        //foreach (activateObject obj in allObjects)
+        //{
+        //    if (obj.GetComponent<SpriteRenderer>().isVisible && obj.GetComponent(this.blackEffect))
+        //    {
+        //        this.visibleObjects.Add(obj);
+        //    }
+        //}
+            
+        //this.visibleObjects[this.selectedIndex].selected = true;
+        //this.visibleObjects[this.selectedIndex].GetComponent<SpriteRenderer>().color = new Color(0f, 120f, 255f);
+        if (this.isClicked)
         {
-
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
-                if (!GameObject.Find("topImage"))
+                if (this.selectedIndex < this.visibleObjects.Count-1)
                 {
-                    hit = checkHit(camera1);
-                    if (hit)
-                    {
-                        this.activateBlack();
-                    }
+                    this.prevIndex = this.selectedIndex;
+                    this.selectedIndex++;
                 }
 
-
-                else if (!GameObject.Find("bottomImage"))
+                else
                 {
-                    hit = checkHit(camera2);
-                    if (hit)
+                    this.prevIndex = this.selectedIndex;
+                    this.selectedIndex = 0;
+                }
+                
+                this.visibleObjects[this.prevIndex].selected = false;
+
+                this.visibleObjects[this.selectedIndex].selected = true;
+                this.visibleObjects[this.selectedIndex].GetComponent<SpriteRenderer>().color = new Color(0f, 120f, 255f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                this.visibleObjects[this.selectedIndex].GetComponent<baseObject>().activated = true;
+                this.checkDualActivation(this.visibleObjects[this.selectedIndex].transform);
+            }
+
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (!GameObject.Find("topImage"))
                     {
-                        this.activateWhite();
+                        hit = checkHit(camera1);
+                        if (hit)
+                        {
+                            this.activateBlack();
+                        }
+                    }
+
+
+                    else if (!GameObject.Find("bottomImage"))
+                    {
+                        hit = checkHit(camera2);
+                        if (hit)
+                        {
+                            this.activateWhite();
+                        }
                     }
                 }
             }
+        }
+    }
+
+    private void getVisibileObjects()
+    {
+        //this.visibleObjects[this.selectedIndex].selected = false;
+        this.visibleObjects = new List<activateObject>();
+        this.selectedIndex = 0;
+        this.prevIndex = 0;
+        foreach (activateObject obj in allObjects)
+        {
+            if (playerMovement.player == "Player")
+            {
+                if (obj.GetComponent<SpriteRenderer>().isVisible && obj.GetComponent(this.blackEffect))
+                {
+                    this.visibleObjects.Add(obj);
+                }
+            }
+
+            else if (playerMovement.player == "Player 2")
+            {
+                if (obj.GetComponent<SpriteRenderer>().isVisible && obj.GetComponent(this.whiteEffect))
+                {
+                    this.visibleObjects.Add(obj);
+                }
+            }
+        }
+
+        if (this.visibleObjects.Count > 0)
+        {
+            this.visibleObjects[selectedIndex].selected = true;
+            this.visibleObjects[this.selectedIndex].GetComponent<SpriteRenderer>().color = new Color(0f, 120f, 255f);
         }
     }
 
@@ -88,6 +163,7 @@ public abstract class newCard : MonoBehaviour {
         this.isClicked = !(this.isClicked);
         if (this.isClicked == true)
         {
+            getVisibileObjects();
             foreach (GameObject card in cards)
             {
                 if (card.name != this.name)
@@ -110,8 +186,6 @@ public abstract class newCard : MonoBehaviour {
 
     public virtual void particleActivate()
     {
-        activateObject[] allObjects = GameObject.FindObjectsOfType<activateObject>();
-
         for (int i = 0; i < allObjects.Length; i++)
         {
             baseObject[] specificObjects = allObjects[i].GetComponents<baseObject>();
@@ -126,7 +200,8 @@ public abstract class newCard : MonoBehaviour {
                         if (!allObjects[i].activated1)
                         {
                             allObjects[i].GetComponent<ParticleSystem>().Play(false);
-                            allObjects[i].GetComponent<ParticleSystem>().startColor = obj.particleColor;
+                            ParticleSystem.MainModule m = allObjects[i].GetComponent<ParticleSystem>().main;
+                            m.startColor = new ParticleSystem.MinMaxGradient(obj.particleColor, obj.particleColor);
                             break;
                         }
                     }
@@ -136,7 +211,8 @@ public abstract class newCard : MonoBehaviour {
                         if (!(allObjects[i].activated1 && allObjects[i].activated2))
                         {
                             allObjects[i].GetComponent<ParticleSystem>().Play(false);
-                            allObjects[i].GetComponent<ParticleSystem>().startColor = obj.particleColor;
+                            ParticleSystem.MainModule m = allObjects[i].GetComponent<ParticleSystem>().main;
+                            m.startColor = new ParticleSystem.MinMaxGradient(obj.particleColor, obj.particleColor);
                             break;
                         }
                     }
@@ -148,8 +224,6 @@ public abstract class newCard : MonoBehaviour {
 
     public virtual void particleDeactivate()
     {
-        activateObject[] allObjects = GameObject.FindObjectsOfType<activateObject>();
-
         for (int i = 0; i < allObjects.Length; i++)
         {
             baseObject[] specificObjects = allObjects[i].GetComponents<baseObject>();
@@ -171,7 +245,7 @@ public abstract class newCard : MonoBehaviour {
         return Physics2D.Raycast(new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.y));
     }
 
-    public virtual void checkDualActivation(RaycastHit2D hit, bool ignoreParticles = true)
+    public virtual void checkDualActivation(Transform hit, bool ignoreParticles = true)
     {
         if (!hit.transform.GetComponent<activateObject>().dualActivation)
         {

@@ -10,7 +10,7 @@ public enum Direction
 }
 
 public class playerMovement : MonoBehaviour {
-    public static string player;
+    public static string player = "Player";
     public static bool isMobile = false;
     public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed, previousYVelocity;
     private bool walkingLeft, walkingRight, idle, idleReady = false, onGround = true, jumpPressed;

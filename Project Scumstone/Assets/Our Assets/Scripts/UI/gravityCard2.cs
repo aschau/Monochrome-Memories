@@ -27,7 +27,7 @@ public class gravityCard2 : newCard {
         if (base.hit.transform.GetComponent<floatObject>() != null)
         {
             base.hit.transform.GetComponent<floatObject>().activated = !base.hit.transform.GetComponent<floatObject>().activated;
-            base.checkDualActivation(base.hit, true);
+            base.checkDualActivation(base.hit.transform, true);
         }
     }
 
@@ -38,7 +38,7 @@ public class gravityCard2 : newCard {
         if (base.hit.transform.GetComponent<fallObject>() != null)
         {
             base.hit.transform.GetComponent<fallObject>().activated = !base.hit.transform.GetComponent<fallObject>().activated;
-            base.checkDualActivation(base.hit, true);
+            base.checkDualActivation(base.hit.transform, true);
         }
     }
 }

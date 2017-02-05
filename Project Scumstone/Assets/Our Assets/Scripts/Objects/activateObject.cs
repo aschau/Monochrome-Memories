@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class activateObject : MonoBehaviour {
-    public bool activated1 = false, activated2 = false, dualActivation = false;
+    public bool activated1 = false, activated2 = false, dualActivation = false, selected = false;
     public string activatedScript1, activatedScript2;
 	// Use this for initialization
 	void Start () {
@@ -11,7 +11,15 @@ public class activateObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (!dualActivation)
+        if (!selected)
+        {
+            colorUpdate();
+        }
+	}
+
+    public void colorUpdate()
+    {
+        if (!dualActivation)
         {
             if (this.activated1)
             {
@@ -36,10 +44,10 @@ public class activateObject : MonoBehaviour {
                 this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 220, 0);
             }
 
-            else if (this.activatedScript1 != this.activatedScript2)
+            else if (this.activatedScript1 != this.activatedScript2 || (!this.activated1 && !this.activated2))
             {
                 this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
             }
         }
-	}
+    }
 }

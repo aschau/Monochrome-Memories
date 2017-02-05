@@ -17,7 +17,7 @@ public class jumpPushCard : newCard {
         if (base.hit.transform.GetComponent<moveObject>() != null)
         {
             base.hit.transform.GetComponent<moveObject>().activated = true;
-            base.checkDualActivation(base.hit);
+            base.checkDualActivation(base.hit.transform);
         }
     }
 
@@ -30,7 +30,7 @@ public class jumpPushCard : newCard {
         {
             //Debug.Log("ACTIVATED JUMP BLOCK");
             base.hit.transform.GetComponent<pullObject>().activated = !base.hit.transform.GetComponent<pullObject>().activated;
-            base.checkDualActivation(base.hit);
+            base.checkDualActivation(base.hit.transform);
         }
     }
 }
