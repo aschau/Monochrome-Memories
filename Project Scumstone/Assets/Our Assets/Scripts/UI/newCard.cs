@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using System.Linq;
 public abstract class newCard : MonoBehaviour {
     public bool isClicked = false;
     //public Vector3 newLocation, oldLocation;
@@ -11,6 +12,7 @@ public abstract class newCard : MonoBehaviour {
     public float volume;
     public AudioSource source;
     public bool isCollected = true;
+    public static bool isTop = true;
 
     [HideInInspector]
     public string blackEffect, whiteEffect;
@@ -19,6 +21,7 @@ public abstract class newCard : MonoBehaviour {
     [HideInInspector]
     public RaycastHit2D hit;
 
+    private GameObject player1, player2;
     private GameObject[] cards;
     private activateObject[] allObjects;
     private List<activateObject> visibleObjects = new List<activateObject>();
@@ -32,6 +35,8 @@ public abstract class newCard : MonoBehaviour {
         this.cards = GameObject.FindGameObjectsWithTag("gameCards");
         this.allObjects = GameObject.FindObjectsOfType<activateObject>();
         this.anim = this.GetComponent<Animator>();
+        this.player1 = GameObject.Find("Player");
+        this.player2 = GameObject.Find("Player 2");
 
         //this.oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         //this.newLocation = new Vector3(this.transform.position.x - 20f, this.transform.position.y, this.transform.position.z);
@@ -39,27 +44,62 @@ public abstract class newCard : MonoBehaviour {
 
     public virtual void Start()
     {
-
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        for (int i = 0; i < this.visibleObjects.Count; i++)
+
+        bool shifted = false;
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && this.name == "jumpPushCard1")
         {
-            if (!this.visibleObjects[i].GetComponent<SpriteRenderer>().isVisible)
-            {
-                this.visibleObjects[i].selected = false;
-                this.visibleObjects.RemoveAt(i);
-                if (this.selectedIndex == i)
-                {
-                    this.selectedIndex = 0;
-                    this.prevIndex = 0;
-                }
-            }
+            isTop = !isTop;
+            shifted = true;
         }
+
         if (this.isClicked)
         {
+            if (this.visibleObjects.Count > 0)
+            {
+                activateObject prevObj = this.visibleObjects[this.selectedIndex];
+
+                if (shifted)
+                {
+                    prevObj.toggleSelection();
+                    this.getVisibileObjects();
+                    this.toggleObject(this.selectedIndex);
+                }
+
+                else
+                {
+                    this.getVisibileObjects();
+                }
+
+
+                if (visibleObjects.Count > 0)
+                {
+                    if (!prevObj.GetComponent<SpriteRenderer>().isVisible)
+                    {
+                        prevObj.toggleSelection();
+                        this.visibleObjects[this.selectedIndex].toggleSelection();
+                    }
+                   
+
+                }
+            }
+
+            else
+            {
+                int prevCount = this.visibleObjects.Count;
+                this.getVisibileObjects();
+                
+                if (prevCount == 0)
+                {
+                    this.toggleObject(this.selectedIndex);
+                }
+            }
+
+
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 if (this.selectedIndex < this.visibleObjects.Count-1)
@@ -73,22 +113,42 @@ public abstract class newCard : MonoBehaviour {
                     this.prevIndex = this.selectedIndex;
                     this.selectedIndex = 0;
                 }
-                
-                this.visibleObjects[this.prevIndex].selected = false;
 
-                this.visibleObjects[this.selectedIndex].selected = true;
-                this.visibleObjects[this.selectedIndex].GetComponent<SpriteRenderer>().color = new Color(0f, 120f, 255f);
+                this.toggleObject(this.prevIndex);
+
+                this.toggleObject(this.selectedIndex);
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
-            {
-                this.visibleObjects[this.selectedIndex].selected = false;
-                this.getVisibileObjects();
-            }
+            //if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            //{
+            //    if (this.visibleObjects.Count > 0)
+            //    {
+            //        this.toggleObject(this.selectedIndex);
+            //        this.getVisibileObjects();
+            //        this.toggleObject(this.selectedIndex);
+            //    }
+
+            //}
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                this.visibleObjects[this.selectedIndex].GetComponent<baseObject>().activated = true;
+                if (isTop)
+                {
+                    if (this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect))
+                    {
+                        (this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect) as baseObject).activated = !(this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect) as baseObject).activated;
+                        Debug.Log("Activated: " + this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect).gameObject.name);
+                    }
+                }
+
+                else
+                {
+                    if (this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect))
+                    {
+                        (this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect) as baseObject).activated = !(this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect) as baseObject).activated;
+                        Debug.Log("Activated: " + this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect).gameObject.name);
+                    }
+                }
                 this.checkDualActivation(this.visibleObjects[this.selectedIndex].transform);
             }
 
@@ -98,7 +158,7 @@ public abstract class newCard : MonoBehaviour {
                 {
                     if (!GameObject.Find("topImage"))
                     {
-                        hit = checkHit(camera1);
+                        hit = checkHit(camera1, Input.mousePosition);
                         if (hit)
                         {
                             this.activateBlack();
@@ -108,7 +168,7 @@ public abstract class newCard : MonoBehaviour {
 
                     else if (!GameObject.Find("bottomImage"))
                     {
-                        hit = checkHit(camera2);
+                        hit = checkHit(camera2, Input.mousePosition);
                         if (hit)
                         {
                             this.activateWhite();
@@ -122,31 +182,50 @@ public abstract class newCard : MonoBehaviour {
     private void getVisibileObjects()
     {
         this.visibleObjects = new List<activateObject>();
-        this.selectedIndex = 0;
-        this.prevIndex = 0;
+
         foreach (activateObject obj in allObjects)
         {
-            if (playerMovement.player == "Player")
+            if (isTop)
             {
-                if (obj.GetComponent<SpriteRenderer>().isVisible && obj.GetComponent(this.blackEffect))
+                if (obj.GetComponent<SpriteRenderer>().isVisible && obj.GetComponent(this.blackEffect) && this.checkHitKey(this.camera1, obj.transform.position))
                 {
+                    //Debug.Log(this.checkHit(this.camera1, obj.transform.position).collider != null);
                     this.visibleObjects.Add(obj);
                 }
             }
 
-            else if (playerMovement.player == "Player 2")
+            else
             {
-                if (obj.GetComponent<SpriteRenderer>().isVisible && obj.GetComponent(this.whiteEffect))
+                if (obj.GetComponent<SpriteRenderer>().isVisible && obj.GetComponent(this.whiteEffect) && this.checkHitKey(this.camera2, obj.transform.position))
                 {
                     this.visibleObjects.Add(obj);
                 }
             }
         }
 
+        if (this.visibleObjects.Count == 0 || this.selectedIndex > this.visibleObjects.Count-1)
+        {
+            this.selectedIndex = 0;
+            this.prevIndex = 0;
+        }
+
+        if (isTop)
+        {
+            this.visibleObjects = this.visibleObjects.OrderBy(x => Vector2.Distance(this.player1.transform.position, x.transform.position)).ToList();
+        }
+
+        else
+        {
+            this.visibleObjects = this.visibleObjects.OrderBy(x => Vector2.Distance(this.player2.transform.position, x.transform.position)).ToList();
+        }
+    }
+
+    private void toggleObject(int index)
+    {
         if (this.visibleObjects.Count > 0)
         {
-            this.visibleObjects[selectedIndex].selected = true;
-            this.visibleObjects[this.selectedIndex].GetComponent<SpriteRenderer>().color = new Color(0f, 120f, 255f);
+            this.visibleObjects[index].toggleSelection();
+            Debug.Log("Toggled: " + this.visibleObjects[index].name);
         }
     }
 
@@ -178,8 +257,10 @@ public abstract class newCard : MonoBehaviour {
         if (this.isClicked)
         {
             this.anim.SetBool("isSelected", true);
-            //this.GetComponent<Button>().Select();
+            this.prevIndex = 0;
+            this.selectedIndex = 0;
             getVisibileObjects();
+            this.toggleObject(this.selectedIndex);
             foreach (GameObject card in cards)
             {
                 if (card.name != this.name)
@@ -194,10 +275,8 @@ public abstract class newCard : MonoBehaviour {
         else
         {
             this.anim.SetBool("isSelected", false);
-            if (this.visibleObjects.Count > 0)
-            {
-                this.visibleObjects[this.selectedIndex].selected = false;
-            }
+            this.toggleObject(this.selectedIndex);
+            //this.visibleObjects = new List<activateObject>();
             this.selectedIndex = 0;
             this.prevIndex = 0;
         }
@@ -268,9 +347,17 @@ public abstract class newCard : MonoBehaviour {
         }
     }
 
-    public virtual RaycastHit2D checkHit(GameObject camera)
+    public virtual bool checkHitKey(GameObject camera, Vector3 position)
     {
-        return Physics2D.Raycast(new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).origin.y), new Vector2(camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.x, camera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition).direction.y));
+        Vector3 cameraRay = camera.GetComponent<Camera>().WorldToViewportPoint(position);
+        //Debug.DrawLine(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y));
+        return cameraRay.x <= 1 && cameraRay.x >= 0 && cameraRay.y <= 1 && cameraRay.y >= 0;
+    }
+
+    public virtual RaycastHit2D checkHit(GameObject camera, Vector2 position)
+    {
+        Ray cameraRay = camera.GetComponent<Camera>().ScreenPointToRay(position);
+        return Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y));
     }
 
     public virtual void checkDualActivation(Transform hit, bool ignoreParticles = true)

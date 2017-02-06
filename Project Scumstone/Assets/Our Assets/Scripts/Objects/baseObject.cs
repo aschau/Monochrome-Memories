@@ -2,13 +2,16 @@
 using System.Collections;
 
 public abstract class baseObject : MonoBehaviour {
-    public bool activated = false;
+    public bool activated = false, selected = false;
     public Color32 particleColor;
+
+    [HideInInspector]
     public activateObject activation;
 
     public virtual void Awake()
     {
         this.activation = this.GetComponent<activateObject>();
+
     }
 
 	// Use this for initialization
