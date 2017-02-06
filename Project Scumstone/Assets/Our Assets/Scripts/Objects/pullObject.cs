@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class pullObject : baseObject {
-    public Vector3 originalPosition;
+    //public Vector3 originalPosition;
+    //private bool watchPlayer;
     public override void Awake()
     {
         base.Awake();
@@ -11,54 +12,111 @@ public class pullObject : baseObject {
 
 	// Use this for initialization
 	void Start () {
-        this.originalPosition = this.transform.position;
+        //this.watchPlayer = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         //This is code for holding the box
-        if (!base.activated)
+
+       /* if (this.transform.parent != null) //if the box is being held
         {
-            if (this.transform.parent != null)
+            
+            if (!base.activated)
             {
-                Debug.Log("This keeps happening");
+                this.watchPlayer = true;
                 this.transform.parent = null;
-                this.transform.position = new Vector3(this.transform.position.x - 0.2f, this.transform.position.y - 0.2f, this.transform.position.z);
-                //this.transform.Translate(new Vector3(this.originalPosition.x -0.4f, this.originalPosition.y - 0.4f, this.originalPosition.z));
-                this.originalPosition = this.transform.position;
+                
+                this.GetComponent<Rigidbody2D>().gravityScale = 1;
+                
             }
         }
 
-        //This is code to pull the box with the player. It is a bit wonky but works.
-        /*if (base.activated && this.transform.GetChild(0).GetComponent<pullTrigger>().activated)
+        if (watchPlayer == true)
         {
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            {
-                this.transform.Translate(new Vector2(3f * Time.deltaTime, 0f));
-            }
+                this.transform.GetComponent<Rigidbody2D>().isKinematic = true;
         }
-        else if (base.activated && this.transform.GetChild(1).GetComponent<pullTrigger>().activated)
-        {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        else
             {
-                this.transform.Translate(new Vector2(-3f * Time.deltaTime, 0f));
+                this.transform.GetComponent<Rigidbody2D>().isKinematic = false;
             }
-        }*/
-
+       
+        */
 
 	}
 
+
     void OnTriggerEnter2D(Collider2D hit)
     {
-        if (base.activated && hit.tag == "Player")
+        if (hit.tag == "Player")
         {
-            if (this.transform.parent == null)
+            hit.GetComponent<playerMovement>().objectAvailable = true;
+            hit.GetComponent<playerMovement>().interactiveObject = this.gameObject;
+            
+        }
+    }
+
+
+    void OnTriggerExit2D(Collider2D hit)
+    {
+        if (hit.tag == "Player")
+        {
+            
+            if (hit.GetComponent<playerMovement>().held == false)
             {
-                Debug.Log("Attached much");
-                this.transform.position = new Vector3(this.transform.position.x + 0.2f, this.transform.position.y + 0.2f, this.transform.position.z);
-                this.transform.parent = hit.transform;
+                hit.GetComponent<playerMovement>().objectAvailable = false;
             }
         }
     }
+
+
+   /* void OnTriggerStay2D(Collider2D hit)
+    {
+        if (hit.tag == "Player")
+        {
+
+            if (base.activated)
+            {
+                this.watchPlayer = false;
+                Debug.Log("Attached much");
+                this.GetComponent<Rigidbody2D>().gravityScale = 0;
+                this.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y + 0.1f, hit.transform.position.z);
+                this.transform.parent = hit.transform;
+
+                
+            }
+            else
+            {
+                this.watchPlayer = true;
+            }
+        }
+    }*/
+
+    /*void OnTriggerExit2D(Collider2D hit)
+    {
+        if (base.activated == false)
+        {
+            if (hit.tag == "Player")
+            {
+                Debug.Log("leftObject");
+                this.watchPlayer = false;
+            }
+        }
+    }*/
+
+    /*void OnCollisionEnter2D(Collision2D hit)
+    {
+        if (hit.transform.tag == "Player")
+        {
+            this.watchPlayer = false;
+        }
+    }*/
+
+
+
+    
+
+
+
 
 }

@@ -21,14 +21,14 @@ public class CardMenu: MonoBehaviour
         GameObject[] tempCards = GameObject.FindGameObjectsWithTag("gameCards");
         foreach (GameObject card in tempCards)
         {
-            if (cards.Count == 0 )
+            if (cards.Count == 0)
             {
                 cards.Add(card);
             }
 
             else
             {
-                if (card.name[card.name.Length - 1] > cards[cards.Count-1].name[cards[cards.Count-1].name.Length - 1])
+                if (card.name[card.name.Length - 1] > cards[cards.Count - 1].name[cards[cards.Count - 1].name.Length - 1])
                 {
                     cards.Add(card);
                 }
@@ -40,10 +40,11 @@ public class CardMenu: MonoBehaviour
                         if (card.name[card.name.Length - 1] < cards[i].name[cards[i].name.Length - 1])
                         {
                             cards.Insert(i, card);
+                            break;
                         }
                     }
                 }
-                
+
 
             }
         }

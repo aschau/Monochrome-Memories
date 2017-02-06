@@ -12,6 +12,8 @@ public enum Direction
 public class playerMovement : MonoBehaviour {
     public static string player = "Player";
     public static bool isMobile = false;
+    public bool objectAvailable, held; //checks whether an object is in the vicinty to pick up
+    public GameObject interactiveObject;
     public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed, previousYVelocity;
     private bool walkingLeft, walkingRight, idle, idleReady = false, onGround = true, jumpPressed;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
@@ -44,7 +46,8 @@ public class playerMovement : MonoBehaviour {
         this.originalJumpSpeed = this.jumpSpeed;
         this.anim = this.GetComponent<Animator>();
         this.body = this.GetComponent<Rigidbody2D>();
-
+        this.objectAvailable = false;
+        this.held = false;
         //this.anim = this.GetComponent<UnityArmatureComponent>().animation;
 	}
 	
@@ -132,6 +135,31 @@ public class playerMovement : MonoBehaviour {
                     this.moveSpeed = 0f;
                     this.walkingLeft = false;
                     this.anim.SetBool("isWalking", false);
+                }
+
+                if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl))
+                {
+                    if (!held)
+                    {
+                        if (this.objectAvailable)
+                        {
+                            this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                            this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
+                            this.interactiveObject.transform.parent = this.transform;
+                            this.held = true;
+                        }
+                    }
+                    else
+                    {
+                        if (this.objectAvailable)
+                        {
+                            this.interactiveObject.transform.parent = null;
+                            this.interactiveObject.transform.position = new Vector3(this.transform.position.x - 0.7f, this.transform.position.y + 0.3f, this.transform.position.z);
+                            this.held = false;
+                            this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                            this.objectAvailable = false;
+                        }
+                    }
                 }
             }
 
@@ -257,4 +285,6 @@ public class playerMovement : MonoBehaviour {
         this.anim.SetBool("isWalking", false);
         //this.anim.FadeIn("Idle", 0.5f);
     }
+
+
 }
