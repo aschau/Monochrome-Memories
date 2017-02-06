@@ -15,10 +15,13 @@ public class CardMenu: MonoBehaviour
     AudioSource source;
 
     private List<GameObject> cards = new List<GameObject>();
+    private int index = -1;
 
     public void Awake()
     {
+        source = this.transform.FindChild("Box Sound Effect").GetComponent<AudioSource>();
         GameObject[] tempCards = GameObject.FindGameObjectsWithTag("gameCards");
+
         foreach (GameObject card in tempCards)
         {
             if (cards.Count == 0)
@@ -54,10 +57,10 @@ public class CardMenu: MonoBehaviour
     {
         newLocation = new Vector3(this.transform.position.x - 10, this.transform.position.y, this.transform.position.z);
         oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-        source = this.transform.FindChild("Box Sound Effect").GetComponent<AudioSource>();
         foreach (GameObject card in cards)
         {
-            card.SetActive(false);
+            card.GetComponent<Animator>().SetBool("isDisabled", true);
+            //card.GetComponent<Button>().interactable = false;
         }
     }
 
@@ -73,15 +76,16 @@ public class CardMenu: MonoBehaviour
         {
             this.toggleCard(1);
         }
-
-        else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            this.toggleCard(2);
-        }
     }
 
     public void toggleCard(int index)
     {
+        if (this.index != -1 && this.index != index && this.isClicked)
+        {
+            this.cards[this.index].GetComponent<newCard>().onClick();
+            this.cards[this.index].GetComponent<newCard>().onPointerExit();
+        }
+        this.index = index;
         if (this.cards.Count >= index+1)
         {
             if (!this.isClicked)
@@ -130,7 +134,8 @@ public class CardMenu: MonoBehaviour
             {
                 if (card.GetComponent<newCard>().isCollected == true)
                 {
-                    card.SetActive(true);
+                    card.GetComponent<Animator>().SetBool("isDisabled", false);
+                    //card.GetComponent<Button>().interactable = true;
                 }
             }
         }
@@ -142,11 +147,12 @@ public class CardMenu: MonoBehaviour
                 if (card.GetComponent<newCard>().isCollected == true)
                 {
                     card.GetComponent<newCard>().turnOff();
-                    card.SetActive(false);
+                    card.GetComponent<Animator>().SetBool("isDisabled", true);
+                    //card.GetComponent<Button>().interactable = false;
                 }
             }
         }
-        //source.PlayOneShot(cardSound, volume);
+        source.PlayOneShot(cardSound, volume);
     }
 
 

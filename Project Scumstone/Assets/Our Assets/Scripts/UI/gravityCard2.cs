@@ -12,13 +12,13 @@ public class gravityCard2 : newCard {
         base.blackEffect = "floatObject";
     }
 
-    public override void onPointerEnter()
-    {
-        this.GetComponent<Image>().sprite = newImage;
-        this.transform.position = newLocation;
-        base.particleActivate();
-        base.source.PlayOneShot(cardSound, volume);        
-    }
+    //public override void onPointerEnter()
+    //{
+    //    this.GetComponent<Image>().sprite = newImage;
+    //    //this.transform.position = newLocation;
+    //    base.particleActivate();
+    //    base.source.PlayOneShot(cardSound, volume);        
+    //}
 
     public override void activateBlack()
     {

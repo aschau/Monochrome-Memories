@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 public abstract class newCard : MonoBehaviour {
     public bool isClicked = false;
-    public Vector3 newLocation, oldLocation;
+    //public Vector3 newLocation, oldLocation;
     public Sprite currentImage, newImage;
     public AudioClip cardSound;
     public float volume;
@@ -23,6 +23,7 @@ public abstract class newCard : MonoBehaviour {
     private activateObject[] allObjects;
     private List<activateObject> visibleObjects = new List<activateObject>();
     private int selectedIndex = 0, prevIndex = 0;
+    private Animator anim;
     public virtual void Awake()
     {
         this.camera1 = GameObject.Find("Black Camera");
@@ -30,18 +31,33 @@ public abstract class newCard : MonoBehaviour {
         this.source = GameObject.Find("card effect").GetComponent<AudioSource>();
         this.cards = GameObject.FindGameObjectsWithTag("gameCards");
         this.allObjects = GameObject.FindObjectsOfType<activateObject>();
+        this.anim = this.GetComponent<Animator>();
 
+        //this.oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        //this.newLocation = new Vector3(this.transform.position.x - 20f, this.transform.position.y, this.transform.position.z);
     }
 
     public virtual void Start()
     {
-        newLocation = new Vector3(this.transform.position.x - 20, this.transform.position.y, this.transform.position.z);
-        oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
+        for (int i = 0; i < this.visibleObjects.Count; i++)
+        {
+            if (!this.visibleObjects[i].GetComponent<SpriteRenderer>().isVisible)
+            {
+                this.visibleObjects[i].selected = false;
+                this.visibleObjects.RemoveAt(i);
+                if (this.selectedIndex == i)
+                {
+                    this.selectedIndex = 0;
+                    this.prevIndex = 0;
+                }
+            }
+        }
         if (this.isClicked)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
@@ -136,18 +152,21 @@ public abstract class newCard : MonoBehaviour {
 
     public virtual void onPointerEnter()
     {
-        this.GetComponent<Image>().sprite = newImage;
-        this.transform.position = newLocation;
+        //this.GetComponent<Image>().sprite = newImage;
+        //this.transform.position = newLocation;
+        this.anim.SetBool("onHover", true);
         particleActivate();
         source.PlayOneShot(cardSound, volume);
     }
 
     public virtual void onPointerExit()
     {
+        this.anim.SetBool("onHover", false);
+
         if (this.isClicked == false)
         {
-            this.GetComponent<Image>().sprite = currentImage;
-            this.transform.position = oldLocation;
+            //this.GetComponent<Image>().sprite = currentImage;
+            //this.transform.position = oldLocation;
             particleDeactivate();
         }
 
@@ -156,8 +175,10 @@ public abstract class newCard : MonoBehaviour {
     public virtual void onClick()
     {
         this.isClicked = !(this.isClicked);
-        if (this.isClicked == true)
+        if (this.isClicked)
         {
+            this.anim.SetBool("isSelected", true);
+            //this.GetComponent<Button>().Select();
             getVisibileObjects();
             foreach (GameObject card in cards)
             {
@@ -172,7 +193,11 @@ public abstract class newCard : MonoBehaviour {
 
         else
         {
-            this.visibleObjects[this.selectedIndex].selected = false;
+            this.anim.SetBool("isSelected", false);
+            if (this.visibleObjects.Count > 0)
+            {
+                this.visibleObjects[this.selectedIndex].selected = false;
+            }
             this.selectedIndex = 0;
             this.prevIndex = 0;
         }
@@ -181,8 +206,9 @@ public abstract class newCard : MonoBehaviour {
     public virtual void turnOff()
     {
         this.isClicked = false;
-        this.GetComponent<Image>().sprite = currentImage;
-        this.transform.position = oldLocation;
+        this.anim.SetBool("isSelected", false);
+        //this.GetComponent<Image>().sprite = currentImage;
+        //this.transform.position = oldLocation;
         this.particleDeactivate();
     }
 
