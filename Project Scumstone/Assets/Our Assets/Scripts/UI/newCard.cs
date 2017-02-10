@@ -38,8 +38,6 @@ public abstract class newCard : MonoBehaviour {
         this.player1 = GameObject.Find("Player");
         this.player2 = GameObject.Find("Player 2");
 
-        //this.oldLocation = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-        //this.newLocation = new Vector3(this.transform.position.x - 20f, this.transform.position.y, this.transform.position.z);
     }
 
     public virtual void Start()
@@ -49,56 +47,19 @@ public abstract class newCard : MonoBehaviour {
     // Update is called once per frame
     public virtual void Update()
     {
-
         bool shifted = false;
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && this.name == "jumpPushCard1")
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
         {
-            isTop = !isTop;
-            shifted = true;
+            if (this.name == "jumpPushCard1")
+            {
+                isTop = !isTop;
+                shifted = true;
+            }
         }
 
         if (this.isClicked)
         {
-            if (this.visibleObjects.Count > 0)
-            {
-                activateObject prevObj = this.visibleObjects[this.selectedIndex];
-
-                if (shifted)
-                {
-                    prevObj.toggleSelection();
-                    this.getVisibileObjects();
-                    this.toggleObject(this.selectedIndex);
-                }
-
-                else
-                {
-                    this.getVisibileObjects();
-                }
-
-
-                if (visibleObjects.Count > 0)
-                {
-                    if (!prevObj.GetComponent<SpriteRenderer>().isVisible)
-                    {
-                        prevObj.toggleSelection();
-                        this.visibleObjects[this.selectedIndex].toggleSelection();
-                    }
-                   
-
-                }
-            }
-
-            else
-            {
-                int prevCount = this.visibleObjects.Count;
-                this.getVisibileObjects();
-                
-                if (prevCount == 0)
-                {
-                    this.toggleObject(this.selectedIndex);
-                }
-            }
-
+            this.getVisibileObjects();
 
             if (Input.GetKeyDown(KeyCode.Tab))
             {
@@ -118,17 +79,6 @@ public abstract class newCard : MonoBehaviour {
 
                 this.toggleObject(this.selectedIndex);
             }
-
-            //if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
-            //{
-            //    if (this.visibleObjects.Count > 0)
-            //    {
-            //        this.toggleObject(this.selectedIndex);
-            //        this.getVisibileObjects();
-            //        this.toggleObject(this.selectedIndex);
-            //    }
-
-            //}
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
@@ -181,7 +131,7 @@ public abstract class newCard : MonoBehaviour {
 
     private void getVisibileObjects()
     {
-        this.visibleObjects = new List<activateObject>();
+       List<activateObject> newList = new List<activateObject>();
 
         foreach (activateObject obj in allObjects)
         {
@@ -189,8 +139,7 @@ public abstract class newCard : MonoBehaviour {
             {
                 if (obj.GetComponent<SpriteRenderer>().isVisible && obj.GetComponent(this.blackEffect) && this.checkHitKey(this.camera1, obj.transform.position))
                 {
-                    //Debug.Log(this.checkHit(this.camera1, obj.transform.position).collider != null);
-                    this.visibleObjects.Add(obj);
+                    newList.Add(obj);
                 }
             }
 
@@ -198,25 +147,59 @@ public abstract class newCard : MonoBehaviour {
             {
                 if (obj.GetComponent<SpriteRenderer>().isVisible && obj.GetComponent(this.whiteEffect) && this.checkHitKey(this.camera2, obj.transform.position))
                 {
-                    this.visibleObjects.Add(obj);
+                    newList.Add(obj);
                 }
             }
-        }
 
-        if (this.visibleObjects.Count == 0 || this.selectedIndex > this.visibleObjects.Count-1)
-        {
-            this.selectedIndex = 0;
-            this.prevIndex = 0;
         }
 
         if (isTop)
         {
-            this.visibleObjects = this.visibleObjects.OrderBy(x => Vector2.Distance(this.player1.transform.position, x.transform.position)).ToList();
+            newList = newList.OrderBy(x => Vector2.Distance(this.player1.transform.position, x.transform.position)).ToList();
         }
 
         else
         {
-            this.visibleObjects = this.visibleObjects.OrderBy(x => Vector2.Distance(this.player2.transform.position, x.transform.position)).ToList();
+            newList = newList.OrderBy(x => Vector2.Distance(this.player2.transform.position, x.transform.position)).ToList();
+        }
+
+        if (this.visibleObjects.Count > 0)
+        {
+            bool selectedVisible = false;
+            activateObject prevObj = this.visibleObjects[this.selectedIndex];
+            for (int i = 0; i < newList.Count; i++)
+            {
+
+                if (newList[i].gameObject.name == this.visibleObjects[this.selectedIndex].gameObject.name)
+                {
+                    this.selectedIndex = i;
+                    if (this.selectedIndex == 0)
+                    {
+                        this.prevIndex = newList.Count - 1;
+                    }
+                    else
+                    {
+                        this.prevIndex = this.selectedIndex - 1;
+                    }
+                    selectedVisible = true;
+                    break;
+                }
+            }
+
+            if (!selectedVisible)
+            {
+                prevObj.toggleSelection();
+                newList[0].toggleSelection();
+            }
+        }
+
+
+        this.visibleObjects = newList;
+
+        if (this.visibleObjects.Count == 0 || this.selectedIndex > this.visibleObjects.Count - 1)
+        {
+            this.selectedIndex = 0;
+            this.prevIndex = 0;
         }
     }
 
@@ -231,8 +214,6 @@ public abstract class newCard : MonoBehaviour {
 
     public virtual void onPointerEnter()
     {
-        //this.GetComponent<Image>().sprite = newImage;
-        //this.transform.position = newLocation;
         this.anim.SetBool("onHover", true);
         particleActivate();
         source.PlayOneShot(cardSound, volume);
@@ -244,8 +225,6 @@ public abstract class newCard : MonoBehaviour {
 
         if (this.isClicked == false)
         {
-            //this.GetComponent<Image>().sprite = currentImage;
-            //this.transform.position = oldLocation;
             particleDeactivate();
         }
 
@@ -276,7 +255,6 @@ public abstract class newCard : MonoBehaviour {
         {
             this.anim.SetBool("isSelected", false);
             this.toggleObject(this.selectedIndex);
-            //this.visibleObjects = new List<activateObject>();
             this.selectedIndex = 0;
             this.prevIndex = 0;
         }
@@ -286,8 +264,6 @@ public abstract class newCard : MonoBehaviour {
     {
         this.isClicked = false;
         this.anim.SetBool("isSelected", false);
-        //this.GetComponent<Image>().sprite = currentImage;
-        //this.transform.position = oldLocation;
         this.particleDeactivate();
     }
 
