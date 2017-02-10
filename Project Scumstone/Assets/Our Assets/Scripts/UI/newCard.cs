@@ -189,7 +189,8 @@ public abstract class newCard : MonoBehaviour {
             if (!selectedVisible)
             {
                 prevObj.toggleSelection();
-                newList[0].toggleSelection();
+                if (newList.Count > 0)
+                    newList[0].toggleSelection();
             }
         }
 
