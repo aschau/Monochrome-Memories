@@ -2,13 +2,16 @@
 using System.Collections;
 
 public abstract class baseObject : MonoBehaviour {
-    public bool activated = false;
+    public bool activated = false, selected = false;
     public Color32 particleColor;
+
+    [HideInInspector]
     public activateObject activation;
 
     public virtual void Awake()
     {
         this.activation = this.GetComponent<activateObject>();
+
     }
 
 	// Use this for initialization
@@ -61,5 +64,13 @@ public abstract class baseObject : MonoBehaviour {
         }
 
 
+    }
+
+    public virtual void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("transporter") && this.selected)
+        {
+            this.GetComponent<activateObject>().toggleSelection();
+        }
     }
 }

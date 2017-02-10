@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class playerController : MonoBehaviour {
     private GameObject player1, player2;
     private GameObject topCover, bottomCover, shiftButton;
+    
 
     void Awake()
     {
@@ -20,6 +21,7 @@ public class playerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        
 	}
 
     void Update()
@@ -66,6 +68,12 @@ public class playerController : MonoBehaviour {
                     bottomCover.SetActive(true);
                 }
             }
+
+            //to pick up objects
+            
+
+
         }
-    }   
+    }
+
 }

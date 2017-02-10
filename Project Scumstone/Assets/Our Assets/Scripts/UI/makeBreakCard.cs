@@ -17,7 +17,7 @@ public class makeBreakCard : newCard {
         if (base.hit.transform.GetComponent<breakObject>() != null)
         {
             base.hit.transform.GetComponent<breakObject>().activated = true;
-            base.checkDualActivation(base.hit);
+            base.checkDualActivation(base.hit.transform);
         }
     }
 
@@ -28,7 +28,7 @@ public class makeBreakCard : newCard {
         if (base.hit.transform.GetComponent<makeObject>() != null)
         {
             base.hit.transform.GetComponent<makeObject>().activated = true;
-            base.checkDualActivation(base.hit);
+            base.checkDualActivation(base.hit.transform);
         }
     }
 }
