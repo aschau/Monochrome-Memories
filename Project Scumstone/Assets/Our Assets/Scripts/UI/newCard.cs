@@ -42,18 +42,17 @@ public abstract class newCard : MonoBehaviour {
 
     public virtual void Start()
     {
+        isTop = true;
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        bool shifted = false;
         if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
         {
             if (this.name == "jumpPushCard1")
             {
                 isTop = !isTop;
-                shifted = true;
             }
         }
 
@@ -170,7 +169,7 @@ public abstract class newCard : MonoBehaviour {
             for (int i = 0; i < newList.Count; i++)
             {
 
-                if (newList[i].gameObject.name == this.visibleObjects[this.selectedIndex].gameObject.name)
+                if (newList[i].gameObject.GetInstanceID() == this.visibleObjects[this.selectedIndex].gameObject.GetInstanceID())
                 {
                     this.selectedIndex = i;
                     if (this.selectedIndex == 0)
@@ -192,6 +191,12 @@ public abstract class newCard : MonoBehaviour {
                 if (newList.Count > 0)
                     newList[0].toggleSelection();
             }
+        }
+
+        else
+        {
+            if (newList.Count > 0)
+                newList[0].toggleSelection();
         }
 
 
@@ -240,7 +245,7 @@ public abstract class newCard : MonoBehaviour {
             this.prevIndex = 0;
             this.selectedIndex = 0;
             getVisibileObjects();
-            this.toggleObject(this.selectedIndex);
+            //this.toggleObject(this.selectedIndex);
             foreach (GameObject card in cards)
             {
                 if (card.name != this.name)

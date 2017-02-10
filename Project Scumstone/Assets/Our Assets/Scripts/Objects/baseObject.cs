@@ -65,4 +65,12 @@ public abstract class baseObject : MonoBehaviour {
 
 
     }
+
+    public virtual void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("transporter") && this.selected)
+        {
+            this.GetComponent<activateObject>().toggleSelection();
+        }
+    }
 }
