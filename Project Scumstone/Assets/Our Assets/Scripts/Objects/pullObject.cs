@@ -60,8 +60,8 @@ public class pullObject : baseObject
         {
             if (this.GetComponent<interactiveBox>() != null)
             {
-                this.originalPlace = this.GetComponent<interactiveBox>().newPosition.x;
-                this.originalPosition = this.GetComponent<interactiveBox>().newPosition;
+                this.originalPlace = this.GetComponent<boxTriggers>().currentPosition.x;
+                this.originalPosition = this.GetComponent<boxTriggers>().currentPosition;
             }
         }
     }

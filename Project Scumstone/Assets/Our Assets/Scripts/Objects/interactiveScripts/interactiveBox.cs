@@ -13,7 +13,7 @@ public class interactiveBox : MonoBehaviour
     void Start()
     {
         //this.watchPlayer = false;
-        child = this.transform.FindChild("stacked").gameObject;
+        //child = this.transform.FindChild("stacked").gameObject;
     }
 
     // Update is called once per frame
@@ -53,12 +53,12 @@ public class interactiveBox : MonoBehaviour
     {
         if (hit.tag == "Player") //when player enters the trigger
         {
-            if (child.GetComponent<triggered>().activated == false) //if the child of this object is not activated, it means there is no stacked boxes on top 
+            if (this.transform.parent.GetComponent<boxTriggers>().stacked == false) //if the child of this object is not activated, it means there is no stacked boxes on top 
             {
                 hit.GetComponent<playerMovement>().objectAvailable = true; //player knows that there is an object available
                 if (hit.GetComponent<playerMovement>().held == false) //if the player is not already holding an object
                 {
-                    hit.GetComponent<playerMovement>().interactiveObject = this.gameObject; //pick up the object as a child
+                    hit.GetComponent<playerMovement>().interactiveObject = this.transform.parent.gameObject; //pick up the object as a child
                 }
             }
         }
@@ -67,7 +67,7 @@ public class interactiveBox : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D hit)
     {
-        if (child.GetComponent<triggered>().activated == false) // if not stacked
+        if (this.transform.parent.GetComponent<boxTriggers>().stacked == false) // if not stacked
         {
             if (hit.tag == "Player") //if player leaves the box 
             {
@@ -79,13 +79,6 @@ public class interactiveBox : MonoBehaviour
                 
                 }
             }
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D hit) {
-        if (hit.transform.tag != "Player")
-        {
-            this.newPosition = this.transform.position;
         }
     }
 
