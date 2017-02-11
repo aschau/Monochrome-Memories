@@ -2,7 +2,7 @@
 using System.Collections;
 
 public abstract class baseObject : MonoBehaviour {
-    public bool activated = false, selected = false;
+    public bool activated = false;
     public Color32 particleColor;
 
     [HideInInspector]
@@ -64,13 +64,5 @@ public abstract class baseObject : MonoBehaviour {
         }
 
 
-    }
-
-    public virtual void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.transform.CompareTag("transporter") && this.selected)
-        {
-            this.GetComponent<activateObject>().toggleSelection();
-        }
     }
 }
