@@ -139,25 +139,40 @@ public class playerMovement : MonoBehaviour {
 
                 if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl))
                 {
-                    if (!held)
+                    if (!held) //if the player is not already holding something then it may be able to pick something up 
                     {
-                        if (this.objectAvailable)
+
+                        if (this.objectAvailable) //the objects turn this boolean on if there is an object available to be picked up 
                         {
                             this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
                             this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                             this.interactiveObject.transform.parent = this.transform;
                             this.held = true;
+                            this.interactiveObject.GetComponent<interactiveBox>().holding = true;
                         }
                     }
                     else
                     {
                         if (this.objectAvailable)
                         {
-                            this.interactiveObject.transform.parent = null;
-                            this.interactiveObject.transform.position = new Vector3(this.transform.position.x - 0.7f, this.transform.position.y + 0.3f, this.transform.position.z);
-                            this.held = false;
-                            this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
-                            this.objectAvailable = false;
+                            if (this.interactiveObject.GetComponent<interactiveBox>().holding == true)
+                            {
+                                this.interactiveObject.transform.parent = null;
+                                if (this.GetComponent<SpriteRenderer>().flipX == true)
+                                {
+                                    this.interactiveObject.transform.position = new Vector3(this.transform.position.x - 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
+                                }
+
+                                else
+                                {
+                                    this.interactiveObject.transform.position = new Vector3(this.transform.position.x + 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
+                                }
+                                this.held = false;
+                                this.interactiveObject.GetComponent<interactiveBox>().holding = false;
+                                this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                                this.interactiveObject = null;
+                                this.objectAvailable = false;
+                            }
                         }
                     }
                 }

@@ -7,16 +7,16 @@ public class jumpPushCard : newCard {
 	public override void Start () {
         base.Start();
         base.whiteEffect = "pullObject";
-        base.blackEffect = "moveObject";
+        base.blackEffect = "pushObject";
 	}
 
     public override void activateBlack()
     {
         base.activateBlack();
 
-        if (base.hit.transform.GetComponent<moveObject>() != null)
+        if (base.hit.transform.GetComponent<pushObject>() != null)
         {
-            base.hit.transform.GetComponent<moveObject>().activated = true;
+            base.hit.transform.GetComponent<pushObject>().activated = true;
             base.checkDualActivation(base.hit.transform);
         }
     }
