@@ -3,6 +3,9 @@ using System.Collections;
 
 public class playerCamera : MonoBehaviour {
     public Transform player;
+    public bool panning = false;
+    public float speed = 10f;
+
     private Vector3 offset;
     private float minY, maxY;
     void Awake()
@@ -34,11 +37,10 @@ public class playerCamera : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
 	void LateUpdate () {
-        if (this.player.gameObject.activeSelf)
+        if (this.player.gameObject.activeSelf && !this.panning)
         {
-            this.transform.position = new Vector3(player.transform.position.x + offset.x, Mathf.Clamp(this.player.position.y, this.minY, this.maxY), player.transform.position.z + offset.z);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(player.transform.position.x + offset.x, Mathf.Clamp(this.player.position.y, this.minY, this.maxY), player.transform.position.z + offset.z), this.speed * Time.deltaTime);
         }
 	}
 }

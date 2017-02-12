@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class sceneControl : MonoBehaviour {
     public float speed = .5f;
-    public float resetTime = 5f;
+    public float resetTime;
     public string nextLevel;
     [HideInInspector]
     public AudioSource backgroundMusic, resetSound;
@@ -37,6 +37,7 @@ public class sceneControl : MonoBehaviour {
 	void Start () {
         this.GetComponent<Image>().enabled = true;
         this.topCover.SetActive(false);
+        this.resetTime = 2f;
     }
 	
 	// Update is called once per frame

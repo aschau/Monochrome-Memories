@@ -79,7 +79,7 @@ public abstract class newCard : MonoBehaviour {
                 this.toggleObject(this.selectedIndex);
             }
 
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return) && this.visibleObjects.Count > 0)
             {
                 if (isTop)
                 {
@@ -190,6 +190,11 @@ public abstract class newCard : MonoBehaviour {
                 prevObj.toggleSelection();
                 if (newList.Count > 0)
                     newList[0].toggleSelection();
+            }
+
+            else if (!newList[0].selected)
+            {
+                newList[0].toggleSelection();
             }
         }
 
