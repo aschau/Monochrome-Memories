@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class interactiveBox : MonoBehaviour
 {
-    public bool holding;
     public Vector3 newPosition;
     public GameObject child;
     //public Vector3 originalPosition;

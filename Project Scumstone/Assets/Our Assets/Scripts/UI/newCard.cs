@@ -85,12 +85,11 @@ public abstract class newCard : MonoBehaviour {
                 {
                     if (this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect))
                     {
-                        (this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect) as baseObject).activated = !(this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect) as baseObject).activated;
-                        if (!this.visibleObjects[this.selectedIndex].GetComponent<baseObject>().activated)
-                        {
-                            //this.visibleObjects[this.selectedIndex];
-                        }
-                        Debug.Log("Activated: " + this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect).gameObject.name);
+                        baseObject currentObj = (this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect) as baseObject);
+                        currentObj.activated = !currentObj.activated;
+                        currentObj.isMoving = true;
+                        this.checkActivatedType(this.blackEffect, this.visibleObjects[this.selectedIndex].transform);
+                        //Debug.Log("Activated: " + this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect).gameObject.name);
                     }
                 }
 
@@ -98,8 +97,11 @@ public abstract class newCard : MonoBehaviour {
                 {
                     if (this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect))
                     {
-                        (this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect) as baseObject).activated = !(this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect) as baseObject).activated;
-                        Debug.Log("Activated: " + this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect).gameObject.name);
+                        baseObject currentObj = (this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect) as baseObject);
+                        currentObj.activated = !currentObj.activated;
+                        currentObj.isMoving = true;
+                        this.checkActivatedType(this.whiteEffect, this.visibleObjects[this.selectedIndex].transform);
+                        //Debug.Log("Activated: " + this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect).gameObject.name);
                     }
                 }
                 this.checkDualActivation(this.visibleObjects[this.selectedIndex].transform);
@@ -385,33 +387,33 @@ public abstract class newCard : MonoBehaviour {
 
     public virtual void activateBlack()
     {
-        this.checkActivatedType(this.blackEffect);
+        this.checkActivatedType(this.blackEffect, this.hit.transform);
     }
 
     public virtual void activateWhite()
     {
-        this.checkActivatedType(this.whiteEffect);
+        this.checkActivatedType(this.whiteEffect, this.hit.transform);
     }
 
-    public virtual void checkActivatedType(string effect)
+    public virtual void checkActivatedType(string effect, Transform obj)
     {
-        if (this.hit.transform.GetComponent<activateObject>())
+        if (obj.transform.GetComponent<activateObject>())
         {
-            if (!this.hit.transform.GetComponent<activateObject>().dualActivation)
+            if (!obj.transform.GetComponent<activateObject>().dualActivation)
             {
-                this.hit.transform.GetComponent<activateObject>().activatedScript1 = effect;
+                obj.transform.GetComponent<activateObject>().activatedScript1 = effect;
             }
 
             else
             {
-                if (!this.hit.transform.GetComponent<activateObject>().activated1)
+                if (!obj.transform.GetComponent<activateObject>().activated1)
                 {
-                    this.hit.transform.GetComponent<activateObject>().activatedScript1 = effect;
+                    obj.transform.GetComponent<activateObject>().activatedScript1 = effect;
                 }
 
-                else if (!this.hit.transform.GetComponent<activateObject>().activated2)
+                else if (!obj.transform.GetComponent<activateObject>().activated2)
                 {
-                    this.hit.transform.GetComponent<activateObject>().activatedScript2 = effect;
+                    obj.transform.GetComponent<activateObject>().activatedScript2 = effect;
                 }
             }
         }

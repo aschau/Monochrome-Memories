@@ -26,28 +26,30 @@ public class pullObject : baseObject
 
     public override void activate()
     {
-        if (this.moved == false)
+        if (this.transform.position.x < (this.originalPlace + this.variance))
         {
-            if (this.transform.position.x <= (this.originalPlace + this.variance))
-            {
-                this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
-            }
-            if (this.transform.position.x == (this.originalPlace + this.variance)){
-                this.moved = true;
-            }
+            this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
         }
+        if (this.transform.position.x == (this.originalPlace + this.variance)){
+            this.isMoving = false;
+        }
+
         base.activate();
     }
     // Update is called once per frame
     public override void deactivate()
     {
         base.deactivate();
-        if (this.moved == true)
+        if (this.transform.position.x > this.originalPlace)
         {
-            this.transform.position = this.originalPosition;
-            this.moved = false;
+            this.transform.Translate(new Vector2(-this.speed * Time.deltaTime, 0));
         }
-        
+        if (this.transform.position.x == this.originalPlace)
+        {
+            this.isMoving = false;
+        }
+        //this.transform.position = this.originalPosition;
+        //this.isMoving = false;        
     }
 
     void OnCollisionEnter2D(Collision2D hit)

@@ -20,7 +20,10 @@ public abstract class baseObject : MonoBehaviour {
 
     public virtual void FixedUpdate()
     {
-        this.checkActivated();
+        if (this.isMoving)
+        {
+            this.checkActivated();
+        }
     }
 
     public virtual void checkActivated()
@@ -62,7 +65,5 @@ public abstract class baseObject : MonoBehaviour {
         {
             this.activation.activated2 = false;
         }
-
-
     }
 }
