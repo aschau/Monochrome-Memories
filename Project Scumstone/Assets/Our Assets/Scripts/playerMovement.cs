@@ -148,16 +148,17 @@ public class playerMovement : MonoBehaviour {
                             this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                             this.interactiveObject.transform.parent = this.transform;
                             this.held = true;
-                            this.interactiveObject.GetComponent<interactiveBox>().holding = true;
+                            this.interactiveObject.GetComponent<boxTriggers>().touched = true;
                         }
                     }
                     else
                     {
                         if (this.objectAvailable)
                         {
-                            if (this.interactiveObject.GetComponent<interactiveBox>().holding == true)
+                            if (this.interactiveObject.GetComponent<boxTriggers>().touched == true)
                             {
                                 this.interactiveObject.transform.parent = null;
+                                this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
                                 if (this.GetComponent<SpriteRenderer>().flipX == true)
                                 {
                                     this.interactiveObject.transform.position = new Vector3(this.transform.position.x - 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
@@ -168,8 +169,7 @@ public class playerMovement : MonoBehaviour {
                                     this.interactiveObject.transform.position = new Vector3(this.transform.position.x + 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
                                 }
                                 this.held = false;
-                                this.interactiveObject.GetComponent<interactiveBox>().holding = false;
-                                this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                                this.interactiveObject.GetComponent<boxTriggers>().touched = false;
                                 this.interactiveObject = null;
                                 this.objectAvailable = false;
                             }
