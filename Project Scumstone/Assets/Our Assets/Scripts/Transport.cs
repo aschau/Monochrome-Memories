@@ -54,7 +54,7 @@ public class Transport : MonoBehaviour
 
     void transportObject(GameObject other)
     {
-        if (other.transform.GetComponent<interactiveBox>() || other.transform.GetComponent<baseObject>())
+        if (other.transform.GetComponent<boxTriggers>() || other.transform.GetComponent<baseObject>())
         {
             if (other.transform.GetComponent<floatObject>())
             {

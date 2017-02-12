@@ -1,9 +1,23 @@
 fileFormatVersion: 2
 guid: a9303ded6c5d6f34a87b1bd473978004
-timeCreated: 1486846260
+timeCreated: 1486859425
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: DenialBlackWorldAssetsInverted_0
+    21300002: DenialBlackWorldAssetsInverted_1
+    21300004: DenialBlackWorldAssetsInverted_2
+    21300006: DenialBlackWorldAssetsInverted_3
+    21300008: DenialBlackWorldAssetsInverted_4
+    21300010: DenialBlackWorldAssetsInverted_5
+    21300012: DenialBlackWorldAssetsInverted_6
+    21300014: DenialBlackWorldAssetsInverted_7
+    21300016: DenialBlackWorldAssetsInverted_8
+    21300018: DenialBlackWorldAssetsInverted_9
+    21300020: DenialBlackWorldAssetsInverted_10
+    21300022: DenialBlackWorldAssetsInverted_11
+    21300024: DenialBlackWorldAssetsInverted_12
+    21300026: DenialBlackWorldAssetsInverted_13
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +48,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +72,207 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 608
+        width: 336
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_1
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 636
+        width: 181
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_2
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 735
+        width: 156
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_3
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 699
+        width: 10
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_4
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 458
+        width: 121
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_5
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 471
+        width: 80
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_6
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 534
+        width: 160
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_7
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 396
+        width: 228
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_8
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 288
+        width: 344
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_9
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 415
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_10
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 304
+        width: 80
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 89
+        width: 232
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_12
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 52
+        width: 185
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackWorldAssetsInverted_13
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 380
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
