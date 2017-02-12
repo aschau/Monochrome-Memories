@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class triggered : MonoBehaviour {
-    public bool activated;
+    
 	// Use this for initialization
 	void Start () {
 		
@@ -18,14 +18,14 @@ public class triggered : MonoBehaviour {
     {
         if (hit.tag == "interactive")
         {
-            
-            this.activated = true;
+
+            this.transform.parent.GetComponent<boxTriggers>().stacked = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D hit)
     {
-        
-        this.activated = false;
+
+        this.transform.parent.GetComponent<boxTriggers>().stacked = false;
     }
 }
