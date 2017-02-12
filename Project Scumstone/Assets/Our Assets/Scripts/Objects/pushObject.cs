@@ -6,7 +6,7 @@ public class pushObject : baseObject {
 
     public float speed = 5f;
     public float variance;
-    public float originalPlace;
+    //public float originalPlace;
     public override void Awake()
     {
         base.Awake();
@@ -16,14 +16,14 @@ public class pushObject : baseObject {
     public override void Start()
     {
         base.Start();
-        this.originalPlace = this.transform.position.x;
+        //this.originalPlace = this.transform.position.x;
         base.particleColor = new Color32(0, 150, 0, 255);
     }
 
     public override void activate()
     {
         base.activate();
-        if (this.transform.position.x < (this.originalPlace - this.variance))
+        if (this.transform.position.x < (this.originalPosition.x - this.variance))
         {
             this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
         }
@@ -32,7 +32,7 @@ public class pushObject : baseObject {
     public override void deactivate()
     {
         base.deactivate();
-        if (this.transform.position.x > this.originalPlace)
+        if (this.transform.position.x > this.originalPosition.x)
         {
             this.transform.Translate(new Vector2(0, -this.speed * Time.deltaTime));
         }

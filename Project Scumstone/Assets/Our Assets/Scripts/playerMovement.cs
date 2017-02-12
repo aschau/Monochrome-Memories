@@ -147,6 +147,10 @@ public class playerMovement : MonoBehaviour {
                             this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
                             this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                             this.interactiveObject.transform.parent = this.transform;
+                            if (this.interactiveObject.GetComponent<baseObject>())
+                            {
+                                this.interactiveObject.GetComponent<baseObject>().isMoving = false;
+                            }
                             this.held = true;
                             this.interactiveObject.GetComponent<boxTriggers>().touched = true;
                         }
@@ -167,6 +171,11 @@ public class playerMovement : MonoBehaviour {
                                 else
                                 {
                                     this.interactiveObject.transform.position = new Vector3(this.transform.position.x + 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
+                                }
+                                if (this.interactiveObject.GetComponent<baseObject>())
+                                {
+                                    this.interactiveObject.GetComponent<baseObject>().originalPosition = this.interactiveObject.transform.position;
+                                    this.interactiveObject.GetComponent<baseObject>().activated = false;
                                 }
                                 this.held = false;
                                 this.interactiveObject.GetComponent<boxTriggers>().touched = false;

@@ -70,12 +70,14 @@ public class Transport : MonoBehaviour
 
             if (other.transform.GetComponent<pullObject>())
             {
-                other.transform.GetComponent<pullObject>().originalPlace = newPlace.position.x;
+                other.transform.GetComponent<pullObject>().originalPosition = newPlace.position;
+                //other.transform.GetComponent<pullObject>().originalPlace = newPlace.position.x;
             }
 
             if (other.transform.GetComponent<pushObject>())
             {
-                other.transform.GetComponent<pushObject>().originalPlace = newPlace.position.x;
+                other.transform.GetComponent<pushObject>().originalPosition = newPlace.position;
+                //other.transform.GetComponent<pushObject>().originalPlace = newPlace.position.x;
             }
             other.transform.position = newPlace.position;
             panCamera();
