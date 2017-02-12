@@ -86,6 +86,10 @@ public abstract class newCard : MonoBehaviour {
                     if (this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect))
                     {
                         (this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect) as baseObject).activated = !(this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect) as baseObject).activated;
+                        if (!this.visibleObjects[this.selectedIndex].GetComponent<baseObject>().activated)
+                        {
+                            //this.visibleObjects[this.selectedIndex];
+                        }
                         Debug.Log("Activated: " + this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect).gameObject.name);
                     }
                 }
@@ -192,9 +196,9 @@ public abstract class newCard : MonoBehaviour {
                     newList[0].toggleSelection();
             }
 
-            else if (!newList[0].selected)
+            else if (!newList[this.selectedIndex].selected)
             {
-                newList[0].toggleSelection();
+                newList[this.selectedIndex].toggleSelection();
             }
         }
 

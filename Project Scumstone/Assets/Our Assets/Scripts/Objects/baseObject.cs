@@ -2,7 +2,7 @@
 using System.Collections;
 
 public abstract class baseObject : MonoBehaviour {
-    public bool activated = false;
+    public bool activated = false, isMoving = false;
     public Color32 particleColor;
 
     [HideInInspector]
