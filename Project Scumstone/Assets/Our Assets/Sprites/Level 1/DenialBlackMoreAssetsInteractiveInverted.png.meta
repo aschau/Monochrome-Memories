@@ -1,9 +1,24 @@
 fileFormatVersion: 2
 guid: 39a90ec53b1d4374fbb46d7f90d29463
-timeCreated: 1486848135
+timeCreated: 1486877969
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: DenialBlackMoreAssetsInteractiveInverted_0
+    21300002: DenialBlackMoreAssetsInteractiveInverted_1
+    21300004: DenialBlackMoreAssetsInteractiveInverted_2
+    21300006: DenialBlackMoreAssetsInteractiveInverted_3
+    21300008: DenialBlackMoreAssetsInteractiveInverted_4
+    21300010: DenialBlackMoreAssetsInteractiveInverted_5
+    21300012: DenialBlackMoreAssetsInteractiveInverted_6
+    21300014: DenialBlackMoreAssetsInteractiveInverted_7
+    21300016: DenialBlackMoreAssetsInteractiveInverted_8
+    21300018: DenialBlackMoreAssetsInteractiveInverted_9
+    21300020: DenialBlackMoreAssetsInteractiveInverted_10
+    21300022: DenialBlackMoreAssetsInteractiveInverted_11
+    21300024: DenialBlackMoreAssetsInteractiveInverted_12
+    21300026: DenialBlackMoreAssetsInteractiveInverted_13
+    21300028: DenialBlackMoreAssetsInteractiveInverted_14
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,16 +66,227 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 251
+        width: 308
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_1
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 24
+        width: 368
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_2
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 164
+        width: 208
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_3
+      rect:
+        serializedVersion: 2
+        x: 1776
+        y: 0
+        width: 245
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_4
+      rect:
+        serializedVersion: 2
+        x: 2019
+        y: 145
+        width: 21
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_5
+      rect:
+        serializedVersion: 2
+        x: 2104
+        y: 0
+        width: 312
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_6
+      rect:
+        serializedVersion: 2
+        x: 3352
+        y: 0
+        width: 612
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_7
+      rect:
+        serializedVersion: 2
+        x: 4016
+        y: 24
+        width: 468
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_8
+      rect:
+        serializedVersion: 2
+        x: 4796
+        y: 112
+        width: 516
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_9
+      rect:
+        serializedVersion: 2
+        x: 5440
+        y: 283
+        width: 273
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_10
+      rect:
+        serializedVersion: 2
+        x: 5932
+        y: 0
+        width: 68
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 304
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_12
+      rect:
+        serializedVersion: 2
+        x: 4460
+        y: 0
+        width: 293
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_13
+      rect:
+        serializedVersion: 2
+        x: 5660
+        y: 192
+        width: 4
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialBlackMoreAssetsInteractiveInverted_14
+      rect:
+        serializedVersion: 2
+        x: 5372
+        y: 0
+        width: 444
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
