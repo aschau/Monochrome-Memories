@@ -3,22 +3,26 @@ using System.Collections;
 
 public class Transport : MonoBehaviour
 {
-    public float speed = 10f, delay = .5f;
+    public float speed = 10f, delay = 1.2f;
     public Transform newPlace;
     private Camera camera1, camera2;
+    private bool activated = false;
     // Use this for initialization
     void Start()
     {
         this.camera1 = GameObject.Find("Black Camera").GetComponent<Camera>();
         this.camera2 = GameObject.Find("White Camera").GetComponent<Camera>();
         this.newPlace = this.transform.Find("newPlace");
+        this.delay = 1.2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (camera1.GetComponent<playerCamera>().panning)
+        if (camera1.GetComponent<playerCamera>().panning && this.activated)
         {
+            Debug.Log(newPlace.transform.position.x);
+
             this.camera1.transform.position = Vector3.MoveTowards(this.camera1.transform.position, new Vector3(newPlace.transform.position.x, this.camera1.transform.position.y, this.camera1.transform.position.z), this.speed * Time.deltaTime);
             if (checkPanningFinish(camera1))
             {
@@ -26,7 +30,7 @@ public class Transport : MonoBehaviour
             }
         }
 
-        else if (camera2.GetComponent<playerCamera>().panning)
+        else if (camera2.GetComponent<playerCamera>().panning && this.activated)
         {
             this.camera2.transform.position = Vector3.MoveTowards(this.camera2.transform.position, new Vector3(newPlace.transform.position.x, this.camera2.transform.position.y, this.camera2.transform.position.z), this.speed * Time.deltaTime);
             if (checkPanningFinish(camera2))
@@ -40,6 +44,7 @@ public class Transport : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         camera.GetComponent<playerCamera>().panning = false;
+        this.activated = false;
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -70,6 +75,7 @@ public class Transport : MonoBehaviour
     {
         if (other.transform.GetComponent<boxTriggers>() || other.transform.GetComponent<baseObject>())
         {
+            this.activated = true;
             if (other.transform.GetComponent<floatObject>())
             {
                 other.transform.GetComponent<floatObject>().originalY = newPlace.position.y;
@@ -84,22 +90,14 @@ public class Transport : MonoBehaviour
 
             if (other.transform.GetComponent<pullObject>())
             {
-                if (other.transform.GetComponent<pullObject>().activated)
-                {
-                    other.transform.GetComponent<pullObject>().originalPosition = newPlace.position;
-                    other.transform.GetComponent<pullObject>().activated = false;
-                    //other.transform.GetComponent<pullObject>().originalPlace = newPlace.position.x;
-                }
+                other.transform.GetComponent<pullObject>().originalPosition = newPlace.position;
+                other.transform.GetComponent<pullObject>().activated = false;
             }
 
             if (other.transform.GetComponent<pushObject>())
             {
-                if (other.transform.GetComponent<pushObject>().activated)
-                {
-                    other.transform.GetComponent<pushObject>().originalPosition = newPlace.position;
-                    other.transform.GetComponent<pushObject>().activated = false;
-                    //other.transform.GetComponent<pushObject>().originalPlace = newPlace.position.x;
-                }
+                other.transform.GetComponent<pushObject>().originalPosition = newPlace.position;
+                other.transform.GetComponent<pushObject>().activated = false;
             }
             other.transform.position = newPlace.position;
             panCamera();
