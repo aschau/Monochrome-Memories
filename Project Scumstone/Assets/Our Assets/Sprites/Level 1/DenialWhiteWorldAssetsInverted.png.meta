@@ -1,9 +1,49 @@
 fileFormatVersion: 2
 guid: 572f2ed12a27e9c4c928e60d9df7e18d
-timeCreated: 1486846255
+timeCreated: 1487251347
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: DenialWhiteWorldAssetsInverted_0
+    21300002: DenialWhiteWorldAssetsInverted_1
+    21300004: DenialWhiteWorldAssetsInverted_2
+    21300006: DenialWhiteWorldAssetsInverted_3
+    21300008: DenialWhiteWorldAssetsInverted_4
+    21300010: DenialWhiteWorldAssetsInverted_5
+    21300012: DenialWhiteWorldAssetsInverted_6
+    21300014: DenialWhiteWorldAssetsInverted_7
+    21300016: DenialWhiteWorldAssetsInverted_8
+    21300018: DenialWhiteWorldAssetsInverted_9
+    21300020: DenialWhiteWorldAssetsInverted_10
+    21300022: DenialWhiteWorldAssetsInverted_11
+    21300024: DenialWhiteWorldAssetsInverted_12
+    21300026: DenialWhiteWorldAssetsInverted_13
+    21300028: DenialWhiteWorldAssetsInverted_14
+    21300030: DenialWhiteWorldAssetsInverted_15
+    21300032: DenialWhiteWorldAssetsInverted_16
+    21300034: DenialWhiteWorldAssetsInverted_17
+    21300036: DenialWhiteWorldAssetsInverted_18
+    21300038: DenialWhiteWorldAssetsInverted_19
+    21300040: DenialWhiteWorldAssetsInverted_20
+    21300042: DenialWhiteWorldAssetsInverted_21
+    21300044: DenialWhiteWorldAssetsInverted_22
+    21300046: DenialWhiteWorldAssetsInverted_23
+    21300048: DenialWhiteWorldAssetsInverted_24
+    21300050: DenialWhiteWorldAssetsInverted_25
+    21300052: DenialWhiteWorldAssetsInverted_26
+    21300054: DenialWhiteWorldAssetsInverted_27
+    21300056: DenialWhiteWorldAssetsInverted_28
+    21300058: DenialWhiteWorldAssetsInverted_29
+    21300060: DenialWhiteWorldAssetsInverted_30
+    21300062: DenialWhiteWorldAssetsInverted_31
+    21300064: DenialWhiteWorldAssetsInverted_32
+    21300066: DenialWhiteWorldAssetsInverted_33
+    21300068: DenialWhiteWorldAssetsInverted_34
+    21300070: DenialWhiteWorldAssetsInverted_35
+    21300072: DenialWhiteWorldAssetsInverted_36
+    21300074: DenialWhiteWorldAssetsInverted_37
+    21300076: DenialWhiteWorldAssetsInverted_38
+    21300078: DenialWhiteWorldAssetsInverted_39
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +74,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,16 +91,552 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_0
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 738
+        width: 409
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_1
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 885
+        width: 39
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_2
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 865
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_3
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 741
+        width: 112
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_4
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 760
+        width: 99
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_5
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 846
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_6
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 810
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_7
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 742
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_8
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 819
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_9
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 818
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_10
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 767
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_11
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 773
+        width: 7
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_12
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 734
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_13
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 732
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_14
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 734
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_15
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 708
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 706
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_17
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 506
+        width: 164
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_18
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 597
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_19
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 512
+        width: 368
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_20
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 512
+        width: 139
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_21
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 600
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_22
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 543
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_23
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 508
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_24
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 264
+        width: 457
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_25
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 281
+        width: 121
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_26
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 312
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_27
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 48
+        width: 28
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_28
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 49
+        width: 298
+        height: 439
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_29
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 269
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_30
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 256
+        width: 9
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_31
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 251
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_32
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 60
+        width: 167
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_33
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 213
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_34
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 206
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_35
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 59
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_36
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 60
+        width: 264
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_37
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 52
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_38
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DenialWhiteWorldAssetsInverted_39
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 0
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
