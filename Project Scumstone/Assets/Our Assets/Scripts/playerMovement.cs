@@ -15,7 +15,7 @@ public class playerMovement : MonoBehaviour {
     public bool objectAvailable, held; //checks whether an object is in the vicinty to pick up
     public GameObject interactiveObject;
     public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed, previousYVelocity;
-    private bool walkingLeft, walkingRight, idle, idleReady = false, onGround = true, jumpPressed;
+    public bool walkingLeft, walkingRight, idle, idleReady = false, onGround = true, jumpPressed;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
     //private DragonBones.Animation anim;
     [HideInInspector]
@@ -196,7 +196,7 @@ public class playerMovement : MonoBehaviour {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .11f, this.layer);
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i].gameObject != gameObject)
+                if (colliders[i].gameObject != gameObject && this.GetComponent<Rigidbody2D>().velocity.y == 0)
                 {
                     this.onGround = true;
                 }
