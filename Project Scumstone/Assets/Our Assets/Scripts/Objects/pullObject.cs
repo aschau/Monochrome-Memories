@@ -26,15 +26,32 @@ public class pullObject : baseObject
 
     public override void activate()
     {
-        if (this.transform.position.x < (this.originalPosition.x + this.variance))
+        if (this.activation.activated1)
         {
-            this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
-        }
-        if (this.transform.position.x == (this.originalPosition.x + this.variance)){
-            this.isMoving = false;
-        }
+            if (this.transform.position.x < (this.originalPosition.x + this.variance))
+            {
+                this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+            }
+            if (this.transform.position.x == (this.originalPosition.x + this.variance))
+            {
+                this.isMoving = false;
+            }
 
-        base.activate();
+            base.activate();
+        }
+        else if (this.activation.dualActivation && this.activation.activated2)
+        {
+            if (this.transform.position.x > (this.originalPosition.x - this.variance))
+            {
+                this.transform.Translate(new Vector2(-this.speed * Time.deltaTime, 0));
+            }
+            if (this.transform.position.x == (this.originalPosition.x - this.variance))
+            {
+                this.isMoving = false;
+            }
+
+            base.activate();
+        }
     }
     // Update is called once per frame
     public override void deactivate()

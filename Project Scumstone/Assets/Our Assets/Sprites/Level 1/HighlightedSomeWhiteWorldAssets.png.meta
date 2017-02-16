@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: 6a1c83ed8f07c7e488228c9516e22f19
+timeCreated: 1487241989
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: HighlightedSomeWhiteWorldAssets_0
+    21300002: HighlightedSomeWhiteWorldAssets_1
+    21300004: HighlightedSomeWhiteWorldAssets_2
+    21300006: HighlightedSomeWhiteWorldAssets_3
+    21300008: HighlightedSomeWhiteWorldAssets_4
+    21300010: HighlightedSomeWhiteWorldAssets_5
+    21300012: HighlightedSomeWhiteWorldAssets_6
+    21300014: HighlightedSomeWhiteWorldAssets_7
+    21300016: HighlightedSomeWhiteWorldAssets_8
+    21300018: HighlightedSomeWhiteWorldAssets_9
+    21300020: HighlightedSomeWhiteWorldAssets_10
+    21300022: HighlightedSomeWhiteWorldAssets_11
+    21300024: HighlightedSomeWhiteWorldAssets_12
+    21300026: HighlightedSomeWhiteWorldAssets_13
+    21300028: HighlightedSomeWhiteWorldAssets_14
+    21300030: HighlightedSomeWhiteWorldAssets_15
+    21300032: HighlightedSomeWhiteWorldAssets_16
+    21300034: HighlightedSomeWhiteWorldAssets_17
+    21300036: HighlightedSomeWhiteWorldAssets_18
+    21300038: HighlightedSomeWhiteWorldAssets_19
+    21300040: HighlightedSomeWhiteWorldAssets_20
+    21300042: HighlightedSomeWhiteWorldAssets_21
+    21300044: HighlightedSomeWhiteWorldAssets_22
+    21300046: HighlightedSomeWhiteWorldAssets_23
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 8192
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_0
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 943
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 666
+        width: 308
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_2
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 704
+        width: 191
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_3
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 780
+        width: 145
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_4
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 785
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_5
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 744
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_6
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 681
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_7
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 441
+        width: 240
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_8
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 653
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_9
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 636
+        width: 27
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_10
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 503
+        width: 129
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_11
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 516
+        width: 90
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_12
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 584
+        width: 170
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_13
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 579
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_14
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 332
+        width: 354
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_15
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 351
+        width: 90
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_16
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 422
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_17
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 93
+        width: 374
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_18
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 388
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_19
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 159
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_20
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 141
+        width: 225
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_21
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 97
+        width: 195
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_22
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 134
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedSomeWhiteWorldAssets_23
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 45
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

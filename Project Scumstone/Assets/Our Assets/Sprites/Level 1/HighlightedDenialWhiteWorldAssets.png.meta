@@ -1,9 +1,39 @@
 fileFormatVersion: 2
 guid: 251c6b3a10b58254a954938474de3d03
-timeCreated: 1486280579
+timeCreated: 1487238815
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: HighlightedDenialWhiteWorldAssets_0
+    21300002: HighlightedDenialWhiteWorldAssets_1
+    21300004: HighlightedDenialWhiteWorldAssets_2
+    21300006: HighlightedDenialWhiteWorldAssets_3
+    21300008: HighlightedDenialWhiteWorldAssets_4
+    21300010: HighlightedDenialWhiteWorldAssets_5
+    21300012: HighlightedDenialWhiteWorldAssets_6
+    21300014: HighlightedDenialWhiteWorldAssets_7
+    21300016: HighlightedDenialWhiteWorldAssets_8
+    21300018: HighlightedDenialWhiteWorldAssets_9
+    21300020: HighlightedDenialWhiteWorldAssets_10
+    21300022: HighlightedDenialWhiteWorldAssets_11
+    21300024: HighlightedDenialWhiteWorldAssets_12
+    21300026: HighlightedDenialWhiteWorldAssets_13
+    21300028: HighlightedDenialWhiteWorldAssets_14
+    21300030: HighlightedDenialWhiteWorldAssets_15
+    21300032: HighlightedDenialWhiteWorldAssets_16
+    21300034: HighlightedDenialWhiteWorldAssets_17
+    21300036: HighlightedDenialWhiteWorldAssets_18
+    21300038: HighlightedDenialWhiteWorldAssets_19
+    21300040: HighlightedDenialWhiteWorldAssets_20
+    21300042: HighlightedDenialWhiteWorldAssets_21
+    21300044: HighlightedDenialWhiteWorldAssets_22
+    21300046: HighlightedDenialWhiteWorldAssets_23
+    21300048: HighlightedDenialWhiteWorldAssets_24
+    21300050: HighlightedDenialWhiteWorldAssets_25
+    21300052: HighlightedDenialWhiteWorldAssets_26
+    21300054: HighlightedDenialWhiteWorldAssets_27
+    21300056: HighlightedDenialWhiteWorldAssets_28
+    21300058: HighlightedDenialWhiteWorldAssets_29
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -51,9 +81,9 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -83,9 +113,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +154,397 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 828
+        width: 81
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_1
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 844
+        width: 74
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_2
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 806
+        width: 122
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_3
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 751
+        width: 132
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_4
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 941
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_5
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 830
+        width: 150
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_6
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 523
+        width: 45
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_7
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 913
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_8
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 799
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_9
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 889
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 838
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_11
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 834
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_12
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 780
+        width: 96
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_13
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 696
+        width: 135
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_14
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 770
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_15
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 722
+        width: 403
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_16
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 515
+        width: 381
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_17
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 660
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_18
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 524
+        width: 271
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_19
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 523
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_20
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 261
+        width: 464
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_21
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 62
+        width: 302
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_22
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 231
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_23
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 35
+        width: 170
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_24
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 171
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_25
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 53
+        width: 169
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_26
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 83
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_27
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 50
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_28
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 45
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedDenialWhiteWorldAssets_29
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 45
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

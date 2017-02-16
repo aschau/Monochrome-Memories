@@ -49,6 +49,20 @@ public class Transport : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.GetComponent<activateObject>())
+        {
+            if (other.GetComponent<activateObject>().dualActivation){
+                if (other.GetComponent<activateObject>().activated1)
+                {
+                    other.GetComponent<activateObject>().activated1 = false;
+                }
+                else if (other.GetComponent<activateObject>().activated2)
+                {
+                    other.GetComponent<activateObject>().activated2 = false;
+                }
+            }
+            
+        }
         transportObject(other.gameObject);
     }
 
@@ -70,14 +84,22 @@ public class Transport : MonoBehaviour
 
             if (other.transform.GetComponent<pullObject>())
             {
-                other.transform.GetComponent<pullObject>().originalPosition = newPlace.position;
-                //other.transform.GetComponent<pullObject>().originalPlace = newPlace.position.x;
+                if (other.transform.GetComponent<pullObject>().activated)
+                {
+                    other.transform.GetComponent<pullObject>().originalPosition = newPlace.position;
+                    other.transform.GetComponent<pullObject>().activated = false;
+                    //other.transform.GetComponent<pullObject>().originalPlace = newPlace.position.x;
+                }
             }
 
             if (other.transform.GetComponent<pushObject>())
             {
-                other.transform.GetComponent<pushObject>().originalPosition = newPlace.position;
-                //other.transform.GetComponent<pushObject>().originalPlace = newPlace.position.x;
+                if (other.transform.GetComponent<pushObject>().activated)
+                {
+                    other.transform.GetComponent<pushObject>().originalPosition = newPlace.position;
+                    other.transform.GetComponent<pushObject>().activated = false;
+                    //other.transform.GetComponent<pushObject>().originalPlace = newPlace.position.x;
+                }
             }
             other.transform.position = newPlace.position;
             panCamera();
