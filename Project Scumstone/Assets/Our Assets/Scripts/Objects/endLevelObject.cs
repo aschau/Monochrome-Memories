@@ -4,13 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class endLevelObject : MonoBehaviour {
     public bool activated = false;
-    private GameObject clickShift, player, playerController, touchShift;
+    private GameObject clickShift, player, playerController, touchShift, sceneControl;
 
     void Awake()
     {
         this.clickShift = GameObject.Find("clickShift");
         this.playerController = GameObject.Find("playerControl");
         this.touchShift = GameObject.Find("ShiftButton");
+        this.sceneControl = GameObject.Find("Scene Control");
     }
 
 	// Use this for initialization
@@ -68,40 +69,43 @@ public class endLevelObject : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (this.sceneControl.GetComponent<sceneControl>().levelComplete)
         {
-            other.GetComponent<playerMovement>().stopMoving();
-            if (SceneManager.GetActiveScene().name == "Level 1")
+            if (other.CompareTag("Player"))
             {
-                if (this.name == "endLevel2")
+                other.GetComponent<playerMovement>().stopMoving();
+                if (SceneManager.GetActiveScene().name == "Level 1")
+                {
+                    if (this.name == "endLevel2")
+                    {
+                        other.gameObject.SetActive(false);
+                    }
+
+                    else if (this.name == "endLevel1")
+                    {
+                        other.GetComponent<SpriteRenderer>().enabled = false;
+                        other.GetComponent<Collider2D>().enabled = false;
+                        if (playerMovement.isMobile)
+                        {
+                            this.touchShift.SetActive(true);
+                        }
+
+                        if (this.clickShift && !this.touchShift.activeSelf)
+                        {
+                            this.clickShift.SetActive(true);
+                        }
+
+
+                        this.player = other.gameObject;
+                    }
+                }
+                else
                 {
                     other.gameObject.SetActive(false);
                 }
-
-                else if (this.name == "endLevel1")
-                {
-                    other.GetComponent<SpriteRenderer>().enabled = false;
-                    other.GetComponent<Collider2D>().enabled = false;
-                    if (playerMovement.isMobile)
-                    {
-                        this.touchShift.SetActive(true);
-                    }
-
-                    if (this.clickShift && !this.touchShift.activeSelf)
-                    {
-                        this.clickShift.SetActive(true);
-                    }
-
-
-                    this.player = other.gameObject;
-                }
+                this.GetComponentInChildren<AudioSource>().Play();
+                this.activated = true;
             }
-            else
-            {
-                other.gameObject.SetActive(false);
-            }
-            this.GetComponentInChildren<AudioSource>().Play(); 
-            this.activated = true;
         }
     }
 
