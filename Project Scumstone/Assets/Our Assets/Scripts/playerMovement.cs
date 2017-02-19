@@ -15,7 +15,7 @@ public class playerMovement : MonoBehaviour {
     public bool objectAvailable, held; //checks whether an object is in the vicinty to pick up
     public GameObject interactiveObject;
     public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed, previousYVelocity;
-    private bool walkingLeft, walkingRight, idle, idleReady = false, onGround = true, jumpPressed;
+    public bool walkingLeft, walkingRight, idle, idleReady = false, onGround = true, jumpPressed;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
     //private DragonBones.Animation anim;
     [HideInInspector]
@@ -147,6 +147,10 @@ public class playerMovement : MonoBehaviour {
                             this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
                             this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                             this.interactiveObject.transform.parent = this.transform;
+                            if (this.interactiveObject.GetComponent<baseObject>())
+                            {
+                                this.interactiveObject.GetComponent<baseObject>().isMoving = false;
+                            }
                             this.held = true;
                             this.interactiveObject.GetComponent<boxTriggers>().touched = true;
                         }
@@ -168,6 +172,11 @@ public class playerMovement : MonoBehaviour {
                                 {
                                     this.interactiveObject.transform.position = new Vector3(this.transform.position.x + 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
                                 }
+                                if (this.interactiveObject.GetComponent<baseObject>())
+                                {
+                                    this.interactiveObject.GetComponent<baseObject>().originalPosition = this.interactiveObject.transform.position;
+                                    this.interactiveObject.GetComponent<baseObject>().activated = false;
+                                }
                                 this.held = false;
                                 this.interactiveObject.GetComponent<boxTriggers>().touched = false;
                                 this.interactiveObject = null;
@@ -187,7 +196,7 @@ public class playerMovement : MonoBehaviour {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .11f, this.layer);
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i].gameObject != gameObject)
+                if (colliders[i].gameObject != gameObject && this.GetComponent<Rigidbody2D>().velocity.y == 0)
                 {
                     this.onGround = true;
                 }

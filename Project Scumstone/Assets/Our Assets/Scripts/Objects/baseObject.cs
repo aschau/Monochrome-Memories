@@ -2,8 +2,9 @@
 using System.Collections;
 
 public abstract class baseObject : MonoBehaviour {
-    public bool activated = false;
+    public bool activated = false, isMoving = false;
     public Color32 particleColor;
+    public Vector3 originalPosition;
 
     [HideInInspector]
     public activateObject activation;
@@ -16,11 +17,26 @@ public abstract class baseObject : MonoBehaviour {
 
 	// Use this for initialization
 	public virtual void Start () {
+        this.originalPosition = this.transform.position;
 	}
 
     public virtual void FixedUpdate()
     {
-        this.checkActivated();
+        if (this.GetComponentInChildren<boxTriggers>())
+        {
+            if (this.isMoving && !this.GetComponentInChildren<boxTriggers>().touched)
+            {
+                this.checkActivated();
+            }
+        }
+
+        else
+        {
+            if (this.isMoving)
+            {
+                this.checkActivated();
+            }
+        }
     }
 
     public virtual void checkActivated()
@@ -62,7 +78,5 @@ public abstract class baseObject : MonoBehaviour {
         {
             this.activation.activated2 = false;
         }
-
-
     }
 }

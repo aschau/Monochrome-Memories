@@ -7,6 +7,7 @@ public class sceneControl : MonoBehaviour {
     public float speed = .5f;
     public float resetTime;
     public string nextLevel;
+    public bool levelComplete = false;
     [HideInInspector]
     public AudioSource backgroundMusic, resetSound;
 
@@ -22,6 +23,7 @@ public class sceneControl : MonoBehaviour {
     {
         this.backgroundMusic = GameObject.Find("Black World Music").GetComponent<AudioSource>();
         this.resetSound = GameObject.Find("resetSound").GetComponent<AudioSource>();
+        
         this.playerControl = GameObject.FindObjectOfType<playerController>();
         this.topCover = GameObject.Find("topImage");
         this.bottomCover = GameObject.Find("bottomImage");

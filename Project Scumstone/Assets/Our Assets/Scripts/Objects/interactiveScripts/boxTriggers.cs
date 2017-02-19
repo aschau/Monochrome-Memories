@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class boxTriggers : MonoBehaviour {
-    public bool stacked;
-    public bool touched;
+    public bool stacked, touched;
     public Vector3 currentPosition;
 	// Use this for initialization
 	void Start () {
@@ -21,6 +20,11 @@ public class boxTriggers : MonoBehaviour {
         if (hit.transform.tag != "Player")
         {
             this.currentPosition = this.transform.position;
+            if (this.GetComponent<baseObject>())
+            {
+                this.GetComponent<baseObject>().originalPosition = this.transform.position;
+                this.GetComponent<baseObject>().activated = false;
+            }
         }
     }
 }

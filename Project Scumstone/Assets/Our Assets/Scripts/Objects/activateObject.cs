@@ -28,7 +28,15 @@ public class activateObject : MonoBehaviour {
 
         else
         {
-            this.spriteRend.color = new Color(255, 255, 255);
+            if (this.GetComponent<baseObject>().activated)
+            {
+                this.spriteRend.color = new Color((255-217)/255f, 1f, 1f);
+            }
+
+            else
+            {
+                this.spriteRend.color = new Color(255f, 255f, 255f);
+            }
         }
 	}
 
