@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 public class cardCollection : MonoBehaviour {
     public GameObject cardToBe;
     public AudioClip cardCollected;
@@ -29,8 +29,16 @@ public class cardCollection : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void LateUpdate () {
+        if (this.cardToBe.GetComponent<Animator>().isInitialized)
+        {
+            if (this.cardToBe.GetComponent<Animator>().GetBool("isCollected") && !cardToBe.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("burgerCollect"))
+            {
+                this.cardToBe.GetComponent<Animator>().SetBool("isCollected", false);
+                this.cardToBe.GetComponent<EventTrigger>().enabled = true;
+            }
+        }
+
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -39,8 +47,11 @@ public class cardCollection : MonoBehaviour {
             if (cardCollection.half)
             {
                 this.cardToBe.GetComponent<newCard>().isCollected = true;
+                this.cardToBe.SetActive(true);
                 this.deckBox.GetComponent<CardMenu>().onClick();
-
+                this.cardToBe.GetComponent<EventTrigger>().enabled = false;
+                this.cardToBe.GetComponent<Animator>().SetBool("isCollected", true);
+                this.cardToBe.GetComponent<Animator>().Play("burgerCollect");
             }
             else
             {
@@ -49,11 +60,7 @@ public class cardCollection : MonoBehaviour {
             this.GetComponent<ParticleSystem>().Stop();
             this.GetComponent<SpriteRenderer>().enabled = false;
             this.GetComponent<BoxCollider2D>().enabled = false;
-            source.PlayOneShot(cardCollected, volume);
-            
-            
-
-            
+            source.PlayOneShot(cardCollected, volume);       
         }
         
     }
