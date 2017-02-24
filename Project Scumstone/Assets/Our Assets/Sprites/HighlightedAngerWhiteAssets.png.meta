@@ -1,9 +1,29 @@
 fileFormatVersion: 2
 guid: 9385aaab9a0399f49b2e7c2258487056
-timeCreated: 1486280659
+timeCreated: 1487456079
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: HighlightedAngerWhiteAssets_0
+    21300002: HighlightedAngerWhiteAssets_1
+    21300004: HighlightedAngerWhiteAssets_2
+    21300006: HighlightedAngerWhiteAssets_3
+    21300008: HighlightedAngerWhiteAssets_4
+    21300010: HighlightedAngerWhiteAssets_5
+    21300012: HighlightedAngerWhiteAssets_6
+    21300014: HighlightedAngerWhiteAssets_7
+    21300016: HighlightedAngerWhiteAssets_8
+    21300018: HighlightedAngerWhiteAssets_9
+    21300020: HighlightedAngerWhiteAssets_10
+    21300022: HighlightedAngerWhiteAssets_11
+    21300024: HighlightedAngerWhiteAssets_12
+    21300026: HighlightedAngerWhiteAssets_13
+    21300028: HighlightedAngerWhiteAssets_14
+    21300030: HighlightedAngerWhiteAssets_15
+    21300032: HighlightedAngerWhiteAssets_16
+    21300034: HighlightedAngerWhiteAssets_17
+    21300036: HighlightedAngerWhiteAssets_18
+    21300038: HighlightedAngerWhiteAssets_19
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -51,9 +71,9 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -83,9 +103,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +144,267 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 1990
+        width: 245
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_1
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 1981
+        width: 297
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_2
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 2147
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_3
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 2015
+        width: 461
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_4
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 2053
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_5
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 2006
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_6
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1827
+        width: 200
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_7
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1848
+        width: 58
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_8
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 1391
+        width: 847
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_9
+      rect:
+        serializedVersion: 2
+        x: 2233
+        y: 1587
+        width: 675
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_10
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1263
+        width: 631
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_11
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 1375
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_12
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 0
+        width: 1124
+        height: 1241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_13
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 1213
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_14
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 7
+        width: 909
+        height: 1051
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_15
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 858
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_16
+      rect:
+        serializedVersion: 2
+        x: 2468
+        y: 10
+        width: 528
+        height: 890
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_17
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 0
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_18
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 3
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerWhiteAssets_19
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 0
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

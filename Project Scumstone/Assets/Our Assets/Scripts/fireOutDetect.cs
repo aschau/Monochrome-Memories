@@ -16,7 +16,7 @@ public class fireOutDetect : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("fallBlock") || other.CompareTag("pushBlock"))
+        if (other.CompareTag("interactive"))
         {
             this.transform.FindChild("playerHitBox").gameObject.SetActive(false);
             this.GetComponent<ParticleSystem>().Stop();
