@@ -94,7 +94,7 @@ public class playerMovement : MonoBehaviour {
         {
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                this.moveSpeed = Mathf.Clamp(this.moveSpeed+.1f, 0f, this.maxMoveSpeed);
+                this.moveSpeed = Mathf.Clamp(this.moveSpeed +.2f, 0f, this.maxMoveSpeed);
                 this.GetComponent<SpriteRenderer>().flipX = false;
                 this.walkingRight = true;
                 this.currentDirection = Direction.Right;
@@ -113,7 +113,7 @@ public class playerMovement : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                this.moveSpeed = Mathf.Clamp(this.moveSpeed - .1f, -this.maxMoveSpeed, 0);
+                this.moveSpeed = Mathf.Clamp(this.moveSpeed - .2f, -this.maxMoveSpeed, 0);
                 this.GetComponent<SpriteRenderer>().flipX = true;
                 this.walkingLeft = true;
                 this.currentDirection = Direction.Left;
@@ -131,15 +131,24 @@ public class playerMovement : MonoBehaviour {
 
             if (!this.walkingLeft && !this.walkingRight)
             {
-                if (this.moveSpeed < 0)
+                if (!this.onGround)
                 {
-                    this.moveSpeed = Mathf.Clamp(this.moveSpeed + .1f, -this.maxMoveSpeed, 0f);
+                    if (this.moveSpeed < 0)
+                    {
+                        this.moveSpeed = Mathf.Clamp(this.moveSpeed + .075f, -this.maxMoveSpeed, 0f);
+                    }
+
+                    else if (this.moveSpeed > 0)
+                    {
+                        this.moveSpeed = Mathf.Clamp(this.moveSpeed - .075f, 0f, this.maxMoveSpeed);
+                    }
                 }
 
-                else if (this.moveSpeed > 0)
+                else
                 {
-                    this.moveSpeed = Mathf.Clamp(this.moveSpeed - .1f, 0f, this.maxMoveSpeed);
+                    this.moveSpeed = 0;
                 }
+
             }
 
             if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl))
