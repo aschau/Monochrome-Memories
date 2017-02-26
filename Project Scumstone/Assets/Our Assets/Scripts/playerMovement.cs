@@ -145,6 +145,7 @@ public class playerMovement : MonoBehaviour {
                         if (this.objectAvailable) //the objects turn this boolean on if there is an object available to be picked up 
                         {
                             this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                            this.interactiveObject.GetComponent<Rigidbody2D>().velocity = new Vector2(this.interactiveObject.GetComponent<Rigidbody2D>().velocity.x, 0);
                             this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                             this.interactiveObject.transform.parent = this.transform;
                             if (this.interactiveObject.GetComponent<baseObject>())
