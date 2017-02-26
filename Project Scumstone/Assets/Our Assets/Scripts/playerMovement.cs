@@ -191,12 +191,11 @@ public class playerMovement : MonoBehaviour {
             {
                 this.jumpPressed = true;
             }
-            this.onGround = false;
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .11f, this.layer);
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i].gameObject != gameObject && this.GetComponent<Rigidbody2D>().velocity.y == 0)
+                if (colliders[i].gameObject != gameObject)// && this.GetComponent<Rigidbody2D>().velocity.y == 0)
                 {
                     this.onGround = true;
                 }
@@ -255,17 +254,11 @@ public class playerMovement : MonoBehaviour {
             {
                 if (this.onGround)
                 {
+                    this.body.velocity = new Vector2(this.body.velocity.x, 0);
                     this.onGround = false;
                     jumpButton.GetComponent<touchScript>().jump = false;
                     this.body.AddForce(new Vector2(0f, this.jumpSpeed));
                 }
-
-                //if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && player == this.name)
-                //{
-                //    this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
-                //    this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
-                //}
-
             }
         }
         else
@@ -274,31 +267,13 @@ public class playerMovement : MonoBehaviour {
             {
                 if (this.onGround && this.name == player)
                 {
+                    this.body.velocity = new Vector2(this.body.velocity.x, 0);
                     this.onGround = false;
                     this.jumpPressed = false;
                     this.body.AddForce(new Vector2(0f, this.jumpSpeed));
                 }
-                //if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && player == this.name)
-                //{
-                //    this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
-                //    this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
-                //}
-
             }
         }
-        //if (!Input.anyKey)
-        //{
-        //    if (this.moveSpeed > 0)
-        //    {
-        //        this.moveSpeed--;
-        //    }
-
-        //    if (this.moveSpeed == 0)
-        //    {
-        //        this.walkingLeft = false;
-        //        this.walkingRight = false;
-        //    }
-        //}
     }
 
     public void stopMoving()
@@ -307,7 +282,6 @@ public class playerMovement : MonoBehaviour {
         this.walkingRight = false;
         this.idle = true;
         this.anim.SetBool("isWalking", false);
-        //this.anim.FadeIn("Idle", 0.5f);
     }
 
 

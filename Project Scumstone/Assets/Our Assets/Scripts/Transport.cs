@@ -78,13 +78,13 @@ public class Transport : MonoBehaviour
             this.activated = true;
             if (other.transform.GetComponent<floatObject>())
             {
-                other.transform.GetComponent<floatObject>().originalY = newPlace.position.y;
+                other.transform.GetComponent<floatObject>().originalPosition = newPlace.position;
                 other.transform.GetComponent<floatObject>().activated = false;
 
             }
             if (other.transform.GetComponent<fallObject>())
             {
-                other.transform.GetComponent<fallObject>().originalPlace = newPlace.position.y;
+                other.transform.GetComponent<fallObject>().originalPosition = newPlace.position;
                 other.transform.GetComponent<fallObject>().activated = false;
             }
 

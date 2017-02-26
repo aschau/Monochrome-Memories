@@ -1,20 +1,14 @@
 fileFormatVersion: 2
-guid: 1923fde0952780044bad7e799a85d767
-timeCreated: 1487482691
+guid: 3b9799a9943a02c4f9af43f3e445000d
+timeCreated: 1487485688
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: MoreTutorialInverted_0
-    21300002: MoreTutorialInverted_1
-    21300004: MoreTutorialInverted_2
-    21300006: MoreTutorialInverted_3
-    21300008: MoreTutorialInverted_4
-    21300010: MoreTutorialInverted_5
-    21300012: MoreTutorialInverted_6
+    21300000: BrownCardBoxClosed_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,8 +28,8 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
-    aniso: 16
+    filterMode: -1
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -133,91 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MoreTutorialInverted_0
+      name: BrownCardBoxClosed_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 2763
-        width: 1218
-        height: 722
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MoreTutorialInverted_1
-      rect:
-        serializedVersion: 2
-        x: 1403
-        y: 2122
-        width: 1495
-        height: 1326
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MoreTutorialInverted_2
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 1578
-        width: 1294
-        height: 1121
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MoreTutorialInverted_3
-      rect:
-        serializedVersion: 2
-        x: 1406
-        y: 724
-        width: 1496
-        height: 1326
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MoreTutorialInverted_4
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 401
-        width: 1293
-        height: 1121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MoreTutorialInverted_5
-      rect:
-        serializedVersion: 2
-        x: 1423
-        y: 300
-        width: 301
-        height: 297
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MoreTutorialInverted_6
-      rect:
-        serializedVersion: 2
-        x: 1785
-        y: 298
-        width: 300
-        height: 298
+        x: 509
+        y: 1250
+        width: 1005
+        height: 750
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
