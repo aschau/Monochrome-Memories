@@ -57,7 +57,7 @@ public class groundCheck: MonoBehaviour {
     {
         if (other.GetComponent<pushObject>() || other.gameObject.GetComponent<pullObject>())
         {
-            this.transform.parent.transform.parent = other.transform;
+            this.transform.parent.transform.parent = null;
         }
         //onGround = false;
 
