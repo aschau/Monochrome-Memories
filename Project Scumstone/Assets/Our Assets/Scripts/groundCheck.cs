@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class groundCheck: MonoBehaviour {
-    public bool onGround = true;
+    //public bool onGround = true;
 
     void Awake ()
     {
@@ -35,6 +35,10 @@ public class groundCheck: MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
+        if (other.GetComponent<pushObject>() || other.gameObject.GetComponent<pullObject>())
+        {
+            this.transform.parent.transform.parent = other.transform;
+        }
         //onGround = true;
         //if (this.GetComponentInParent<Rigidbody2D>())
         //{
@@ -51,15 +55,19 @@ public class groundCheck: MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        onGround = false;
-
-        if (other.CompareTag("jumpArea"))
+        if (other.GetComponent<pushObject>() || other.gameObject.GetComponent<pullObject>())
         {
-            if (other.GetComponentInParent<jumpObject>().activated)
-            {
-                Debug.Log("JUMP");
-                this.GetComponentInParent<playerMovement>().jumpSpeed = this.GetComponentInParent<playerMovement>().originalJumpSpeed;
-            }
+            this.transform.parent.transform.parent = other.transform;
         }
+        //onGround = false;
+
+        //if (other.CompareTag("jumpArea"))
+        //{
+        //    if (other.GetComponentInParent<jumpObject>().activated)
+        //    {
+        //        Debug.Log("JUMP");
+        //        this.GetComponentInParent<playerMovement>().jumpSpeed = this.GetComponentInParent<playerMovement>().originalJumpSpeed;
+        //    }
+        //}
     }
 }

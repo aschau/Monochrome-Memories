@@ -121,11 +121,11 @@ public class playerTouchControls : MonoBehaviour {
         if (this.jumpButton.GetComponent<touchScript>().held == true)
         {
 
-            if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && player == this.name)
-            {
-                this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
-                this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
-            }
+            //if (this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround && player == this.name)
+            //{
+            //    this.transform.Find("groundDetect").GetComponent<groundCheck>().onGround = false;
+            //    this.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpSpeed);
+            //}
 
         }
     }
