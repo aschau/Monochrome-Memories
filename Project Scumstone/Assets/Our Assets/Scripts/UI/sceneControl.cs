@@ -10,6 +10,7 @@ public class sceneControl : MonoBehaviour {
     public bool levelComplete = false;
     [HideInInspector]
     public AudioSource backgroundMusic, resetSound;
+    public static bool paused;
 
     private bool resetting = false;
     private Color color;
@@ -40,6 +41,7 @@ public class sceneControl : MonoBehaviour {
         this.GetComponent<Image>().enabled = true;
         this.topCover.SetActive(false);
         this.resetTime = 2f;
+        paused = false;
     }
 	
 	// Update is called once per frame
@@ -98,18 +100,37 @@ public class sceneControl : MonoBehaviour {
     public void reset()
     {
         this.resetting = true;
-        this.pause.SetActive(false);
-        this.topCover.SetActive(false);
-        if (!this.clickShift)
-        {
-            this.bottomCover.SetActive(false);
-        }
+        this.togglePause();
         Invoke("resetScene", this.resetTime);
-        this.playerControl.enabled = false;
-        this.player1.enabled = false;
-        this.player2.enabled = false;
+ 
         this.backgroundMusic.Stop();
         this.resetSound.Play();
+    }
+
+    public void togglePause()
+    {
+        paused = !paused;
+        this.playerControl.enabled = !this.playerControl.enabled;
+        this.player1.enabled = !this.player1.enabled;
+        this.player2.enabled = !this.player2.enabled;
+        if (paused)
+        {
+            this.topCover.SetActive(true);
+            this.bottomCover.SetActive(true);
+        }
+
+        else
+        {
+            if (playerMovement.player == "Player")
+            {
+                this.topCover.SetActive(false);
+            }
+
+            else if (playerMovement.player == "Player 2")
+            {
+                this.bottomCover.SetActive(false);
+            }
+        }
     }
 
     void resetScene()

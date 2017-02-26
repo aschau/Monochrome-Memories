@@ -194,6 +194,7 @@ public class playerMovement : MonoBehaviour {
             }
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .11f, this.layer);
+            this.onGround = false;
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject != gameObject)// && this.GetComponent<Rigidbody2D>().velocity.y == 0)
