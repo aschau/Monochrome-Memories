@@ -96,7 +96,10 @@ public class sceneControl : MonoBehaviour {
     public void reset()
     {
         this.resetting = true;
-        this.togglePause();
+        if (!paused)
+        {
+            this.togglePause();
+        }
         Invoke("resetScene", this.resetTime);
  
         this.backgroundMusic.Stop();
