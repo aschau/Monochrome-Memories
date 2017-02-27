@@ -19,12 +19,12 @@ public class boxTriggers : MonoBehaviour {
     {
         if (hit.transform.tag != "Player")
         {
-            this.currentPosition = this.transform.position;
-            if (this.GetComponent<baseObject>())
-            {
-                this.GetComponent<baseObject>().originalPosition = this.transform.position;
-                this.GetComponent<baseObject>().activated = false;
-            }
+            this.GetComponent<boxTriggers>().currentPosition = this.transform.position;
+            //if (this.GetComponent<baseObject>())
+            //{
+            //    this.GetComponent<baseObject>().originalPosition = this.transform.position;
+            //    this.GetComponent<baseObject>().activated = false;
+            //}
         }
     }
 }
