@@ -50,17 +50,84 @@ public class interactiveBox : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hit)
     {
-        if (hit.tag == "Player") //when player enters the trigger
+        if (this.transform.parent.GetComponent<baseObject>())
         {
-            if (this.transform.parent.GetComponent<boxTriggers>().stacked == false) //if the child of this object is not activated, it means there is no stacked boxes on top 
+            if (!this.transform.parent.GetComponent<baseObject>().isMoving)
             {
-                hit.GetComponent<playerMovement>().objectAvailable = true; //player knows that there is an object available
-                if (hit.GetComponent<playerMovement>().held == false) //if the player is not already holding an object
+                if (hit.tag == "Player") //when player enters the trigger
                 {
-                    hit.GetComponent<playerMovement>().interactiveObject = this.transform.parent.gameObject; //pick up the object as a child
+                    if (this.transform.parent.GetComponent<boxTriggers>().stacked == false) //if the child of this object is not activated, it means there is no stacked boxes on top 
+                    {
+                        hit.GetComponent<playerMovement>().objectAvailable = true; //player knows that there is an object available
+                        if (hit.GetComponent<playerMovement>().held == false) //if the player is not already holding an object
+                        {
+                            hit.GetComponent<playerMovement>().interactiveObject = this.transform.parent.gameObject; //pick up the object as a child
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("CAN'T PICKUP");
+            }
+        }
+
+        else
+        {
+            if (hit.tag == "Player") //when player enters the trigger
+            {
+                if (this.transform.parent.GetComponent<boxTriggers>().stacked == false) //if the child of this object is not activated, it means there is no stacked boxes on top 
+                {
+                    hit.GetComponent<playerMovement>().objectAvailable = true; //player knows that there is an object available
+                    if (hit.GetComponent<playerMovement>().held == false) //if the player is not already holding an object
+                    {
+                        hit.GetComponent<playerMovement>().interactiveObject = this.transform.parent.gameObject; //pick up the object as a child
+                    }
                 }
             }
         }
+
+    }
+
+    void OnTriggerStay2D(Collider2D hit)
+    {
+        if (this.transform.parent.GetComponent<baseObject>())
+        {
+            if (!this.transform.parent.GetComponent<baseObject>().isMoving)
+            {
+                if (hit.tag == "Player") //when player enters the trigger
+                {
+                    if (this.transform.parent.GetComponent<boxTriggers>().stacked == false) //if the child of this object is not activated, it means there is no stacked boxes on top 
+                    {
+                        hit.GetComponent<playerMovement>().objectAvailable = true; //player knows that there is an object available
+                        if (hit.GetComponent<playerMovement>().held == false) //if the player is not already holding an object
+                        {
+                            hit.GetComponent<playerMovement>().interactiveObject = this.transform.parent.gameObject; //pick up the object as a child
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("CAN'T PICKUP");
+            }
+        }
+
+        else
+        {
+            if (hit.tag == "Player") //when player enters the trigger
+            {
+                if (this.transform.parent.GetComponent<boxTriggers>().stacked == false) //if the child of this object is not activated, it means there is no stacked boxes on top 
+                {
+                    hit.GetComponent<playerMovement>().objectAvailable = true; //player knows that there is an object available
+                    if (hit.GetComponent<playerMovement>().held == false) //if the player is not already holding an object
+                    {
+                        hit.GetComponent<playerMovement>().interactiveObject = this.transform.parent.gameObject; //pick up the object as a child
+                    }
+                }
+            }
+        }
+
     }
 
 
