@@ -13,7 +13,7 @@ public class Transport : MonoBehaviour
         this.camera1 = GameObject.Find("Black Camera").GetComponent<Camera>();
         this.camera2 = GameObject.Find("White Camera").GetComponent<Camera>();
         this.newPlace = this.transform.Find("newPlace");
-        this.delay = 1.2f;
+        this.delay = 3f;
     }
 
     // Update is called once per frame

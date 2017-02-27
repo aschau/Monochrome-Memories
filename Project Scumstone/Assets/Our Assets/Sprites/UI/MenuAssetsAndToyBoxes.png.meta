@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7ac3edcb20705dd459eb1b746e65b041
-timeCreated: 1488153987
+timeCreated: 1488186267
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -241,8 +241,8 @@ TextureImporter:
         y: 326
         width: 230
         height: 266
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3263143, y: 0.25387263}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -263,12 +263,12 @@ TextureImporter:
       name: MenuAssetsAndToyBoxes_19
       rect:
         serializedVersion: 2
-        x: 28
+        x: 27
         y: 27
         width: 229
         height: 265
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3110188, y: 0.24875641}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
