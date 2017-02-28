@@ -24,6 +24,7 @@ public class floatObject : baseObject {
 
     public override void activate()
     {
+        this.GetComponent<Rigidbody2D>().isKinematic = true;
         if (this.transform.position.y < (this.originalPosition.y + this.variance))
         {
             this.transform.Translate(new Vector2(0, this.speed * Time.deltaTime));
@@ -39,6 +40,11 @@ public class floatObject : baseObject {
     public override void deactivate()
     {
         base.deactivate();
+        if (this.GetComponent<boxTriggers>() != null)
+        {
+            this.GetComponent<Rigidbody2D>().isKinematic = false;
+        }
+        
         if (this.transform.position.y > this.originalPosition.y)
         {
             this.transform.Translate(new Vector2(0, -this.speed * Time.deltaTime));
@@ -59,7 +65,7 @@ public class floatObject : baseObject {
         }
         else
         {
-            if (this.GetComponent<interactiveBox>() != null)
+            if (this.GetComponent<boxTriggers>() != null)
             {
                 //this.originalPlace = this.GetComponent<boxTriggers>().currentPosition.x;
                 this.originalPosition = this.GetComponent<boxTriggers>().currentPosition;

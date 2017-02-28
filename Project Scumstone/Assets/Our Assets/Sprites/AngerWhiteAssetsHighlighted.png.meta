@@ -1,9 +1,35 @@
 fileFormatVersion: 2
 guid: 71e1f959a8c854945976bdc353011d1b
-timeCreated: 1487474725
+timeCreated: 1488067593
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: AngerWhiteAssetsHighlighted_0
+    21300002: AngerWhiteAssetsHighlighted_1
+    21300004: AngerWhiteAssetsHighlighted_2
+    21300006: AngerWhiteAssetsHighlighted_3
+    21300008: AngerWhiteAssetsHighlighted_4
+    21300010: AngerWhiteAssetsHighlighted_5
+    21300012: AngerWhiteAssetsHighlighted_6
+    21300014: AngerWhiteAssetsHighlighted_7
+    21300016: AngerWhiteAssetsHighlighted_8
+    21300018: AngerWhiteAssetsHighlighted_9
+    21300020: AngerWhiteAssetsHighlighted_10
+    21300022: AngerWhiteAssetsHighlighted_11
+    21300024: AngerWhiteAssetsHighlighted_12
+    21300026: AngerWhiteAssetsHighlighted_13
+    21300028: AngerWhiteAssetsHighlighted_14
+    21300030: AngerWhiteAssetsHighlighted_15
+    21300032: AngerWhiteAssetsHighlighted_16
+    21300034: AngerWhiteAssetsHighlighted_17
+    21300036: AngerWhiteAssetsHighlighted_18
+    21300038: AngerWhiteAssetsHighlighted_19
+    21300040: AngerWhiteAssetsHighlighted_20
+    21300042: AngerWhiteAssetsHighlighted_21
+    21300044: AngerWhiteAssetsHighlighted_22
+    21300046: AngerWhiteAssetsHighlighted_23
+    21300048: AngerWhiteAssetsHighlighted_24
+    21300050: AngerWhiteAssetsHighlighted_25
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +60,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +84,363 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_0
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 2149
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_1
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 2019
+        width: 457
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_2
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 1897
+        width: 666
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_3
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1986
+        width: 240
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_4
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 2073
+        width: 52
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_5
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 2056
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_6
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 2002
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_7
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1829
+        width: 190
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_8
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1828
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_9
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 1671
+        width: 293
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_10
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 626
+        width: 1118
+        height: 1248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_11
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1823
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_12
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1232
+        width: 627
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_13
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 1495
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 899
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_15
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 9
+        width: 900
+        height: 1047
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_16
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 175
+        width: 521
+        height: 884
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 828
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_18
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 754
+        width: 7
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_19
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 624
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_20
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 610
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_21
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 33
+        width: 839
+        height: 508
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_22
+      rect:
+        serializedVersion: 2
+        x: 1737
+        y: 123
+        width: 40
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_23
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 5
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_24
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 0
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AngerWhiteAssetsHighlighted_25
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 0
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
