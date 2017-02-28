@@ -155,6 +155,7 @@ public class playerMovement : MonoBehaviour {
 
                     if (this.objectAvailable) //the objects turn this boolean on if there is an object available to be picked up 
                     {
+                        Debug.Log("Picked up");
                         this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
                         this.interactiveObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
                         this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
@@ -174,12 +175,12 @@ public class playerMovement : MonoBehaviour {
                     {
                         if (this.GetComponent<SpriteRenderer>().flipX)
                         {
-                            cameraRay = this.camera1.GetComponent<Camera>().ScreenPointToRay(this.camera1.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x - 1.1f, this.transform.position.y + 0.3f, this.transform.position.z)));
+                            cameraRay = this.camera1.GetComponent<Camera>().ScreenPointToRay(this.camera1.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x - 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
                         }
 
                         else
                         {
-                            cameraRay = this.camera1.GetComponent<Camera>().ScreenPointToRay(this.camera1.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x + 1.1f, this.transform.position.y + 0.3f, this.transform.position.z)));
+                            cameraRay = this.camera1.GetComponent<Camera>().ScreenPointToRay(this.camera1.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x + 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
                         }
                     }
 
@@ -187,12 +188,12 @@ public class playerMovement : MonoBehaviour {
                     {
                         if (this.GetComponent<SpriteRenderer>().flipX)
                         {
-                            cameraRay = this.camera2.GetComponent<Camera>().ScreenPointToRay(this.camera2.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x - 1.1f, this.transform.position.y + 0.3f, this.transform.position.z)));
+                            cameraRay = this.camera2.GetComponent<Camera>().ScreenPointToRay(this.camera2.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x - 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
                         }
 
                         else
                         {
-                            cameraRay = this.camera2.GetComponent<Camera>().ScreenPointToRay(this.camera2.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x + 1.1f, this.transform.position.y + 0.3f, this.transform.position.z)));
+                            cameraRay = this.camera2.GetComponent<Camera>().ScreenPointToRay(this.camera2.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x + 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
                         }
                     }
                     if (this.objectAvailable && !Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y)))
