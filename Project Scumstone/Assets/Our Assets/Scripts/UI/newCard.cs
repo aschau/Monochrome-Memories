@@ -13,6 +13,7 @@ public abstract class newCard : MonoBehaviour {
     public AudioSource source;
     public bool isCollected = true;
     public static bool isTop = true;
+    public AudioSource SoundEffect;
 
     [HideInInspector]
     public string blackEffect, whiteEffect;
@@ -88,6 +89,7 @@ public abstract class newCard : MonoBehaviour {
                         baseObject currentObj = (this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect) as baseObject);
                         currentObj.activated = !currentObj.activated;
                         currentObj.isMoving = true;
+                        SoundEffect.Play(); //aqui
                         this.checkActivatedType(this.blackEffect, this.visibleObjects[this.selectedIndex].transform);
                         //Debug.Log("Activated: " + this.visibleObjects[this.selectedIndex].GetComponent(this.blackEffect).gameObject.name);
                     }
@@ -97,9 +99,11 @@ public abstract class newCard : MonoBehaviour {
                 {
                     if (this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect))
                     {
+                       
                         baseObject currentObj = (this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect) as baseObject);
                         currentObj.activated = !currentObj.activated;
                         currentObj.isMoving = true;
+                        SoundEffect.Play(); //aqui
                         this.checkActivatedType(this.whiteEffect, this.visibleObjects[this.selectedIndex].transform);
                         //Debug.Log("Activated: " + this.visibleObjects[this.selectedIndex].GetComponent(this.whiteEffect).gameObject.name);
                     }
