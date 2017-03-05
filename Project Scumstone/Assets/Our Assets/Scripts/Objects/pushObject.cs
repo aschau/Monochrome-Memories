@@ -10,7 +10,7 @@ public class pushObject : baseObject {
     {
         base.Awake();
     }
-
+    public AudioSource SoundEffect;
     // Use this for initialization
     public override void Start()
     {
@@ -23,11 +23,17 @@ public class pushObject : baseObject {
 
     public override void activate()
     {
+        Debug.Log("activated");
+
+
+
         if (this.activation.activated1)
         {
             if (this.transform.position.x < (this.originalPosition.x + this.variance))
             {
                 this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                
+                
             }
             if (this.transform.position.x == (this.originalPosition.x + this.variance))
             {
@@ -53,6 +59,7 @@ public class pushObject : baseObject {
     // Update is called once per frame
     public override void deactivate()
     {
+        Debug.Log("deactivated");
         base.deactivate();
         if (this.transform.position.x > this.originalPosition.x)
         {
