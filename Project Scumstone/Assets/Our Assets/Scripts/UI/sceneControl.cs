@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class sceneControl : MonoBehaviour {
     public float speed = .5f;
@@ -86,11 +87,6 @@ public class sceneControl : MonoBehaviour {
             this.resetSound.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            this.pause.GetComponent<pauseMenuControl>().toggleMenu();
-        }
-
 	}
 
     void fadeTransition(float speed)
@@ -101,7 +97,10 @@ public class sceneControl : MonoBehaviour {
     public void reset()
     {
         this.resetting = true;
-        this.togglePause();
+        if (!paused)
+        {
+            this.togglePause();
+        }
         Invoke("resetScene", this.resetTime);
  
         this.backgroundMusic.Stop();
@@ -114,6 +113,8 @@ public class sceneControl : MonoBehaviour {
         this.playerControl.enabled = !this.playerControl.enabled;
         this.player1.enabled = !this.player1.enabled;
         this.player2.enabled = !this.player2.enabled;
+        this.deck.GetComponent<CardMenu>().toggleTriggers();
+
         if (paused)
         {
             this.topCover.SetActive(true);

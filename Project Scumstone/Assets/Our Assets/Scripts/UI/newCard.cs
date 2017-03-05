@@ -49,7 +49,7 @@ public abstract class newCard : MonoBehaviour {
     // Update is called once per frame
     public virtual void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && !sceneControl.paused)
         {
             if (this.name == "jumpPushCard1")
             {
@@ -80,7 +80,7 @@ public abstract class newCard : MonoBehaviour {
                 this.toggleObject(this.selectedIndex);
             }
 
-            if (Input.GetKeyDown(KeyCode.Return) && this.visibleObjects.Count > 0)
+            if (Input.GetKeyDown(KeyCode.Return) && this.visibleObjects.Count > 0 && !sceneControl.paused)
             {
                 if (isTop)
                 {
@@ -354,6 +354,7 @@ public abstract class newCard : MonoBehaviour {
     public virtual RaycastHit2D checkHit(GameObject camera, Vector2 position)
     {
         Ray cameraRay = camera.GetComponent<Camera>().ScreenPointToRay(position);
+        //Debug.DrawLine(cameraRay.origin, cameraRay.direction, Color.cyan, 10000);
         return Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y));
     }
 

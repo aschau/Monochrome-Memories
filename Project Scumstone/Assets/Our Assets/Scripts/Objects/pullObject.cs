@@ -32,7 +32,7 @@ public class pullObject : baseObject
             {
                 this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
             }
-            if (this.transform.position.x == (this.originalPosition.x + this.variance))
+            if (this.transform.position.x >= (this.originalPosition.x + this.variance))
             {
                 this.isMoving = false;
             }
@@ -45,7 +45,7 @@ public class pullObject : baseObject
             {
                 this.transform.Translate(new Vector2(-this.speed * Time.deltaTime, 0));
             }
-            if (this.transform.position.x == (this.originalPosition.x - this.variance))
+            if (this.transform.position.x >= (this.originalPosition.x - this.variance))
             {
                 this.isMoving = false;
             }

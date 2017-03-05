@@ -1,9 +1,29 @@
 fileFormatVersion: 2
 guid: 33d477bb8c9fa504e955c3abb0bab745
-timeCreated: 1486280597
+timeCreated: 1488188995
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: HighlightedAngerBlackAssets_0
+    21300002: HighlightedAngerBlackAssets_1
+    21300004: HighlightedAngerBlackAssets_2
+    21300006: HighlightedAngerBlackAssets_3
+    21300008: HighlightedAngerBlackAssets_4
+    21300010: HighlightedAngerBlackAssets_5
+    21300012: HighlightedAngerBlackAssets_6
+    21300014: HighlightedAngerBlackAssets_7
+    21300016: HighlightedAngerBlackAssets_8
+    21300018: HighlightedAngerBlackAssets_9
+    21300020: HighlightedAngerBlackAssets_10
+    21300022: HighlightedAngerBlackAssets_11
+    21300024: HighlightedAngerBlackAssets_12
+    21300026: HighlightedAngerBlackAssets_13
+    21300028: HighlightedAngerBlackAssets_14
+    21300030: HighlightedAngerBlackAssets_15
+    21300032: HighlightedAngerBlackAssets_16
+    21300034: HighlightedAngerBlackAssets_17
+    21300036: HighlightedAngerBlackAssets_18
+    21300038: HighlightedAngerBlackAssets_19
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -124,7 +144,267 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_0
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 2081
+        width: 245
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_1
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 2113
+        width: 461
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_2
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 2168
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_3
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 2098
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_4
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 2103
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_5
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1919
+        width: 201
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_6
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 1851
+        width: 297
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_7
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 1672
+        width: 675
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_8
+      rect:
+        serializedVersion: 2
+        x: 2091
+        y: 1512
+        width: 848
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_9
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 1732
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_10
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1727
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1288
+        width: 633
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_12
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 55
+        width: 1123
+        height: 1252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_13
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 86
+        width: 910
+        height: 1052
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_14
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 924
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_15
+      rect:
+        serializedVersion: 2
+        x: 2517
+        y: 55
+        width: 528
+        height: 890
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_16
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 76
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_17
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 83
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_18
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 43
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedAngerBlackAssets_19
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 52
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
