@@ -17,10 +17,10 @@ public class playerMovement : MonoBehaviour {
     public float moveSpeed = 0f, maxMoveSpeed = 3f, jumpSpeed = 220f, originalJumpSpeed, previousYVelocity;
     public bool walkingLeft, walkingRight, idle, idleReady = false, onGround = true, jumpPressed;
     private Direction lastDirection = Direction.None, currentDirection = Direction.None;
-    //private DragonBones.Animation anim;
+
     [HideInInspector]
     public Animator anim;
-    private GameObject leftButton, rightButton, jumpButton;
+    private GameObject leftButton, rightButton, jumpButton, camera1, camera2;
     private Rigidbody2D body;
     private Vector3 previousPos;
     private UnityEngine.Transform bottom;
@@ -35,7 +35,8 @@ public class playerMovement : MonoBehaviour {
             rightButton = GameObject.Find("RightButton");
             jumpButton = GameObject.Find("JumpButton");
         }
-
+        this.camera1 = GameObject.Find("Black Camera");
+        this.camera2 = GameObject.Find("White Camera");
         this.bottom = transform.Find("bottom");
 
     }
@@ -48,7 +49,6 @@ public class playerMovement : MonoBehaviour {
         this.body = this.GetComponent<Rigidbody2D>();
         this.objectAvailable = false;
         this.held = false;
-        //this.anim = this.GetComponent<UnityArmatureComponent>().animation;
 	}
 	
 	// Update is called once per frame
@@ -60,14 +60,12 @@ public class playerMovement : MonoBehaviour {
                 if (this.rightButton.GetComponent<touchScript>().held == true)
 
                 {
-                    //this.GetComponent<UnityArmatureComponent>()._armature._flipX = false;
                     this.moveSpeed = 3f;
                     this.GetComponent<SpriteRenderer>().flipX = false;
                     this.walkingRight = true;
                     this.currentDirection = Direction.Right;
                     if (this.currentDirection != this.lastDirection)
                     {
-                        //this.anim.FadeIn("Walking", 0.3f);
                         this.anim.SetBool("isWalking", true);
                     }
                 }
@@ -76,12 +74,10 @@ public class playerMovement : MonoBehaviour {
                 {
                     this.moveSpeed = 3f;
                     this.GetComponent<SpriteRenderer>().flipX = true;
-                    //this.GetComponent<UnityArmatureComponent>()._armature._flipX = true;
                     this.walkingLeft = true;
                     this.currentDirection = Direction.Left;
                     if (this.currentDirection != this.lastDirection)
                     {
-                        //this.anim.FadeIn("Walking", 0.3f);
                         this.anim.SetBool("isWalking", true);
                     }
                 }
@@ -92,110 +88,150 @@ public class playerMovement : MonoBehaviour {
                     this.walkingLeft = false;
                     this.anim.SetBool("isWalking", false);
                 }
-            }
-            else
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-
+                this.moveSpeed = Mathf.Clamp(this.moveSpeed +.2f, 0f, this.maxMoveSpeed);
+                this.GetComponent<SpriteRenderer>().flipX = false;
+                this.walkingRight = true;
+                this.currentDirection = Direction.Right;
+                if (this.currentDirection != this.lastDirection)
                 {
-                    //this.GetComponent<UnityArmatureComponent>()._armature._flipX = false;
-                    this.moveSpeed = 3f;
-                    this.GetComponent<SpriteRenderer>().flipX = false;
-                    this.walkingRight = true;
-                    this.currentDirection = Direction.Right;
-                    if (this.currentDirection != this.lastDirection)
+                    this.anim.SetBool("isWalking", true);
+                }
+            }
+
+            else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                this.walkingRight = false;
+                this.anim.SetBool("isWalking", false);
+            }
+
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                this.moveSpeed = Mathf.Clamp(this.moveSpeed - .2f, -this.maxMoveSpeed, 0);
+                this.GetComponent<SpriteRenderer>().flipX = true;
+                this.walkingLeft = true;
+                this.currentDirection = Direction.Left;
+                if (this.currentDirection != this.lastDirection)
+                {
+                    this.anim.SetBool("isWalking", true);
+                }
+            }
+            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                this.walkingLeft = false;
+                this.anim.SetBool("isWalking", false);
+            }
+
+            if (!this.walkingLeft && !this.walkingRight)
+            {
+                if (!this.onGround)
+                {
+                    if (this.moveSpeed < 0)
                     {
-                        //this.anim.FadeIn("Walking", 0.3f);
-                        this.anim.SetBool("isWalking", true);
+                        this.moveSpeed = Mathf.Clamp(this.moveSpeed + .075f, -this.maxMoveSpeed, 0f);
+                    }
+
+                    else if (this.moveSpeed > 0)
+                    {
+                        this.moveSpeed = Mathf.Clamp(this.moveSpeed - .075f, 0f, this.maxMoveSpeed);
                     }
                 }
 
-                else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+                else
                 {
-                    this.moveSpeed = 0f;
-                    this.walkingRight = false;
-                    this.anim.SetBool("isWalking", false);
+                    this.moveSpeed = 0;
                 }
 
-                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            }
+
+            if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                if (!held) //if the player is not already holding something then it may be able to pick something up 
                 {
-                    this.moveSpeed = 3f;
-                    this.GetComponent<SpriteRenderer>().flipX = true;
-                    //this.GetComponent<UnityArmatureComponent>()._armature._flipX = true;
-                    this.walkingLeft = true;
-                    this.currentDirection = Direction.Left;
-                    if (this.currentDirection != this.lastDirection)
+
+                    if (this.objectAvailable) //the objects turn this boolean on if there is an object available to be picked up 
                     {
-                        //this.anim.FadeIn("Walking", 0.3f);
-                        this.anim.SetBool("isWalking", true);
-                    }
-                }
-                else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
-                {
-                    this.moveSpeed = 0f;
-                    this.walkingLeft = false;
-                    this.anim.SetBool("isWalking", false);
-                }
-
-                if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl))
-                {
-                    if (!held) //if the player is not already holding something then it may be able to pick something up 
-                    {
-
-                        if (this.objectAvailable) //the objects turn this boolean on if there is an object available to be picked up 
+                        Debug.Log("Picked up");
+                        this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                        this.interactiveObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+                        this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
+                        this.interactiveObject.transform.parent = this.transform;
+                        if (this.interactiveObject.GetComponent<baseObject>())
                         {
-                            this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
-                            this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
-                            this.interactiveObject.transform.parent = this.transform;
+                            this.interactiveObject.GetComponent<baseObject>().isMoving = false;
+                        }
+                        this.held = true;
+                        this.interactiveObject.GetComponent<boxTriggers>().touched = true;
+                    }
+                }
+                else
+                {
+                    Ray cameraRay = new Ray() ;
+                    if (playerMovement.player == "Player")
+                    {
+                        if (this.GetComponent<SpriteRenderer>().flipX)
+                        {
+                            cameraRay = this.camera1.GetComponent<Camera>().ScreenPointToRay(this.camera1.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x - 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
+                        }
+
+                        else
+                        {
+                            cameraRay = this.camera1.GetComponent<Camera>().ScreenPointToRay(this.camera1.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x + 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
+                        }
+                    }
+
+                    else if (playerMovement.player == "Player 2")
+                    {
+                        if (this.GetComponent<SpriteRenderer>().flipX)
+                        {
+                            cameraRay = this.camera2.GetComponent<Camera>().ScreenPointToRay(this.camera2.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x - 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
+                        }
+
+                        else
+                        {
+                            cameraRay = this.camera2.GetComponent<Camera>().ScreenPointToRay(this.camera2.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x + 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
+                        }
+                    }
+                    if (this.objectAvailable && !Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y)))
+                    {
+                        Debug.DrawLine(cameraRay.origin, cameraRay.direction, Color.cyan, 10000);
+                        if (this.interactiveObject.GetComponent<boxTriggers>().touched == true)
+                        {
+                            this.interactiveObject.transform.parent = null;
+                            this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                            if (this.GetComponent<SpriteRenderer>().flipX)
+                            {
+                                this.interactiveObject.transform.position = new Vector3(this.transform.position.x - 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
+                            }
+
+                            else
+                            {
+                                this.interactiveObject.transform.position = new Vector3(this.transform.position.x + 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
+                            }
                             if (this.interactiveObject.GetComponent<baseObject>())
                             {
-                                this.interactiveObject.GetComponent<baseObject>().isMoving = false;
+                                this.interactiveObject.GetComponent<baseObject>().originalPosition = this.interactiveObject.transform.position;
+                                this.interactiveObject.GetComponent<baseObject>().activated = false;
                             }
-                            this.held = true;
-                            this.interactiveObject.GetComponent<boxTriggers>().touched = true;
-                        }
-                    }
-                    else
-                    {
-                        if (this.objectAvailable)
-                        {
-                            if (this.interactiveObject.GetComponent<boxTriggers>().touched == true)
-                            {
-                                this.interactiveObject.transform.parent = null;
-                                this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
-                                if (this.GetComponent<SpriteRenderer>().flipX == true)
-                                {
-                                    this.interactiveObject.transform.position = new Vector3(this.transform.position.x - 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
-                                }
-
-                                else
-                                {
-                                    this.interactiveObject.transform.position = new Vector3(this.transform.position.x + 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
-                                }
-                                if (this.interactiveObject.GetComponent<baseObject>())
-                                {
-                                    this.interactiveObject.GetComponent<baseObject>().originalPosition = this.interactiveObject.transform.position;
-                                    this.interactiveObject.GetComponent<baseObject>().activated = false;
-                                }
-                                this.held = false;
-                                this.interactiveObject.GetComponent<boxTriggers>().touched = false;
-                                this.interactiveObject = null;
-                                this.objectAvailable = false;
-                            }
+                            this.held = false;
+                            this.interactiveObject.GetComponent<boxTriggers>().touched = false;
+                            this.interactiveObject = null;
+                            this.objectAvailable = false;
                         }
                     }
                 }
-            }
-
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                this.jumpPressed = true;
+                }
             }
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .11f, this.layer);
+            this.onGround = false;
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i].gameObject != gameObject)// && this.GetComponent<Rigidbody2D>().velocity.y == 0)
+                if (colliders[i].gameObject != gameObject)
                 {
                     this.onGround = true;
                 }
@@ -217,7 +253,6 @@ public class playerMovement : MonoBehaviour {
 
             if (this.idle && this.idleReady)
             {
-                //this.anim.FadeIn("Idle", 0.5f);
                 this.idleReady = false;
             }
 
@@ -228,25 +263,15 @@ public class playerMovement : MonoBehaviour {
     void FixedUpdate()
     {
 
-        if (this.name == player && this.walkingRight && !this.walkingLeft)
+        if (this.name == player)// && this.walkingRight && !this.walkingLeft)
         {
             this.transform.Translate(new Vector2(moveSpeed * Time.deltaTime, 0f));
-            //this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.moveSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
-            //if (this.moveSpeed < this.maxMoveSpeed)
-            //{
-            //    this.moveSpeed++;
-            //}
         }
 
-        else if (this.name == player && this.walkingLeft && !this.walkingRight)
-        {
-            this.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
-            //this.GetComponent<Rigidbody2D>().velocity = new Vector2(-this.moveSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
-            //if (this.moveSpeed < this.maxMoveSpeed)
-            //{
-            //    this.moveSpeed++;
-            //}
-        }
+        //else if (this.name == player && this.walkingLeft && !this.walkingRight)
+        //{
+        //    this.transform.Translate(new Vector2(-moveSpeed * Time.deltaTime, 0f));
+        //}
 
         if (isMobile == true)
         {
@@ -258,12 +283,13 @@ public class playerMovement : MonoBehaviour {
                     this.onGround = false;
                     jumpButton.GetComponent<touchScript>().jump = false;
                     this.body.AddForce(new Vector2(0f, this.jumpSpeed));
+                    //this.jumpPressed = false;
                 }
             }
         }
         else
         {
-            if (this.jumpPressed)
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space))
             {
                 if (this.onGround && this.name == player)
                 {

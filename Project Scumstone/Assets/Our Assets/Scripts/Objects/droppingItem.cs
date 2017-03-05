@@ -6,11 +6,11 @@ public class droppingItem : MonoBehaviour {
     public AudioClip breakingSound;
     private AudioSource source;
 
-    public bool regenerate;
 	// Use this for initialization
 
     void Start () {
-        originalPosition = this.transform.position;
+        this.originalPosition = this.transform.position;
+        this.transform.GetComponent<Rigidbody2D>().isKinematic = true;
         //if (this.transform.childCount >= 1)
             //this.transform.GetComponentInChildren<ParticleSystem>().Stop();
 	}
@@ -22,33 +22,25 @@ public class droppingItem : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other)
     {
+
         if (other.transform.tag == "Player")
         {
-            if (this.tag != "floatBlock")
+            if (this.transform.GetComponent<Rigidbody2D>().isKinematic == false)
             {
-                Debug.Log("Collided");
-                this.transform.GetComponent<Rigidbody2D>().isKinematic = false;
-            }
-        }
-        else if (other.transform.tag != "pushBlock")
-        {
-            source = GetComponentInChildren<AudioSource>();
-            source.Play();
-            if (regenerate == true)
-            {
-                this.transform.position = originalPosition;
-                this.transform.GetComponent<Rigidbody2D>().isKinematic = true;
+                this.transform.position = this.originalPosition;
+                this.GetComponent<Rigidbody2D>().isKinematic = true;
             }
             else
             {
-                if (this.transform.childCount >= 1)
-                {
-                    this.transform.DetachChildren();
-                }
-                this.transform.GetComponent<BoxCollider2D>().enabled = false;
-                this.transform.GetComponent<SpriteRenderer>().enabled = false;
+                this.transform.GetComponent<Rigidbody2D>().isKinematic = false;
             }
             
+
+        }
+        else
+        {
+            this.transform.position = this.originalPosition;
+            this.GetComponent<Rigidbody2D>().isKinematic = true;
         }
     }
 }

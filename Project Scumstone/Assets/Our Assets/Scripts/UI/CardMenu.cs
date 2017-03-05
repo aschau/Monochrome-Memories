@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class CardMenu: MonoBehaviour
 {
@@ -67,14 +68,17 @@ public class CardMenu: MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+        if (!sceneControl.paused)
         {
-            this.toggleCard(0);
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                this.toggleCard(0);
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            this.toggleCard(1);
+            else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                this.toggleCard(1);
+            }
         }
     }
 
@@ -155,6 +159,13 @@ public class CardMenu: MonoBehaviour
         source.PlayOneShot(cardSound, volume);
     }
 
-
+    public void toggleTriggers()
+    {
+        this.GetComponent<EventTrigger>().enabled = !this.GetComponent<EventTrigger>().enabled;
+        foreach (GameObject card in this.cards)
+        {
+            card.GetComponent<EventTrigger>().enabled = !card.GetComponent<EventTrigger>().enabled;
+        }
+    }
 
 }
