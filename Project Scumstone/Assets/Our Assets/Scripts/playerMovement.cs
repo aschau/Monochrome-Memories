@@ -176,6 +176,7 @@ public class playerMovement : MonoBehaviour {
                         if (this.GetComponent<SpriteRenderer>().flipX)
                         {
                             cameraRay = this.camera1.GetComponent<Camera>().ScreenPointToRay(this.camera1.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x - 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
+
                         }
 
                         else
