@@ -19,6 +19,7 @@ public class sceneControl : MonoBehaviour {
     private playerMovement player1, player2;
     private GameObject topCover, bottomCover, pause, deck, clickShift;
     private endLevelObject endlevel1, endlevel2;
+    public AudioSource SoundEffect;
 
     // Use this for initialization
     void Awake()
@@ -41,7 +42,7 @@ public class sceneControl : MonoBehaviour {
 	void Start () {
         this.GetComponent<Image>().enabled = true;
         this.topCover.SetActive(false);
-        this.resetTime = 2f;
+        this.resetTime = 2.7f;
         paused = false;
     }
 	
