@@ -170,7 +170,7 @@ public class playerMovement : MonoBehaviour {
                 }
                 else
                 {
-                    Ray cameraRay = new Ray() ;
+                    /*Ray cameraRay = new Ray() ;
                     if (playerMovement.player == "Player")
                     {
                         if (this.GetComponent<SpriteRenderer>().flipX)
@@ -196,10 +196,10 @@ public class playerMovement : MonoBehaviour {
                         {
                             cameraRay = this.camera2.GetComponent<Camera>().ScreenPointToRay(this.camera2.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x + 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
                         }
-                    }
-                    if (this.objectAvailable && !Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y)))
+                    }*/
+                    if (this.objectAvailable) //&& !Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y)))
                     {
-                        Debug.DrawLine(cameraRay.origin, cameraRay.direction, Color.cyan, 10000);
+                        //Debug.DrawLine(cameraRay.origin, cameraRay.direction, Color.cyan, 10000);
                         if (this.interactiveObject.GetComponent<boxTriggers>().touched == true)
                         {
                             this.interactiveObject.transform.parent = null;
