@@ -10,7 +10,7 @@ public class pushObject : baseObject {
     {
         base.Awake();
     }
-    public AudioSource SoundEffect;
+  
     // Use this for initialization
     public override void Start()
     {
