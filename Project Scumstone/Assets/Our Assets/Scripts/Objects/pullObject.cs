@@ -26,6 +26,7 @@ public class pullObject : baseObject
 
     public override void activate()
     {
+        Physics2D.Raycast(this.transform.position, Vector2.right, this.GetComponent<Collider2D>().bounds.size.x);
         if (this.activation.activated1)
         {
             if (this.transform.position.x < (this.originalPosition.x + this.variance))
