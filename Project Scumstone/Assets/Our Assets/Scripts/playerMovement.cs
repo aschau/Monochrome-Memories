@@ -20,6 +20,7 @@ public class playerMovement : MonoBehaviour {
 
     [HideInInspector]
     public Animator anim;
+    public AudioSource error_sound; 
     private GameObject leftButton, rightButton, jumpButton, camera1, camera2;
     private Rigidbody2D body;
     private Vector3 previousPos;
@@ -49,6 +50,7 @@ public class playerMovement : MonoBehaviour {
         this.body = this.GetComponent<Rigidbody2D>();
         this.objectAvailable = false;
         this.held = false;
+
 	}
 	
 	// Update is called once per frame
@@ -222,6 +224,10 @@ public class playerMovement : MonoBehaviour {
                             this.interactiveObject = null;
                             this.objectAvailable = false;
                         }
+                    }
+                    else
+                    {
+                        error_sound.Play(); 
                     }
                 }
                 }
