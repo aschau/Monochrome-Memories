@@ -169,6 +169,10 @@ public class playerMovement : MonoBehaviour {
                         this.held = true;
                         this.interactiveObject.GetComponent<boxTriggers>().touched = true;
                     }
+                    else
+                    {
+                        error_sound.Play(); 
+                    }
                 }
                 else
                 {
