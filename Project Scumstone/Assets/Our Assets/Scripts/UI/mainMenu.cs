@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 
 public class mainMenu : MonoBehaviour {
     public Sprite[] backgrounds;
+    public AudioSource Start_Game;
+    public AudioSource button_sound;
+    public AudioSource settings_sound; 
     private GameObject defaultMenu, settingsMenu;
     private Slider effectsSlider;
     private Image img;
@@ -37,6 +40,7 @@ public class mainMenu : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                button_sound.Play(); 
                 this.currentIndex--;
                 if (this.currentIndex == -1)
                 {
@@ -47,6 +51,7 @@ public class mainMenu : MonoBehaviour {
 
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
+                button_sound.Play(); 
                 this.currentIndex++;
                 if (this.currentIndex == 3)
                 {
@@ -57,18 +62,22 @@ public class mainMenu : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
+
                 if (this.currentIndex == 1)
                 {
+                    Start_Game.Play(); 
                     SceneManager.LoadScene("Level 1");
                 }
 
                 else if (this.currentIndex == 2)
                 {
+                    settings_sound.Play(); 
                     this.openSettings();
                 }
 
                 else if (this.currentIndex == 0)
                 {
+                    Start_Game.Play(); 
                     Application.Quit();
                 }
             }
