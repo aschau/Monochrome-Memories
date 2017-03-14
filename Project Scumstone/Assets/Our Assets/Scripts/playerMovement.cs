@@ -158,16 +158,26 @@ public class playerMovement : MonoBehaviour {
                     if (this.objectAvailable) //the objects turn this boolean on if there is an object available to be picked up 
                     {
                         Debug.Log("Picked up");
+                        this.anim.SetBool("isCarrying", true);
+                        if (this.transform.parent)
+                        {
+                            if (this.transform.parent.gameObject.GetInstanceID() == this.interactiveObject.gameObject.GetInstanceID())
+                            {
+                                this.transform.parent = null;
+                            }
+                        }
+
                         this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
                         this.interactiveObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-                        this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                         this.interactiveObject.transform.parent = this.transform;
+                        this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                         if (this.interactiveObject.GetComponent<baseObject>())
                         {
                             this.interactiveObject.GetComponent<baseObject>().isMoving = false;
                         }
                         this.held = true;
                         this.interactiveObject.GetComponent<boxTriggers>().touched = true;
+
                     }
                     else
                     {
@@ -208,6 +218,8 @@ public class playerMovement : MonoBehaviour {
                         //Debug.DrawLine(cameraRay.origin, cameraRay.direction, Color.cyan, 10000);
                         if (this.interactiveObject.GetComponent<boxTriggers>().touched == true)
                         {
+                            this.anim.SetBool("isCarrying", false);
+
                             this.interactiveObject.transform.parent = null;
                             this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
                             if (this.GetComponent<SpriteRenderer>().flipX)

@@ -47,7 +47,25 @@ public class pullObject : baseObject
             }
             else
             {
-                this.isMoving = false;
+                foreach (RaycastHit2D rh in ray)
+                {
+                    if (!rh.collider.isTrigger && rh.collider.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
+                    {
+                        this.isMoving = false;
+                        return;
+                    }
+                }
+
+                if (this.transform.position.x < (this.originalPosition.x + this.variance))
+                {
+                    this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                }
+                if (this.transform.position.x >= (this.originalPosition.x + this.variance))
+                {
+                    this.isMoving = false;
+                }
+
+                base.activate();
             }
 
         }
@@ -70,7 +88,25 @@ public class pullObject : baseObject
             }
             else
             {
-                this.isMoving = false;
+                foreach (RaycastHit2D rh in ray)
+                {
+                    if (!rh.collider.isTrigger && rh.collider.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
+                    {
+                        this.isMoving = false;
+                        return;
+                    }
+                }
+
+                if (this.transform.position.x < (this.originalPosition.x + this.variance))
+                {
+                    this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                }
+                if (this.transform.position.x >= (this.originalPosition.x + this.variance))
+                {
+                    this.isMoving = false;
+                }
+
+                base.activate();
             }
 
         }
@@ -94,11 +130,26 @@ public class pullObject : baseObject
                 this.isMoving = false;
             }
 
-            base.activate();
         }
         else
         {
-            this.isMoving = false;
+            foreach (RaycastHit2D rh in ray)
+            {
+                if (!rh.collider.isTrigger && rh.collider.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
+                {
+                    this.isMoving = false;
+                    return;
+                }
+            }
+
+            if (this.transform.position.x < (this.originalPosition.x + this.variance))
+            {
+                this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+            }
+            if (this.transform.position.x >= (this.originalPosition.x + this.variance))
+            {
+                this.isMoving = false;
+            }
         }
 
         //this.transform.position = this.originalPosition;
