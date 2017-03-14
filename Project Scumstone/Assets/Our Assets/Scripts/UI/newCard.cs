@@ -38,12 +38,13 @@ public abstract class newCard : MonoBehaviour {
         this.anim = this.GetComponent<Animator>();
         this.player1 = GameObject.Find("Player");
         this.player2 = GameObject.Find("Player 2");
+        isTop = true;
+
 
     }
 
     public virtual void Start()
     {
-        isTop = true;
     }
 
     // Update is called once per frame
