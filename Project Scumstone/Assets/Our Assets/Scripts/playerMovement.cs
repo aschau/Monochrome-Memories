@@ -159,6 +159,7 @@ public class playerMovement : MonoBehaviour {
                     {
                         Debug.Log("Picked up");
                         this.anim.SetBool("isCarrying", true);
+                        this.interactiveObject.GetComponent<Collider2D>().enabled = false;
                         this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
                         this.interactiveObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
                         this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
@@ -169,6 +170,8 @@ public class playerMovement : MonoBehaviour {
                         }
                         this.held = true;
                         this.interactiveObject.GetComponent<boxTriggers>().touched = true;
+                        this.interactiveObject.GetComponent<Collider2D>().enabled = true;
+
                     }
                     else
                     {
