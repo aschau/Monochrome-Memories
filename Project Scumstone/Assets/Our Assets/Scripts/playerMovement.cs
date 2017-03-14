@@ -159,10 +159,14 @@ public class playerMovement : MonoBehaviour {
                     {
                         Debug.Log("Picked up");
                         this.anim.SetBool("isCarrying", true);
-                        if (this.transform.parent.gameObject.GetInstanceID() == this.interactiveObject.gameObject.GetInstanceID())
+                        if (this.transform.parent)
                         {
-                            this.transform.parent = null;
+                            if (this.transform.parent.gameObject.GetInstanceID() == this.interactiveObject.gameObject.GetInstanceID())
+                            {
+                                this.transform.parent = null;
+                            }
                         }
+
                         this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
                         this.interactiveObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
                         this.interactiveObject.transform.parent = this.transform;
