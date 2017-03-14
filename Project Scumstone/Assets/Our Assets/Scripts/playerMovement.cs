@@ -159,18 +159,20 @@ public class playerMovement : MonoBehaviour {
                     {
                         Debug.Log("Picked up");
                         this.anim.SetBool("isCarrying", true);
-                        this.interactiveObject.GetComponent<Collider2D>().enabled = false;
+                        if (this.transform.parent.gameObject.GetInstanceID() == this.interactiveObject.gameObject.GetInstanceID())
+                        {
+                            this.transform.parent = null;
+                        }
                         this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
                         this.interactiveObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-                        this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                         this.interactiveObject.transform.parent = this.transform;
+                        this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                         if (this.interactiveObject.GetComponent<baseObject>())
                         {
                             this.interactiveObject.GetComponent<baseObject>().isMoving = false;
                         }
                         this.held = true;
                         this.interactiveObject.GetComponent<boxTriggers>().touched = true;
-                        this.interactiveObject.GetComponent<Collider2D>().enabled = true;
 
                     }
                     else
