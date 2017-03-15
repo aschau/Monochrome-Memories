@@ -4,14 +4,19 @@ using UnityEngine.UI;
 
 public class backMusicControl : MonoBehaviour {
 	private AudioSource backgroundMusic;
+    private AudioSource backgroundMusicBottom; 
     static float sliderAmount = 1f;
     private float originalVolume;
+    private float originalVolume2; 
     
     void Awake()
     {
         this.backgroundMusic = GameObject.Find("Black World Music").GetComponent<AudioSource>();
+        //this.backgroundMusicBottom = GameObject.Find("White World Music").GetComponent<AudioSource>(); 
         this.originalVolume = this.backgroundMusic.volume;
+        //this.originalVolume2 = this.backgroundMusicBottom.volume; 
         this.backgroundMusic.volume = this.originalVolume * sliderAmount;
+        //this.backgroundMusicBottom.volume = this.originalVolume2 * sliderAmount; 
     }
 
     // Use this for initialization
