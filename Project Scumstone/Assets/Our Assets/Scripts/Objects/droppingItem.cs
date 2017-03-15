@@ -3,8 +3,7 @@ using System.Collections;
 
 public class droppingItem : MonoBehaviour {
     private Vector2 originalPosition;
-    public AudioClip breakingSound;
-    private AudioSource source;
+    public AudioSource breakingSound;
     private int count;
 
 	// Use this for initialization
@@ -42,6 +41,7 @@ public class droppingItem : MonoBehaviour {
         {
             if (other.transform.position.y > this.transform.position.y)
             {
+                breakingSound.Play(); 
                 this.transform.GetComponent<Rigidbody2D>().isKinematic = false;
             }
         }
