@@ -30,7 +30,7 @@ public class pullObject : baseObject
     {
         if (this.activation.activated1)
         {
-            RaycastHit2D[] ray = Physics2D.RaycastAll(this.transform.position, Vector2.right, this.boxSize.x);
+            RaycastHit2D[] ray = Physics2D.RaycastAll(this.transform.position, Vector2.right, this.boxSize.x/2);
 
             if (ray.Length <= 2)
             {
@@ -71,7 +71,7 @@ public class pullObject : baseObject
         }
         else if (this.activation.dualActivation && this.activation.activated2)
         {
-            RaycastHit2D[] ray = Physics2D.RaycastAll(this.transform.position, Vector2.right, this.boxSize.x);
+            RaycastHit2D[] ray = Physics2D.RaycastAll(this.transform.position, Vector2.right, this.boxSize.x/2);
 
             if (ray.Length <= 2)
             {
@@ -116,7 +116,7 @@ public class pullObject : baseObject
     {
         base.deactivate();
 
-        RaycastHit2D[] ray = Physics2D.RaycastAll(this.transform.position, Vector2.left, this.boxSize.x);
+        RaycastHit2D[] ray = Physics2D.RaycastAll(this.transform.position, Vector2.left, this.boxSize.x/2);
         //Debug.DrawLine(this.transform.position, new Vector3(this.transform.position.x + (Vector2.right.x * this.boxSize.x), this.transform.position.y, this.transform.position.z), new Color(0, 0, 132), 1000);
 
         if (ray.Length <= 2)
