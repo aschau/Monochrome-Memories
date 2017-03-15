@@ -7,7 +7,7 @@ Level 1:
 
 Level 2:
 - Fire: 0.015
-- Anger: .042
+- Anger: .1
 - Cards: .5
 - Reset .1
 - Falling Branches: .6

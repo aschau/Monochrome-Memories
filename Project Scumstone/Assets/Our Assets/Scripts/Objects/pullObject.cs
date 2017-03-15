@@ -9,6 +9,7 @@ public class pullObject : baseObject
     //public float originalPlace;
     //private Vector3 originalPosition;
     private bool moved;
+    private Vector3 boxSize;
     public override void Awake()
     {
         base.Awake();
@@ -20,6 +21,7 @@ public class pullObject : baseObject
         base.Start();
         //this.originalPlace = this.transform.position.x;
         //this.originalPosition = this.transform.position;
+        this.boxSize = this.GetComponent<Collider2D>().bounds.size;
         base.particleColor = new Color32(0, 150, 0, 255);
         this.moved = false;
     }
@@ -28,6 +30,118 @@ public class pullObject : baseObject
     {
         if (this.activation.activated1)
         {
+            RaycastHit2D[] ray = Physics2D.RaycastAll(this.transform.position, Vector2.right, this.boxSize.x);
+
+            if (ray.Length <= 2)
+            {
+                if (this.transform.position.x < (this.originalPosition.x + this.variance))
+                {
+                    this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                }
+                if (this.transform.position.x >= (this.originalPosition.x + this.variance))
+                {
+                    this.isMoving = false;
+                }
+
+                base.activate();
+            }
+            else
+            {
+                foreach (RaycastHit2D rh in ray)
+                {
+                    if (!rh.collider.isTrigger && rh.collider.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
+                    {
+                        this.isMoving = false;
+                        return;
+                    }
+                }
+
+                if (this.transform.position.x < (this.originalPosition.x + this.variance))
+                {
+                    this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                }
+                if (this.transform.position.x >= (this.originalPosition.x + this.variance))
+                {
+                    this.isMoving = false;
+                }
+
+                base.activate();
+            }
+
+        }
+        else if (this.activation.dualActivation && this.activation.activated2)
+        {
+            RaycastHit2D[] ray = Physics2D.RaycastAll(this.transform.position, Vector2.right, this.boxSize.x);
+
+            if (ray.Length <= 2)
+            {
+                if (this.transform.position.x < (this.originalPosition.x + this.variance))
+                {
+                    this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                }
+                if (this.transform.position.x >= (this.originalPosition.x + this.variance))
+                {
+                    this.isMoving = false;
+                }
+
+                base.activate();
+            }
+            else
+            {
+                foreach (RaycastHit2D rh in ray)
+                {
+                    if (!rh.collider.isTrigger && rh.collider.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
+                    {
+                        this.isMoving = false;
+                        return;
+                    }
+                }
+
+                if (this.transform.position.x < (this.originalPosition.x + this.variance))
+                {
+                    this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                }
+                if (this.transform.position.x >= (this.originalPosition.x + this.variance))
+                {
+                    this.isMoving = false;
+                }
+
+                base.activate();
+            }
+
+        }
+    }
+    // Update is called once per frame
+    public override void deactivate()
+    {
+        base.deactivate();
+
+        RaycastHit2D[] ray = Physics2D.RaycastAll(this.transform.position, Vector2.left, this.boxSize.x);
+        //Debug.DrawLine(this.transform.position, new Vector3(this.transform.position.x + (Vector2.right.x * this.boxSize.x), this.transform.position.y, this.transform.position.z), new Color(0, 0, 132), 1000);
+
+        if (ray.Length <= 2)
+        {
+            if (this.transform.position.x > this.originalPosition.x)
+            {
+                this.transform.Translate(new Vector2(-this.speed * Time.deltaTime, 0));
+            }
+            if (this.transform.position.x == this.originalPosition.x)
+            {
+                this.isMoving = false;
+            }
+
+        }
+        else
+        {
+            foreach (RaycastHit2D rh in ray)
+            {
+                if (!rh.collider.isTrigger && rh.collider.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
+                {
+                    this.isMoving = false;
+                    return;
+                }
+            }
+
             if (this.transform.position.x < (this.originalPosition.x + this.variance))
             {
                 this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
@@ -36,35 +150,8 @@ public class pullObject : baseObject
             {
                 this.isMoving = false;
             }
+        }
 
-            base.activate();
-        }
-        else if (this.activation.dualActivation && this.activation.activated2)
-        {
-            if (this.transform.position.x > (this.originalPosition.x - this.variance))
-            {
-                this.transform.Translate(new Vector2(-this.speed * Time.deltaTime, 0));
-            }
-            if (this.transform.position.x >= (this.originalPosition.x - this.variance))
-            {
-                this.isMoving = false;
-            }
-
-            base.activate();
-        }
-    }
-    // Update is called once per frame
-    public override void deactivate()
-    {
-        base.deactivate();
-        if (this.transform.position.x > this.originalPosition.x)
-        {
-            this.transform.Translate(new Vector2(-this.speed * Time.deltaTime, 0));
-        }
-        if (this.transform.position.x == this.originalPosition.x)
-        {
-            this.isMoving = false;
-        }
         //this.transform.position = this.originalPosition;
         //this.isMoving = false;        
     }

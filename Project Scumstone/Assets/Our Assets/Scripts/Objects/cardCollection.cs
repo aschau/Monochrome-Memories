@@ -32,7 +32,7 @@ public class cardCollection : MonoBehaviour {
 	void LateUpdate () {
         if (this.cardToBe.GetComponent<Animator>().isInitialized)
         {
-            if (this.cardToBe.GetComponent<Animator>().GetBool("isCollected") && !cardToBe.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("burgerCollect"))
+            if (this.cardToBe.GetComponent<Animator>().GetBool("isCollected") && !cardToBe.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName(cardToBe.name))
             {
                 this.cardToBe.GetComponent<Animator>().SetBool("isCollected", false);
                 this.cardToBe.GetComponent<EventTrigger>().enabled = true;
@@ -51,7 +51,7 @@ public class cardCollection : MonoBehaviour {
                 this.deckBox.GetComponent<CardMenu>().onClick();
                 this.cardToBe.GetComponent<EventTrigger>().enabled = false;
                 this.cardToBe.GetComponent<Animator>().SetBool("isCollected", true);
-                this.cardToBe.GetComponent<Animator>().Play("burgerCollect");
+                this.cardToBe.GetComponent<Animator>().Play(this.cardToBe.name);
             }
             else
             {

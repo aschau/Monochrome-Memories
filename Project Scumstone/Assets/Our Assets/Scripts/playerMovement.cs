@@ -20,6 +20,7 @@ public class playerMovement : MonoBehaviour {
 
     [HideInInspector]
     public Animator anim;
+    public AudioSource error_sound; 
     private GameObject leftButton, rightButton, jumpButton, camera1, camera2;
     private Rigidbody2D body;
     private Vector3 previousPos;
@@ -49,6 +50,7 @@ public class playerMovement : MonoBehaviour {
         this.body = this.GetComponent<Rigidbody2D>();
         this.objectAvailable = false;
         this.held = false;
+
 	}
 	
 	// Update is called once per frame
@@ -156,26 +158,41 @@ public class playerMovement : MonoBehaviour {
                     if (this.objectAvailable) //the objects turn this boolean on if there is an object available to be picked up 
                     {
                         Debug.Log("Picked up");
+                        this.anim.SetBool("isCarrying", true);
+                        if (this.transform.parent)
+                        {
+                            if (this.transform.parent.gameObject.GetInstanceID() == this.interactiveObject.gameObject.GetInstanceID())
+                            {
+                                this.transform.parent = null;
+                            }
+                        }
+
                         this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = true;
                         this.interactiveObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-                        this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                         this.interactiveObject.transform.parent = this.transform;
+                        this.interactiveObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.2f, this.transform.position.z);
                         if (this.interactiveObject.GetComponent<baseObject>())
                         {
                             this.interactiveObject.GetComponent<baseObject>().isMoving = false;
                         }
                         this.held = true;
                         this.interactiveObject.GetComponent<boxTriggers>().touched = true;
+
+                    }
+                    else
+                    {
+                        error_sound.Play(); 
                     }
                 }
                 else
                 {
-                    Ray cameraRay = new Ray() ;
+                    /*Ray cameraRay = new Ray() ;
                     if (playerMovement.player == "Player")
                     {
                         if (this.GetComponent<SpriteRenderer>().flipX)
                         {
                             cameraRay = this.camera1.GetComponent<Camera>().ScreenPointToRay(this.camera1.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x - 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
+
                         }
 
                         else
@@ -195,12 +212,14 @@ public class playerMovement : MonoBehaviour {
                         {
                             cameraRay = this.camera2.GetComponent<Camera>().ScreenPointToRay(this.camera2.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x + 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
                         }
-                    }
-                    if (this.objectAvailable && !Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y)))
+                    }*/
+                    if (this.objectAvailable) //&& !Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y)))
                     {
-                        Debug.DrawLine(cameraRay.origin, cameraRay.direction, Color.cyan, 10000);
+                        //Debug.DrawLine(cameraRay.origin, cameraRay.direction, Color.cyan, 10000);
                         if (this.interactiveObject.GetComponent<boxTriggers>().touched == true)
                         {
+                            this.anim.SetBool("isCarrying", false);
+
                             this.interactiveObject.transform.parent = null;
                             this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
                             if (this.GetComponent<SpriteRenderer>().flipX)
@@ -222,6 +241,10 @@ public class playerMovement : MonoBehaviour {
                             this.interactiveObject = null;
                             this.objectAvailable = false;
                         }
+                    }
+                    else
+                    {
+                        error_sound.Play(); 
                     }
                 }
                 }
