@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 127551807fb873f40ba686fc9722f33b
-timeCreated: 1489610553
+timeCreated: 1489656541
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -33,6 +33,7 @@ TextureImporter:
     21300052: TutorialAssets 2_26
     21300054: TutorialAssets 2_27
     21300056: TutorialAssets 2_28
+    21300058: TutorialAssets 2_29
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -520,6 +521,19 @@ TextureImporter:
       tessellationDetail: 0
     - serializedVersion: 2
       name: TutorialAssets 2_28
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 572
+        width: 180
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TutorialAssets 2_29
       rect:
         serializedVersion: 2
         x: 50
