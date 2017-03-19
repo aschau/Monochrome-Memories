@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pushObject : baseObject
+public class pullObject : baseObject
 {
     private bool moved;
     public float speed = 5f;
