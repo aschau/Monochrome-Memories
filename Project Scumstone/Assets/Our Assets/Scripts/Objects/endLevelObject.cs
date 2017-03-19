@@ -20,15 +20,14 @@ public class endLevelObject : MonoBehaviour {
     {
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (this.sceneControl.GetComponent<sceneControl>().levelComplete)
         {
-            if (other.collider.CompareTag("Player"))
+            if (other.CompareTag("Player"))
             {
-                other.collider.GetComponent<playerMovement>().stopMoving();
+                other.GetComponent<playerMovement>().stopMoving();
                 other.gameObject.SetActive(false);
-                this.GetComponentInChildren<AudioSource>().Play();
                 this.activated = true;
             }
         }

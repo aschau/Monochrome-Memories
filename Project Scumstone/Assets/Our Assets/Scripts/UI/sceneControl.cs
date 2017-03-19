@@ -10,7 +10,7 @@ public class sceneControl : MonoBehaviour {
     public string nextLevel;
     public bool levelComplete = false;
     [HideInInspector]
-    public AudioSource backgroundMusic, resetSound;
+    public AudioSource backgroundMusic, resetSound, backgroundMusic2;
     public static bool paused;
 
     private bool resetting = false;
@@ -25,13 +25,14 @@ public class sceneControl : MonoBehaviour {
     void Awake()
     {
         this.backgroundMusic = GameObject.Find("Black World Music").GetComponent<AudioSource>();
+        this.backgroundMusic2 = GameObject.Find("White World Music").GetComponent<AudioSource>(); 
         this.resetSound = GameObject.Find("resetSound").GetComponent<AudioSource>();
         
         this.playerControl = GameObject.FindObjectOfType<playerController>();
         this.topCover = GameObject.Find("topImage");
         this.bottomCover = GameObject.Find("bottomImage");
-        this.endlevel1 = GameObject.Find("endLevel1").GetComponent<endLevelObject>();
-        this.endlevel2 = GameObject.Find("endLevel2").GetComponent<endLevelObject>();
+        this.endlevel1 = GameObject.Find("BottomTeleportPad").GetComponent<endLevelObject>();
+        this.endlevel2 = GameObject.Find("TopTeleportPad").GetComponent<endLevelObject>();
         this.player1 = GameObject.Find("Player").GetComponent<playerMovement>();
         this.player2 = GameObject.Find("Player 2").GetComponent<playerMovement>();
         this.pause = GameObject.Find("Pause Menu");
@@ -79,11 +80,12 @@ public class sceneControl : MonoBehaviour {
 
         if (this.endlevel1.activated && this.endlevel2.activated && !this.resetting)
         {
-            Invoke("loadNext", 5);
+            Invoke("loadNext", this.resetTime);
             this.resetting = true;
             fadeTransition(this.speed);
             this.playerControl.enabled = false;
             this.backgroundMusic.Stop();
+            this.backgroundMusic2.Stop(); 
             this.resetSound.Play();
         }
 
