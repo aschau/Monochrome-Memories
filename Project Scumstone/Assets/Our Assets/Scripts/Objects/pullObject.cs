@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class pullObject : baseObject
 {
-    private bool moved;
+    private bool moved, playerAttached;
+    private GameObject playerObj;
     public float speed = 5f;
     public float variance;
     private Vector3 boxSize;
@@ -29,13 +30,14 @@ public class pullObject : baseObject
 
         if (this.activation.activated1)
         {
-            RaycastHit2D[] ray = Physics2D.RaycastAll(new Vector2(this.transform.position.x + this.boxSize.x / 2, this.transform.position.y), Vector2.right, .1f);
+            RaycastHit2D[] ray = Physics2D.RaycastAll(new Vector2(this.transform.position.x + this.boxSize.x / 2, this.transform.position.y), Vector2.right, .25f);
 
             foreach (RaycastHit2D rh in ray)
             {
                 if (!rh.collider.isTrigger && rh.collider.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
                 {
                     this.isMoving = false;
+                    Debug.Log("STOP");
                     return;
                 }
             }
@@ -43,10 +45,16 @@ public class pullObject : baseObject
             if (this.transform.position.x < (this.originalPosition.x + this.variance))
             {
                 this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                if (this.playerAttached)
+                {
+                    this.playerObj.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                }
+                Debug.Log("MOVING");
             }
-            if (this.transform.position.x >= (this.originalPosition.x + this.variance))
+            else if (this.transform.position.x >= (this.originalPosition.x + this.variance))
             {
                 this.isMoving = false;
+                Debug.Log("STOP");
             }
 
             base.activate();
@@ -54,13 +62,14 @@ public class pullObject : baseObject
         }
         else if (this.activation.dualActivation && this.activation.activated2)
         {
-            RaycastHit2D[] ray = Physics2D.RaycastAll(new Vector2(this.transform.position.x + this.boxSize.x / 2, this.transform.position.y), Vector2.right, .1f);
+            RaycastHit2D[] ray = Physics2D.RaycastAll(new Vector2(this.transform.position.x + this.boxSize.x / 2, this.transform.position.y), Vector2.right, .25f);
 
             foreach (RaycastHit2D rh in ray)
             {
                 if (!rh.collider.isTrigger && rh.collider.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
                 {
                     this.isMoving = false;
+                    Debug.Log("STOP");
                     return;
                 }
             }
@@ -68,10 +77,15 @@ public class pullObject : baseObject
             if (this.transform.position.x < (this.originalPosition.x + this.variance))
             {
                 this.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                if (this.playerAttached)
+                {
+                    this.playerObj.transform.Translate(new Vector2(this.speed * Time.deltaTime, 0));
+                }
             }
             if (this.transform.position.x >= (this.originalPosition.x + this.variance))
             {
                 this.isMoving = false;
+                Debug.Log("STOP");
             }
 
             base.activate();
@@ -82,13 +96,14 @@ public class pullObject : baseObject
     {
         Debug.Log("deactivated");
         base.deactivate();
-        RaycastHit2D[] ray = Physics2D.RaycastAll(new Vector2(this.transform.position.x - this.boxSize.x / 2, this.transform.position.y), Vector2.left, .1f);
+        RaycastHit2D[] ray = Physics2D.RaycastAll(new Vector2(this.transform.position.x - this.boxSize.x / 2, this.transform.position.y), Vector2.left, .25f);
 
         foreach (RaycastHit2D rh in ray)
         {
             if (!rh.collider.isTrigger && rh.collider.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
             {
                 this.isMoving = false;
+                Debug.Log("STOP");
                 return;
             }
         }
@@ -96,10 +111,15 @@ public class pullObject : baseObject
         if (this.transform.position.x > (this.originalPosition.x))
         {
             this.transform.Translate(new Vector2(-this.speed * Time.deltaTime, 0));
+            if (this.playerAttached)
+            {
+                this.playerObj.transform.Translate(new Vector2(-this.speed * Time.deltaTime, 0));
+            }
         }
         if (this.transform.position.x <= this.originalPosition.x)
         {
             this.isMoving = false;
+            Debug.Log("STOP");
         }
 
         base.activate();
@@ -117,6 +137,24 @@ public class pullObject : baseObject
             {
                 this.originalPosition = this.GetComponent<boxTriggers>().currentPosition;
             }
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D hit)
+    {
+        if (hit.transform.tag == "Player")
+        {
+            this.playerAttached = true;
+            playerObj = hit.gameObject;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D hit)
+    {
+        if (hit.transform.tag == "Player")
+        {
+            this.playerAttached = false;
+            playerObj = null;
         }
     }
 }
