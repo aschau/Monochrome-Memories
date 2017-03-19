@@ -20,6 +20,19 @@ public class endLevelObject : MonoBehaviour {
     {
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (this.sceneControl.GetComponent<sceneControl>().levelComplete)
+        {
+            if (other.CompareTag("Player"))
+            {
+                other.GetComponent<playerMovement>().stopMoving();
+                other.gameObject.SetActive(false);
+                this.activated = true;
+            }
+        }
+    }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (this.sceneControl.GetComponent<sceneControl>().levelComplete)
