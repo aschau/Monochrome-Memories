@@ -19,6 +19,7 @@ public class floatObject : baseObject {
         //this.originalPlace = this.transform.position.x;
         //this.originalPosition = this.transform.position;
         base.particleColor = new Color32(0, 150, 0, 255);
+        speed = 5f; 
         this.moved = false;
     }
 
