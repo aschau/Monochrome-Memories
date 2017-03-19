@@ -35,10 +35,10 @@ public class groundCheck: MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.GetComponent<pushObject>() || other.gameObject.GetComponent<pullObject>())
-        {
-            this.transform.parent.transform.parent = other.transform;
-        }
+        //if (other.GetComponent<pushObject>() || other.gameObject.GetComponent<pullObject>())
+        //{
+        //    this.transform.parent.transform.parent = other.transform;
+        //}
         //onGround = true;
         //if (this.GetComponentInParent<Rigidbody2D>())
         //{
@@ -55,10 +55,10 @@ public class groundCheck: MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<pushObject>() || other.gameObject.GetComponent<pullObject>())
-        {
-            this.transform.parent.transform.parent = null;
-        }
+        //if (other.GetComponent<pushObject>() || other.gameObject.GetComponent<pullObject>())
+        //{
+        //    this.transform.parent.transform.parent = null;
+        //}
         //onGround = false;
 
         //if (other.CompareTag("jumpArea"))
