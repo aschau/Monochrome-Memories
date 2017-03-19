@@ -186,7 +186,7 @@ public class playerMovement : MonoBehaviour {
                 }
                 else
                 {
-                    /*Ray cameraRay = new Ray() ;
+                    Ray cameraRay = new Ray() ;
                     if (playerMovement.player == "Player")
                     {
                         if (this.GetComponent<SpriteRenderer>().flipX)
@@ -212,40 +212,30 @@ public class playerMovement : MonoBehaviour {
                         {
                             cameraRay = this.camera2.GetComponent<Camera>().ScreenPointToRay(this.camera2.GetComponent<Camera>().WorldToScreenPoint(new Vector3(this.transform.position.x + 1f, this.transform.position.y + 0.3f, this.transform.position.z)));
                         }
-                    }*/
-                    if (this.objectAvailable) //&& !Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y)))
+                    }
+                    if (this.objectAvailable)
                     {
-                        //Debug.DrawLine(cameraRay.origin, cameraRay.direction, Color.cyan, 10000);
-                        if (this.interactiveObject.GetComponent<boxTriggers>().touched == true)
+
+                        RaycastHit2D hit = Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y));
+                        if (!hit)
                         {
-                            this.anim.SetBool("isCarrying", false);
-
-                            this.interactiveObject.transform.parent = null;
-                            this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
-                            if (this.GetComponent<SpriteRenderer>().flipX)
-                            {
-                                this.interactiveObject.transform.position = new Vector3(this.transform.position.x - 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
-                            }
-
-                            else
-                            {
-                                this.interactiveObject.transform.position = new Vector3(this.transform.position.x + 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
-                            }
-                            if (this.interactiveObject.GetComponent<baseObject>())
-                            {
-                                this.interactiveObject.GetComponent<baseObject>().originalPosition = this.interactiveObject.transform.position;
-                                this.interactiveObject.GetComponent<baseObject>().activated = false;
-                            }
-                            this.held = false;
-                            this.interactiveObject.GetComponent<boxTriggers>().touched = false;
-                            this.interactiveObject = null;
-                            this.objectAvailable = false;
+                            DropObject();
                         }
+                        else if (hit)
+                        {
+                            Debug.Log(hit.transform.name);
+                            if (hit.transform.tag == "interactive")
+                            {
+                                DropObject();
+                            }
+                        }
+                        else
+                        {
+                            error_sound.Play();
+                        }
+                        
                     }
-                    else
-                    {
-                        error_sound.Play(); 
-                    }
+                    
                 }
                 }
             }
@@ -282,7 +272,34 @@ public class playerMovement : MonoBehaviour {
             this.lastDirection = this.currentDirection;
         }
 	}
+    void DropObject()
+    {
+        if (this.interactiveObject.GetComponent<boxTriggers>().touched == true)
+        {
+            this.anim.SetBool("isCarrying", false);
 
+            this.interactiveObject.transform.parent = null;
+            this.interactiveObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            if (this.GetComponent<SpriteRenderer>().flipX)
+            {
+                this.interactiveObject.transform.position = new Vector3(this.transform.position.x - 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
+            }
+
+            else
+            {
+                this.interactiveObject.transform.position = new Vector3(this.transform.position.x + 0.8f, this.transform.position.y + 0.3f, this.transform.position.z);
+            }
+            if (this.interactiveObject.GetComponent<baseObject>())
+            {
+                this.interactiveObject.GetComponent<baseObject>().originalPosition = this.interactiveObject.transform.position;
+                this.interactiveObject.GetComponent<baseObject>().activated = false;
+            }
+            this.held = false;
+            this.interactiveObject.GetComponent<boxTriggers>().touched = false;
+            this.interactiveObject = null;
+            this.objectAvailable = false;
+        }
+    }
     void FixedUpdate()
     {
 

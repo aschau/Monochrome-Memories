@@ -73,6 +73,16 @@ public class Transport : MonoBehaviour
 
     void transportObject(GameObject other)
     {
+        if (other.transform.FindChild("Player"))
+        {
+            other.transform.FindChild("Player").parent = null;
+        }
+
+        else if (other.transform.FindChild("Player 2"))
+        {
+            other.transform.FindChild("Player 2").parent = null;
+        }
+
         if (other.transform.GetComponent<boxTriggers>() || other.transform.GetComponent<baseObject>())
         {
             this.activated = true;
