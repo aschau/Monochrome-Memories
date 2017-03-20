@@ -6,14 +6,15 @@ using UnityEngine.EventSystems;
 
 public class mainMenu : MonoBehaviour {
     public float speed = .5f;
-    public AudioSource slime; 
-    public AudioSource Start_Game;
-    public AudioSource button_sound;
-    public AudioSource settings_sound;
-    public AudioSource title_theme; 
-    private GameObject defaultMenu, settingsMenu, startButton, scumLogo;
+    public AudioSource slime, Start_Game, button_sound, settings_sound, title_theme;
+
+    public static int currentLevel = 1;
+
+    private GameObject defaultMenu, settingsMenu, levelSelect, startButton, scumLogo;
     private Slider effectsSlider;
     private int currentIndex = 1;
+    private GameObject level1, tutorialPanel;
+
     void Awake()
     {
         this.scumLogo = GameObject.Find("Logo"); 
@@ -21,6 +22,9 @@ public class mainMenu : MonoBehaviour {
         this.settingsMenu = GameObject.Find("Settings Menu");
         this.effectsSlider = GameObject.Find("Sound Effects").GetComponentInChildren<Slider>();
         this.startButton = GameObject.Find("Start Game");
+        this.levelSelect = GameObject.Find("Level Select");
+        this.level1 = GameObject.Find("Level 1");
+        this.tutorialPanel = GameObject.Find("Tutorial Prompt");
     }
 	// Use this for initialization
 	void Start () {
@@ -36,6 +40,14 @@ public class mainMenu : MonoBehaviour {
         }
         this.settingsMenu.SetActive(false);
         this.defaultMenu.SetActive(false);
+        this.levelSelect.SetActive(false);
+
+        currentLevel = PlayerPrefs.GetInt("levelCount");
+
+        if (currentLevel == 0)
+        {
+            currentLevel = 1;
+        }
 	}
 
     void Update()
@@ -73,8 +85,19 @@ public class mainMenu : MonoBehaviour {
 
     public void loadLevelSelect()
     {
-        Start_Game.Play();
-        SceneManager.LoadScene("Level Select");
+        this.settings_sound.Play();
+        this.levelSelect.SetActive(true);
+        this.tutorialPanel.SetActive(false);
+        this.defaultMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(this.level1);
+    }
+
+    public void exitLevelSelect()
+    {
+        this.settings_sound.Play();
+        this.defaultMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(this.startButton);
+        this.levelSelect.SetActive(false);
     }
 
     public void exitGame()
