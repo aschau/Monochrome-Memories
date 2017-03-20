@@ -81,7 +81,7 @@ public abstract class newCard : MonoBehaviour {
                 this.toggleObject(this.selectedIndex);
             }
 
-            if (Input.GetKeyDown(KeyCode.Return) && this.visibleObjects.Count > 0 && !sceneControl.paused)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter)) && this.visibleObjects.Count > 0 && !sceneControl.paused)
             {
                 if (isTop)
                 {
