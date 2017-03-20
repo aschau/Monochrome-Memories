@@ -39,6 +39,14 @@ public class mainMenu : MonoBehaviour {
         EventSystem.current.SetSelectedGameObject(this.startButton);
 	}
 
+    void Update()
+    {
+        if (!EventSystem.current.currentSelectedGameObject)
+        {
+            EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
+        }
+    }
+
     IEnumerator LateCall()
     {
         slime.Play(); 

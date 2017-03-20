@@ -50,7 +50,7 @@ public abstract class newCard : MonoBehaviour {
     // Update is called once per frame
     public virtual void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && !sceneControl.paused)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 3")) && !sceneControl.paused)
         {
             if (this.name == "jumpPushCard1")
             {
