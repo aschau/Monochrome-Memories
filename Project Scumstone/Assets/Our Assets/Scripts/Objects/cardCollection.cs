@@ -16,6 +16,7 @@ public class cardCollection : MonoBehaviour {
         this.deckBox = GameObject.Find("Deck Box");
     }
 	void Start () {
+        half = false;
         this.cardToBe.SetActive(false);
         source = GetComponent<AudioSource>();
         if (this.name == "TopHalf")

@@ -24,8 +24,6 @@ public class mainMenu : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        this.defaultMenu.SetActive(false); 
-        this.settingsMenu.SetActive(false);
         StartCoroutine(LateCall()); 
         if (Application.platform == RuntimePlatform.Android)
         {
@@ -35,15 +33,21 @@ public class mainMenu : MonoBehaviour {
         else
         {
             playerMovement.isMobile = false;
-        }   
-        EventSystem.current.SetSelectedGameObject(this.startButton);
+        }
+        this.settingsMenu.SetActive(false);
+        this.defaultMenu.SetActive(false);
 	}
 
     void Update()
     {
-        if (!EventSystem.current.currentSelectedGameObject)
+        if (!EventSystem.current.currentSelectedGameObject && this.defaultMenu.activeSelf)
         {
-            EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
+            EventSystem.current.SetSelectedGameObject(this.startButton);
+        }
+
+        else if (!EventSystem.current.currentSelectedGameObject && this.settingsMenu.activeSelf)
+        {
+            EventSystem.current.SetSelectedGameObject(this.effectsSlider.gameObject);
         }
     }
 
@@ -53,7 +57,8 @@ public class mainMenu : MonoBehaviour {
         yield return new WaitForSeconds(3);
         this.scumLogo.SetActive(false);      
         this.defaultMenu.SetActive(true); 
-        title_theme.Play(); 
+        title_theme.Play();
+        //EventSystem.current.SetSelectedGameObject(this.startButton);
         
     }
 

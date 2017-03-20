@@ -72,7 +72,7 @@ public class successPad : MonoBehaviour
             }
             if (this.clickShift && this.activated)
             {
-                if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && !this.playerController.activeSelf)
+                if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 2")) && !this.playerController.activeSelf)
                 {
                     this.bottomImage.GetComponent<Image>().color = new Color(0, 0, 0, 1);
                     this.bottomImage.GetComponent<CanvasGroup>().alpha = 0.5f;

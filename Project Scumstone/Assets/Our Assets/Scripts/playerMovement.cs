@@ -183,6 +183,17 @@ public class playerMovement : MonoBehaviour {
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
+       
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .11f, this.layer);
+
+        this.onGround = false;
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != gameObject)
+            {
+                this.onGround = true;
+            }
+        }
 
         if (this.name == player)
         {
@@ -202,24 +213,11 @@ public class playerMovement : MonoBehaviour {
             {
                 this.anim.SetBool("isWalking", false);
             }
-        }
 
-       
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .11f, this.layer);
-
-        this.onGround = false;
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject != gameObject)
+            if (this.onGround && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown("joystick button 0")))
             {
-                this.onGround = true;
+                this.jumpPressed = true;
             }
-        }
-
-
-        if (this.onGround && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown("joystick button 0")))
-        {
-            this.jumpPressed = true;
         }
     }
 

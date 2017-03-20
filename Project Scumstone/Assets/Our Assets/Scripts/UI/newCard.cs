@@ -50,7 +50,7 @@ public abstract class newCard : MonoBehaviour {
     // Update is called once per frame
     public virtual void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 3")) && !sceneControl.paused)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 2")) && !sceneControl.paused)
         {
             if (this.name == "jumpPushCard1")
             {
@@ -62,7 +62,7 @@ public abstract class newCard : MonoBehaviour {
         {
             this.getVisibileObjects();
 
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown("joystick button 5"))
             {
                 if (this.selectedIndex < this.visibleObjects.Count-1)
                 {
@@ -81,7 +81,7 @@ public abstract class newCard : MonoBehaviour {
                 this.toggleObject(this.selectedIndex);
             }
 
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 2")) && this.visibleObjects.Count > 0 && !sceneControl.paused)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 4")) && this.visibleObjects.Count > 0 && !sceneControl.paused)
             {
                 if (isTop)
                 {
