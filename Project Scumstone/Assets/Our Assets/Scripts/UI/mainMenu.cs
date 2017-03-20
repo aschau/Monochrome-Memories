@@ -36,6 +36,7 @@ public class mainMenu : MonoBehaviour {
 
     public void openSettings()
     {
+        this.settings_sound.Play();
         this.settingsMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(this.effectsSlider.gameObject);
         this.defaultMenu.SetActive(false);
@@ -55,6 +56,7 @@ public class mainMenu : MonoBehaviour {
 
     public void exitSettings()
     {
+        this.settings_sound.Play();
         this.defaultMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(this.startButton);
         this.settingsMenu.SetActive(false);
