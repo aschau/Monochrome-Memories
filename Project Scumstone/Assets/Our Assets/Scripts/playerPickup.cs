@@ -27,7 +27,7 @@ public class playerPickup : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl))
+		if ((Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown("joystick button 1")) && this.name == playerMovement.player)
         {
             if (!held) //if the player is not already holding something then it may be able to pick something up 
             {

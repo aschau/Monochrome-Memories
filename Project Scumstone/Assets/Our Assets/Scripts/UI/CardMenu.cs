@@ -70,12 +70,12 @@ public class CardMenu: MonoBehaviour
     {
         if (!sceneControl.paused)
         {
-            if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) && this.cards[0].activeSelf)
+            if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1) || Input.GetAxis("DPadX") > 0) && this.cards[0].activeSelf)
             {
                 this.toggleCard(0);
             }
 
-            else if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) && this.cards[1].activeSelf)
+            else if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2) || Input.GetAxis("rightd") > 0) && this.cards[1].activeSelf)
             {
                 this.toggleCard(1);
             }
