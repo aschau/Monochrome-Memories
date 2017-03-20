@@ -34,6 +34,14 @@ public class mainMenu : MonoBehaviour {
         EventSystem.current.SetSelectedGameObject(this.startButton);
 	}
 
+    void Update()
+    {
+        if (!EventSystem.current.currentSelectedGameObject)
+        {
+            EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
+        }
+    }
+
     public void openSettings()
     {
         this.settings_sound.Play();

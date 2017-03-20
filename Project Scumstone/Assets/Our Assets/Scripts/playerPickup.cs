@@ -94,22 +94,27 @@ public class playerPickup : MonoBehaviour {
                 {
 
                     RaycastHit2D hit = Physics2D.Raycast(new Vector2(cameraRay.origin.x, cameraRay.origin.y), new Vector2(cameraRay.direction.x, cameraRay.direction.y));
-                    if (!hit)
+                    if (!hit || hit.collider.isTrigger)
                     {
                         DropObject();
                     }
-                    else if (hit)
+
+                    else
                     {
-                        Debug.Log(hit.transform.name);
-                        if (hit.transform.tag == "interactive")
-                        {
-                            DropObject();
-                        }
-                        else
-                        {
-                            error_sound.Play();
-                        }
+                        error_sound.Play();
                     }
+                    //else if (hit)
+                    //{
+                    //    Debug.Log(hit.transform.name);
+                    //    if (hit.transform.tag == "interactive")
+                    //    {
+                    //        DropObject();
+                    //    }
+                    //    else
+                    //    {
+                    //        error_sound.Play();
+                    //    }
+                    //}
 
                         
                 }

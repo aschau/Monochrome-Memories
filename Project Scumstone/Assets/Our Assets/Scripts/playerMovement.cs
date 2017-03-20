@@ -182,27 +182,56 @@ public class playerMovement : MonoBehaviour {
    
     void Update()
     {
-       horizontal = Input.GetAxis("Horizontal");
+        horizontal = Input.GetAxis("Horizontal");
+
+        if (this.name == player)
+        {
+            if (horizontal < 0)
+            {
+                this.GetComponent<SpriteRenderer>().flipX = true;
+                this.anim.SetBool("isWalking", true);
+            }
+
+            else if (horizontal > 0)
+            {
+                this.GetComponent<SpriteRenderer>().flipX = false;
+                this.anim.SetBool("isWalking", true);
+            }
+
+            else
+            {
+                this.anim.SetBool("isWalking", false);
+            }
+        }
+
        
-       Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .11f, this.layer);
-       this.onGround = false;
-       for (int i = 0; i < colliders.Length; i++)
-       {
-           if (colliders[i].gameObject != gameObject)
-           {
-               this.onGround = true;
-           }
-       }
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(this.bottom.position, .11f, this.layer);
+
+        this.onGround = false;
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != gameObject)
+            {
+                this.onGround = true;
+            }
+        }
+
+
+        if (this.onGround && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown("joystick button 0")))
+        {
+            this.jumpPressed = true;
+        }
     }
 
     void FixedUpdate()
     {
         if (this.name == player)
         {
-            if (this.onGround && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown("joystick button 0"))) //|| Input.GetAxis("Vertical") > 0))
+            if (this.onGround && this.jumpPressed) //|| Input.GetAxis("Vertical") > 0))
             {
                 this.onGround = false;
                 this.body.velocity = new Vector2(0f, this.jumpSpeed);
+                this.jumpPressed = false;
             }
             this.transform.Translate(new Vector3(this.horizontal * this.maxMoveSpeed * Time.deltaTime, 0f, 0f));
         }

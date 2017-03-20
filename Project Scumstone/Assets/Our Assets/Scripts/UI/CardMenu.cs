@@ -17,6 +17,7 @@ public class CardMenu: MonoBehaviour
 
     private List<GameObject> cards = new List<GameObject>();
     private int index = -1;
+    private bool cardSelecting = false;
 
     public void Awake()
     {
@@ -70,48 +71,62 @@ public class CardMenu: MonoBehaviour
     {
         if (!sceneControl.paused)
         {
-            if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) && this.cards[0].activeSelf)
+            if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1) || (Input.GetAxisRaw("X360_DPadY") == 1 && !this.cardSelecting)))
             {
+                this.cardSelecting = true;
                 this.toggleCard(0);
             }
 
-            else if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) && this.cards[1].activeSelf)
+            else if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2) || (Input.GetAxisRaw("X360_DPadX") == 1 && !this.cardSelecting)))
             {
+                this.cardSelecting = true;
                 this.toggleCard(1);
+            }
+
+            if (Input.GetAxisRaw("X360_DPadY") == 0 && Input.GetAxisRaw("X360_DPadX") == 0)
+            {
+                this.cardSelecting = false;
             }
         }
     }
 
     public void toggleCard(int index)
     {
-        if (this.index != -1 && this.index != index && this.isClicked)
+        if (index < this.cards.Count)
         {
-            this.cards[this.index].GetComponent<newCard>().onClick();
-            this.cards[this.index].GetComponent<newCard>().onPointerExit();
-        }
-        this.index = index;
-        if (this.cards.Count >= index+1)
-        {
-            if (!this.isClicked)
+            if (this.cards[index].activeSelf)
             {
-                this.onPointerEnter();
-                this.onClick();
-            }
+                if (this.index != -1 && this.index != index && this.isClicked)
+                {
+                    this.cards[this.index].GetComponent<newCard>().onClick();
+                    this.cards[this.index].GetComponent<newCard>().onPointerExit();
+                }
+                this.index = index;
+                if (this.cards.Count >= index + 1)
+                {
+                    if (!this.isClicked)
+                    {
+                        this.onPointerEnter();
+                        this.onClick();
+                    }
 
-            if (!this.cards[index].GetComponent<newCard>().isClicked)
-            {
-                this.cards[index].GetComponent<newCard>().onPointerEnter();
-                this.cards[index].GetComponent<newCard>().onClick();
-            }
-            else
-            {
-                this.cards[index].GetComponent<newCard>().onClick();
-                this.cards[index].GetComponent<newCard>().onPointerExit();
-                this.onClick();
-                this.onPointerExit();
-            }
+                    if (!this.cards[index].GetComponent<newCard>().isClicked)
+                    {
+                        this.cards[index].GetComponent<newCard>().onPointerEnter();
+                        this.cards[index].GetComponent<newCard>().onClick();
+                    }
+                    else
+                    {
+                        this.cards[index].GetComponent<newCard>().onClick();
+                        this.cards[index].GetComponent<newCard>().onPointerExit();
+                        this.onClick();
+                        this.onPointerExit();
+                    }
 
+                }
+            }
         }
+
     }
 
     public void onPointerEnter()
