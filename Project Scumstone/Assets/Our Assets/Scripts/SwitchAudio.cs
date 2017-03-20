@@ -26,9 +26,9 @@ public class SwitchAudio : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        if (SceneManager.GetActiveScene().name == "Level 1")
+        if (SceneManager.GetActiveScene().name == "Intro")
         {
-            if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && this.successPad1.activated)
+            if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 2")) && this.successPad1.activated)
             {
 
                 if (_AudioSource1.mute == false)
@@ -56,7 +56,7 @@ public class SwitchAudio : MonoBehaviour {
 
         else
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 2"))
             {
 
                 if (_AudioSource1.mute == false)

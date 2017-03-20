@@ -152,7 +152,7 @@ public class sceneControl : MonoBehaviour {
 
     public void exit()
     {
-        Invoke("mainMenu", resetTime);
+        Invoke("loadMainMenu", resetTime);
         this.resetting = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
