@@ -3,12 +3,12 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 public class sceneControl : MonoBehaviour {
-    public float speed = .5f;
-    public float resetTime;
+    public float speed = .5f, resetTime;
     public string nextLevel;
-    public bool levelComplete = false;
+    public bool levelComplete = false, mainLevel;
     [HideInInspector]
     public AudioSource backgroundMusic, resetSound, backgroundMusic2;
     public static bool paused;
@@ -87,6 +87,14 @@ public class sceneControl : MonoBehaviour {
             this.backgroundMusic.Stop();
             this.backgroundMusic2.Stop(); 
             this.resetSound.Play();
+
+            if (this.mainLevel && Convert.ToInt32(SceneManager.GetActiveScene().name.Substring(5)) == mainMenu.currentLevel)
+            {
+                mainMenu.currentLevel++;
+                PlayerPrefs.SetInt("levelCount", mainMenu.currentLevel);
+                PlayerPrefs.Save();
+            }
+
         }
 
 	}
@@ -144,12 +152,12 @@ public class sceneControl : MonoBehaviour {
 
     public void exit()
     {
-        Invoke("mainMenu", resetTime);
+        Invoke("loadMainMenu", resetTime);
         this.resetting = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void mainMenu()
+    void loadMainMenu()
     {
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("mainMenu");

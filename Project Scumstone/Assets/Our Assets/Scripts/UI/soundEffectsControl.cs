@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class soundEffectsControl : MonoBehaviour {
+    public AudioSource sliderSound;
+
     private GameObject[] soundEffects;
     private float[] soundEffectVolumes;
     static float sliderAmount = 1f;
@@ -19,6 +22,11 @@ public class soundEffectsControl : MonoBehaviour {
         for (int i = 0; i < this.soundEffects.Length; i++)
         {
             this.soundEffects[i].GetComponent<AudioSource>().volume = this.soundEffectVolumes[i] * sliderAmount;
+        }
+
+        if (SceneManager.GetActiveScene().name != "mainMenu")
+        {
+            this.sliderSound = GameObject.Find("unlockedSound").GetComponent<AudioSource>();
         }
     }
 
@@ -38,5 +46,11 @@ public class soundEffectsControl : MonoBehaviour {
         {
             this.soundEffects[i].GetComponent<AudioSource>().volume = this.soundEffectVolumes[i] * this.GetComponent<Slider>().value;
         }
+
+        this.sliderSound.Play();
+        //if (this.soundEffects.Length > 0)
+        //{
+        //    this.soundEffects[0].GetComponent<AudioSource>().Play();
+        //}
     }
 }
