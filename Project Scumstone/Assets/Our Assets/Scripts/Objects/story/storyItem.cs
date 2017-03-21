@@ -12,10 +12,15 @@ public class storyItem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         this.transform.GetChild(0).gameObject.SetActive(false);
+        this.GetComponent<Image>().sprite = this.missingStory;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (this.collected)
+        {
+            this.GetComponent<Image>().sprite = this.currentStory;
+        }
 
 	}
     public void OnSelect()
