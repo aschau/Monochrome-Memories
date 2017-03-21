@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class storyCollection : MonoBehaviour {
-    public GameObject storyControl;
+    private GameObject storyControl;
     public string storyName;
 
     void Awake()
     {
-        storyControl = GameObject.Find("storyControl");
+        storyControl = GameObject.Find("Story");
     }
 
 	// Use this for initialization
@@ -27,7 +27,6 @@ public class storyCollection : MonoBehaviour {
         {
             this.storyControl.GetComponent<storyControl>().collectedStory.Add(this.storyName);
             this.storyControl.GetComponent<storyControl>().currentStory = this.storyName;
-            GameObject story = GameObject.Find(this.storyName);
 
             this.gameObject.SetActive(false);
         }
