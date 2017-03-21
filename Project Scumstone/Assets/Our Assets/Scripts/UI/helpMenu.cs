@@ -31,8 +31,9 @@ public class helpMenu : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown("joystick button 6"))
         {
             this.onClick();
+            EventSystem.current.SetSelectedGameObject(this.RA);
         }
-        if (!(EventSystem.current.currentSelectedGameObject == null) && this.help.activeSelf)
+        if (!(EventSystem.current.currentSelectedGameObject) && this.help.activeSelf)
         {
             EventSystem.current.SetSelectedGameObject(this.RA);
         }
