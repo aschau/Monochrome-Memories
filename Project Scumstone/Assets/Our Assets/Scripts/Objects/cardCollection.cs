@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class cardCollection : MonoBehaviour {
     public GameObject cardToBe;
-    public AudioClip cardCollected;
+    public AudioSource cardCollected;
     private float volume = 0.8f;
     private static bool half = false;
     AudioSource source;
@@ -61,7 +61,7 @@ public class cardCollection : MonoBehaviour {
             this.GetComponent<ParticleSystem>().Stop();
             this.GetComponent<SpriteRenderer>().enabled = false;
             this.GetComponent<BoxCollider2D>().enabled = false;
-            source.PlayOneShot(cardCollected, volume);       
+            cardCollected.Play(); 
         }
         
     }
