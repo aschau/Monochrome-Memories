@@ -13,7 +13,7 @@ public class playerCamera : MonoBehaviour {
         if (this.name == "Black Camera")
         {
             this.player = GameObject.Find("Player").transform;
-           GameObject playerPlatform = GameObject.Find("White Platform");
+            GameObject playerPlatform = GameObject.Find("White Platform");
             this.minY = playerPlatform.transform.position.y + this.GetComponent<Camera>().orthographicSize;
             this.maxY = GameObject.Find("Black Ceiling").transform.position.y - this.GetComponent<Camera>().orthographicSize;
         }

@@ -7,10 +7,12 @@ public class SwitchAudio : MonoBehaviour {
     public AudioSource _AudioSource1;
     public AudioSource _AudioSource2;
     private successPad successPad1;
+    private GameObject playerControl;
 
     void Awake()
     {
         this.successPad1 = GameObject.Find("TopTeleportPad").GetComponent<successPad>();
+        this.playerControl = GameObject.Find("playerControl");
     }
 
 	// Use this for initialization
@@ -56,7 +58,7 @@ public class SwitchAudio : MonoBehaviour {
 
         else
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 2"))
+            if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 2") && this.playerControl.activeSelf)
             {
 
                 if (_AudioSource1.mute == false)

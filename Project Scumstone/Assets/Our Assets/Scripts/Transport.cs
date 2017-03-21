@@ -10,6 +10,7 @@ public class Transport : MonoBehaviour
     private bool activated = false;
     private Behaviour halo;
     private Image topImage, bottomImage;
+    private playerController playerControl;
 
     // Use this for initialization
     void Awake()
@@ -21,6 +22,7 @@ public class Transport : MonoBehaviour
         this.halo = (Behaviour)this.transform.GetChild(0).GetComponent("Halo");
         this.topImage = GameObject.Find("topImage").GetComponent<Image>();
         this.bottomImage = GameObject.Find("bottomImage").GetComponent<Image>();
+        this.playerControl = GameObject.Find("playerControl").GetComponent<playerController>();
     }
 
     // Update is called once per frame
@@ -63,6 +65,7 @@ public class Transport : MonoBehaviour
         {
             this.topImage.enabled = true;
         }
+        this.playerControl.gameObject.SetActive(true);
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -137,11 +140,13 @@ public class Transport : MonoBehaviour
         if (checkCamera(this.camera1))
         {
             this.camera2.GetComponent<playerCamera>().panning = true;
+            this.playerControl.gameObject.SetActive(false);
         }
 
         else if (checkCamera(this.camera2))
         {
             this.camera1.GetComponent<playerCamera>().panning = true;
+            this.playerControl.gameObject.SetActive(false);
         }
     }
 

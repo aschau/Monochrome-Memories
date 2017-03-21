@@ -1,26 +1,28 @@
 fileFormatVersion: 2
-guid: fa1b8a9fe25516549abcb1aaf7799295
-timeCreated: 1490087186
+guid: 1ab2cbf36ba51c74cab31756c0f277b6
+timeCreated: 1490087280
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BargainingBlackAssets_0
-    21300002: BargainingBlackAssets_1
-    21300004: BargainingBlackAssets_2
-    21300006: BargainingBlackAssets_3
-    21300008: BargainingBlackAssets_4
-    21300010: BargainingBlackAssets_5
-    21300012: BargainingBlackAssets_6
-    21300014: BargainingBlackAssets_7
-    21300016: BargainingBlackAssets_8
-    21300018: BargainingBlackAssets_9
-    21300020: BargainingBlackAssets_10
-    21300022: BargainingBlackAssets_11
-    21300024: BargainingBlackAssets_12
+    21300000: HighlightedBargainingWhiteAssets_0
+    21300002: HighlightedBargainingWhiteAssets_4
+    21300004: HighlightedBargainingWhiteAssets_6
+    21300006: HighlightedBargainingWhiteAssets_7
+    21300008: HighlightedBargainingWhiteAssets_9
+    21300010: HighlightedBargainingWhiteAssets_10
+    21300012: HighlightedBargainingWhiteAssets_11
+    21300014: HighlightedBargainingWhiteAssets_12
+    21300016: HighlightedBargainingWhiteAssets_13
+    21300018: HighlightedBargainingWhiteAssets_14
+    21300020: HighlightedBargainingWhiteAssets_15
+    21300022: HighlightedBargainingWhiteAssets_16
+    21300024: HighlightedBargainingWhiteAssets_17
+    21300026: HighlightedBargainingWhiteAssets_18
+    21300028: HighlightedBargainingWhiteAssets_19
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,11 +39,11 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -71,14 +73,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Android
-    maxTextureSize: 8192
-    textureFormat: 4
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
   - buildTarget: Standalone
     maxTextureSize: 8192
     textureFormat: 12
@@ -96,6 +90,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: tvOS
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
@@ -139,38 +141,77 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BargainingBlackAssets_0
+      name: HighlightedBargainingWhiteAssets_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 787
-        width: 940
-        height: 186
+        x: 455
+        y: 965
+        width: 14
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BargainingBlackAssets_1
+      name: HighlightedBargainingWhiteAssets_4
       rect:
         serializedVersion: 2
-        x: 848
-        y: 799
-        width: 12
-        height: 5
+        x: 28
+        y: 811
+        width: 950
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BargainingBlackAssets_2
+      name: HighlightedBargainingWhiteAssets_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 487
-        width: 191
+        x: 91
+        y: 782
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedBargainingWhiteAssets_7
+      rect:
+        serializedVersion: 2
+        x: 1527
+        y: 70
+        width: 439
+        height: 695
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedBargainingWhiteAssets_9
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 483
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedBargainingWhiteAssets_10
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 492
+        width: 184
         height: 196
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -178,130 +219,117 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BargainingBlackAssets_3
+      name: HighlightedBargainingWhiteAssets_11
       rect:
         serializedVersion: 2
-        x: 218
-        y: 498
-        width: 233
-        height: 185
+        x: 214
+        y: 492
+        width: 242
+        height: 196
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BargainingBlackAssets_4
+      name: HighlightedBargainingWhiteAssets_12
       rect:
         serializedVersion: 2
-        x: 614
-        y: 358
-        width: 335
-        height: 163
+        x: 609
+        y: 352
+        width: 345
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BargainingBlackAssets_5
+      name: HighlightedBargainingWhiteAssets_13
       rect:
         serializedVersion: 2
-        x: 1532
+        x: 44
+        y: 238
+        width: 384
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedBargainingWhiteAssets_14
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 380
+        width: 425
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedBargainingWhiteAssets_15
+      rect:
+        serializedVersion: 2
+        x: 29
         y: 74
-        width: 429
-        height: 689
+        width: 205
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BargainingBlackAssets_6
+      name: HighlightedBargainingWhiteAssets_16
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 385
-        width: 415
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BargainingBlackAssets_7
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 243
-        width: 374
-        height: 142
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BargainingBlackAssets_8
-      rect:
-        serializedVersion: 2
-        x: 583
+        x: 262
         y: 72
-        width: 180
-        height: 191
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BargainingBlackAssets_9
-      rect:
-        serializedVersion: 2
-        x: 808
-        y: 69
-        width: 176
-        height: 202
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BargainingBlackAssets_10
-      rect:
-        serializedVersion: 2
-        x: 1025
-        y: 61
-        width: 451
-        height: 245
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BargainingBlackAssets_11
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 79
         width: 195
-        height: 104
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BargainingBlackAssets_12
+      name: HighlightedBargainingWhiteAssets_17
       rect:
         serializedVersion: 2
-        x: 267
-        y: 78
-        width: 185
-        height: 105
+        x: 578
+        y: 67
+        width: 190
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedBargainingWhiteAssets_18
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 64
+        width: 186
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HighlightedBargainingWhiteAssets_19
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 56
+        width: 461
+        height: 255
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
