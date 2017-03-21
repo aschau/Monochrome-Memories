@@ -75,7 +75,7 @@ public class Transport : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<activateObject>() || other.GetComponent<boxTriggers>())
+        if (other.GetComponent<activateObject>())
         {
             if (other.GetComponent<activateObject>().dualActivation){
                 if (other.GetComponent<activateObject>().activated1)
