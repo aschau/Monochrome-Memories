@@ -41,7 +41,7 @@ public class sceneControl : MonoBehaviour {
 	void Start () {
         this.GetComponent<Image>().enabled = true;
         this.topCover.SetActive(false);
-        this.resetTime = 2.7f;
+        this.resetTime = 5f;
         paused = false;
     }
 	
