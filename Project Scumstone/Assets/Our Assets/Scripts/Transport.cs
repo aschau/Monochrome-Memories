@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Transport : MonoBehaviour
 {
@@ -7,13 +8,19 @@ public class Transport : MonoBehaviour
     public Transform newPlace;
     private Camera camera1, camera2;
     private bool activated = false;
+    private Behaviour halo;
+    private Image topImage, bottomImage;
+
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         this.camera1 = GameObject.Find("Black Camera").GetComponent<Camera>();
         this.camera2 = GameObject.Find("White Camera").GetComponent<Camera>();
         this.newPlace = this.transform.Find("newPlace");
         this.delay = 3f;
+        this.halo = (Behaviour)this.transform.GetChild(0).GetComponent("Halo");
+        this.topImage = GameObject.Find("topImage").GetComponent<Image>();
+        this.bottomImage = GameObject.Find("bottomImage").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -22,7 +29,7 @@ public class Transport : MonoBehaviour
         if (camera1.GetComponent<playerCamera>().panning && this.activated)
         {
             Debug.Log(newPlace.transform.position.x);
-
+            this.topImage.enabled = false;
             this.camera1.transform.position = Vector3.MoveTowards(this.camera1.transform.position, new Vector3(newPlace.transform.position.x, this.camera1.transform.position.y, this.camera1.transform.position.z), this.speed * Time.deltaTime);
             if (checkPanningFinish(camera1))
             {
@@ -32,6 +39,7 @@ public class Transport : MonoBehaviour
 
         else if (camera2.GetComponent<playerCamera>().panning && this.activated)
         {
+            this.bottomImage.enabled = false;
             this.camera2.transform.position = Vector3.MoveTowards(this.camera2.transform.position, new Vector3(newPlace.transform.position.x, this.camera2.transform.position.y, this.camera2.transform.position.z), this.speed * Time.deltaTime);
             if (checkPanningFinish(camera2))
             {
@@ -42,9 +50,19 @@ public class Transport : MonoBehaviour
 
     IEnumerator panningOff(Camera camera, float delay)
     {
+        this.halo.enabled = !this.halo.enabled;
         yield return new WaitForSeconds(delay);
         camera.GetComponent<playerCamera>().panning = false;
         this.activated = false;
+        this.halo.enabled = false;
+        if (playerMovement.player == "Player")
+        {
+            this.bottomImage.enabled = true;
+        }
+        else
+        {
+            this.topImage.enabled = true;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)

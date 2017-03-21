@@ -19,15 +19,13 @@ public class sceneControl : MonoBehaviour {
     private playerMovement player1, player2;
     private GameObject topCover, bottomCover, pause, deck, clickShift;
     private endLevelObject endlevel1, endlevel2;
-    public AudioSource SoundEffect;
 
     // Use this for initialization
     void Awake()
     {
         this.backgroundMusic = GameObject.Find("Black World Music").GetComponent<AudioSource>();
         this.backgroundMusic2 = GameObject.Find("White World Music").GetComponent<AudioSource>(); 
-        this.resetSound = GameObject.Find("resetSound").GetComponent<AudioSource>();
-        
+        this.resetSound = GameObject.Find("resetSound").GetComponent<AudioSource>(); 
         this.playerControl = GameObject.FindObjectOfType<playerController>();
         this.topCover = GameObject.Find("topImage");
         this.bottomCover = GameObject.Find("bottomImage");

@@ -28,7 +28,6 @@ public class mainMenu : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(LateCall()); 
         if (Application.platform == RuntimePlatform.Android)
         {
             playerMovement.isMobile = true;
@@ -39,7 +38,6 @@ public class mainMenu : MonoBehaviour {
             playerMovement.isMobile = false;
         }
         this.settingsMenu.SetActive(false);
-        this.defaultMenu.SetActive(false);
         this.levelSelect.SetActive(false);
 
         currentLevel = PlayerPrefs.GetInt("levelCount");
@@ -61,17 +59,6 @@ public class mainMenu : MonoBehaviour {
         {
             EventSystem.current.SetSelectedGameObject(this.effectsSlider.gameObject);
         }
-    }
-
-    IEnumerator LateCall()
-    {
-        slime.Play(); 
-        yield return new WaitForSeconds(3);
-        this.scumLogo.SetActive(false);      
-        this.defaultMenu.SetActive(true); 
-        title_theme.Play();
-        //EventSystem.current.SetSelectedGameObject(this.startButton);
-        
     }
 
     public void openSettings()
@@ -114,9 +101,6 @@ public class mainMenu : MonoBehaviour {
         this.settingsMenu.SetActive(false);
     }
 
-    void fadeTransition(float speed)
-    {
-        this.GetComponent<Image>().color = new Color(this.GetComponent<Image>().color.r, this.GetComponent<Image>().color.g, this.GetComponent<Image>().color.b, this.GetComponent<Image>().color.a + (speed * Time.deltaTime));
-    }
+  
     
 }

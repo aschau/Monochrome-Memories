@@ -15,13 +15,13 @@ public class pauseMenuControl : MonoBehaviour {
         this.pauseMenu = GameObject.Find("Pause Menu");
         this.musicSlider = GameObject.Find("BGM");
         this.continueButton = GameObject.Find("Continue");
-        this.settingsMenu.SetActive(false);
-        this.pauseMenu.SetActive(false);
+
     }
 
 	// Use this for initialization
 	void Start () {
-
+        this.settingsMenu.SetActive(false);
+        this.pauseMenu.SetActive(false);
 	}
 	
 	// Update is called once per frame
