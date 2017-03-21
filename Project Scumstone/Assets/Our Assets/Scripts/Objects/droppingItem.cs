@@ -91,15 +91,22 @@ public class droppingItem : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other)
     {
-
-        if (other.transform.tag == "Player")
+        if (!this.name.Contains("Bridge"))
         {
-            if (other.transform.position.y > this.transform.position.y)
+            if (other.transform.tag == "Player")
             {
-                this.touched = true;
-                StartCoroutine(fall(other.transform.gameObject));
+                if (other.transform.position.y > this.transform.position.y)
+                {
+                    activateDrop(other.transform.gameObject);
+                }
             }
         }
+    }
+
+    public void activateDrop(GameObject other)
+    {
+        this.touched = true;
+        StartCoroutine(fall(other));
     }
 
     IEnumerator fall(GameObject collidedObject) //slight delay before branch falls

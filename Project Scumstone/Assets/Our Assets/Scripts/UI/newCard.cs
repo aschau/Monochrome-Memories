@@ -28,6 +28,8 @@ public abstract class newCard : MonoBehaviour {
     private List<activateObject> visibleObjects = new List<activateObject>();
     private int selectedIndex = 0, prevIndex = 0;
     private Animator anim;
+    private GameObject playerControl;
+
     public virtual void Awake()
     {
         this.camera1 = GameObject.Find("Black Camera");
@@ -38,6 +40,7 @@ public abstract class newCard : MonoBehaviour {
         this.anim = this.GetComponent<Animator>();
         this.player1 = GameObject.Find("Player");
         this.player2 = GameObject.Find("Player 2");
+        this.playerControl = GameObject.Find("playerControl");
         isTop = true;
 
 
@@ -50,7 +53,7 @@ public abstract class newCard : MonoBehaviour {
     // Update is called once per frame
     public virtual void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 2")) && !sceneControl.paused)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 2")) && !sceneControl.paused && this.playerControl.activeSelf)
         {
             if (this.name == "jumpPushCard1")
             {
@@ -81,7 +84,7 @@ public abstract class newCard : MonoBehaviour {
                 this.toggleObject(this.selectedIndex);
             }
 
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 4")) && this.visibleObjects.Count > 0 && !sceneControl.paused)
+            if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 4")) && this.visibleObjects.Count > 0 && !sceneControl.paused)
             {
                 if (isTop)
                 {
