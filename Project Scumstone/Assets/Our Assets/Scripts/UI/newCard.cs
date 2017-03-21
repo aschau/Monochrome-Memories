@@ -84,7 +84,7 @@ public abstract class newCard : MonoBehaviour {
                 this.toggleObject(this.selectedIndex);
             }
 
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 4")) && this.visibleObjects.Count > 0 && !sceneControl.paused)
+            if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 4")) && this.visibleObjects.Count > 0 && !sceneControl.paused)
             {
                 if (isTop)
                 {

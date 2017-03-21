@@ -214,7 +214,7 @@ public class playerMovement : MonoBehaviour {
                 this.anim.SetBool("isWalking", false);
             }
 
-            if (this.onGround && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown("joystick button 0")))
+            if (this.onGround && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")))
             {
                 this.jumpPressed = true;
             }
