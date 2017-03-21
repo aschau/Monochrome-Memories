@@ -25,7 +25,7 @@ public class bridgeEnd : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!this.player.enabled && !this.player2.enabled)
+		if (!this.player.enabled && !this.player2.enabled && !sceneControl.paused)
         {
             this.GetComponent<droppingItem>().activateDrop(this.currentPlayer);
             this.sceneController.fadeTransition(this.sceneController.speed);
