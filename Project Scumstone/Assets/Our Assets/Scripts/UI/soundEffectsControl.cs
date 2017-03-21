@@ -46,7 +46,9 @@ public class soundEffectsControl : MonoBehaviour {
         {
             this.soundEffects[i].GetComponent<AudioSource>().volume = this.soundEffectVolumes[i] * this.GetComponent<Slider>().value;
         }
-
+        sliderAmount = this.GetComponent<Slider>().value;
+        PlayerPrefs.SetFloat("slider", sliderAmount);
+        PlayerPrefs.Save();
         this.sliderSound.Play();
         //if (this.soundEffects.Length > 0)
         //{

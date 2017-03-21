@@ -32,6 +32,11 @@ public class backMusicControl : MonoBehaviour {
     public void setVolume()
     {
         this.backgroundMusic.volume = this.originalVolume * this.GetComponent<Slider>().value;
-        this.backgroundMusicBottom.volume = this.originalVolume2 * this.GetComponent<Slider>().value; 
+        this.backgroundMusicBottom.volume = this.originalVolume2 * this.GetComponent<Slider>().value;
+        sliderAmount = this.GetComponent<Slider>().value;
+        PlayerPrefs.SetFloat("slider", sliderAmount);
+        PlayerPrefs.SetFloat("volume", this.backgroundMusic.volume);
+        PlayerPrefs.SetFloat("volume2", this.backgroundMusicBottom.volume);
+        PlayerPrefs.Save(); 
     }
 }
