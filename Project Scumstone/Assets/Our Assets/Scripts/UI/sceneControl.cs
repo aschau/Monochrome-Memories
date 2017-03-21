@@ -97,7 +97,7 @@ public class sceneControl : MonoBehaviour {
 
 	}
 
-    void fadeTransition(float speed)
+    public void fadeTransition(float speed)
     {
         this.GetComponent<Image>().color = new Color(this.GetComponent<Image>().color.r, this.GetComponent<Image>().color.g, this.GetComponent<Image>().color.b, this.GetComponent<Image>().color.a + (speed * Time.deltaTime));
     }

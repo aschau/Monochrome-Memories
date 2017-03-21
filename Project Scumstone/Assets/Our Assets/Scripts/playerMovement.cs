@@ -275,9 +275,6 @@ public class playerMovement : MonoBehaviour {
 
     public void stopMoving()
     {
-        this.walkingLeft = false;
-        this.walkingRight = false;
-        this.idle = true;
         this.anim.SetBool("isWalking", false);
     }
 
