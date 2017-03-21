@@ -7,8 +7,9 @@ using UnityEngine.EventSystems;
 using System;
 
 public class levelSelectButton : MonoBehaviour {
-    public float speed = .5f;
-    
+    public float speed = .5f, resetTime = 5f;
+    public Sprite level1Tutorial, level1, level2Tutorial, level3;
+
     private AudioSource startSound, music;
     private GameObject tutorialPanel;
     private Image screenFade;
@@ -41,11 +42,6 @@ public class levelSelectButton : MonoBehaviour {
         if (this.isFading)
         {
             fadeTransition(this.speed);
-
-            if (this.screenFade.color.a >= 1)
-            {
-                SceneManager.LoadScene(this.levelToLoad);
-            }
         }
 	}
 
@@ -62,11 +58,16 @@ public class levelSelectButton : MonoBehaviour {
             if (this.level == 2)
             {
                 this.levelToLoad = "Level 2 Tutorial";
+                this.screenFade.sprite = this.level2Tutorial;
+                Invoke("loadNext", this.resetTime);
+
             }
 
             else if (this.level == 3)
             {
                 this.levelToLoad = "Level 3";
+                this.screenFade.sprite = this.level3;
+                Invoke("loadNext", this.resetTime);
             }
         }
     }
@@ -81,14 +82,22 @@ public class levelSelectButton : MonoBehaviour {
     {
         this.startFade();
         this.levelToLoad = "Level 1";
+        this.screenFade.sprite = this.level1;
+        Invoke("loadNext", this.resetTime);
     }
 
     public void pressYes()
     {
         this.startFade();
         this.levelToLoad = "Intro";
+        this.screenFade.sprite = this.level1Tutorial;
+        Invoke("loadNext", this.resetTime);
     }
 
+    private void loadNext()
+    {
+        SceneManager.LoadScene(this.levelToLoad);
+    }
 
     public void exitPrompt()
     {
