@@ -14,6 +14,17 @@ public class soundEffectsControl : MonoBehaviour {
     {
         this.soundEffects = GameObject.FindGameObjectsWithTag("sound");
         this.soundEffectVolumes = new float[this.soundEffects.Length];
+        if (PlayerPrefs.HasKey("soundAmount"))
+        {
+            sliderAmount = PlayerPrefs.GetFloat("soundAmount");
+
+        }
+
+        else
+        {
+            sliderAmount = 1f;
+        }
+
         for (int i = 0; i < soundEffects.Length; i++)
         {
             this.soundEffectVolumes[i] = this.soundEffects[i].GetComponent<AudioSource>().volume;
@@ -28,11 +39,12 @@ public class soundEffectsControl : MonoBehaviour {
         {
             this.sliderSound = GameObject.Find("unlockedSound").GetComponent<AudioSource>();
         }
+        this.GetComponent<Slider>().value = sliderAmount;
+
     }
 
 	// Use this for initialization
 	void Start () {
-        this.GetComponent<Slider>().value = sliderAmount;
 	}
 	
 	// Update is called once per frame
@@ -47,7 +59,7 @@ public class soundEffectsControl : MonoBehaviour {
             this.soundEffects[i].GetComponent<AudioSource>().volume = this.soundEffectVolumes[i] * this.GetComponent<Slider>().value;
         }
         sliderAmount = this.GetComponent<Slider>().value;
-        PlayerPrefs.SetFloat("slider", sliderAmount);
+        PlayerPrefs.SetFloat("soundAmount", sliderAmount);
         PlayerPrefs.Save();
         this.sliderSound.Play();
         //if (this.soundEffects.Length > 0)
