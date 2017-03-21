@@ -5,24 +5,29 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class mainMenu : MonoBehaviour {
-    public Sprite[] backgrounds;
-    public AudioSource Start_Game;
-    public AudioSource button_sound;
-    public AudioSource settings_sound; 
-    private GameObject defaultMenu, settingsMenu;
+    public float speed = .5f;
+    public AudioSource slime, Start_Game, button_sound, settings_sound, title_theme;
+
+    public static int currentLevel = 1;
+
+    private GameObject defaultMenu, settingsMenu, levelSelect, startButton, scumLogo;
     private Slider effectsSlider;
-    private Image img;
     private int currentIndex = 1;
+    private GameObject level1, tutorialPanel;
+
     void Awake()
     {
+        this.scumLogo = GameObject.Find("Logo"); 
         this.defaultMenu = GameObject.Find("Default Menu");
         this.settingsMenu = GameObject.Find("Settings Menu");
         this.effectsSlider = GameObject.Find("Sound Effects").GetComponentInChildren<Slider>();
-        this.img = this.defaultMenu.GetComponent<Image>();
+        this.startButton = GameObject.Find("Start Game");
+        this.levelSelect = GameObject.Find("Level Select");
+        this.level1 = GameObject.Find("Level 1");
+        this.tutorialPanel = GameObject.Find("Tutorial Prompt");
     }
 	// Use this for initialization
 	void Start () {
-        this.settingsMenu.SetActive(false);
         if (Application.platform == RuntimePlatform.Android)
         {
             playerMovement.isMobile = true;
@@ -32,74 +37,70 @@ public class mainMenu : MonoBehaviour {
         {
             playerMovement.isMobile = false;
         }
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-        if (!this.settingsMenu.activeSelf)
+        this.settingsMenu.SetActive(false);
+        this.levelSelect.SetActive(false);
+
+        currentLevel = PlayerPrefs.GetInt("levelCount");
+
+        if (currentLevel == 0)
         {
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                button_sound.Play(); 
-                this.currentIndex--;
-                if (this.currentIndex == -1)
-                {
-                    this.currentIndex = this.backgrounds.Length - 1;
-                }
-                updateSprite();
-            }
-
-            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                button_sound.Play(); 
-                this.currentIndex++;
-                if (this.currentIndex == 3)
-                {
-                    this.currentIndex = 0;
-                }
-                updateSprite();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-
-                if (this.currentIndex == 1)
-                {
-                    Start_Game.Play(); 
-                    SceneManager.LoadScene("Level 1");
-                }
-
-                else if (this.currentIndex == 2)
-                {
-                    settings_sound.Play(); 
-                    this.openSettings();
-                }
-
-                else if (this.currentIndex == 0)
-                {
-                    Start_Game.Play(); 
-                    Application.Quit();
-                }
-            }
+            currentLevel = 1;
         }
 	}
 
-    private void updateSprite()
+    void Update()
     {
-        this.img.sprite = this.backgrounds[this.currentIndex];
+        if (!EventSystem.current.currentSelectedGameObject && this.defaultMenu.activeSelf)
+        {
+            EventSystem.current.SetSelectedGameObject(this.startButton);
+        }
+
+        else if (!EventSystem.current.currentSelectedGameObject && this.settingsMenu.activeSelf)
+        {
+            EventSystem.current.SetSelectedGameObject(this.effectsSlider.gameObject);
+        }
     }
 
     public void openSettings()
     {
+        
+        this.settings_sound.Play();
         this.settingsMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(this.effectsSlider.gameObject);
         this.defaultMenu.SetActive(false);
     }
 
+    public void loadLevelSelect()
+    {
+        this.settings_sound.Play();
+        this.levelSelect.SetActive(true);
+        this.tutorialPanel.SetActive(false);
+        this.defaultMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(this.level1);
+    }
+
+    public void exitLevelSelect()
+    {
+        this.settings_sound.Play();
+        this.defaultMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(this.startButton);
+        this.levelSelect.SetActive(false);
+    }
+
+    public void exitGame()
+    {
+        Start_Game.Play();
+        Application.Quit();
+    }
+
     public void exitSettings()
     {
+        this.settings_sound.Play();
         this.defaultMenu.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(this.startButton);
         this.settingsMenu.SetActive(false);
     }
+
+  
+    
 }

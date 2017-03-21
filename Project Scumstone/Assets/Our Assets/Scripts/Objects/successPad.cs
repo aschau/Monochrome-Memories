@@ -16,8 +16,26 @@ public class successPad : MonoBehaviour
         this.sceneControl = GameObject.Find("Scene Control");
         this.unlocked = GameObject.Find("unlockedSound").GetComponent<AudioSource>();
         this.otherPlatform = GameObject.Find("TopTeleportPad");
-        this.clickShift = GameObject.Find("clickShift");
-        this.touchShift = GameObject.Find("ShiftButton");
+
+        if (SceneManager.GetActiveScene().name != "Intro")
+        {
+            GameObject cs = GameObject.Find("clickShift");
+            if (cs)
+            {
+                cs.SetActive(false);
+            }
+
+            GameObject sb = GameObject.Find("ShiftButton");
+            if (sb)
+            {
+                sb.SetActive(false);
+            }
+        }
+        else
+        {
+            this.clickShift = GameObject.Find("clickShift");
+            this.touchShift = GameObject.Find("ShiftButton");
+        }
         this.playerController = GameObject.Find("playerControl");
         this.topImage = GameObject.Find("topImage");
         this.bottomImage = GameObject.Find("bottomImage");
@@ -36,7 +54,7 @@ public class successPad : MonoBehaviour
 
         if (this.touchShift)
         {
-            if (SceneManager.GetActiveScene().name == "Level 1")
+            if (SceneManager.GetActiveScene().name == "Intro")
             {
                 this.touchShift.SetActive(false);
                 this.playerController.SetActive(false);
@@ -61,7 +79,7 @@ public class successPad : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene().name == "Level 1")
+        if (SceneManager.GetActiveScene().name == "Intro")
         {
             if (this.touchShift && this.activated)
             {
@@ -72,7 +90,7 @@ public class successPad : MonoBehaviour
             }
             if (this.clickShift && this.activated)
             {
-                if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && !this.playerController.activeSelf)
+                if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 2")) && !this.playerController.activeSelf)
                 {
                     this.bottomImage.GetComponent<Image>().color = new Color(0, 0, 0, 1);
                     this.bottomImage.GetComponent<CanvasGroup>().alpha = 0.5f;
@@ -101,7 +119,7 @@ public class successPad : MonoBehaviour
         {
             this.activated = true;
             this.GetComponent<ParticleSystem>().Play();
-            if (SceneManager.GetActiveScene().name == "Level 1" && this.name == "TopTeleportPad" && !this.playerController.activeSelf)
+            if (SceneManager.GetActiveScene().name == "Intro" && this.name == "TopTeleportPad" && !this.playerController.activeSelf)
             {
                 if (playerMovement.isMobile)
                 {

@@ -50,7 +50,7 @@ public class playerController : MonoBehaviour {
         }
         else
         {
-            if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && (this.player1.activeSelf && this.player2.activeSelf))
+            if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown("joystick button 2")) && (this.player1.activeSelf && this.player2.activeSelf))
             {
                 if (playerMovement.player == "Player")
                 {
