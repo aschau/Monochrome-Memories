@@ -23,18 +23,18 @@ public class helpMenu : MonoBehaviour {
         this.help.SetActive(false);
         this.help2.SetActive(false); 
         this.help3.SetActive(false);
-        this.LA.SetActive(false); 
+        //this.LA.SetActive(false); 
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.H) || Input.GetKeyDown("joystick button 6"))
         {
-            if (!(EventSystem.current.currentSelectedGameObject == null) && this.help.activeSelf)
-            {
-                EventSystem.current.SetSelectedGameObject(this.RA);
-            }
             this.onClick();
+        }
+        if (!(EventSystem.current.currentSelectedGameObject == null) && this.help.activeSelf)
+        {
+            EventSystem.current.SetSelectedGameObject(this.RA);
         }
         
 	}
