@@ -43,6 +43,7 @@ public class bridgeEnd : MonoBehaviour {
         if (other.transform.tag == "Player")
         {
             other.transform.GetComponent<playerMovement>().stopMoving();
+            other.transform.GetComponent<playerMovement>().enabled = false;
             this.currentPlayer = other.transform.gameObject;
             if (other.name == "Player")
             {
