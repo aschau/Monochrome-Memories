@@ -15,7 +15,8 @@ public class CardMenu: MonoBehaviour
     public float volume;
     AudioSource source;
 
-    private List<GameObject> cards = new List<GameObject>();
+    public List<GameObject> cards = new List<GameObject>();
+
     private int index = -1;
     private bool cardSelecting = false;
 

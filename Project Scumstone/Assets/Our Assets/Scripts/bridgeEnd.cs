@@ -50,6 +50,7 @@ public class bridgeEnd : MonoBehaviour {
                 this.topImage.SetActive(true);
                 this.bottomImage.SetActive(false);
                 playerMovement.player = "Player 2";
+                newCard.isTop = false;
             }
 
             else
@@ -57,6 +58,7 @@ public class bridgeEnd : MonoBehaviour {
                 this.topImage.SetActive(false);
                 this.bottomImage.SetActive(true);
                 playerMovement.player = "Player";
+                newCard.isTop = true;
             }
 
             this.playerControl.SetActive(false);
